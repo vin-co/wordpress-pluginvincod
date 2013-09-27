@@ -1,0 +1,26 @@
+Vincod PHP API
+Author 	: Thomas
+Owner  	: Vinternet
+Date 	: 20/02/2012
+Version : 2.0.3
+
+Version 1 : no php api
+
+Version 2.0
+
+Create new object to acces to all the vincod informaiton. See http://api.vincod.com for more information.
+
+Version 2.0.1
+
+Modify some functions. Change the base URL matching the new request pattern with the respons format (xml or json).
+
+Version2.0.2
+
+Add GetPrensentation to Winery.php
+
+Fix 10/07/2011
+Wine.php - fixing error on GetAbsoluteVincod method on line 112
+
+Version2.0.3
+
+Possibilité de récupérer les miniatures des médias (Image et PDF)

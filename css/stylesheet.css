@@ -1,0 +1,162 @@
+/* CSS Document */
+.vincod-tab{
+    max-height: 600px;
+    /*height: 400px;*/
+}
+div.sepa, div.sepaWith{
+	float: left;
+	margin-bottom: 40px;
+}
+div.sepaWith{
+	background: transparent url(../images/bg-sepa.png) right center no-repeat;
+}
+.range {
+    display: block;
+    padding: 0 10px;
+}
+.rangeList table {
+    border: medium none;
+    margin-bottom: 20px;
+    width: 100%;
+}
+td.range-logo {
+    text-align: center;
+}
+#content td.range-logo.noBord{
+    height: 360px;
+    vertical-align: bottom;
+    padding-bottom: 80px;
+    background: transparent url(../images/ombre-bas.png) center bottom no-repeat;
+    position: relative;
+
+}
+#content td.range-logo.noBord img{
+	border: none;
+	/*max-width: 110px;*/
+	max-height: 360px;
+}
+
+#content td.range-logo.noBord div{
+    height: 340px;
+    display: block;
+	
+}
+#content td.range-logo.noBord:hover div{
+    height: 340px;
+	/*position: absolute;
+	top: 30px;
+	left: 50px;
+	z-index: 15;
+	width: 110px;*/
+}
+
+#content td.range-logo.noBord:hover div img{
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+
+}
+
+.vincod_content{
+	max-width: 800px; margin: auto;
+}
+.vincod_content h1{display: inline-block;}
+td.range-desc {
+    /*font-family: amertypebtmedium;*/
+    padding: 0;
+    vertical-align: top;
+}
+td.range-desc h2{
+    /*font-family: amertypebtmedium;*/
+    /*font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0 15px;*/
+    margin: 0;
+}
+td.range-desc.in {
+    /*font-family: amertypebtmedium;*/
+    height: 50px;
+    padding: 15px 10px 45px 10px;
+    vertical-align: top;
+    text-align: center;
+}
+td.range-desc.in h2{
+    /*font-family: amertypebtmedium;*/
+    text-align: center;
+    width: 200px;
+    /*font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0 15px;*/
+    margin: auto;
+}
+
+td.range-desc p{
+    /*display: none;*/
+}
+td h3{
+    /*color: #111111 !important;
+    font-family: amertypebtmedium;
+    text-align: center;*/
+
+}
+td h3 {margin: 15px 0 5px 0;}
+h3 span{color: #ffffff; font-size; 16px;}
+.wine-logo {
+	/*position: fixed;
+	top: 65px;
+	right: 0;*/
+	/*min-height: 550px;*/
+	max-width: 220px;
+    /*vertical-align: top;
+    width: 140px;*/
+    /*margin-top: 50%;*/
+    padding:  0 50px;
+    background: transparent url(../images/bg-sepa.png) left center no-repeat;
+}
+.wine-vintage{padding: 5px 15px; color: #0184bc;}
+#content ul.nav img, #content .wine-logo img{border: none;}
+ul.nav li{padding: 10px;}
+.wine-desc {
+    vertical-align: top;
+}
+.wine-desc h3{margin: 25px 0 0 0;}
+.wine-desc p{margin: 5px 0 0 0; padding: 0; font-size: 16px; line-height: 20px;}
+#tabs {
+    height: 30px;
+    list-style-type: none;
+    margin: 15px 0;
+    padding: 0;
+    width: 100%;
+}
+#tabs li {
+    float: left;
+    font-size: 14px;
+    margin-right: 20px;
+}
+#tabs li a {
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+#tabs li a.lienmenuon, #tabs li a:hover {
+}
+
+.share {
+}
+.btshare {
+    float: left;
+    padding-bottom: 8px;
+}
+.btfb {
+    margin-left: 3px;
+}
+.share a {
+    text-decoration: none;
+}
+.btlink{
+    display: none;
+}
+

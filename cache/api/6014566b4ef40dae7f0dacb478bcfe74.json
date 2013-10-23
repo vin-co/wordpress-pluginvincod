@@ -1,0 +1,125 @@
+{
+  "wines":{
+    "wine":{
+      "id":"3283",
+      "dateupdate":"1316188576",
+      "vincod":"C0MNDF",
+      "vincodperso":"",
+      "abstract":"Un vin ros\u00e9 de gastronomie",
+      "tag":"",
+      "tag640":"",
+      "name":"Cuv\u00e9e Prieure Cru Class\u00e9 Ros\u00e9 2009",
+      "vintageyear":"2009",
+      "picture":"http:\/\/vincod.com\/uploads\/photo\/130685133852791.jpg",
+      "more":"",
+      "wineid":"1522",
+      "winetype":"Ros\u00e9",
+      "appellation":"AOC C\u00f4tes de Provence",
+      "grapesvarieties":{
+        "variety":[
+          {
+            "name":"Mourv\u00e8dre",
+            "amount":""
+          },
+          {
+            "name":"Syrah",
+            "amount":""
+          }
+        ]
+      },
+      "recipes":"",
+      "shops":"",
+      "reviews":"",
+      "vintage":{
+        "vintageyear":"2009",
+        "qrcode":"",
+        "dateupdate":"1316188576",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/130685133852791.jpg",
+        "vinogusto":""
+      },
+      "medias":{
+        "media":{
+          "name":"CP ros\u00e9 sans mill\u00e9sime basse def",
+          "type":"jpg",
+          "zone":"0",
+          "url":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cp_rose_sans_millesime_basse_def_jpg_8571.jpg",
+          "preview":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cp_rose_sans_millesime_basse_def_jpg_8571_mini.jpg"
+        }
+      },
+      "medias_ipad":"",
+      "wes":"",
+      "fields":{
+        "advice":[
+          {
+            "label":"D\u00e9gustation",
+            "value":"Une robe lumineuse est brillante d\u2019un rose saumon\u00e9. Un nez expressif et riche r\u00e9v\u00e8le des ar\u00f4mes de vanille, cannelle et pamplemousse. L\u2019\u00e9levage en barrique lui conf\u00e8re longueur et complexit\u00e9. Ce vin ros\u00e9 bois\u00e9 de Provence peut \u00eatre consomm\u00e9 dans les trois \u00e0 cinq ans."
+          },
+          {
+            "label":"Service",
+            "value":"Temp\u00e9rature de service: 13\u00b0C<br \/>\nAptitude au vieillissement: 5 ans"
+          },
+          {
+            "label":"Accords Mets-Vins",
+            "value":""
+          }
+        ],
+        "presentation":[
+          {
+            "label":"Pr\u00e9sentation",
+            "value":""
+          },
+          {
+            "label":"Situation",
+            "value":""
+          },
+          {
+            "label":"Le mill\u00e9sime",
+            "value":""
+          },
+          {
+            "label":"Terroir",
+            "value":"Sols argilo-calcaire et naturellement riches en mati\u00e8re organique, gage de l'\u00e9laboration de vin de qualit\u00e9. L'exposition d'Est en Ouest du vignoble, permet d'obtenir un ensoleillement maximal."
+          },
+          {
+            "label":"A la vigne",
+            "value":"Conduite traditionnelle du vignoble par fa\u00e7ons culturales. Nous proc\u00e9dons \u00e0 un effruitage pour contr\u00f4ler les rendements et \u00e0 un effeuillage afin de garantir un ensoleillement maximum \u00e0 chaque grappe."
+          },
+          {
+            "label":"R\u00e9colte",
+            "value":"Les raisins sont r\u00e9colt\u00e9s de fin Ao\u00fbt \u00e0 fin Septembre et la fermentation se fait c\u00e9page par c\u00e9page. Cette cuv\u00e9e est issue de vignes soigneusement s\u00e9lectionn\u00e9es."
+          },
+          {
+            "label":"Vinification",
+            "value":"La r\u00e9colte est tri\u00e9e manuellement et foul\u00e9e. Les baies sont press\u00e9es en douceur gr\u00e2ce \u00e0 des pressoirs pneumatiques, \u00e9vitant ainsi l'extraction de tanins ainsi que toute oxydation. Les jus de raisins sont alors d\u00e9bourb\u00e9s avant que la fermentation alcoolique ne d\u00e9marre. Les mo\u00fbts sont ensuite envoy\u00e9s en barriques o\u00f9 la fermentation alcoolique s'y d\u00e9roulera \u00e0 des temp\u00e9ratures contr\u00f4l\u00e9es. Les vins seront \u00e9lev\u00e9s en barriques cinq mois avec b\u00e2tonnage des lies fines, puis assembl\u00e9s avec 15% de vins provenant de fermentation en cuve."
+          }
+        ],
+        "specifications":[
+          {
+            "label":"Degr\u00e9 d'alcool",
+            "value":""
+          },
+          {
+            "label":"Sucre r\u00e9siduel (g\/l)",
+            "value":""
+          },
+          {
+            "label":"Acidit\u00e9 tartrique (g\/l)",
+            "value":""
+          },
+          {
+            "label":"Age moyen des vignes",
+            "value":""
+          },
+          {
+            "label":"Rendement",
+            "value":""
+          },
+          {
+            "label":"Volume de production",
+            "value":""
+          }
+        ]
+      }
+    }
+  }
+}

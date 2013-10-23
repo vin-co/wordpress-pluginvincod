@@ -1,0 +1,933 @@
+{
+  "wines":{
+    "wine":[
+      {
+        "id":"5141",
+        "dateupdate":"0",
+        "vincod":"6JDQBF",
+        "vincodperso":"",
+        "abstract":"Nous utilisons le Rolle, c\u00e9page roi de l\u2019appellation pour obtenir finesse et typicit\u00e9 des vins de Provence.",
+        "tag":"",
+        "tag640":"",
+        "name":"Harmonie de Roseline Blanc 2012",
+        "vintageyear":"2012",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-harmonie-de-roseline-135271741847983.jpg",
+        "more":"",
+        "wineid":"2422",
+        "winetype":"Blanc",
+        "appellation":"AOP C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":{
+            "name":"Rolle",
+            "amount":"100"
+          }
+        },
+        "recipes":"",
+        "shops":{
+          "shop":{
+            "shop":"Achat en direct au Ch\u00e2teau Sainte Roseline",
+            "url":"http:\/\/www.boutique-sainteroseline.com\/roseline-diffusion\/la-cuvee-harmonie\/harmonie-de-roseline-vin-blanc-2011.html",
+            "description":"Commander Harmonie de Roseline C\u00f4te de Provence Blanc 2012, disponible en bouteille 75 cl et magnum"
+          }
+        },
+        "reviews":"",
+        "vintage":{
+          "vintageyear":"2012",
+          "qrcode":"",
+          "dateupdate":"1352717418",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-harmonie-de-roseline-135271741847983.jpg",
+          "vinogusto":""
+        },
+        "medias":"",
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"La robe claire est limpide et brillante. Le nez complexe et tout en finesse, m\u00eale les ar\u00f4mes d\u2019agrumes et de fleurs blanches. La bouche particuli\u00e8rement complexe  allie fra\u00eecheur et gras soutenue par une pointe d\u2019acidit\u00e9. Ce vin peut \u00eatre d\u00e9gust\u00e9 seul ou accompagn\u00e9 d\u2019un poisson, de viandes blanches.<br \/>\n<br \/>"
+            },
+            {
+              "label":"Service",
+              "value":"A d\u00e9guster entre 12 et 14 \u00b0C. Garde : 2 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":""
+            },
+            {
+              "label":"A la vigne",
+              "value":"Cette gamme est issue d\u2019un assemblage de vins de propri\u00e9t\u00e9 et d\u2019une s\u00e9lection tr\u00e8s stricte des meilleures cuv\u00e9es de n\u00e9goce. Nous utilisons le Rolle, c\u00e9page roi  de l\u2019appellation pour obtenir finesse et typicit\u00e9 des vins de Provence.<br \/>\n<br \/>\nLe volume issu de la propri\u00e9t\u00e9 b\u00e9n\u00e9ficie des plus grandes attentions. La conduite de la vigne est traditionnelle et respecte les \u00e9l\u00e9ments naturels du terroir tout en adaptant les subtilit\u00e9s de chaque c\u00e9page. La part de n\u00e9goce est contr\u00f4l\u00e9e par la mise en place d\u2019une charte de production avec nos partenaires et par un suivi permanent par nos oenologues."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":""
+            },
+            {
+              "label":"Vinification",
+              "value":"Les baies sont press\u00e9es en douceur gr\u00e2ce \u00e0 des pressoirs pneumatiques, \u00e9vitant ainsi l'extraction de tanins. Les mo\u00fbts sont  d\u00e9bourb\u00e9s (clarifi\u00e9s) pour obtenir des jus clairs avant la fermentation alcoolique.<br \/>\nLes temp\u00e9ratures sont contr\u00f4l\u00e9es et maintenues \u00e0 18\u00b0C pour maintenir la fermentation alcoolique, qui s'\u00e9tend sur plusieurs jours (10 \u00e0 14 jours).<br \/>\nUne fois celle-ci achev\u00e9e,  les vins sont \u00e9lev\u00e9s sur lies en cuves avec b\u00e2tonnage.<br \/>\nCourant D\u00e9cembre, les vins sont d\u00e9gust\u00e9s afin de d\u00e9terminer l'assemblage final puis mis en bouteilles.<br \/>"
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      },
+      {
+        "id":"5142",
+        "dateupdate":"1352717539",
+        "vincod":"JL16DF",
+        "vincodperso":"",
+        "abstract":"Ce vin peut \u00eatre d\u00e9gust\u00e9 seul ou accompagn\u00e9 d\u2019un poisson, de viandes blanches.",
+        "tag":"",
+        "tag640":"",
+        "name":"Harmonie de Roseline  Ros\u00e9 2012",
+        "vintageyear":"2012",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-harmonie-de-roseline-135271753021832.jpg",
+        "more":"",
+        "wineid":"2423",
+        "winetype":"Ros\u00e9",
+        "appellation":"AOP C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":[
+            {
+              "name":"Cinsault",
+              "amount":""
+            },
+            {
+              "name":"Grenache noir",
+              "amount":""
+            },
+            {
+              "name":"Syrah",
+              "amount":""
+            }
+          ]
+        },
+        "recipes":"",
+        "shops":{
+          "shop":{
+            "shop":"Achat en direct au Ch\u00e2teau Sainte Roseline",
+            "url":"http:\/\/www.boutique-sainteroseline.com\/roseline-diffusion\/la-cuvee-harmonie\/harmonie-de-roseline-rose-2012.html",
+            "description":"Commander Harmonie de Roseline C\u00f4te de Provence Ros\u00e9 2012, disponible en bouteille 75 cl, magnum et j\u00e9roboam"
+          }
+        },
+        "reviews":"",
+        "vintage":{
+          "vintageyear":"2012",
+          "qrcode":"",
+          "dateupdate":"1352717530",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-harmonie-de-roseline-135271753021832.jpg",
+          "vinogusto":""
+        },
+        "medias":"",
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"La robe claire est limpide et brillante. Le nez complexe et tout en finesse, marie des notes de griotte teint\u00e9 de bonbons anglais. L\u2019attaque en bouche est vive et fait place \u00e0 une belle longueur  qui exprime la fra\u00eecheur des vins ros\u00e9s de Provence . Ce vin peut \u00eatre d\u00e9gust\u00e9 seul ou accompagn\u00e9 d\u2019un poisson, de viandes blanches."
+            },
+            {
+              "label":"Service",
+              "value":"A d\u00e9guster entre 12 et 14 \u00b0C. <br \/>\nGarde : 2 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":""
+            },
+            {
+              "label":"A la vigne",
+              "value":"Le volume issu de la propri\u00e9t\u00e9 b\u00e9n\u00e9ficie des plus grandes attentions. La conduite de la vigne est traditionnelle et respecte les \u00e9l\u00e9ments naturels du terroir tout en adaptant les subtilit\u00e9s de chaque c\u00e9page. La part de n\u00e9goce est contr\u00f4l\u00e9e par la mise en place d\u2019une charte de production avec nos partenaires et par un suivi permanent par nos oenologues."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"Les raisins sont r\u00e9colt\u00e9s de fin Ao\u00fbt \u00e0 fin Septembre et la fermentation se fait c\u00e9page par c\u00e9page."
+            },
+            {
+              "label":"Vinification",
+              "value":"Les baies sont press\u00e9es en douceur gr\u00e2ce \u00e0 des pressoirs pneumatiques, \u00e9vitant ainsi l'extraction de tanins. Les jus de raisins sont d\u00e9bourb\u00e9s avant que la fermentation alcoolique ne d\u00e9marre. Les temp\u00e9ratures sont maintenues \u00e0 18\u00b0C tout au long de la fermentation, dont la dur\u00e9e varie de 10 \u00e0 14 jours.<br \/>\nUne fois cette derni\u00e8re achev\u00e9e, les vins sont soutir\u00e9s des lies grossi\u00e8res, puis r\u00e9frig\u00e9r\u00e9s, permettant le blocage de la fermentation malo-lactique et une clarification plus efficace.<br \/>"
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      },
+      {
+        "id":"4806",
+        "dateupdate":"1342785440",
+        "vincod":"S2U95F",
+        "vincodperso":"",
+        "abstract":"Ce vin peut \u00eatre d\u00e9gust\u00e9 seul ou accompagn\u00e9 d\u2019un poisson, de viandes blanches.",
+        "tag":"",
+        "tag640":"",
+        "name":"Harmonie de Roseline  Ros\u00e9 2011",
+        "vintageyear":"2011",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-harmonie-de-roseline-134278546277349.jpg",
+        "more":"",
+        "wineid":"2423",
+        "winetype":"Ros\u00e9",
+        "appellation":"AOP C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":[
+            {
+              "name":"Cinsault",
+              "amount":""
+            },
+            {
+              "name":"Grenache noir",
+              "amount":""
+            },
+            {
+              "name":"Syrah",
+              "amount":""
+            }
+          ]
+        },
+        "recipes":"",
+        "shops":"",
+        "reviews":{
+          "review":{
+            "author":"",
+            "source":"Foire d'Avignon",
+            "content":"Concours des Vins de la Foire d'Avignon 2012",
+            "mark":"M\u00e9daille de Bronze",
+            "date":"0000-00-00",
+            "url":"http:\/\/"
+          }
+        },
+        "vintage":{
+          "vintageyear":"2011",
+          "qrcode":"",
+          "dateupdate":"1342785462",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-harmonie-de-roseline-134278546277349.jpg",
+          "vinogusto":""
+        },
+        "medias":{
+          "media":{
+            "name":"Harmonie ros\u00e9 sans mill\u00e9sime basse dedf",
+            "type":"jpg",
+            "zone":"0",
+            "url":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_harmonie_rose_sans_millesime_basse_dedf_jpg_8613.jpg",
+            "preview":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_harmonie_rose_sans_millesime_basse_dedf_jpg_8613_mini.jpg"
+          }
+        },
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"La robe claire est limpide et brillante. Le nez complexe et tout en finesse, marie des notes de griotte teint\u00e9 de bonbons anglais. L\u2019attaque en bouche est vive et fait place \u00e0 une belle longueur  qui exprime la fra\u00eecheur des vins ros\u00e9s de Provence . Ce vin peut \u00eatre d\u00e9gust\u00e9 seul ou accompagn\u00e9 d\u2019un poisson, de viandes blanches."
+            },
+            {
+              "label":"Service",
+              "value":"A d\u00e9guster entre 12 et 14 \u00b0C. <br \/>\nGarde : 2 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":""
+            },
+            {
+              "label":"A la vigne",
+              "value":"Le volume issu de la propri\u00e9t\u00e9 b\u00e9n\u00e9ficie des plus grandes attentions. La conduite de la vigne est traditionnelle et respecte les \u00e9l\u00e9ments naturels du terroir tout en adaptant les subtilit\u00e9s de chaque c\u00e9page. La part de n\u00e9goce est contr\u00f4l\u00e9e par la mise en place d\u2019une charte de production avec nos partenaires et par un suivi permanent par nos oenologues."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"Les raisins sont r\u00e9colt\u00e9s de fin Ao\u00fbt \u00e0 fin Septembre et la fermentation se fait c\u00e9page par c\u00e9page."
+            },
+            {
+              "label":"Vinification",
+              "value":"Les baies sont press\u00e9es en douceur gr\u00e2ce \u00e0 des pressoirs pneumatiques, \u00e9vitant ainsi l'extraction de tanins. Les jus de raisins sont d\u00e9bourb\u00e9s avant que la fermentation alcoolique ne d\u00e9marre. Les temp\u00e9ratures sont maintenues \u00e0 18\u00b0C tout au long de la fermentation, dont la dur\u00e9e varie de 10 \u00e0 14 jours.<br \/>\nUne fois cette derni\u00e8re achev\u00e9e, les vins sont soutir\u00e9s des lies grossi\u00e8res, puis r\u00e9frig\u00e9r\u00e9s, permettant le blocage de la fermentation malo-lactique et une clarification plus efficace.<br \/>"
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      },
+      {
+        "id":"4805",
+        "dateupdate":"1342785305",
+        "vincod":"KL5U7F",
+        "vincodperso":"",
+        "abstract":"Il agr\u00e9mentera \u00e0 merveille vos repas et les viandes grill\u00e9es.",
+        "tag":"",
+        "tag640":"",
+        "name":"Harmonie de Roseline Rouge 2011",
+        "vintageyear":"2011",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-harmonie-de-roseline-134277739593751.jpg",
+        "more":"",
+        "wineid":"2085",
+        "winetype":"Rouge",
+        "appellation":"AOC C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":[
+            {
+              "name":"Cabernet-sauvignon",
+              "amount":""
+            },
+            {
+              "name":"Carignan",
+              "amount":""
+            },
+            {
+              "name":"Syrah",
+              "amount":""
+            }
+          ]
+        },
+        "recipes":"",
+        "shops":{
+          "shop":{
+            "shop":"Achat en direct au Ch\u00e2teau Sainte Roseline",
+            "url":"http:\/\/www.boutique-sainteroseline.com\/roseline-diffusion\/la-cuvee-harmonie\/harmonie-de-roseline-vin-rouge-2011.html",
+            "description":"Commander Harmonie de Roseline C\u00f4te de Provence Rouge 2011, disponible en bouteille 75 cl"
+          }
+        },
+        "reviews":"",
+        "vintage":{
+          "vintageyear":"2011",
+          "qrcode":"",
+          "dateupdate":"1342777395",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-harmonie-de-roseline-134277739593751.jpg",
+          "vinogusto":""
+        },
+        "medias":"",
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"La robe rouge est profonde avec des reflets grenat. Le nez puissant, r\u00e9v\u00e8le des ar\u00f4mes de fruits des bois. Apr\u00e8s une attaque franche, l'\u00e9quilibre de ce vin marie souplesse et fruit\u00e9. Il agr\u00e9mentera \u00e0 merveille vos repas et les viandes grill\u00e9es."
+            },
+            {
+              "label":"Service",
+              "value":"A d\u00e9guster entre 16 et 18 \u00b0C. <br \/>\nGarde : 5-7  ans"
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":"Sols argilo-calcaire et naturellement riches en mati\u00e8re organique, gage de la qualit\u00e9 des vins. L'exposition du vignoble d'Est en Ouest permet d'obtenir un ensoleillement maximal."
+            },
+            {
+              "label":"A la vigne",
+              "value":""
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"En septembre, la r\u00e9colte se fait essentiellement \u00e0 la main."
+            },
+            {
+              "label":"Vinification",
+              "value":"Des remontages mod\u00e9r\u00e9s et des cuvaisons raccourcies auront pour but d'extraire des tanins fins et \u00e9l\u00e9gants permettant \u00e0 ce vin d'\u00eatre consomm\u00e9 rapidement. La fermentation alcoolique achev\u00e9e, la fermentation malo-lactique s'effectue. Celle-ci termin\u00e9e, les vins sont coll\u00e9s au blanc d'oeuf pour affiner les tanins."
+            }
+          ]
+        }
+      },
+      {
+        "id":"4807",
+        "dateupdate":"0",
+        "vincod":"UB2W5F",
+        "vincodperso":"",
+        "abstract":"Nous utilisons le Rolle, c\u00e9page roi de l\u2019appellation pour obtenir finesse et typicit\u00e9 des vins de Provence.",
+        "tag":"",
+        "tag640":"",
+        "name":"Harmonie de Roseline Blanc 2011",
+        "vintageyear":"2011",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-harmonie-de-roseline-134278556477558.jpg",
+        "more":"",
+        "wineid":"2422",
+        "winetype":"Blanc",
+        "appellation":"AOP C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":{
+            "name":"Rolle",
+            "amount":"100"
+          }
+        },
+        "recipes":"",
+        "shops":"",
+        "reviews":"",
+        "vintage":{
+          "vintageyear":"2011",
+          "qrcode":"",
+          "dateupdate":"1342785564",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-harmonie-de-roseline-134278556477558.jpg",
+          "vinogusto":""
+        },
+        "medias":"",
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"La robe claire est limpide et brillante. Le nez complexe et tout en finesse, m\u00eale les ar\u00f4mes d\u2019agrumes et de fleurs blanches. La bouche particuli\u00e8rement complexe  allie fra\u00eecheur et gras soutenue par une pointe d\u2019acidit\u00e9. Ce vin peut \u00eatre d\u00e9gust\u00e9 seul ou accompagn\u00e9 d\u2019un poisson, de viandes blanches.<br \/>\n<br \/>"
+            },
+            {
+              "label":"Service",
+              "value":"A d\u00e9guster entre 12 et 14 \u00b0C. Garde : 2 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":""
+            },
+            {
+              "label":"A la vigne",
+              "value":"Cette gamme est issue d\u2019un assemblage de vins de propri\u00e9t\u00e9 et d\u2019une s\u00e9lection tr\u00e8s stricte des meilleures cuv\u00e9es de n\u00e9goce. Nous utilisons le Rolle, c\u00e9page roi  de l\u2019appellation pour obtenir finesse et typicit\u00e9 des vins de Provence.<br \/>\n<br \/>\nLe volume issu de la propri\u00e9t\u00e9 b\u00e9n\u00e9ficie des plus grandes attentions. La conduite de la vigne est traditionnelle et respecte les \u00e9l\u00e9ments naturels du terroir tout en adaptant les subtilit\u00e9s de chaque c\u00e9page. La part de n\u00e9goce est contr\u00f4l\u00e9e par la mise en place d\u2019une charte de production avec nos partenaires et par un suivi permanent par nos oenologues."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":""
+            },
+            {
+              "label":"Vinification",
+              "value":"Les baies sont press\u00e9es en douceur gr\u00e2ce \u00e0 des pressoirs pneumatiques, \u00e9vitant ainsi l'extraction de tanins. Les mo\u00fbts sont  d\u00e9bourb\u00e9s (clarifi\u00e9s) pour obtenir des jus clairs avant la fermentation alcoolique.<br \/>\nLes temp\u00e9ratures sont contr\u00f4l\u00e9es et maintenues \u00e0 18\u00b0C pour maintenir la fermentation alcoolique, qui s'\u00e9tend sur plusieurs jours (10 \u00e0 14 jours).<br \/>\nUne fois celle-ci achev\u00e9e,  les vins sont \u00e9lev\u00e9s sur lies en cuves avec b\u00e2tonnage.<br \/>\nCourant D\u00e9cembre, les vins sont d\u00e9gust\u00e9s afin de d\u00e9terminer l'assemblage final puis mis en bouteilles.<br \/>"
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      },
+      {
+        "id":"3743",
+        "dateupdate":"0",
+        "vincod":"PX4E4F",
+        "vincodperso":"",
+        "abstract":"",
+        "tag":"",
+        "tag640":"",
+        "name":"Harmonie de Roseline Rouge 2010",
+        "vintageyear":"2010",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-harmonie-de-roseline-132161413871984.jpg",
+        "more":"",
+        "wineid":"2085",
+        "winetype":"Rouge",
+        "appellation":"AOC C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":[
+            {
+              "name":"Cabernet-sauvignon",
+              "amount":""
+            },
+            {
+              "name":"Carignan",
+              "amount":""
+            },
+            {
+              "name":"Syrah",
+              "amount":""
+            }
+          ]
+        },
+        "recipes":"",
+        "shops":"",
+        "reviews":"",
+        "vintage":{
+          "vintageyear":"2010",
+          "qrcode":"",
+          "dateupdate":"1321614139",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-harmonie-de-roseline-132161413871984.jpg",
+          "vinogusto":""
+        },
+        "medias":{
+          "media":{
+            "name":"Harmonie rouge sans mill\u00e9sime basse def",
+            "type":"jpg",
+            "zone":"0",
+            "url":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_harmonie_rouge_sans_millesime_basse_def_jpg_8614.jpg",
+            "preview":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_harmonie_rouge_sans_millesime_basse_def_jpg_8614_mini.jpg"
+          }
+        },
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"La robe rouge est profonde avec des reflets grenat. Le nez  puissant, r\u00e9v\u00e8le des ar\u00f4mes de griotte et de pruneaux  caract\u00e9ristiques de la Syrah et du Carignan.. Apr\u00e8s une attaque franche, l\u2019\u00e9quilibre de ce vin  marie souplesse et fruit\u00e9. Il agr\u00e9mentera \u00e0 merveille vos  repas et les viandes grill\u00e9es."
+            },
+            {
+              "label":"Service",
+              "value":"A d\u00e9guster entre 16 et 18 \u00b0C. <br \/>\nGarde : 5-7  ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":""
+            },
+            {
+              "label":"A la vigne",
+              "value":"Le volume issu de la propri\u00e9t\u00e9 b\u00e9n\u00e9ficie des plus grandes attentions. La conduite de la vigne est traditionnelle et respectent les \u00e9l\u00e9ments naturels du terroir tout en adaptant les subtilit\u00e9s de chaque c\u00e9page. La part de n\u00e9goce est contr\u00f4l\u00e9e par la mise en place d\u2019une charte de production avec nos partenaires et par un suivi permanent par nos oenologues."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"Les raisins sont r\u00e9colt\u00e9s de fin Ao\u00fbt \u00e0 fin Septembre et la fermentation se fait c\u00e9page par c\u00e9page."
+            },
+            {
+              "label":"Vinification",
+              "value":"Des remontages mod\u00e9r\u00e9s et des cuvaisons raccourcies auront pour but d'extraire des tanins fins et \u00e9l\u00e9gants permettant \u00e0 ce vin d'\u00eatre consomm\u00e9 rapidement. La fermentation alcoolique achev\u00e9e, la fermentation malo-lactique s'effectue. Celle-ci termin\u00e9e les vins sont coll\u00e9s au blanc d'oeuf pour affiner les tanins."
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      },
+      {
+        "id":"3627",
+        "dateupdate":"1318518749",
+        "vincod":"2VSDRT",
+        "vincodperso":"",
+        "abstract":"Nous utilisons le Rolle, c\u00e9page roi de l\u2019appellation pour obtenir finesse et typicit\u00e9 des vins de Provence.",
+        "tag":"",
+        "tag640":"",
+        "name":"Harmonie de Roseline Blanc 2010",
+        "vintageyear":"2010",
+        "picture":"",
+        "more":"",
+        "wineid":"2422",
+        "winetype":"Blanc",
+        "appellation":"AOP C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":{
+            "name":"Rolle",
+            "amount":"100"
+          }
+        },
+        "recipes":"",
+        "shops":"",
+        "reviews":"",
+        "vintage":{
+          "vintageyear":"2010",
+          "qrcode":"",
+          "dateupdate":"1318518749",
+          "picture":"",
+          "vinogusto":""
+        },
+        "medias":{
+          "media":{
+            "name":"Harmonie blanc sans mill\u00e9sime basse def",
+            "type":"jpg",
+            "zone":"0",
+            "url":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_harmonie_blanc_sans_millesime_basse_def_jpg_8615.jpg",
+            "preview":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_harmonie_blanc_sans_millesime_basse_def_jpg_8615_mini.jpg"
+          }
+        },
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"La robe claire est limpide et brillante. Le nez complexe et tout en finesse, m\u00eale les ar\u00f4mes d\u2019agrumes et de fleurs blanches. La bouche particuli\u00e8rement complexe  allie fra\u00eecheur et gras soutenue par une pointe d\u2019acidit\u00e9. Ce vin peut \u00eatre d\u00e9gust\u00e9 seul ou accompagn\u00e9 d\u2019un poisson, de viandes blanches.<br \/>\n<br \/>"
+            },
+            {
+              "label":"Service",
+              "value":"A d\u00e9guster entre 12 et 14 \u00b0C. Garde : 2 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":""
+            },
+            {
+              "label":"A la vigne",
+              "value":"Cette gamme est issue d\u2019un assemblage de vins de propri\u00e9t\u00e9 et d\u2019une s\u00e9lection tr\u00e8s stricte des meilleures cuv\u00e9es de n\u00e9goce. Nous utilisons le Rolle, c\u00e9page roi  de l\u2019appellation pour obtenir finesse et typicit\u00e9 des vins de Provence.<br \/>\n<br \/>\nLe volume issu de la propri\u00e9t\u00e9 b\u00e9n\u00e9ficie des plus grandes attentions. La conduite de la vigne est traditionnelle et respecte les \u00e9l\u00e9ments naturels du terroir tout en adaptant les subtilit\u00e9s de chaque c\u00e9page. La part de n\u00e9goce est contr\u00f4l\u00e9e par la mise en place d\u2019une charte de production avec nos partenaires et par un suivi permanent par nos oenologues."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":""
+            },
+            {
+              "label":"Vinification",
+              "value":"Les baies sont press\u00e9es en douceur gr\u00e2ce \u00e0 des pressoirs pneumatiques, \u00e9vitant ainsi l'extraction de tanins. Les mo\u00fbts sont  d\u00e9bourb\u00e9s (clarifi\u00e9s) pour obtenir des jus clairs avant la fermentation alcoolique.<br \/>\nLes temp\u00e9ratures sont contr\u00f4l\u00e9es et maintenues \u00e0 18\u00b0C pour maintenir la fermentation alcoolique, qui s'\u00e9tend sur plusieurs jours (10 \u00e0 14 jours).<br \/>\nUne fois celle-ci achev\u00e9e,  les vins sont \u00e9lev\u00e9s sur lies en cuves avec b\u00e2tonnage.<br \/>\nCourant D\u00e9cembre, les vins sont d\u00e9gust\u00e9s afin de d\u00e9terminer l'assemblage final puis mis en bouteilles.<br \/>"
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      },
+      {
+        "id":"3171",
+        "dateupdate":"1318518787",
+        "vincod":"44K2G3",
+        "vincodperso":"",
+        "abstract":"Il agr\u00e9mentera \u00e0 merveille vos repas et les viandes grill\u00e9es.",
+        "tag":"",
+        "tag640":"",
+        "name":"Harmonie de Roseline Rouge 2009",
+        "vintageyear":"2009",
+        "picture":"",
+        "more":"",
+        "wineid":"2085",
+        "winetype":"Rouge",
+        "appellation":"AOC C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":[
+            {
+              "name":"Cabernet-sauvignon",
+              "amount":""
+            },
+            {
+              "name":"Carignan",
+              "amount":""
+            },
+            {
+              "name":"Syrah",
+              "amount":""
+            }
+          ]
+        },
+        "recipes":"",
+        "shops":"",
+        "reviews":"",
+        "vintage":{
+          "vintageyear":"2009",
+          "qrcode":"",
+          "dateupdate":"1318518787",
+          "picture":"",
+          "vinogusto":""
+        },
+        "medias":{
+          "media":{
+            "name":"Harmonie rouge sans mill\u00e9sime basse def",
+            "type":"jpg",
+            "zone":"0",
+            "url":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_harmonie_rouge_sans_millesime_basse_def_jpg_8614.jpg",
+            "preview":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_harmonie_rouge_sans_millesime_basse_def_jpg_8614_mini.jpg"
+          }
+        },
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"La robe rouge est profonde avec des reflets grenat. Le nez puissant, r\u00e9v\u00e8le des ar\u00f4mes de fruits des bois. Apr\u00e8s une attaque franche, l'\u00e9quilibre de ce vin marie souplesse et fruit\u00e9. Il agr\u00e9mentera \u00e0 merveille vos repas et les viandes grill\u00e9es."
+            },
+            {
+              "label":"Service",
+              "value":"A d\u00e9guster entre 16 et 18\u00b0C. Garde : 5 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":"Les volumes qui sont produits sur les parcelles non classifi\u00e9es sont dor\u00e9navant assembl\u00e9s \u00e0 une s\u00e9lection tr\u00e8s strictes de vins de n\u00e9goce. Voici la cuv\u00e9e Roseline Prestige, d\u00e9j\u00e0 remarqu\u00e9e et m\u00e9daill\u00e9e par le guide hachette.<br \/>"
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":"Sols argilo-calcaire et naturellement riches en mati\u00e8re organique, gage de la qualit\u00e9 des vins. L'exposition du vignoble d'Est en Ouest permet d'obtenir un ensoleillement maximal."
+            },
+            {
+              "label":"A la vigne",
+              "value":""
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"En Septembre. La r\u00e9colte est essentiellement manuelle."
+            },
+            {
+              "label":"Vinification",
+              "value":"Des remontages mod\u00e9r\u00e9s et des cuvaisons raccourcies auront pour but d'extraire des tanins fins et \u00e9l\u00e9gants permettant \u00e0 ce vin d'\u00eatre consomm\u00e9 rapidement. La fermentation alcoolique achev\u00e9e, la fermentation malo-lactique s'effectue. Celle-ci termin\u00e9e, les vins sont coll\u00e9s au blanc d'oeuf pour affiner les tanins.<br \/>"
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

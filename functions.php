@@ -187,6 +187,23 @@
 	|
 	*/
 
+	function wp_vincod_breadcrumb($breadcrumb) {
+
+		$output = '';
+
+		foreach ($breadcrumb as $value) {
+	
+			$output .= '<a href="' . $value[1] . '">' . $value[0] . '</a> > ';
+
+		}
+
+		$output = rtrim($output, ' >');
+
+		return $output;
+
+
+	}
+
 	function wp_vincod_picture_format($url, $type=640) {
 
 		$allowed_type_vincod = array(70, 140, 480, 640);

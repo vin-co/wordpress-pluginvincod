@@ -196,13 +196,22 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 			}
 
+			$this->breadcrumb[] = array(
+
+				get_the_title(get_option('vincod_id_page_nos_vins')),
+				get_permalink(get_option('vincod_id_page_nos_vins'))
+
+
+				);
+
 			$view_datas = array(
 
 				'success_results' => $success_results,
 				'success_ranges'  => $success_ranges,
 				'results' => $results,
 				'ranges'  => $ranges,
-				'link' => $this->permalink
+				'link' => $this->permalink,
+				'breadcrumb' => $this->breadcrumb
 
 				);
 
@@ -269,12 +278,41 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 			}
 
+
+			// Breadcrumb part
+
+			$this->breadcrumb[] = array(
+
+				get_the_title(get_option('vincod_id_page_nos_vins')),
+				get_permalink(get_option('vincod_id_page_nos_vins'))
+
+			);
+
+			$winery_by_range = $this->request_api(array(
+
+				'method' => 'winery',
+				'action' => 'GetWineryByRangeId',
+				'id'	=> $params['range']
+
+				));
+
+
+			$this->breadcrumb[] = array(
+
+				$winery_by_range['wineries']['winery']['name'],
+				wp_vincod_link('winery', $winery_by_range['wineries']['winery']['id'], $winery_by_range['wineries']['winery']['name'])
+
+				);
+			
+
+
 			$view_datas = array(
 
 				'success' => $success,
 				'results' => $results,
 				'link'	  => $this->permalink,
-				'wines'   => $wines
+				'wines'   => $wines,
+				'breadcrumb' => $this->breadcrumb
 
 				);
 
@@ -343,12 +381,55 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 			}
 
+			// Breadcrumb part
+			$this->breadcrumb[] = array(
+
+				get_the_title(get_option('vincod_id_page_nos_vins')),
+				get_permalink(get_option('vincod_id_page_nos_vins'))
+
+			);
+
+			$range = $this->request_api(array(
+
+				'method' => 'range',
+				'action' => 'GetRangeByVincod',
+				'id'	=> $params['vincod'],
+
+				));
+
+
+			$range_id = $range['wineries']['winery']['id'];
+
+			$winery = $this->request_api(array(
+
+				'method' => 'winery',
+				'action' => 'GetWineryByRangeId',
+				'id'	=> $range_id,
+
+				));
+
+			$this->breadcrumb[] = array(
+
+				$winery['wineries']['winery']['name'],
+				wp_vincod_link('winery', $winery['wineries']['winery']['id'], $winery['wineries']['winery']['name'])
+
+				);
+
+
+			$this->breadcrumb[] = array(
+
+				$range['wineries']['winery']['name'],
+				wp_vincod_link('winery', $range['wineries']['winery']['id'], $range['wineries']['winery']['name'])
+
+				);
+
 			$view_datas = array(
 
 				'success' => $success,
 				'wine'	=> $results['wines']['wine'],
 				'oldwines' => $vintageyears,
-				'link' => $this->permalink
+				'link' => $this->permalink,
+				'breadcrumb' => $this->breadcrumb
 
 				);
 

@@ -33,7 +33,11 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
  ?>
 
+
 <div class="plugin-vincod">
+
+	<?= wp_vincod_breadcrumb($breadcrumb) ?>
+	<br/><br/>
 
 	<!-- About the winery -->
 	<? if ($success_results): ?>

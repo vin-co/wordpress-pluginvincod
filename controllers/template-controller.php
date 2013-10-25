@@ -19,6 +19,8 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 	*/
 	private $_view_loaded = '';
 
+	public $permalink = '';
+
 	public function __construct() {
 
 		parent::__construct();
@@ -30,6 +32,10 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 			'_customer_id' => get_option('vincod_setting_customer_id')
 
 			));
+
+		// Get the right permalink
+		global $wp_rewrite;
+		$this->permalink =  get_permalink();
 
 	}
 
@@ -136,7 +142,29 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		// Simple routing system
 		if ($this->route('winery', $params)) {
 
+			$this->_exec_winery($params);
+
+
+		} elseif ($this->route('range', $params)) {
+
+			$this->_exec_range($params);			
+
+		} elseif($this->route('vincod', $params)) {
+
+			$this->_exec_wine($params);			
+
+		} else {
+
+			$this->_exec_index();
+		}
+
+	}
+
+	private function _exec_winery($params) {
+
 			// Winery.php
+
+			// Requests
 			$results = $this->request_api(array(
 
 				'method' => 'winery',
@@ -174,17 +202,18 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 				'success_ranges'  => $success_ranges,
 				'results' => $results,
 				'ranges'  => $ranges,
-				'link' => $link_page
+				'link' => $this->permalink
 
 				);
 
-
 			$view_to_load = 'template/winery';
 
+			// Loader
+			$this->_view_loaded = $this->load_view($view_to_load, $view_datas, TRUE);
 
-		} elseif ($this->route('range', $params)) {
+	}
 
-			// Range.php
+	private function _exec_range($params) {
 
 			$wines = FALSE;
 
@@ -244,17 +273,20 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 				'success' => $success,
 				'results' => $results,
-				'link'	  => $link_page,
+				'link'	  => $this->permalink,
 				'wines'   => $wines
 
 				);
 
 			$view_to_load = 'template/range';
 
+			// Loader
+			$this->_view_loaded = $this->load_view($view_to_load, $view_datas, TRUE);
 
-		} elseif($this->route('vincod', $params)) {
 
-			// Wine.php
+	}
+
+	private function _exec_wine($params) {
 
 			$results = $this->request_api(array(
 
@@ -316,15 +348,19 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 				'success' => $success,
 				'wine'	=> $results['wines']['wine'],
 				'oldwines' => $vintageyears,
-				'link' => $link_page
+				'link' => $this->permalink
 
 				);
 
 			$view_to_load = 'template/wine';
 
-		} else {
+			// Loader
+			$this->_view_loaded = $this->load_view($view_to_load, $view_datas, TRUE);
 
-			// Index.php
+	}
+
+	private function _exec_index() {
+
 
 			$results = $this->request_api(array(
 
@@ -345,7 +381,7 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 				'success' => $success,
 				'results' => $results,
-				'link' => $link_page
+				'link' => $this->permalink
 
 				);
 
@@ -353,9 +389,9 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 			$view_to_load = 'template/index';
 
 
-		}
+			// Loader
+			$this->_view_loaded = $this->load_view($view_to_load, $view_datas, TRUE);
 
-		$this->_view_loaded = $this->load_view($view_to_load, $view_datas, TRUE);
 
 	}
 

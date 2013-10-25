@@ -209,9 +209,9 @@
 			}
 
 			// CASE WML
-			if ($elements['host'] = 'test') {
-				
-			}
+			//if ($elements['host'] == 'test') {
+			//	
+			//}
 
 		} 
 

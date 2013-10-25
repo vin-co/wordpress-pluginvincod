@@ -62,7 +62,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 					<br/><br/>
 
-					<a class="button-vincod" href="<?= wp_vincod_link('range', $winery['id'], $winery['name']) ?>"><?=$vincod_more_lang?></a>
+					<a href="<?= wp_vincod_link('range', $winery['id'], $winery['name']) ?>"><?=$vincod_more_lang?></a>
 
 				</div>
 

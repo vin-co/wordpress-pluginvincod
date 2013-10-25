@@ -52,7 +52,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 				<!-- Block Text -->
 				<div class="w50 fright">
 					<p><?= nl2br($winery['signature']['value']) ?></p>
-					<a class="button-vincod" href="<?= wp_vincod_link('winery', $winery['id'], $winery['name']) ?>"><?=$vincod_more_lang?></a>
+					<a href="<?= wp_vincod_link('winery', $winery['id'], $winery['name']) ?>"><?=$vincod_more_lang?></a>
 				</div>
 
 			</div>

@@ -82,17 +82,17 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 		<!-- About Button -->
 		<? if (!empty($wine['fields']['presentation'])) : ?>
-			<a id="trigger-about-wine" class="button-vincod" href="#"><?= $vincod_details_lang ?></a>
+			<a id="trigger-about-wine" href="#"><?= $vincod_details_lang ?></a>
 		<? endif; ?>
 
 		<!-- Advice button -->
 		<? if (! empty($wine['fields']['advice'])): ?>
-			<a id="trigger-advice-wine" class="button-vincod" href="#"><?= $vincod_tips_lang ?></a>
+			<a id="trigger-advice-wine" href="#"><?= $vincod_tips_lang ?></a>
 		<? endif; ?>
 
 		<!-- Shop button -->
 		<? if (!empty($wine['shops'])): ?>
-			<a id="trigger-shop-wine" class="button-vincod" href="#">Commander</a>
+			<a id="trigger-shop-wine" href="#">Commander</a>
 		<? endif; ?>
 
 	</div>

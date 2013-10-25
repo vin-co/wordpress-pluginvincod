@@ -164,21 +164,15 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 	<? endif; ?>
 	
-	<tbody>
-		<tr class="eventpair">
-			<td style="padding: 0 12px;">
-				<a href="http://vincod.com/print/<?=$wine['vincod']?>" target="_blank" title="Fiche PDF <?=$wine['name']?>">Imprimer</a>
-			</td>
-			<td style="padding: 0 12px;">
-				<a href="http://vincod.com/get-widget/<?=$wine['vincod']?>" target="_blank">Insérer</a>
-			</td>
-			<td style="background-color: #d3cabd; width: 1px;"></td>
-			<td style="padding: 0 12px;">
-				<a href="http://vincod.com/<?=$wine['vincod']?>" target="_blank" title="<?=$wine['name']?> - Vincod">Lien permanent</a>
-			</td>
-		</tr>
-	</tbody>
-	
+	<!-- Widgets -->
+	<div class="widgets">
+		<ul>
+			<li class="bordered"><a href="http://vincod.com/print/<?=$wine['vincod']?>" target="_blank" title="Fiche PDF <?=$wine['name']?>">Imprimer <img src="<?= WP_VINCOD_PLUGIN_URL ?>assets/img/b_print.png"></a></li>
+			<li class="bordered"><a href="http://vincod.com/get-widget/<?=$wine['vincod']?>" target="_blank">Insérer</a> <img src="<?= WP_VINCOD_PLUGIN_URL ?>assets/img/b_widget.png"></li>
+			<li><a href="http://vincod.com/<?=$wine['vincod']?>" target="_blank" title="<?=$wine['name']?> - Vincod">Lien permanent <img src="<?= WP_VINCOD_PLUGIN_URL ?>assets/img/b_permalink.png"></a></li>
+		</ul>
+	</div>
+
 	<? 
 
 	/* Specs - Maybe will happen in another version 

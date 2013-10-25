@@ -93,3 +93,20 @@
 
 	.plugin-vincod hr { display : block; margin-top : 2em; margin-bottom: 2em }
 
+	.plugin-vincod div.widgets {
+		background-color: #dfd7ca;
+		border-top: 1px solid #dcd3c5;
+		margin-top: 15px;
+		margin-left: 0;
+		padding: 9px 0 10px;
+	}
+	.plugin-vincod div.widgets ul {
+
+		list-style: none;
+
+	}
+
+	.plugin-vincod div.widgets ul li { float : left; margin-right : 0.5em; margin-left: 0.5em; display : inline-block; }
+	.plugin-vincod div.widgets ul li a { color: #4A4542; text-decoration: none; vertical-align: top}
+	.plugin-vincod div.widgets ul li a:hover { border : none;}
+	.plugin-vincod div.widgets .bordered {  }

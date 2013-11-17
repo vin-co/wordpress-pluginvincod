@@ -42,7 +42,16 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 			<? foreach ($results['wines']['wine'] as $wine): ?>
 
 				<div class="fleft w50">
-					<img src="<?= wp_vincod_url_resizer($wine['picture']) ?>" />
+					<!-- Picture -->
+					<? if (! empty($wine['picture'])): ?>
+						<img src="<?= wp_vincod_url_resizer($wine['picture']) ?>" />
+					<? elseif (! empty($wine['medias']['media']['url'])): ?>
+						<img src="<?= wp_vincod_url_resizer($wine['medias']['media']['url']) ?>" />
+					<? elseif (! empty($wine['medias']['media'][0]['url'])): ?>
+						<img src="<?= wp_vincod_url_resizer($wine['medias']['media'][0]['url']) ?>" />
+					<? else: ?>
+						<img src="<?= WP_VINCOD_PLUGIN_URL . 'assets/img/ico_wine.png' ?>">
+					<? endif; ?>				
 				</div>
 
 				<div class="fright w50">

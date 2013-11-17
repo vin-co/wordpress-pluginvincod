@@ -72,10 +72,10 @@ class wp_vincod_controller_api {
 		if (isset($params['method']) && !empty($params['method']) && isset($params['action']) && !empty($params['action'])) {
 
 			// Create url to request
-			$url = 'http://api.vincod.com/json/%method/%action/%lang/%id?apiKey=' . $this->_customer_api;
+			$url = 'http://api.vincod.com/2/json/%method/%action/%lang/%id?apiKey=' . $this->_customer_api;
 
 			$url = $this->parse_url($url, $params);
-
+			
 			// Check in the cache
 			$already_cached = $this->already_cached($url);
 

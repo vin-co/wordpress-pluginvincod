@@ -189,15 +189,13 @@
 
 	function wp_vincod_breadcrumb($breadcrumb) {
 
-		$output = '';
+		// Load lang
+		wp_vincod_load_lang_view('shared');
 
-		foreach ($breadcrumb as $value) {
-	
-			$output .= '<a href="' . $value[1] . '">' . $value[0] . '</a> > ';
-
-		}
-
-		$output = rtrim($output, ' >');
+		// Get content
+		$back = wp_vincod_get_lang_content('vincod_back_lang');
+		
+		$output = '<a href="' . $breadcrumb . '">' . $back . '</a>';
 
 		return $output;
 

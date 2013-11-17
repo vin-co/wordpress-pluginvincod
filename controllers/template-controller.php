@@ -196,13 +196,10 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 			}
 
-			$this->breadcrumb[] = array(
-
-				get_the_title(get_option('vincod_id_page_nos_vins')),
-				get_permalink(get_option('vincod_id_page_nos_vins'))
+			$this->breadcrumb = get_permalink(get_option('vincod_id_page_nos_vins'));
 
 
-				);
+			
 
 			$view_datas = array(
 
@@ -281,12 +278,6 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 			// Breadcrumb part
 
-			$this->breadcrumb[] = array(
-
-				get_the_title(get_option('vincod_id_page_nos_vins')),
-				get_permalink(get_option('vincod_id_page_nos_vins'))
-
-			);
 
 			$winery_by_range = $this->request_api(array(
 
@@ -297,12 +288,9 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 				));
 
 
-			$this->breadcrumb[] = array(
+			$this->breadcrumb = wp_vincod_link('winery', $winery_by_range['wineries']['winery']['id'], $winery_by_range['wineries']['winery']['name']);
 
-				$winery_by_range['wineries']['winery']['name'],
-				wp_vincod_link('winery', $winery_by_range['wineries']['winery']['id'], $winery_by_range['wineries']['winery']['name'])
-
-				);
+			
 			
 
 			// Group wines
@@ -385,13 +373,6 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 			}
 
 			// Breadcrumb part
-			$this->breadcrumb[] = array(
-
-				get_the_title(get_option('vincod_id_page_nos_vins')),
-				get_permalink(get_option('vincod_id_page_nos_vins'))
-
-			);
-
 			$range = $this->request_api(array(
 
 				'method' => 'range',
@@ -411,20 +392,10 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 				));
 
-			$this->breadcrumb[] = array(
 
-				$winery['wineries']['winery']['name'],
-				wp_vincod_link('winery', $winery['wineries']['winery']['id'], $winery['wineries']['winery']['name'])
+			$this->breadcrumb = wp_vincod_link('range', $range['wineries']['winery']['id'], $range['wineries']['winery']['name']);
 
-				);
-
-
-			$this->breadcrumb[] = array(
-
-				$range['wineries']['winery']['name'],
-				wp_vincod_link('winery', $range['wineries']['winery']['id'], $range['wineries']['winery']['name'])
-
-				);
+			
 
 			$view_datas = array(
 

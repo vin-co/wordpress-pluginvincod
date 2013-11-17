@@ -4,9 +4,9 @@
 Plugin Name: Vincod
 Plugin URI: http://dev.vincod.com/
 Description: /
-Version: Beta
-Author: Ges Jeremie
-Author URI: http://www.gesjeremie.fr/
+Version: 3.0.0
+Author: Vinternet
+Author URI: http://www.vinternet.net/
 */
 
 /*
@@ -39,7 +39,15 @@ require('functions.php');
 require('controllers/api-controller.php');
 require('controllers/template-controller.php');
 
-
+/*
+|-------------------------------------------------------------------
+| Class exists ?
+|-------------------------------------------------------------------
+| 
+| To avoid conflicts with another plugins, we must check 
+| the current state
+|
+*/
 if (! class_exists('wp_vincod_plugin')) {
 
 

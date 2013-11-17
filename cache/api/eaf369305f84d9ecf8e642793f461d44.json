@@ -1,0 +1,1296 @@
+{
+  "wines":{
+    "wine":[
+      {
+        "id":"4790",
+        "dateupdate":"1350976633",
+        "vincod":"35DT2F",
+        "vincodperso":"",
+        "abstract":"Grand vin de Provence \u00e0 la fois puissant et soyeux, il se mariera \u00e0 merveille avec une viande rouge, une cuisse de lapereau aux truffes, un fromage affin\u00e9 ou un dessert chocolat\u00e9.",
+        "tag":"",
+        "tag640":"",
+        "name":"Cuv\u00e9e Prieure Cru Class\u00e9 Rouge 2009",
+        "vintageyear":"2009",
+        "picture":"",
+        "more":"",
+        "wineid":"1516",
+        "winetype":"Rouge",
+        "appellation":"AOP C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":[
+            {
+              "name":"Cabernet-sauvignon",
+              "amount":"30"
+            },
+            {
+              "name":"Mourv\u00e8dre",
+              "amount":"10"
+            },
+            {
+              "name":"Syrah",
+              "amount":"60"
+            }
+          ]
+        },
+        "recipes":"",
+        "shops":{
+          "shop":{
+            "shop":"Achat en direct au Ch\u00e2teau Sainte Roseline",
+            "url":"http:\/\/www.boutique-sainteroseline.com\/chateau-sainte-roseline\/la-cuvee-prieure\/cuvee-prieure-cru-classe-vin-rouge-2009.html",
+            "description":"Commander La Cuv\u00e9e Prieure C\u00f4te de Provence Cru Class\u00e9 Rouge 2009, disponible en bouteille 75 cl"
+          }
+        },
+        "reviews":{
+          "review":[
+            {
+              "author":"",
+              "source":"S\u00e9lection mondiale des vins du Canada 2012",
+              "content":"M\u00e9daill\u00e9 d'Or aux S\u00e9lections mondiales des vins du Canada 2012.",
+              "mark":"",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Vinalies Internationales",
+              "content":"M\u00e9daill\u00e9 d'Or au Vinalies Internationales 2012",
+              "mark":"",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Concours des Vins de St Tropez",
+              "content":"M\u00e9daill\u00e9 d'argent au concours des vins de Provence de St Tropez 2012",
+              "mark":"",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Concours des Grands Vins de France",
+              "content":"M\u00e9daill\u00e9 d'argent au concours des Grands vins de France \u00e0 M\u00e2con 2012.",
+              "mark":"",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Guide Hachette de 2013",
+              "content":"Elu coup de coeur dans le Guide Hachette de 2013",
+              "mark":"",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            }
+          ]
+        },
+        "vintage":{
+          "vintageyear":"2009",
+          "qrcode":"",
+          "dateupdate":"1362675791",
+          "picture":"",
+          "vinogusto":""
+        },
+        "medias":{
+          "media":{
+            "name":"Cuv\u00e9e Prieure Cru Class\u00e9 Rouge",
+            "type":"jpg",
+            "zone":"0",
+            "url":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cuveeprieurerougesansannee_5086.jpg",
+            "preview":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cuveeprieurerougesansannee_5086_mini.jpg"
+          }
+        },
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"Ce grand vin \u00e0 la robe noire pr\u00e9sente une explosion aromatique de r\u00e9glisse, cannelle fruits rouges et chocolat. Un mariage subtil de puissance et de finesse. Sa longueur en bouche vous surprendra ! Son harmonie permet de r\u00e9ussir l\u2019impensable pari du plaisir imm\u00e9diat et d\u2019une longue garde. Ce vin se mariera \u00e0 merveille avec une viande rouge, une cuisse de lapereau aux truffes, un fromage affin\u00e9 ou un dessert chocolat\u00e9."
+            },
+            {
+              "label":"Service",
+              "value":"Temp\u00e9rature de service : entre 16 et 18\u00b0C<br \/>\nAptitude au vieillissement: 15 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":"Argilo-calcaire, naturellement riche en mati\u00e8re organique, gage de qualit\u00e9. Abondantes sources en sous sol. Densit\u00e9 de plantation 5000 pieds \u00e0 l'hectare."
+            },
+            {
+              "label":"A la vigne",
+              "value":"Conduite traditionnelle du vignoble par fa\u00e7ons culturales. Nous proc\u00e9dons \u00e0 un effruitage pour contr\u00f4ler les rendements et \u00e0 un effeuillage afin de garantir un ensoleillement maximum \u00e0 chaque grappe."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"Les raisins sont r\u00e9colt\u00e9s de fin Ao\u00fbt \u00e0 fin Septembre et la fermentation se fait c\u00e9page par c\u00e9page. Cette cuv\u00e9e est issue de vignes soigneusement s\u00e9lectionn\u00e9es."
+            },
+            {
+              "label":"Vinification",
+              "value":"La r\u00e9colte est conduite par un tapis, \u00e9vitant ainsi l'alt\u00e9ration des baies, puis \u00e9grapp\u00e9e, et subit un double tri. La fermentation se d\u00e9roule pour partie en cuve bois  et partie en cuves inox thermor\u00e9gul\u00e9es, avec une mac\u00e9ration pr\u00e9-fermentaire  \u00e0 froid. La cuvaison dure environ 1 mois pendant lequelle des pigeages quotidiens permettront une extraction contr\u00f4l\u00e9e des tanins, gage de finesse et de concentration.  L\u2019\u00e9levage se fera en barriques pendant 12 mois puis \u00e0 nouveau en cuve bois pendant 6 mois pour permettre l\u2019harmonisation de l\u2019assemblage final."
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      },
+      {
+        "id":"3735",
+        "dateupdate":"1350976849",
+        "vincod":"NH4EGF",
+        "vincodperso":"",
+        "abstract":"Grand vin de Provence \u00e0 la fois puissant et soyeux, il se mariera \u00e0 merveille avec une viande rouge, une cuisse de lapereau aux truffes, un fromage affin\u00e9 ou un dessert chocolat\u00e9.",
+        "tag":"",
+        "tag640":"",
+        "name":"Cuv\u00e9e Prieure Cru Class\u00e9 Rouge 2008",
+        "vintageyear":"2008",
+        "picture":"",
+        "more":"",
+        "wineid":"1516",
+        "winetype":"Rouge",
+        "appellation":"AOC C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":[
+            {
+              "name":"Cabernet-sauvignon",
+              "amount":"30"
+            },
+            {
+              "name":"Mourv\u00e8dre",
+              "amount":"10"
+            },
+            {
+              "name":"Syrah",
+              "amount":"60"
+            }
+          ]
+        },
+        "recipes":"",
+        "shops":{
+          "shop":{
+            "shop":"Achat en direct au Ch\u00e2teau Sainte Roseline",
+            "url":"http:\/\/www.boutique-sainteroseline.com\/chateau-sainte-roseline\/la-cuvee-prieure\/cuvee-prieure-cru-classe-vin-rouge-2008.html",
+            "description":"Commander La Cuv\u00e9e Prieure C\u00f4te de Provence Cru Class\u00e9 Rouge 2008, disponible en magnum et j\u00e9roboam"
+          }
+        },
+        "reviews":{
+          "review":[
+            {
+              "author":"",
+              "source":"Bettane et Desseauve",
+              "content":"Guide Bettane & Desseauve de 2012.",
+              "mark":"17\/20",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Guide Hachette",
+              "content":"1* dans le Guide Hachette de 2012.",
+              "mark":"",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Guide Hubert",
+              "content":"4.5 verres dans le Guide Hubert de 2012.",
+              "mark":"",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Paris Match",
+              "content":"Paris Match de Septembre 2012.",
+              "mark":"17\/20",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Gilbert & Gaillard",
+              "content":"Guide des vins Gilbert & Gaillard de 2012.",
+              "mark":"89\/100",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Terre de vins",
+              "content":"Magazine Terre de Vins - S\u00e9lection Bettane & Desseauve de F\u00e9vrier 2012.",
+              "mark":"17\/20",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            }
+          ]
+        },
+        "vintage":{
+          "vintageyear":"2008",
+          "qrcode":"",
+          "dateupdate":"1362675804",
+          "picture":"",
+          "vinogusto":""
+        },
+        "medias":{
+          "media":{
+            "name":"Cuv\u00e9e Prieure Cru Class\u00e9 Rouge",
+            "type":"jpg",
+            "zone":"0",
+            "url":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cuveeprieurerougesansannee_5086.jpg",
+            "preview":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cuveeprieurerougesansannee_5086_mini.jpg"
+          }
+        },
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"Ce grand vin \u00e0 la robe noire pr\u00e9sente une explosion aromatique de r\u00e9glisse, cannelle fruits rouges et chocolat. Un mariage subtil de puissance et de finesse. Son harmonie permet de r\u00e9ussir l\u2019impensable pari du plaisir imm\u00e9diat et d\u2019une longue garde."
+            },
+            {
+              "label":"Service",
+              "value":"Temp\u00e9rature de service : entre 16 et 18\u00b0C<br \/>\nAptitude au vieillissement: 15 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":"Argilo-calcaire, naturellement riche en mati\u00e8re organique, gage de qualit\u00e9. Abondantes sources en sous sol. Densit\u00e9 de plantation 5000 pieds \u00e0 l'hectare."
+            },
+            {
+              "label":"A la vigne",
+              "value":"Conduite traditionnelle du vignoble par fa\u00e7ons culturales. Nous proc\u00e9dons \u00e0 un effruitage pour contr\u00f4ler les rendements et \u00e0 un effeuillage afin de garantir un ensoleillement maximum \u00e0 chaque grappe."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"Les raisins sont r\u00e9colt\u00e9s de fin Ao\u00fbt \u00e0 fin Septembre et la fermentation se fait c\u00e9page par c\u00e9page. Cette cuv\u00e9e est issue de vignes soigneusement s\u00e9lectionn\u00e9es."
+            },
+            {
+              "label":"Vinification",
+              "value":"La r\u00e9colte est conduite par un tapis, \u00e9vitant ainsi l'alt\u00e9ration des baies, puis \u00e9grapp\u00e9e, et subit un double tri. La fermentation se d\u00e9roule pour partie en cuve bois  et partie en cuves inox thermor\u00e9gul\u00e9es, avec une mac\u00e9ration pr\u00e9-fermentaire  \u00e0 froid. La cuvaison dure environ 1 mois pendant lequelle des pigeages quotidiens permettront une extraction contr\u00f4l\u00e9e des tanins, gage de finesse et de concentration.  L\u2019\u00e9levage se fera en barriques pendant 12 mois puis \u00e0 nouveau en cuve bois pendant 6 mois pour permettre l\u2019harmonisation de l\u2019assemblage final."
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      },
+      {
+        "id":"1516",
+        "dateupdate":"1323253411",
+        "vincod":"41JENF",
+        "vincodperso":"",
+        "abstract":"Grand vin de Provence \u00e0 la fois puissant et soyeux, il se mariera \u00e0 merveille avec une viande rouge, une cuisse de lapereau aux truffes, un fromage affin\u00e9 ou un dessert chocolat\u00e9.",
+        "tag":"",
+        "tag640":"",
+        "name":"Cuv\u00e9e Prieure Cru Class\u00e9 Rouge 2007",
+        "vintageyear":"2007",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-prieure-cru-classe-136267581459677.jpeg",
+        "more":"",
+        "wineid":"1516",
+        "winetype":"Rouge",
+        "appellation":"AOC C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":[
+            {
+              "name":"Cabernet-sauvignon",
+              "amount":"30"
+            },
+            {
+              "name":"Mourv\u00e8dre",
+              "amount":"10"
+            },
+            {
+              "name":"Syrah",
+              "amount":"60"
+            }
+          ]
+        },
+        "recipes":"",
+        "shops":"",
+        "reviews":"",
+        "vintage":{
+          "vintageyear":"2007",
+          "qrcode":"",
+          "dateupdate":"1362675814",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-prieure-cru-classe-136267581459677.jpeg",
+          "vinogusto":"329650"
+        },
+        "medias":"",
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"Ce grand vin \u00e0 la robe noire pr\u00e9sente une explosion aromatique de r\u00e9glisse, cannelle fruits rouges et chocolat. Un mariage subtil de puissance et de finesse. Son harmonie permet de r\u00e9ussir l\u2019impensable pari du plaisir imm\u00e9diat et d\u2019une longue garde."
+            },
+            {
+              "label":"Service",
+              "value":"Temp\u00e9rature de service : entre 16 et 18\u00b0C<br \/>\nAptitude au vieillissement: 15 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":"Argilo-calcaire, naturellement riche en mati\u00e8re organique, gage de qualit\u00e9. Abondantes sources en sous sol. Densit\u00e9 de plantation 5000 pieds \u00e0 l'hectare."
+            },
+            {
+              "label":"A la vigne",
+              "value":"Conduite traditionnelle du vignoble par fa\u00e7ons culturales. Nous proc\u00e9dons \u00e0 un effruitage pour contr\u00f4ler les rendements et \u00e0 un effeuillage afin de garantir un ensoleillement maximum \u00e0 chaque grappe."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"Les raisins sont r\u00e9colt\u00e9s de fin Ao\u00fbt \u00e0 fin Septembre et la fermentation se fait c\u00e9page par c\u00e9page. Cette cuv\u00e9e est issue de vignes soigneusement s\u00e9lectionn\u00e9es."
+            },
+            {
+              "label":"Vinification",
+              "value":"La r\u00e9colte est conduite par un tapis, \u00e9vitant ainsi l'alt\u00e9ration des baies, puis \u00e9grapp\u00e9e, et subit un double tri. La fermentation se d\u00e9roule pour partie en cuve bois  et partie en cuves inox thermor\u00e9gul\u00e9es, avec une mac\u00e9ration pr\u00e9-fermentaire  \u00e0 froid. La cuvaison dure environ 1 mois pendant lequelle des pigeages quotidiens permettront une extraction contr\u00f4l\u00e9e des tanins, gage de finesse et de concentration.  L\u2019\u00e9levage se fera en barriques pendant 12 mois puis \u00e0 nouveau en cuve bois pendant 6 mois pour permettre l\u2019harmonisation de l\u2019assemblage final."
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      },
+      {
+        "id":"5135",
+        "dateupdate":"0",
+        "vincod":"6D774F",
+        "vincodperso":"",
+        "abstract":"",
+        "tag":"",
+        "tag640":"",
+        "name":"Cuv\u00e9e Prieure Cru Class\u00e9 Ros\u00e9 2012",
+        "vintageyear":"2012",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-prieure-cru-classe-13527162192243.jpg",
+        "more":"",
+        "wineid":"1522",
+        "winetype":"Ros\u00e9",
+        "appellation":"AOC C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":[
+            {
+              "name":"Mourv\u00e8dre",
+              "amount":"45"
+            },
+            {
+              "name":"Rolle",
+              "amount":"10"
+            },
+            {
+              "name":"Syrah",
+              "amount":"45"
+            }
+          ]
+        },
+        "recipes":"",
+        "shops":{
+          "shop":{
+            "shop":"Achat en direct au Ch\u00e2teau Sainte Roseline",
+            "url":"http:\/\/www.boutique-sainteroseline.com\/chateau-sainte-roseline\/la-cuvee-prieure\/cuvee-prieure-cru-classe-rose-2012.html",
+            "description":"Commander La Cuv\u00e9e Prieure C\u00f4te de Provence Cru Class\u00e9 Ros\u00e9 2012, disponible en bouteille 75 cl, magnum et j\u00e9roboam"
+          }
+        },
+        "reviews":"",
+        "vintage":{
+          "vintageyear":"2012",
+          "qrcode":"",
+          "dateupdate":"1352716227",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-prieure-cru-classe-13527162192243.jpg",
+          "vinogusto":""
+        },
+        "medias":{
+          "media":{
+            "name":"CP ros\u00e9 sans mill\u00e9sime basse def",
+            "type":"jpg",
+            "zone":"0",
+            "url":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cp_rose_sans_millesime_basse_def_jpg_8571.jpg",
+            "preview":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cp_rose_sans_millesime_basse_def_jpg_8571_mini.jpg"
+          }
+        },
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"Une robe lumineuse est brillante d'un rose saumon\u00e9. Un nez expressif et riche r\u00e9v\u00e8le des ar\u00f4mes de vanille, cannelle et pamplemousse. L'\u00e9levage en barrique lui conf\u00e8re longueur et complexit\u00e9. Ce vin ros\u00e9 bois\u00e9 de Provence peut \u00eatre consomm\u00e9 dans les trois \u00e0 cinq ans et mettra en valeur les poissons de roches, des asperges des tajines, des plats asiatiques ou des viandes blanches."
+            },
+            {
+              "label":"Service",
+              "value":"A d\u00e9guster entre 12\u00b0 et 14\u00b0<br \/>\nGarde 5 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":"Argilo-calcaire, naturellement riche en mati\u00e8re organique, gage de qualit\u00e9. Abondantes sources en sous sol. Densit\u00e9 de plantation 5000 pieds \u00e0 l'hectare."
+            },
+            {
+              "label":"A la vigne",
+              "value":"Conduite traditionnelle du vignoble par fa\u00e7ons culturales. Nous proc\u00e9dons \u00e0 un effruitage pour contr\u00f4ler les rendements et \u00e0 un effeuillage afin de garantir un ensoleillement maximum \u00e0 chaque grappe."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"Les raisins sont r\u00e9colt\u00e9s de fin Aout \u00e0 fin Septembre de nuit afin d'\u00e9viter la prise de couleur. La fermentation se fait c\u00e9page par c\u00e9page. Cette cuv\u00e9e est issue de vignes soigneusement s\u00e9lectionn\u00e9es."
+            },
+            {
+              "label":"Vinification",
+              "value":"La r\u00e9colte est tri\u00e9e manuellement et foul\u00e9e. Les baies sont press\u00e9es en douceur gr\u00e2ce \u00e0 des pressoirs pneumatiques inertes, \u00e9vitant ainsi toute oxydation. Les jus de raisins sont alors d\u00e9bourb\u00e9s avant que la fermentation alcoolique ne d\u00e9marre. Les mo\u00fbts sont ensuite envoy\u00e9s en barriques o\u00f9 la fermentation alcoolique s'y d\u00e9roulera \u00e0 des temp\u00e9ratures contr\u00f4l\u00e9es. Les vins seront \u00e9lev\u00e9s en barriques cinq mois avec b\u00e2tonnage des lies fines, puis assembl\u00e9s avec 15 % de vins provenant de fermentation en cuve."
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      },
+      {
+        "id":"4792",
+        "dateupdate":"1350917261",
+        "vincod":"MTHQ5F",
+        "vincodperso":"",
+        "abstract":"",
+        "tag":"",
+        "tag640":"",
+        "name":"Cuv\u00e9e Prieure Cru Class\u00e9 Ros\u00e9 2011",
+        "vintageyear":"2011",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-prieure-cru-classe-134276859358806.jpg",
+        "more":"",
+        "wineid":"1522",
+        "winetype":"Ros\u00e9",
+        "appellation":"AOC C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":[
+            {
+              "name":"Mourv\u00e8dre",
+              "amount":"45"
+            },
+            {
+              "name":"Rolle",
+              "amount":"10"
+            },
+            {
+              "name":"Syrah",
+              "amount":"45"
+            }
+          ]
+        },
+        "recipes":"",
+        "shops":"",
+        "reviews":{
+          "review":[
+            {
+              "author":"",
+              "source":"Foire d'exposition de Brignoles",
+              "content":"M\u00e9daill\u00e9 d'or \u00e0 la Foire d'exposition des vins du Var et de Provence \u00e0 Brignoles 2012.",
+              "mark":"",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Wine Enthusiast",
+              "content":"Magazine Wine Enthusiast en Avril 2012.",
+              "mark":"89\/100",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Bettane et Desseauve",
+              "content":"Guide Bettane & Desseauve de 2013",
+              "mark":"17\/20",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            }
+          ]
+        },
+        "vintage":{
+          "vintageyear":"2011",
+          "qrcode":"",
+          "dateupdate":"1342768593",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-prieure-cru-classe-134276859358806.jpg",
+          "vinogusto":""
+        },
+        "medias":"",
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"Une robe lumineuse est brillante d'un rose saumon\u00e9. Un nez expressif et riche r\u00e9v\u00e8le des ar\u00f4mes de vanille, cannelle et pamplemousse. L'\u00e9levage en barrique lui conf\u00e8re longueur et complexit\u00e9. Ce vin ros\u00e9 bois\u00e9 de Provence peut \u00eatre consomm\u00e9 dans les trois \u00e0 cinq ans et mettra en valeur les poissons de roches, des asperges des tajines, des plats asiatiques ou des viandes blanches."
+            },
+            {
+              "label":"Service",
+              "value":"A d\u00e9guster entre 12\u00b0 et 14\u00b0<br \/>\nGarde 5 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":"Argilo-calcaire, naturellement riche en mati\u00e8re organique, gage de qualit\u00e9. Abondantes sources en sous sol. Densit\u00e9 de plantation 5000 pieds \u00e0 l'hectare."
+            },
+            {
+              "label":"A la vigne",
+              "value":"Conduite traditionnelle du vignoble par fa\u00e7ons culturales. Nous proc\u00e9dons \u00e0 un effruitage pour contr\u00f4ler les rendements et \u00e0 un effeuillage afin de garantir un ensoleillement maximum \u00e0 chaque grappe."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"Les raisins sont r\u00e9colt\u00e9s de fin Aout \u00e0 fin Septembre de nuit afin d'\u00e9viter la prise de couleur. La fermentation se fait c\u00e9page par c\u00e9page. Cette cuv\u00e9e est issue de vignes soigneusement s\u00e9lectionn\u00e9es."
+            },
+            {
+              "label":"Vinification",
+              "value":"La r\u00e9colte est tri\u00e9e manuellement et foul\u00e9e. Les baies sont press\u00e9es en douceur gr\u00e2ce \u00e0 des pressoirs pneumatiques inertes, \u00e9vitant ainsi toute oxydation. Les jus de raisins sont alors d\u00e9bourb\u00e9s avant que la fermentation alcoolique ne d\u00e9marre. Les mo\u00fbts sont ensuite envoy\u00e9s en barriques o\u00f9 la fermentation alcoolique s'y d\u00e9roulera \u00e0 des temp\u00e9ratures contr\u00f4l\u00e9es. Les vins seront \u00e9lev\u00e9s en barriques cinq mois avec b\u00e2tonnage des lies fines, puis assembl\u00e9s avec 15 % de vins provenant de fermentation en cuve."
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      },
+      {
+        "id":"3736",
+        "dateupdate":"0",
+        "vincod":"P4EI4F",
+        "vincodperso":"",
+        "abstract":"Un vin ros\u00e9 de gastronomie",
+        "tag":"",
+        "tag640":"",
+        "name":"Cuv\u00e9e Prieure Cru Class\u00e9 Ros\u00e9 2010",
+        "vintageyear":"2010",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-prieure-cru-classe-132161198311507.jpg",
+        "more":"",
+        "wineid":"1522",
+        "winetype":"Ros\u00e9",
+        "appellation":"AOC C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":[
+            {
+              "name":"Mourv\u00e8dre",
+              "amount":""
+            },
+            {
+              "name":"Syrah",
+              "amount":""
+            }
+          ]
+        },
+        "recipes":"",
+        "shops":{
+          "shop":{
+            "shop":"Le caveau du Ch\u00e2teau Sainte Roseline",
+            "url":"http:\/\/www.sainte-roseline.com\/commander\/",
+            "description":""
+          }
+        },
+        "reviews":"",
+        "vintage":{
+          "vintageyear":"2010",
+          "qrcode":"",
+          "dateupdate":"1321611983",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-prieure-cru-classe-132161198311507.jpg",
+          "vinogusto":""
+        },
+        "medias":{
+          "media":{
+            "name":"CP ros\u00e9 sans mill\u00e9sime basse def",
+            "type":"jpg",
+            "zone":"0",
+            "url":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cp_rose_sans_millesime_basse_def_jpg_8571.jpg",
+            "preview":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cp_rose_sans_millesime_basse_def_jpg_8571_mini.jpg"
+          }
+        },
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"Une robe lumineuse est brillante d\u2019un rose saumon\u00e9. Un nez expressif et riche r\u00e9v\u00e8le des ar\u00f4mes de vanille, cannelle et pamplemousse. L\u2019\u00e9levage en barrique lui conf\u00e8re longueur et complexit\u00e9. Ce vin ros\u00e9 bois\u00e9 de Provence peut \u00eatre consomm\u00e9 dans les trois \u00e0 cinq ans."
+            },
+            {
+              "label":"Service",
+              "value":"Temp\u00e9rature de service: 13\u00b0C<br \/>\nAptitude au vieillissement: 5 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":"Sols argilo-calcaire et naturellement riches en mati\u00e8re organique, gage de l'\u00e9laboration de vin de qualit\u00e9. L'exposition d'Est en Ouest du vignoble, permet d'obtenir un ensoleillement maximal."
+            },
+            {
+              "label":"A la vigne",
+              "value":"Conduite traditionnelle du vignoble par fa\u00e7ons culturales. Nous proc\u00e9dons \u00e0 un effruitage pour contr\u00f4ler les rendements et \u00e0 un effeuillage afin de garantir un ensoleillement maximum \u00e0 chaque grappe."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"Les raisins sont r\u00e9colt\u00e9s de fin Ao\u00fbt \u00e0 fin Septembre et la fermentation se fait c\u00e9page par c\u00e9page. Cette cuv\u00e9e est issue de vignes soigneusement s\u00e9lectionn\u00e9es."
+            },
+            {
+              "label":"Vinification",
+              "value":"La r\u00e9colte est tri\u00e9e manuellement et foul\u00e9e. Les baies sont press\u00e9es en douceur gr\u00e2ce \u00e0 des pressoirs pneumatiques, \u00e9vitant ainsi l'extraction de tanins ainsi que toute oxydation. Les jus de raisins sont alors d\u00e9bourb\u00e9s avant que la fermentation alcoolique ne d\u00e9marre. Les mo\u00fbts sont ensuite envoy\u00e9s en barriques o\u00f9 la fermentation alcoolique s'y d\u00e9roulera \u00e0 des temp\u00e9ratures contr\u00f4l\u00e9es. Les vins seront \u00e9lev\u00e9s en barriques cinq mois avec b\u00e2tonnage des lies fines, puis assembl\u00e9s avec 15% de vins provenant de fermentation en cuve."
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      },
+      {
+        "id":"3283",
+        "dateupdate":"1316188576",
+        "vincod":"C0MNDF",
+        "vincodperso":"",
+        "abstract":"Un vin ros\u00e9 de gastronomie",
+        "tag":"",
+        "tag640":"",
+        "name":"Cuv\u00e9e Prieure Cru Class\u00e9 Ros\u00e9 2009",
+        "vintageyear":"2009",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/130685133852791.jpg",
+        "more":"",
+        "wineid":"1522",
+        "winetype":"Ros\u00e9",
+        "appellation":"AOC C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":[
+            {
+              "name":"Mourv\u00e8dre",
+              "amount":""
+            },
+            {
+              "name":"Syrah",
+              "amount":""
+            }
+          ]
+        },
+        "recipes":"",
+        "shops":"",
+        "reviews":"",
+        "vintage":{
+          "vintageyear":"2009",
+          "qrcode":"",
+          "dateupdate":"1316188576",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/130685133852791.jpg",
+          "vinogusto":""
+        },
+        "medias":{
+          "media":{
+            "name":"CP ros\u00e9 sans mill\u00e9sime basse def",
+            "type":"jpg",
+            "zone":"0",
+            "url":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cp_rose_sans_millesime_basse_def_jpg_8571.jpg",
+            "preview":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cp_rose_sans_millesime_basse_def_jpg_8571_mini.jpg"
+          }
+        },
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"Une robe lumineuse est brillante d\u2019un rose saumon\u00e9. Un nez expressif et riche r\u00e9v\u00e8le des ar\u00f4mes de vanille, cannelle et pamplemousse. L\u2019\u00e9levage en barrique lui conf\u00e8re longueur et complexit\u00e9. Ce vin ros\u00e9 bois\u00e9 de Provence peut \u00eatre consomm\u00e9 dans les trois \u00e0 cinq ans."
+            },
+            {
+              "label":"Service",
+              "value":"Temp\u00e9rature de service: 13\u00b0C<br \/>\nAptitude au vieillissement: 5 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":"Sols argilo-calcaire et naturellement riches en mati\u00e8re organique, gage de l'\u00e9laboration de vin de qualit\u00e9. L'exposition d'Est en Ouest du vignoble, permet d'obtenir un ensoleillement maximal."
+            },
+            {
+              "label":"A la vigne",
+              "value":"Conduite traditionnelle du vignoble par fa\u00e7ons culturales. Nous proc\u00e9dons \u00e0 un effruitage pour contr\u00f4ler les rendements et \u00e0 un effeuillage afin de garantir un ensoleillement maximum \u00e0 chaque grappe."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"Les raisins sont r\u00e9colt\u00e9s de fin Ao\u00fbt \u00e0 fin Septembre et la fermentation se fait c\u00e9page par c\u00e9page. Cette cuv\u00e9e est issue de vignes soigneusement s\u00e9lectionn\u00e9es."
+            },
+            {
+              "label":"Vinification",
+              "value":"La r\u00e9colte est tri\u00e9e manuellement et foul\u00e9e. Les baies sont press\u00e9es en douceur gr\u00e2ce \u00e0 des pressoirs pneumatiques, \u00e9vitant ainsi l'extraction de tanins ainsi que toute oxydation. Les jus de raisins sont alors d\u00e9bourb\u00e9s avant que la fermentation alcoolique ne d\u00e9marre. Les mo\u00fbts sont ensuite envoy\u00e9s en barriques o\u00f9 la fermentation alcoolique s'y d\u00e9roulera \u00e0 des temp\u00e9ratures contr\u00f4l\u00e9es. Les vins seront \u00e9lev\u00e9s en barriques cinq mois avec b\u00e2tonnage des lies fines, puis assembl\u00e9s avec 15% de vins provenant de fermentation en cuve."
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      },
+      {
+        "id":"5001",
+        "dateupdate":"1350976423",
+        "vincod":"7Q4G6F",
+        "vincodperso":"",
+        "abstract":"Un nez tr\u00e8s fin et aromatique marie la vanille, la p\u00eache blanche, la poire et le safran.",
+        "tag":"",
+        "tag640":"",
+        "name":"Cuv\u00e9e Prieure Cru Class\u00e9 Blanc 2011",
+        "vintageyear":"2011",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-prieure-cru-classe-134910271040892.jpg",
+        "more":"",
+        "wineid":"2037",
+        "winetype":"Blanc",
+        "appellation":"AOC C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":{
+            "name":"Rolle",
+            "amount":"100"
+          }
+        },
+        "recipes":"",
+        "shops":{
+          "shop":{
+            "shop":"Achat en direct au Ch\u00e2teau Sainte Roseline",
+            "url":"http:\/\/www.boutique-sainteroseline.com\/chateau-sainte-roseline\/la-cuvee-prieure\/cuvee-prieure-cru-classe-vin-blanc-2011.html",
+            "description":"Commander La Cuv\u00e9e Prieure C\u00f4te de Provence Cru Class\u00e9 Blanc 2011, disponible en bouteille 75 cl, magnum et j\u00e9roboam"
+          }
+        },
+        "reviews":"",
+        "vintage":{
+          "vintageyear":"2011",
+          "qrcode":"",
+          "dateupdate":"1349102725",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-prieure-cru-classe-134910271040892.jpg",
+          "vinogusto":""
+        },
+        "medias":"",
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"Jaune dor\u00e9, sa robe est brillante et limpide. Un nez tr\u00e8s intense et aromatique marie les fleurs blanches et la poire. En bouche il est puissant et d\u2019une exceptionnelle complexit\u00e9, les notes citronn\u00e9es soulignent un gras encore inconnu sur les blancs de Provence. La cuv\u00e9e Prieure accompagnera \u00e0 la perfection des poissons en sauce, du foie gras et des plats \u00e0 base de truffes."
+            },
+            {
+              "label":"Service",
+              "value":"A d\u00e9guster entre 12\u00b0 et 14\u00b0<br \/>\nGarde 10 ans"
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":""
+            },
+            {
+              "label":"A la vigne",
+              "value":"Conduite traditionnelle du vignoble par fa\u00e7ons culturales. Nous proc\u00e9dons \u00e0 un effruitage pour contr\u00f4ler les rendements et \u00e0 un effeuillage afin de garantir un ensoleillement maximum \u00e0 chaque grappe."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"Les raisins sont r\u00e9colt\u00e9s de fin Ao\u00fbt \u00e0 fin Septembre et la fermentation se fait c\u00e9page par c\u00e9page. Cette cuv\u00e9e est issue de vignes soigneusement s\u00e9lectionn\u00e9es."
+            },
+            {
+              "label":"Vinification",
+              "value":"La r\u00e9colte est tri\u00e9e manuellement et foul\u00e9e. Les baies sont press\u00e9es en douceur gr\u00e2ce \u00e0 des pressoirs pneumatiques, \u00e9vitant ainsi l'extraction de tanins ainsi que toute oxydation. Les jus de raisins sont alors d\u00e9bourb\u00e9s avant que la fermentation alcoolique ne d\u00e9marre. Les mo\u00fbts sont ensuite envoy\u00e9s en barriques o\u00f9 la fermentation alcoolique s'y d\u00e9roulera \u00e0 des temp\u00e9ratures maintenues \u00e0 20\u00b0. Les vins seront \u00e9lev\u00e9s en barriques huit mois avec b\u00e2tonnage des lies fines."
+            }
+          ]
+        }
+      },
+      {
+        "id":"4794",
+        "dateupdate":"1350917391",
+        "vincod":"K358TF",
+        "vincodperso":"",
+        "abstract":"Un nez tr\u00e8s fin et aromatique marie la vanille, la p\u00eache blanche, la poire et le safran.",
+        "tag":"",
+        "tag640":"",
+        "name":"Cuv\u00e9e Prieure Cru Class\u00e9 Blanc 2010",
+        "vintageyear":"2010",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-prieure-cru-classe-13427729608353.jpg",
+        "more":"",
+        "wineid":"2037",
+        "winetype":"Blanc",
+        "appellation":"AOC C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":{
+            "name":"Rolle",
+            "amount":"100"
+          }
+        },
+        "recipes":"",
+        "shops":"",
+        "reviews":{
+          "review":[
+            {
+              "author":"",
+              "source":"Concours des Grands Vins de France",
+              "content":"M\u00e9daille de bronze au concours des Grands vins de France \u00e0 M\u00e2con en 2011.",
+              "mark":"",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Gilbert et Gaillard",
+              "content":"Guide Gilbert & Gaillard de 2013.",
+              "mark":"89\/100",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Guide Hubert",
+              "content":"4 verres dans le Guide Hubert de 2012.",
+              "mark":"",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            },
+            {
+              "author":"",
+              "source":"Bettane et Desseauve",
+              "content":"Guide Bettane & Desseauve de 2013.",
+              "mark":"16\/20",
+              "date":"0000-00-00",
+              "url":"http:\/\/"
+            }
+          ]
+        },
+        "vintage":{
+          "vintageyear":"2010",
+          "qrcode":"",
+          "dateupdate":"1342772960",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/la-cuvee-prieure-cru-classe-13427729608353.jpg",
+          "vinogusto":""
+        },
+        "medias":"",
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"Jaune dor\u00e9, sa robe est brillante et limpide. Un nez tr\u00e8s fin et aromatique marie la vanille, la p\u00eache blanche, la poire et le safran. En bouche il est puissant et d\u2019une exceptionnelle complexit\u00e9, les notes citronn\u00e9es soulignent un gras encore inconnu sur les blancs de Provence."
+            },
+            {
+              "label":"Service",
+              "value":"A d\u00e9guster entre 12\u00b0 et 14\u00b0<br \/>\nGarde 10 ans"
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":""
+            },
+            {
+              "label":"A la vigne",
+              "value":"Conduite traditionnelle du vignoble par fa\u00e7ons culturales. Nous proc\u00e9dons \u00e0 un effruitage pour contr\u00f4ler les rendements et \u00e0 un effeuillage afin de garantir un ensoleillement maximum \u00e0 chaque grappe."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"Les raisins sont r\u00e9colt\u00e9s de fin Ao\u00fbt \u00e0 fin Septembre et la fermentation se fait c\u00e9page par c\u00e9page. Cette cuv\u00e9e est issue de vignes soigneusement s\u00e9lectionn\u00e9es."
+            },
+            {
+              "label":"Vinification",
+              "value":"La r\u00e9colte est tri\u00e9e manuellement et foul\u00e9e. Les baies sont press\u00e9es en douceur gr\u00e2ce \u00e0 des pressoirs pneumatiques, \u00e9vitant ainsi l'extraction de tanins ainsi que toute oxydation. Les jus de raisins sont alors d\u00e9bourb\u00e9s avant que la fermentation alcoolique ne d\u00e9marre. Les mo\u00fbts sont ensuite envoy\u00e9s en barriques o\u00f9 la fermentation alcoolique s'y d\u00e9roulera \u00e0 des temp\u00e9ratures maintenues \u00e0 20\u00b0. Les vins seront \u00e9lev\u00e9s en barriques huit mois avec b\u00e2tonnage des lies fines."
+            }
+          ]
+        }
+      },
+      {
+        "id":"3286",
+        "dateupdate":"1318517495",
+        "vincod":"9W301T",
+        "vincodperso":"",
+        "abstract":"Un nez tr\u00e8s fin et aromatique marie la vanille, la p\u00eache blanche, la poire et le safran.",
+        "tag":"",
+        "tag640":"",
+        "name":"Cuv\u00e9e Prieure Cru Class\u00e9 Blanc 2009",
+        "vintageyear":"2009",
+        "picture":"http:\/\/vincod.com\/uploads\/photo\/130685176910801.jpg",
+        "more":"",
+        "wineid":"2037",
+        "winetype":"Blanc",
+        "appellation":"AOC C\u00f4tes de Provence",
+        "grapesvarieties":{
+          "variety":{
+            "name":"Rolle",
+            "amount":"100"
+          }
+        },
+        "recipes":"",
+        "shops":"",
+        "reviews":"",
+        "vintage":{
+          "vintageyear":"2009",
+          "qrcode":"",
+          "dateupdate":"1318517495",
+          "picture":"http:\/\/vincod.com\/uploads\/photo\/130685176910801.jpg",
+          "vinogusto":""
+        },
+        "medias":{
+          "media":{
+            "name":"CP blanc sans mill\u00e9sime basse def",
+            "type":"jpg",
+            "zone":"0",
+            "url":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cp_blanc_sans_millesime_basse_def_jpg_8570.jpg",
+            "preview":"http:\/\/www.winemedialibrary.com\/_clients_folder\/steroseline\/steroseline_cp_blanc_sans_millesime_basse_def_jpg_8570_mini.jpg"
+          }
+        },
+        "medias_ipad":"",
+        "wes":"",
+        "fields":{
+          "advice":[
+            {
+              "label":"D\u00e9gustation",
+              "value":"Jaune dor\u00e9, sa robe est brillante et limpide. Un nez tr\u00e8s fin et aromatique marie la vanille, la p\u00eache blanche, la poire et le safran. En bouche il est puissant et d\u2019une exceptionnelle complexit\u00e9, les notes citronn\u00e9es soulignent un gras encore inconnu sur les blancs de Provence."
+            },
+            {
+              "label":"Service",
+              "value":"A d\u00e9guster entre 12 et 14 \u00b0 C. <br \/>\nGarde 10 ans"
+            },
+            {
+              "label":"Accords Mets-Vins",
+              "value":""
+            }
+          ],
+          "presentation":[
+            {
+              "label":"Pr\u00e9sentation",
+              "value":""
+            },
+            {
+              "label":"Situation",
+              "value":""
+            },
+            {
+              "label":"Le mill\u00e9sime",
+              "value":""
+            },
+            {
+              "label":"Terroir",
+              "value":""
+            },
+            {
+              "label":"A la vigne",
+              "value":"Conduite traditionnelle du vignoble par fa\u00e7ons culturales. Nous proc\u00e9dons \u00e0 un effruitage pour contr\u00f4ler les rendements et \u00e0 un effeuillage afin de garantir un ensoleillement maximum \u00e0 chaque grappe."
+            },
+            {
+              "label":"R\u00e9colte",
+              "value":"Les raisins sont r\u00e9colt\u00e9s de fin Ao\u00fbt \u00e0 fin Septembre et la fermentation se fait c\u00e9page par c\u00e9page. Cette cuv\u00e9e est issue de vignes soigneusement s\u00e9lectionn\u00e9es."
+            },
+            {
+              "label":"Vinification",
+              "value":"La r\u00e9colte est tri\u00e9e manuellement et foul\u00e9e. Les baies sont press\u00e9es en douceur gr\u00e2ce \u00e0 des pressoirs pneumatiques, \u00e9vitant ainsi l'extraction de tanins ainsi que toute oxydation. Les jus de raisins sont alors d\u00e9bourb\u00e9s avant que la fermentation alcoolique ne d\u00e9marre. Les mo\u00fbts sont ensuite envoy\u00e9s en barriques o\u00f9 la fermentation alcoolique s'y d\u00e9roulera \u00e0 des temp\u00e9ratures maintenues \u00e0 20\u00b0. Les vins seront \u00e9lev\u00e9s en barriques huit mois avec b\u00e2tonnage des lies fines."
+            }
+          ],
+          "specifications":[
+            {
+              "label":"Degr\u00e9 d'alcool",
+              "value":""
+            },
+            {
+              "label":"Sucre r\u00e9siduel (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Acidit\u00e9 tartrique (g\/l)",
+              "value":""
+            },
+            {
+              "label":"Age moyen des vignes",
+              "value":""
+            },
+            {
+              "label":"Rendement",
+              "value":""
+            },
+            {
+              "label":"Volume de production",
+              "value":""
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

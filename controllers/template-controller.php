@@ -416,6 +416,18 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 	private function _exec_index() {
 
+			$owner = $this->request_api(array(
+
+				'method' => 'owner',
+				'action' => 'GetOwnerById'
+
+				));
+
+			if (isset($owner['owners']['error'])) {
+
+				$owner = FALSE;
+
+			} 
 
 			$results = $this->request_api(array(
 
@@ -424,17 +436,16 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 				));
 
-			$success = TRUE;
 
 			if (isset($result['wineries']['error'])) {
 
-				$success = FALSE;
+				$results = FALSE;
 
 			}
 
 			$view_datas = array(
 
-				'success' => $success,
+				'owner' => $owner,
 				'results' => $results,
 				'link' => $this->permalink
 

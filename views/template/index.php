@@ -34,7 +34,18 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 <div class="plugin-vincod">
 
-	<? if ($success): ?>
+	<!-- About owner -->
+	<? if ($owner): ?>
+
+		<h2><?= $owner['owners']['owner']['fields']['presentation']['label'] ?></h2>
+		<?= nl2br($owner['owners']['owner']['fields']['presentation']['value']) ?>
+
+	<? endif; ?>
+
+	<div class="spacer"></div>
+	
+	<!-- All wineries -->	
+	<? if ($results): ?>
 		
 		<?  foreach ($results['wineries']['winery'] as $winery): ?>
 

@@ -34,12 +34,13 @@ jQuery(document).ready(function ($) {
 
 				// Url test api
 				var api = window.vincod_plugin_app.api + '?api=' + customer_api + '&id=' + customer_id;;
-				console.log(api); 
 
 				$.ajax({
 					url: api,
 					success: function(output) {
 						
+						console.log(output);
+
 						// Check if error
 						if ("error" in output.owners) {
 							

@@ -52,33 +52,7 @@ var vincod_plugin_app = {
 
     </div>
 
-    <!-- Lang switcher -->
-    <form id="language_set" name="language_set" method="POST" target="_self" action="">
 
-        <?php
-
-        if ($language === 'fr') {
-
-            $language_full = 'Français';
-            $language_short = 'fr';
-            $other_language_full = 'English';
-
-        } else {
-
-            $language_full = 'English';
-            $other_language_short = 'en';
-            $other_language_full = 'Français';
-
-
-        }
-        ?>
-
-        <!-- Choose lang -->
- 
-        <input id="button" type="submir" name="vincod_language" value="<?=$language_full?>" disabled="disabled" class="btn btn-primary">
-        <input id="button" type="submit" name="vincod_language" value="<?=$other_language_full?>" class="btn btn-default">     
-
-    </form>
 
     <!-- About API connect -->
     <form id="settings" name="settings" method="POST" target="_self" action="">

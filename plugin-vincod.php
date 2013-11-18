@@ -267,21 +267,8 @@ if (! class_exists('wp_vincod_plugin')) {
 		 */
 		public function add_admin_dashboard() {
 
-			if (!get_option('vincod_language')) {
-
-				$language = get_bloginfo('language');
-				
-				if ($language === 'fr-FR') $language = 'fr';
-				else $language = 'en';
-
-				update_option('vincod_language', $language);
-
-			} else {
-
-				$language = get_option('vincod_language');
-
-			}
-
+			$language = wp_vincod_detect_lang();
+						
 			wp_vincod_view_var('language', $language);
 
 			add_options_page('Vincod settings', 'Vincod', 'manage_options', 'vincod', array(&$this, 'admin_dashboard'));				

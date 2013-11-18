@@ -126,6 +126,18 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 			<? endforeach; ?>
 
+			<? if (!empty($wine['grapesvarieties']['variety'])): ?>
+
+				<strong>Cépages</strong><br/>
+
+				<? foreach ($wine['grapesvarieties']['variety'] as $variety): ?>
+
+					<?= $variety['name'] ?> : <?= $variety['amount'] ?> %<br/>
+
+				<? endforeach; ?>
+
+			<? endif; ?>
+		
 		</div>
 
 	<? endif; ?>

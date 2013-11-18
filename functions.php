@@ -766,7 +766,7 @@
 	 */
 	function wp_vincod_test_api($id, $api) {
 
-		$url = 'http://api.vincod.com/json/owner/GetOwnerById/fr/' . $id . '?apiKey=' . $api;
+		$url = 'http://api.vincod.com/2/json/owner/checkOwnerApi/fr/' . $id . '?apiKey=' . $api;
 		$output = wp_vincod_file_get_contents($url, TRUE);
 
 		if ($output === null) {
@@ -1024,7 +1024,7 @@
 
 		} else {
 
-			$actual_language = get_option('vincod_language');
+			$actual_language = wp_vincod_detect_lang();
 
 		}
 

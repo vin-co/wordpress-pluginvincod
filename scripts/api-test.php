@@ -24,9 +24,9 @@ if (isset($_GET['api']) && isset($_GET['id'])) {
 	if (!empty($api) && !empty($id)) {
 
 		// It's ok, go open
-		$url = 'http://api.vincod.com/json/owner/checkOwnerApi/fr/' . $id . '?apiKey=' . $api;
+		$url = 'http://api.vincod.com/2/json/owner/checkOwnerApi/fr/' . $id . '?apiKey=' . $api;
 		$output = file_get_contents($url);
-
+		
 
 	}
 

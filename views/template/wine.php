@@ -97,6 +97,11 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 			<a id="trigger-advice-wine" href="#"><?= $vincod_tips_lang ?></a>
 		<? endif; ?>
 
+		<!-- Review button -->
+		<? if ( ! empty($wine['reviews']['review'])): ?>
+			<a id="trigger-reviews-wine" href="#">Avis</a>
+		<? endif; ?>
+
 		<!-- Shop button -->
 		<? if (!empty($wine['shops'])): ?>
 			<a id="trigger-shop-wine" href="#">Commander</a>
@@ -164,6 +169,32 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 			<? endforeach; ?>
 
 	 	</div>
+
+	<? endif; ?>
+
+	<!-- Reviews -->
+	<? if ( ! empty($wine['reviews']['review'])): ?>
+
+		<div data-blocks="reviews-wine">
+
+			<? foreach ($wine['reviews']['review'] as $review): ?>
+
+				<!-- Display with url if exists -->
+				<? if ( ! empty($review['url']) && $review['url'] != 'http://'): ?>
+					<a href="<?= $review['url'] ?>"><?= $review['content'] ?></a>
+				<? else: ?>
+					<?= $review['content'] ?>
+				<? endif; ?>
+
+				<br/>
+
+				<em><?= $review['source'] ?></em>
+
+				<div class="spacer"></div>
+
+			<? endforeach; ?>
+
+		</div>
 
 	<? endif; ?>
 

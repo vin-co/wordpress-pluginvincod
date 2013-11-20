@@ -234,7 +234,8 @@
 		} 
 
 
-		if (  ! is_array($picture)) {
+
+		if (  isset($picture)) {
 
 			$picture = wp_vincod_url_resizer( wp_vincod_picture_format($picture) );
 

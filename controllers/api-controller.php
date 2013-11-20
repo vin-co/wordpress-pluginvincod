@@ -265,6 +265,53 @@ class wp_vincod_controller_api {
 		return $winery;
 	}
 
+	public function get_winery_by_vincod($id) {
+
+		$winery = $this->request_api(array(
+
+			'method' => 'winery',
+			'action' => 'GetWineryByVincod',
+			'id'	 => $id
+
+			));
+
+		// Check error
+		if (isset($winery['wineries']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$winery = $this->_prevent_api($winery, 'wineries', 'winery');
+
+		return $winery;
+	
+
+	}
+
+	public function get_winery_by_range_id($id) {
+
+		$winery = $this->request_api(array(
+
+			'method' => 'winery',
+			'action' => 'GetWineryByRangeId',
+			'id'	 => $id
+
+			));
+
+		// Check error
+		if (isset($winery['wineries']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$winery = $this->_prevent_api($winery, 'wineries', 'winery');
+
+		return $winery;
+
+	}
+
 	public function get_owner_by_id() {
 
 		$owner = $this->request_api(array(
@@ -351,6 +398,29 @@ class wp_vincod_controller_api {
 		$range = $this->_prevent_api($range, 'wineries', 'winery');
 
 		return $range;
+	}
+
+
+	public function get_range_by_vincod($id) {
+
+		$range = $this->request_api(array(
+
+			'method' => 'range',
+			'action' => 'GetRangeByVincod',
+			'id'	 => $id
+
+			));
+
+		if (isset($range['wineries']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$range = $this->_prevent_api($range, 'wineries', 'winery');
+
+		return $range;
+
 	}
 
 	public function get_wines_by_range_id($id) {

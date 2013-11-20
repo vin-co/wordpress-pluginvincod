@@ -41,6 +41,9 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 <div class="plugin-vincod">
 
+	<?= wp_vincod_breadcrumb($breadcrumb) ?>
+	<br/><br/>
+	
 	<!-- The Wine -->
 	<h2><?= $wine['name'] ?></h2>
 	<strong><?= $wine['appellation'] ?></strong>

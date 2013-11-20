@@ -240,6 +240,7 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		$ranges = $this->get_ranges_by_owner_id();
 		$wines = $this->get_wines_by_owner_id();
 		
+
 		$view_datas = array(
 
 			'owner' => $owner,
@@ -262,11 +263,14 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		$ranges = $this->get_ranges_by_winery_id($params['winery']);
 		$wines = $this->get_wines_by_winery_id($params['winery']);
 
+		$breadcrumb = get_permalink(get_option('vincod_id_page_nos_vins'));
+
 		$view_datas = array(
 
 			'winery' => $winery,
 			'ranges' => $ranges,
 			'wines' => $wines,
+			'breadcrumb' => $breadcrumb,
 			'link' => $this->permalink
 
 			);
@@ -279,7 +283,9 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 		$range = $this->get_range_by_id($params['range']);
 		$wines = $this->get_wines_by_range_id($params['range']);
+		$winery = $this->get_winery_by_range_id($params['range']);
 
+		$breadcrumb = wp_vincod_link('winery', $winery['wineries']['winery'][0]['id'], $winery['wineries']['winery'][0]['name']);
 
 		if ($wines) {
 
@@ -297,7 +303,8 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 			'range' => $range,
 			'link'	  => $this->permalink,
-			'wines'   => $wines
+			'wines'   => $wines,
+			'breadcrumb' => $breadcrumb
 
 			);
 
@@ -328,11 +335,34 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 		}
 
+
+		// Breadcrumb part
+
+		$range = $this->get_range_by_vincod($params['vincod']);
+		$winery = $this->get_winery_by_vincod($params['vincod']);
+
+		if ($range) {
+
+			$breadcrumb = wp_vincod_link('range', $range['wineries']['winery'][0]['id'], $range['wineries']['winery'][0]['name']);
+
+		} elseif ($winery) {
+
+			$breadcrumb = wp_vincod_link('winery', $winery['wineries']['winery'][0]['id'], $winery['wineries']['winery'][0]['name']);
+
+
+		} else {
+
+			$breadcrumb = get_permalink(get_option('vincod_id_page_nos_vins'));
+
+		}
+
+
 		$view_datas = array(
 
 			'wine'	=> $wine['wines']['wine'][0],
 			'oldwines' => $vintageyears,
 			'link' => $this->permalink,
+			'breadcrumb' => $breadcrumb
 
 			);
 

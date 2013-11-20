@@ -109,6 +109,13 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 		
 		<div data-blocks="about-wine">
 
+			<? if ( ! wp_vincod_is_multi($wine['fields']['presentation'])): ?>
+
+				<!-- Manage problem API -->
+				<? $wine['fields']['presentation'] = array($wine['fields']['presentation']); ?>
+
+			<? endif; ?>
+
 			<? foreach ($wine['fields']['presentation'] as $field): ?>
 
 				<? if (!empty($field['value'])): ?>
@@ -157,6 +164,13 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 		<div data-blocks="advice-wine">
 
+			<? if ( ! wp_vincod_is_multi($wine['fields']['advice'])): ?>
+
+				<!-- Manage problem API -->
+				<? $wine['fields']['advice'] = array($wine['fields']['advice']); ?>
+
+			<? endif; ?>
+
 			<? foreach ($wine['fields']['advice'] as $field): ?>
 
 				<? if (!empty($field['value'])): ?>
@@ -178,6 +192,15 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 	<? if ( ! empty($wine['reviews']['review'])): ?>
 
 		<div data-blocks="reviews-wine">
+
+
+			<? if ( ! wp_vincod_is_multi($wine['reviews']['review'])): ?>
+
+				<!-- Manage problem API -->
+				<? $wine['reviews']['review'] = array($wine['reviews']['review']); ?>
+
+			<? endif; ?>
+
 
 			<? foreach ($wine['reviews']['review'] as $review): ?>
 
@@ -205,6 +228,13 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 		
 		<div data-blocks="shop-wine">
 
+			<? if ( ! wp_vincod_is_multi($wine['shops'])): ?>
+
+				<!-- Manage problem API -->
+				<? $wine['shops'] = array($wine['shops']); ?>
+
+			<? endif; ?>
+
 			<? foreach ($wine['shops'] as $shop): ?>
 
 				<strong><?= $shop['shop'] ?></strong><br/>
@@ -225,34 +255,6 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 		</ul>
 	</div>
 
-	<? 
-
-	/* Specs - Maybe will happen in another version 
-
-	<!-- Specifications about wine -->
-	<h2><?=$vincod_specifications_lang?></h2><br/>
-
-	<? $specifications_are_here = FALSE; ?>
-
-	<? foreach ($wine['fields']['specifications'] as $field): ?>
-
-		<? if (!empty($field['value'])): ?>
-
-			<? $specifications_are_here = TRUE; ?>
-
-			<strong><?= $field['label'] ?></strong> <br/>
-			<?= $field['value'] ?>
-
-			<div class="spacer"></div>
-
-		<? endif; ?>
-
-	<? endforeach; ?>
-
-	<? if (!$specifications_are_here): ?><?=$vincod_nothing_lang?><? endif; ?>
-	*/ 
-
-	?>
 
 
 </div>

@@ -189,6 +189,12 @@
 
 	function wp_vincod_breadcrumb($breadcrumb) {
 
+		if ($breadcrumb === FALSE) {
+
+			return;
+
+		}
+
 		// Load lang
 		wp_vincod_load_lang_view('shared');
 
@@ -199,6 +205,47 @@
 
 		return $output;
 
+
+	}
+
+	function wp_include_picture($datas) {
+
+
+		if ( ! empty($datas['picture'])) {
+
+			$picture = $datas['picture'];
+
+		} elseif ( ! empty($datas['medias']['media']['preview'])) {
+
+			$picture = $datas['medias']['media']['preview'];
+
+		} elseif ( ! empty($datas['medias']['media'][0]['preview'])) {
+
+			$picture = $datas['medias']['media'][0]['preview'];
+
+		} elseif ( ! empty($datas['medias']['media']['url'])) {
+
+			$picture = $datas['medias']['media']['url'];
+
+		} elseif ( ! empty($datas['medias']['media'][0]['url'])) {
+
+			$picture = $datas['medias']['media'][0]['url'];
+
+		} 
+
+
+		if (  ! is_array($picture)) {
+
+			$picture = wp_vincod_url_resizer( wp_vincod_picture_format($picture) );
+
+		} else {
+
+			// Default picture
+			$picture = WP_VINCOD_PLUGIN_URL . 'assets/img/ico_wine.png';
+
+		}
+
+		return '<img src="' . $picture . '">';
 
 	}
 
@@ -226,6 +273,8 @@
 			// CASE WML
 			if ($elements['host'] == 'www.winemedialibrary.com' OR $elements['host'] == 'winemedialibrary.com') {
 				
+		
+
 				if (in_array($type, $allowed_type_wml)) {
 
 					$url = str_replace('marque/', 'marque/' . $type . '/', $url);
@@ -303,6 +352,18 @@
 
 		}
 
+
+	}
+
+	function wp_vincod_empty($data, $text) {
+
+		if ($data === FALSE OR empty($data)) {
+
+			return $text;
+
+		} 
+
+		return $data;
 
 	}
 
@@ -974,7 +1035,7 @@
 	 * @return void
 	 */
 	function wp_vincod_load_view($view, $datas=array(), $return = FALSE, $start_path = 'views') {
-
+		
 		// We want return, so we must stock the buffer
 		if ($return) ob_start();
 		

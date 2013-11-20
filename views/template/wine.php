@@ -41,9 +41,6 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 <div class="plugin-vincod">
 
-	<?= wp_vincod_breadcrumb($breadcrumb) ?>
-	<br/><br/>
-
 	<!-- The Wine -->
 	<h2><?= $wine['name'] ?></h2>
 	<strong><?= $wine['appellation'] ?></strong>
@@ -72,15 +69,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 	<div class="spacer"></div>	
 
 	<!-- Picture -->
-	<? if (! empty($wine['picture'])): ?>
-		<img src="<?= wp_vincod_url_resizer($wine['picture']) ?>" />
-	<? elseif (! empty($wine['medias']['media']['url'])): ?>
-		<img src="<?= wp_vincod_url_resizer($wine['medias']['media']['url']) ?>" />
-	<? elseif (! empty($wine['medias']['media'][0]['url'])): ?>
-		<img src="<?= wp_vincod_url_resizer($wine['medias']['media'][0]['url']) ?>" />
-	<? else: ?>
-		<img src="<?= WP_VINCOD_PLUGIN_URL . 'assets/img/ico_wine.png' ?>">
-	<? endif; ?>
+	<?= wp_include_picture($wine) ?>
 
 	<div class="spacer"></div>
 
@@ -135,11 +124,21 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 				<strong>Cépages</strong><br/>
 
-				<? foreach ($wine['grapesvarieties']['variety'] as $variety): ?>
 
-					<?= $variety['name'] ?> : <?= $variety['amount'] ?> %<br/>
+				<? if ( ! wp_vincod_is_multi($wine['grapesvarieties']['variety'])): ?>
 
-				<? endforeach; ?>
+					<?= $wine['grapesvarieties']['variety']['name'] ?> : <?= wp_vincod_empty($wine['grapesvarieties']['variety']['amount']) ?> %<br/>
+
+				<? else: ?>
+
+					<? foreach ($wine['grapesvarieties']['variety'] as $variety): ?>
+
+						<?= $variety['name'] ?> : <?= wp_vincod_empty($variety['amount'], 'n/c') ?> %<br/>
+
+					<? endforeach; ?>
+
+				<? endif; ?>
+
 
 			<? endif; ?>
 		

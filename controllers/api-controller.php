@@ -240,6 +240,272 @@ class wp_vincod_controller_api {
 
 	}
 
+
+	/* ---------------------------------------------------------------- */
+
+	public function get_winery_by_id($id) {
+
+		$winery = $this->request_api(array(
+
+			'method' => 'winery',
+			'action' => 'GetWineryById',
+			'id'	 => $id
+
+			));
+
+		// Check error
+		if (isset($winery['wineries']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$winery = $this->_prevent_api($winery, 'wineries', 'winery');
+
+		return $winery;
+	}
+
+	public function get_owner_by_id() {
+
+		$owner = $this->request_api(array(
+
+			'method' => 'owner',
+			'action' => 'GetOwnerById'
+
+			));
+
+		// Check error
+		if (isset($owner['owners']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$owner = $this->_prevent_api($owner, 'owners', 'owner');
+
+		return $owner;
+	}
+
+
+	public function get_wineries_by_owner_id() {
+
+		$wineries = $this->request_api(array(
+
+			'method' => 'winery',
+			'action' => 'GetWineriesByOwnerId'
+
+			));
+
+		if (isset($wineries['wineries']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$wineries = $this->_prevent_api($wineries, 'wineries', 'winery');
+
+		return $wineries;
+
+	}
+
+	public function get_ranges_by_winery_id($id) {
+
+
+		$ranges = $this->request_api(array(
+
+			'method' => 'range',
+			'action' => 'GetRangesByWineryId',
+			'id'	 => $id
+
+			));
+
+		if (isset($ranges['wineries']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$ranges = $this->_prevent_api($ranges, 'wineries', 'winery');
+
+		return $ranges;
+
+	}
+
+	public function get_range_by_id($id) {
+
+
+		$range = $this->request_api(array(
+
+			'method' => 'range',
+			'action' => 'GetRangeById',
+			'id'	 => $id
+
+			));
+
+		if (isset($range['wineries']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$range = $this->_prevent_api($range, 'wineries', 'winery');
+
+		return $range;
+	}
+
+	public function get_wines_by_range_id($id) {
+
+
+		$wines = $this->request_api(array(
+
+			'method' => 'wine',
+			'action' => 'GetWinesByRangeId',
+			'id'	=> $id
+
+			));
+
+		if (isset($wines['wines']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$wines = $this->_prevent_api($wines, 'wines', 'wine');
+
+		return $wines;
+
+
+	}
+
+	public function get_wine_by_vincod($id) {
+
+		$wine = $this->request_api(array(
+
+			'method' => 'wine',
+			'action' => 'GetWineByVincod',
+			'id'	=> $id,
+
+			));
+
+		if (isset($wine['wines']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$wine = $this->_prevent_api($wine, 'wines', 'wine');
+		return $wine;
+
+	}
+
+	public function get_other_vintages_by_vincod($id) {
+
+		$vintages = $this->request_api(array(
+
+			'method' => 'wine',
+			'action' => 'GetOtherVintagesByVincod',
+			'id' => $id
+
+			));
+
+		if (isset($vintages['wines']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$vintages = $this->_prevent_api($vintages, 'wines', 'wine');
+
+		return $vintages;
+
+	}
+
+	public function get_wines_by_winery_id($id) {
+
+		$wines = $this->request_api(array(
+
+			'method' => 'wine',
+			'action' => 'GetWinesByWineryId',
+			'id' => $id
+
+			));
+
+
+		if (isset($wines['wines']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$wines = $this->_prevent_api($wines, 'wines', 'wine');
+
+		return $wines;
+	}
+
+	public function get_ranges_by_owner_id() {
+
+		$ranges = $this->request_api(array(
+
+			'method' => 'range',
+			'action' => 'GetRangesByOwnerId',
+
+			));
+
+		if (isset($ranges['wineries']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$ranges = $this->_prevent_api($ranges, 'wineries', 'winery');
+
+		return $ranges;
+	}
+
+	public function get_wines_by_owner_id() {
+
+		$wines = $this->request_api(array(
+
+			'method' => 'wine',
+			'action' => 'GetWinesByOwnerId'
+
+			));
+
+		if (isset($wines['wines']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$wines = $this->_prevent_api($wines, 'wines', 'wine');
+
+		return $wines;
+
+	}
+
+	private function _prevent_api($datas, $key, $second_key) {
+
+		// Problem with return api datas
+		// Sometimes return just one wine without multidimensionnal
+
+
+
+		if( ! wp_vincod_is_multi($datas[$key][$second_key][0])) {
+
+			// Re format array
+			$tmp = $datas[$key][$second_key];
+
+			unset($datas[$key][$second_key]);
+
+			$datas[$key][$second_key][0] = $tmp;
+
+		}
+
+		return $datas;
+		
+
+	}
+
 }
 
 ?>

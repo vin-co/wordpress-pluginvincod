@@ -32,6 +32,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
  ?>
 
+
 <div class="plugin-vincod">
 
 	<!-- About owner -->
@@ -43,11 +44,11 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 	<? endif; ?>
 
 	<div class="spacer"></div>
-	
-	<!-- All wineries -->	
-	<? if ($results): ?>
 		
-		<?  foreach ($results['wineries']['winery'] as $winery): ?>
+	<!-- All wineries -->	
+	<? if ($wineries): ?>
+		
+		<?  foreach ($wineries['wineries']['winery'] as $winery): ?>
 
 			<!-- Result -->
 			<div>
@@ -57,12 +58,20 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 				<!-- Block Picture -->
 				<div class="w50 fleft">
-					<img src="<?= wp_vincod_url_resizer( wp_vincod_picture_format($winery['logo']) ) ?>" />
+					<? if ( ! empty($winery['logo'])): ?>
+						<img src="<?= wp_vincod_url_resizer( wp_vincod_picture_format($winery['logo']) ) ?>" />
+					<? else: ?>
+						<img src="<?= WP_VINCOD_PLUGIN_URL . 'assets/img/ico_winery.png' ?>" />
+					<? endif; ?>
 				</div>
 
 				<!-- Block Text -->
 				<div class="w50 fright">
-					<p><?= nl2br($winery['signature']['value']) ?></p>
+
+					<? if (isset($winery['signature']['value'])): ?>
+						<p><?= nl2br($winery['signature']['value']) ?></p>
+					<? endif; ?>
+
 					<a href="<?= wp_vincod_link('winery', $winery['id'], $winery['name']) ?>"><?=$vincod_more_lang?></a>
 				</div>
 
@@ -77,6 +86,19 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 			<br/><br/>
 
 		<? endforeach; ?>
+
+
+	<? elseif ( ! $wineries && $ranges): ?>
+
+
+	<? elseif ( ! $wineries && ! $ranges && $wines): ?>
+
+		
+
+	<? else: ?>
+
+		<?= $vincod_no_wines_lang ?>
+
 
 	<? endif; ?>
 

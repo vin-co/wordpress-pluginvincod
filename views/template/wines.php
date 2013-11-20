@@ -35,11 +35,15 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 <div class="plugin-vincod">
 
-	<? if ($success): ?>
+	<?= wp_vincod_breadcrumb($breadcrumb) ?>
+	<br/><br/>
+
+
+	<? if ($wines): ?>
 
 		<div>
 
-			<? foreach ($results['wines']['wine'] as $wine): ?>
+			<? foreach ($wines['wines']['wine'] as $wine): ?>
 
 				<div class="fleft w50">
 					<!-- Picture -->

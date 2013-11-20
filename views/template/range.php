@@ -38,7 +38,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 	<?= wp_vincod_breadcrumb($breadcrumb) ?>
 	<br/><br/>
 
-	<? if ($success): ?>
+	<? if ($range): ?>
 		
 		<? $range = $results['wineries']['winery'] ?>
 
@@ -48,24 +48,18 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 		<div class="spacer"></div>
 		
+	
 		<? if ($wines): ?>
 
 			<? foreach ($wines as $wine): ?>
 
-				<h2><?= $wine['name'] ?></h2>
+			<h2><?= $wine['name'] ?></h2>
 
 				<div class="fleft w50">
 
 					<!-- Picture -->
-					<? if (! empty($wine['picture'])): ?>
-						<img src="<?= wp_vincod_url_resizer($wine['picture']) ?>" />
-					<? elseif (! empty($wine['medias']['media']['url'])): ?>
-						<img src="<?= wp_vincod_url_resizer($wine['medias']['media']['url']) ?>" />
-					<? elseif (! empty($wine['medias']['media'][0]['url'])): ?>
-						<img src="<?= wp_vincod_url_resizer($wine['medias']['media'][0]['url']) ?>" />
-					<? else: ?>
-						<img src="<?= WP_VINCOD_PLUGIN_URL . 'assets/img/ico_wine.png' ?>">
-					<? endif; ?>
+					<?= wp_include_picture($wine) ?>
+
 
 				</div>
 

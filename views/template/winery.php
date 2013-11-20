@@ -40,9 +40,10 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 	<br/><br/>
 
 	<!-- About the winery -->
-	<? if ($success_results): ?>
-		
-		<? $winery = $results['wineries']['winery'] ?>
+	<? if ($winery): ?>
+			
+		<!-- Create shorcut -->
+		<? $winery = $winery['wineries']['winery'][0] ?>
 
 		<h2><?= $winery['name'] ?></h2> 
 		<p><?= nl2br($winery['presentation']['value']) ?></p>
@@ -50,7 +51,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 	<? endif; ?>
 
 	<!-- Ranges for this winery -->
-	<? if ($success_ranges): ?>
+	<? if ($ranges): ?>
 
 		<div>
 
@@ -79,5 +80,42 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 
 	<? endif; ?>
+
+	<? if ( ! $ranges): ?>
+
+		<? if ($wines): ?>
+
+			<div>
+
+				<? foreach ($wines['wines']['wine'] as $wine): ?>
+
+				<div class="fleft w50">
+					<?= wp_include_picture($wine) ?>			
+				</div>
+
+				<div class="fright w50">
+					<h2><?= $wine['name'] ?></h2>
+					<p><?= nl2br($wine['abstract']) ?></p>
+
+					<br/><br/>
+
+					<a href="<?= wp_vincod_link('vincod', $wine['vincod'], $wine['name']) ?>">En savoir plus</a>
+
+				</div>
+
+				<div class="clear"></div>
+				<div class="spacer"></div>
+
+			<? endforeach; ?>
+			</div>
+
+		<? else: ?>
+
+			<?= $vincod_no_wines_lang ?>
+
+		<? endif; ?>
+
+	<? endif; ?>
+
 
 </div>

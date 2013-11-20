@@ -88,7 +88,7 @@ wp_vincod_view_var('vincod_edit_lang', "Editer");
 
 wp_vincod_view_var('vincod_no_wine_to_show_lang', "Aucun vins à afficher pour le moment");
 wp_vincod_view_var('vincod_you_must_be_logged_lang', "Vous devez être connecté à l'API !");
-wp_vincod_view_var('vincod_section_off_permalinks_lang', "Section indisponible, vous devez activer les permaliens dans <em>réglages > permaliens</em> de Wordpress");
+wp_vincod_view_var('vincod_section_off_permalinks_lang', "Section indisponible. Les permaliens sont désactivés pour le moment sur votre Wordpress. Il vous est possible d'activer les permaliens dans le menu à gauche dans <em>réglages > permaliens</em>, il vous suffit de choisir une option différente de \"défaut\".");
 wp_vincod_view_var('vincod_section_on_permalinks_lang', "Vous pouvez personnaliser les permaliens de vos fiches vins si vos réglages Wordpress le permet.");
 
 wp_vincod_view_var('vincod_we_delete_the_sitemap_lang', "Suppression du sitemap");

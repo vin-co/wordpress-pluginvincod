@@ -43,7 +43,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 	<?= wp_vincod_breadcrumb($breadcrumb) ?>
 	<br/><br/>
-	
+
 	<!-- The Wine -->
 	<h2><?= $wine['name'] ?></h2>
 	<strong><?= $wine['appellation'] ?></strong>
@@ -130,7 +130,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 				<? if ( ! wp_vincod_is_multi($wine['grapesvarieties']['variety'])): ?>
 
-					<?= $wine['grapesvarieties']['variety']['name'] ?> : <?= wp_vincod_empty($wine['grapesvarieties']['variety']['amount']) ?> %<br/>
+					<?= $wine['grapesvarieties']['variety']['name'] ?> : <?= wp_vincod_empty($wine['grapesvarieties']['variety']['amount'], 'n/c') ?> %<br/>
 
 				<? else: ?>
 

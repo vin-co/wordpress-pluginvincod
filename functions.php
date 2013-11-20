@@ -465,9 +465,9 @@
 		// Datas about requests
 		$datas_wineries = wp_vincod_file_get_contents($request_wineries, TRUE);
 		$datas_wines = wp_vincod_file_get_contents($request_wines, TRUE);
-		
 		// Create base link
 		$link = get_bloginfo('wpurl') . '/?page_id=' . get_option('vincod_id_page_nos_vins');
+	
 
 		// Init loop
 		$loop = array();
@@ -506,7 +506,9 @@
 
 		$xml .= '</urlset>';
 
-
+		if (file_exists($file_name)) {
+			unlink($file_name);
+		}
 		// Save site map
 		file_put_contents($file_name, $xml, LOCK_EX);
 
@@ -633,7 +635,7 @@
 		wp_vincod_devlog('vincod_we_add_again_nos_vins_lang');
 
 		// Stock id of this page
-		add_option('vincod_id_page_nos_vins', $created);
+		update_option('vincod_id_page_nos_vins', $created);
 
 		wp_vincod_devlog('vincod_we_stock_lang', $created);
 
@@ -751,7 +753,6 @@
 
 			), TRUE); 	
 
-
 		if (isset($created->errors)) {
 
 			return FALSE;
@@ -783,7 +784,6 @@
 
 			));
 
-
 		if ($updated == (int) $id) {
 
 			return TRUE;
@@ -804,7 +804,7 @@
 	 */
 	function wp_vincod_delete_page($id) {
 
-		$deleted = wp_delete_post($id, TRUE);
+		$deleted = wp_delete_post($id);
 
 		if ($deleted === FALSE) {
 

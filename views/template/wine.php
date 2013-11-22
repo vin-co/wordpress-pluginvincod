@@ -76,6 +76,15 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 	<div class="spacer"></div>
 
+	<div>
+		<? if ( ! empty($wine['abstract'])): ?>
+			<strong><?= $vincod_brief_lang ?></strong><br/>
+			<?= $wine['abstract'] ?>
+		<? endif; ?>
+	</div>
+
+	<div class="spacer"></div>
+
 	<!-- Navigation -->
 	<div class="nav-vincod">
 

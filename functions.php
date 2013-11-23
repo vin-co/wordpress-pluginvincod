@@ -10,7 +10,7 @@
  * @category	Helper
  *
  */
-	
+
 	$wp_vincod_views_datas = array(); // Our views datas
 
 	/*
@@ -187,6 +187,25 @@
 	|
 	*/	
 
+	function wp_vincod_include_video($value, $extend) {
+
+		// Maybe add this in dashboard to customise width & height ?		
+		$width = 400;
+		$height = 250;
+
+
+		if(preg_match('/^http(s?):\/\/vimeo.com\/([0-9_-]+)/', $value, $matches)) {        
+			return '<iframe src="http://player.vimeo.com/video/'.$matches[2].'" width="'.$width.'" height="'.$height.'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>' . $extend;
+		} else if(preg_match('/^http(s?):\/\/www.youtube.com\/watch\?v=([a-zA-Z0-9_-]+)&?/', $value, $matches)) {
+			return '<iframe src="http://www.youtube.com/embed/'.$matches[2].'" width="'.$width.'" height="'.$height.'" frameborder="0" allowFullScreen></iframe>' . $extend;
+		} else if(preg_match('/^http(s?):\/\/www.dailymotion.com\/video\/([a-zA-Z0-9_-]+)_/', $value, $matches)) {
+			return '<iframe src="http://www.dailymotion.com/embed/video/'.$matches[2].'" width="'.$width.'" height="'.$height.'" frameborder="0" allowFullScreen></iframe>' . $extend;
+		}
+
+		return FALSE;
+
+	}
+
 	function wp_vincod_varieties_desc($varieties) {
 
 		foreach ($varieties as $key => $row) {
@@ -288,7 +307,7 @@
 			// CASE WML
 			if ($elements['host'] == 'www.winemedialibrary.com' OR $elements['host'] == 'winemedialibrary.com') {
 				
-		
+
 
 				if (in_array($type, $allowed_type_wml)) {
 
@@ -401,7 +420,7 @@
 
 		}
 
-	
+
 
 		return $wines_filtered;
 
@@ -481,7 +500,7 @@
 		$datas_wines = wp_vincod_file_get_contents($request_wines, TRUE);
 		// Create base link
 		$link = get_bloginfo('wpurl') . '/?page_id=' . get_option('vincod_id_page_nos_vins');
-	
+
 
 		// Init loop
 		$loop = array();
@@ -923,7 +942,7 @@
 
 	function wp_vincod_is_multi($array) {
 
-   		return (count($array) != count($array, 1));
+		return (count($array) != count($array, 1));
 
 	}
 

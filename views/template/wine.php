@@ -190,7 +190,6 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 			<? endif; ?>
 
-
 		
 		</div>
 
@@ -213,12 +212,20 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 			<? foreach ($wine['fields']['advice'] as $field): ?>
 
-				<? if (!empty($field['value'])): ?>
+				<? if ( ! empty($field['value']) && $field['label'] != 'Video'): ?>
 
 						<strong><?= $field['label'] ?></strong> <br/>
 						<?= $field['value'] ?>
 
 					<div class="spacer"></div>
+
+				<? endif; ?>
+
+				<!-- Video case -->
+				<? if ( ! empty($field['value']) && $field['label'] == 'Video'): ?>
+
+					<strong><?= $field['label'] ?></strong> <br/>
+					<?= wp_vincod_include_video($field['value'], '<br/><br/>') ?>
 
 				<? endif; ?>
 

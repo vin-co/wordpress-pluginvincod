@@ -55,9 +55,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 		<select name="years">
 
 			<? foreach($oldwines as $select_wines): ?>
-	<pre>
-	<? var_dump($select_wines) ?>
-	</pre>
+
 				<? if ($select_wines['vintageyear'] == $wine['vintageyear']): ?>
 					
 					<option selected="selected" value="<?= wp_vincod_link('vincod', $select_wines['vincod'], $select_wines['name']) ?>"><?=$select_wines['vintageyear']?></option>

@@ -38,9 +38,10 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 	<?= wp_vincod_breadcrumb($breadcrumb) ?>
 	<br/><br/>
 
+
 	<? if ($range): ?>
 		
-		<? $range = $results['wineries']['winery'] ?>
+		<? $range = $range['wineries']['winery'][0] ?>
 
 		<h2><?= $range['name'] ?></h2>
 

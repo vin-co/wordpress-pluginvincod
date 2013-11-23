@@ -326,7 +326,7 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 		if ($vintages) {
 
-			foreach($vintages as $results_years_specific) {
+			foreach($vintages['wines']['wine'] as $results_years_specific) {
 
 				$vintageyears[$inc] = $results_years_specific;
 				$inc++;

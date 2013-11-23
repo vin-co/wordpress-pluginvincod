@@ -50,7 +50,6 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 	<br />
 
 
-
 	<? if(count($oldwines) > 1): ?>
 		<select name="years">
 
@@ -120,6 +119,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 		
 		<div data-blocks="about-wine">
 
+			<!-- Presentation fields -->
 			<? if ( ! wp_vincod_is_multi($wine['fields']['presentation'])): ?>
 
 				<!-- Manage problem API -->
@@ -141,6 +141,30 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 			<? endforeach; ?>
 
+			<!-- Specifications Fields -->
+			<? if ( ! wp_vincod_is_multi($wine['fields']['specifications'])): ?>
+
+				<!-- Manage problem API -->
+				<? $wine['fields']['specifications'] = array($wine['fields']['specifications']); ?>
+
+			<? endif; ?>
+
+			<? foreach ($wine['fields']['specifications'] as $field): ?>
+
+				<? if (!empty($field['value'])): ?>
+
+
+					<strong><?= $field['label'] ?></strong> <br/>
+					<?= $field['value'] ?>
+
+					<div class="spacer"></div>
+
+				<? endif; ?>
+
+			<? endforeach; ?>
+
+
+			<!-- Varieties -->
 			<? if (!empty($wine['grapesvarieties']['variety'])): ?>
 
 				<strong>Cépages</strong><br/>
@@ -162,6 +186,8 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 
 			<? endif; ?>
+
+
 		
 		</div>
 

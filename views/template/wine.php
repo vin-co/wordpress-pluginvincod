@@ -172,17 +172,20 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 				<? if ( ! wp_vincod_is_multi($wine['grapesvarieties']['variety'])): ?>
 
-					<?= $wine['grapesvarieties']['variety']['name'] ?> : <?= wp_vincod_empty($wine['grapesvarieties']['variety']['amount'], 'n/c') ?> %<br/>
+					<? $wine['grapesvarieties']['variety'] = array($wine['grapesvarieties']['variety']) ?>
 
-				<? else: ?>
+				<? endif; ?>
 
-					<? foreach ($wine['grapesvarieties']['variety'] as $variety): ?>
+
+				<!-- Order by desc varieties -->
+				<? $varieties = wp_vincod_varieties_desc($wine['grapesvarieties']['variety']); ?>
+
+				<? foreach ($varieties as $variety): ?>
 
 						<?= $variety['name'] ?> : <?= wp_vincod_empty($variety['amount'], 'n/c') ?> %<br/>
 
-					<? endforeach; ?>
+				<? endforeach; ?>
 
-				<? endif; ?>
 
 
 			<? endif; ?>

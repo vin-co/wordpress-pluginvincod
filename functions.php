@@ -185,7 +185,21 @@
 	| 
 	| Custom functions for this plugin
 	|
-	*/
+	*/	
+
+	function wp_vincod_varieties_desc($varieties) {
+
+		foreach ($varieties as $key => $row) {
+
+			$amount[$key] = $row['amount'];
+
+		}
+
+
+		array_multisort($amount, SORT_DESC, $varieties);
+
+		return $varieties;
+	}
 
 	function wp_vincod_breadcrumb($breadcrumb) {
 

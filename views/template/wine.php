@@ -116,7 +116,8 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 	<!-- Infos about wine -->
 	<? if (!empty($wine['fields']['presentation'])) : ?>
-		
+			
+
 		<div data-blocks="about-wine">
 
 			<!-- Presentation fields -->
@@ -235,6 +236,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 	<? endif; ?>
 
+
 	<!-- Reviews -->
 	<? if ( ! empty($wine['reviews']['review'])): ?>
 
@@ -260,7 +262,11 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 				<br/>
 
-				<em><?= $review['source'] ?></em>
+				<? if ( ! empty($review['author'])): ?>
+					<strong><?= $review['author'] ?></strong><br/>
+				<? endif; ?>
+
+				<em><?= $review['source'] ?>, <?= $review['mark'] ?>, <?= $review['date'] ?></em>
 
 				<div class="spacer"></div>
 
@@ -282,10 +288,12 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 			<? endif; ?>
 
-			<? foreach ($wine['shops'] as $shop): ?>
+			<? foreach ($wine['shops']['shop'] as $shop): ?>
 
 				<strong><?= $shop['shop'] ?></strong><br/>
 				<a target="_blank" href="<?= $shop['url'] ?>"><?= $shop['description'] ?></a>
+
+				<br/><br/>
 
 			<? endforeach; ?>
 

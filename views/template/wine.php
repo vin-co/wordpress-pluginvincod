@@ -105,8 +105,13 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 		<? endif; ?>
 
 		<!-- Shop button -->
-		<? if (!empty($wine['shops'])): ?>
+		<? if ( ! empty($wine['shops'])): ?>
 			<a id="trigger-shop-wine" href="#">Commander</a>
+		<? endif; ?>
+
+		<!-- Medias button -->
+		<? if ( ! empty($wine['medias'])): ?>
+			<a id="trigger-media-wine" href="#">Galerie photos</a>
 		<? endif; ?>
 
 	</div>
@@ -277,7 +282,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 	<? endif; ?>
 
 	<!-- Shop about wine -->
-	<? if (!empty($wine['shops'])): ?>
+	<? if ( ! empty($wine['shops'])): ?>
 		
 		<div data-blocks="shop-wine">
 
@@ -300,7 +305,35 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 		</div>
 
 	<? endif; ?>
-	
+
+	<!-- Pictures -->
+
+
+	<? if ( ! empty($wine['medias'])): ?>
+
+		<div data-blocks="media-wine">
+
+			<? if ( ! wp_vincod_is_multi($wine['medias'])): ?>
+
+				<!-- Manage problem API -->
+				<? $wine['medias'] = array($wine['medias']) ?>
+
+			<? endif; ?>
+
+			<? foreach ($wine['medias']['media'] as $media): ?>
+
+				<strong><?= $media['name'] ?></strong><br/><br/>
+				<a target="_blank" href="<?= $media['url'] ?>"><img src="<?= $media['preview'] ?>" /></a> <br/><br/>
+				
+				<hr>
+
+			<? endforeach ?>
+
+
+		</div>
+
+	<? endif; ?>
+
 	<!-- Widgets -->
 	<div class="widgets">
 		<ul>

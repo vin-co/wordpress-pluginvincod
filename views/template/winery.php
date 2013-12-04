@@ -87,7 +87,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 			<div>
 
-				<? foreach ($wines['wines']['wine'] as $wine): ?>
+				<? foreach ($wines as $wine): ?>
 
 				<div class="fleft w50">
 					<?= wp_include_picture($wine) ?>			

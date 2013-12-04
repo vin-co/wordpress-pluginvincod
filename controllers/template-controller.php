@@ -240,7 +240,6 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		$ranges = $this->get_ranges_by_owner_id();
 		$wines = $this->get_wines_by_owner_id();
 		
-
 		$view_datas = array(
 
 			'owner' => $owner,
@@ -264,6 +263,17 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		$wines = $this->get_wines_by_winery_id($params['winery']);
 
 		$breadcrumb = get_permalink(get_option('vincod_id_page_nos_vins'));
+
+		// Group wines
+		if ($wines) {
+
+			// Shortcut for template
+			$wines = $wines['wines']['wine'];
+
+			$wines = wp_vincod_group_wines($wines);
+
+
+		}
 
 		$view_datas = array(
 

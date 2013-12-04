@@ -402,7 +402,7 @@
 	}
 
 	function wp_vincod_group_wines($wines) {
-
+		
 		$wineid_found = array();
 		$wines_filtered = array();
 

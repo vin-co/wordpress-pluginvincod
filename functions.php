@@ -243,18 +243,13 @@
 
 	function wp_include_picture($datas) {
 
+		if ( ! empty($datas['logo'])) {
 
-		if ( ! empty($datas['picture'])) {
+			$picture = $datas['logo'];
+
+		} elseif ( ! empty($datas['picture'])) {
 
 			$picture = $datas['picture'];
-
-		} elseif ( ! empty($datas['medias']['media']['preview'])) {
-
-			$picture = $datas['medias']['media']['preview'];
-
-		} elseif ( ! empty($datas['medias']['media'][0]['preview'])) {
-
-			$picture = $datas['medias']['media'][0]['preview'];
 
 		} elseif ( ! empty($datas['medias']['media']['url'])) {
 
@@ -402,7 +397,7 @@
 	}
 
 	function wp_vincod_group_wines($wines) {
-		
+
 		$wineid_found = array();
 		$wines_filtered = array();
 
@@ -508,6 +503,11 @@
 		// Wineries
 		if (!isset($datas_wineries['wineries']['error'])) {
 
+			if( ! wp_vincod_is_multi($datas_wineries['wineries']['winery'][0])) {
+
+				$datas_wineries['wineries']['winery'] = array($datas_wineries['wineries']['winery']);
+
+			}
 			// Loop wineries
 			foreach ($datas_wineries['wineries']['winery'] as $winery) {
 
@@ -519,6 +519,12 @@
 
 		// Wines
 		if (!isset($datas_wines['wines']['error'])) {
+
+			if( ! wp_vincod_is_multi($datas_wines['wines']['wine'][0])) {
+
+				$datas_wines['wines']['wine'] = array($datas_wines['wines']['wine']);
+
+			}
 
 			// Loop wines
 			foreach ($datas_wines['wines']['wine'] as $wine) {
@@ -542,6 +548,7 @@
 		if (file_exists($file_name)) {
 			unlink($file_name);
 		}
+
 		// Save site map
 		file_put_contents($file_name, $xml, LOCK_EX);
 

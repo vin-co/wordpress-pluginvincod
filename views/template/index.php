@@ -34,7 +34,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 
 <div class="plugin-vincod">
-
+	
 	<!-- About owner -->
 	<? if ($owner): ?>
 

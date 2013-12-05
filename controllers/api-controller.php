@@ -321,6 +321,7 @@ class wp_vincod_controller_api {
 
 			));
 
+
 		// Check error
 		if (isset($owner['owners']['error'])) {
 
@@ -376,7 +377,7 @@ class wp_vincod_controller_api {
 			}
 
 			// We get many results, we must check one per one if no error
-			
+
 			$ranges_success = array();
 
 			foreach ($ranges['wineries']['winery'] as $key => $winery) {

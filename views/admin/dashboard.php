@@ -255,7 +255,7 @@ var vincod_plugin_app = {
      <div class="alert alert-info">
 
       <h4><i class="icon-question-sign"></i> <?=$vincod_what_is_this_devlog_lang?></h4>
-      <p><?=$vincod_text_cache_api_lang?>?></p>
+      <p><?=$vincod_text_cache_api_lang?></p>
    
     </div>
 

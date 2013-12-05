@@ -368,7 +368,37 @@ class wp_vincod_controller_api {
 
 		if (isset($ranges['wineries']['error'])) {
 
-			return FALSE;
+			// String returned, so just only for a single result
+			if ( ! is_array($ranges['wineries']['error'])) {
+
+				return FALSE;
+
+			}
+
+			// We get many results, we must check one per one if no error
+			
+			$ranges_success = array();
+
+			foreach ($ranges['wineries']['winery'] as $key => $winery) {
+
+				if ( ! isset($ranges['wineries']['error'][$key])) {
+
+					$ranges_success[] = $winery;
+
+				}
+
+			}
+
+			// Check if we found ranges with no error
+			if (empty($ranges_success)) {
+
+				return FALSE;
+
+			} 
+
+			// Re assign
+			$ranges['wineries']['winery'] = $ranges_success;
+			
 
 		}
 

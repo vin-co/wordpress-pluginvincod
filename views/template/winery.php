@@ -58,7 +58,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 			<? foreach ($ranges['wineries']['winery'] as $winery): ?>
 
 				<div class="fleft w50">
-					<img src="<?= wp_vincod_url_resizer( wp_vincod_picture_format($winery['logo']) ) ?>" />
+					<?= wp_include_picture($winery) ?>
 				</div>
 
 				<div class="fright w50">

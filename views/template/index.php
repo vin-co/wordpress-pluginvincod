@@ -58,11 +58,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 				<!-- Block Picture -->
 				<div class="w50 fleft">
-					<? if ( ! empty($winery['logo'])): ?>
-						<img src="<?= wp_vincod_url_resizer( wp_vincod_picture_format($winery['logo']) ) ?>" />
-					<? else: ?>
-						<img src="<?= WP_VINCOD_PLUGIN_URL . 'assets/img/ico_winery.png' ?>" />
-					<? endif; ?>
+					<?= wp_include_picture($winery) ?>
 				</div>
 
 				<!-- Block Text -->

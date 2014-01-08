@@ -188,7 +188,17 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 				<? foreach ($varieties as $variety): ?>
 
-						<?= $variety['name'] ?> : <?= wp_vincod_empty($variety['amount'], 'n/c') ?> %<br/>
+
+						<?= $variety['name'] ?> 
+
+						<? if ( ! empty($variety['amount'])): ?>
+
+							: <?= $variety['amount'] ?> %
+
+						<? endif; ?>
+
+						<br/>
+
 
 				<? endforeach; ?>
 

@@ -281,7 +281,15 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 					<strong><?= $review['author'] ?></strong><br/>
 				<? endif; ?>
 
-				<em><?= $review['source'] ?>, <?= $review['mark'] ?>, <?= $review['date'] ?></em>
+				<em><?= $review['source'] ?>
+
+				<? if (! empty($review['mark'])): ?>
+					, <?= $review['mark'] ?>
+				<? endif; ?>
+
+				<? if ($review['date'] != '0000-00-00'): ?>
+					, <?= $review['date'] ?></em>
+				<? endif; ?>
 
 				<div class="spacer"></div>
 

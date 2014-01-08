@@ -303,10 +303,22 @@
 			if ($elements['host'] == 'www.winemedialibrary.com' OR $elements['host'] == 'winemedialibrary.com') {
 				
 
-
 				if (in_array($type, $allowed_type_wml)) {
 
-					$url = str_replace('marque/', 'marque/' . $type . '/', $url);
+					// Is it a customer folder
+					if (strpos($url, '/_clients_folder/')) {
+
+						$infos = pathinfo($url);
+						$pattern = '.' . $infos['extension']; // Ex. > .jpg
+						$replace_pattern = '_' . $type . '.' . $infos['extension']; // Ex > _640.jpg
+						$url = str_replace($pattern, $replace_pattern, $url);
+
+					} else {
+
+						$url = str_replace('marque/', 'marque/' . $type . '/', $url);
+
+					}
+ 
 
 				}
 			}

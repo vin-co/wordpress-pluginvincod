@@ -304,17 +304,28 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 		
 		<div data-blocks="shop-wine">
 
-			<? if ( ! wp_vincod_is_multi($wine['shops'])): ?>
+			<? if ( ! wp_vincod_is_multi($wine['shops']['shop'])): ?>
 
 				<!-- Manage problem API -->
-				<? $wine['shops'] = array($wine['shops']); ?>
+				<? $wine['shops']['shop'] = array($wine['shops']['shop']); ?>
 
 			<? endif; ?>
+
 
 			<? foreach ($wine['shops']['shop'] as $shop): ?>
 
 				<strong><?= $shop['shop'] ?></strong><br/>
-				<a target="_blank" href="<?= $shop['url'] ?>"><?= $shop['description'] ?></a>
+				<a target="_blank" href="<?= $shop['url'] ?>">
+
+					<? if (empty($shop['description'])): ?>
+						
+						<!-- Todo : i18n -->
+						Commander
+					<? else: ?>
+						<?= $shop['description'] ?>
+
+					<? endif; ?>
+				</a>	
 
 				<br/><br/>
 

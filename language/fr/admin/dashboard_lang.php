@@ -9,16 +9,21 @@
  * @category	Lang
  *
  */
-wp_vincod_view_var('vincod_title_lang', "Vincod - Tableau de bord");
-wp_vincod_view_var('vincod_subtitle_lang', "Besoin de paramètrer le plugin ? Analyser des données liées à son exécution ? Personnaliser son apparence ? C'est ici que tout se passe ...");
+wp_vincod_view_var('vincod_title_lang', "Vincod - Réglages");
+wp_vincod_view_var('vincod_subtitle_lang', "Paramétrer l'extension ? Personnaliser l'affichage? Optimiser le référencement ? Personnaliser les permaliens? Analyser des données liées à son exécution ? C'est ici que tout se passe ...");
 
 wp_vincod_view_var('vincod_first_visit_lang', 'Première visite ?');
-wp_vincod_view_var('vincod_first_visit_subtext_lang', "C'est votre première visite ? Pour que le plugin fonctionne, il vous faut le paramétrer en ajoutant votre numéro client ainsi que votre clé API.");
+wp_vincod_view_var('vincod_first_visit_subtext_lang', "C'est votre première visite ? Pour que l'extension vincod fonctionne, il faut d'abord la paramétrer. Vous devez disposer d'une clé d'API valide et d'un identifiant de compte autorisé. En cas de besoin contacter <a href='mailto:support@vincod.com'>support@vincod.com</a>.");
 
 wp_vincod_view_var('vincod_settings_lang', "Paramètrage");
 
-wp_vincod_view_var('vincod_your_customer_id_lang', "Votre numéro client");
-wp_vincod_view_var('vincod_your_customer_id_placeholder_lang', "Votre numéro client Vincod");
+wp_vincod_view_var('vincod_your_customer_id_lang', "Identifiant du compte");
+wp_vincod_view_var('vincod_your_customer_id_placeholder_lang', "Identifiant Vincod de votre compte Vincod");
+
+wp_vincod_view_var('vincod_your_customer_winery_id_txt_lang', "Si vous souhaitez n'afficher qu'une seule marque du compte, préciser l'identifiant de la marque. En cas de besoin contacter <a href='mailto:support@vincod.com'>support@vincod.com</a>.");
+
+wp_vincod_view_var('vincod_your_customer_winery_id_lang', "Identifiant d'une marque");
+wp_vincod_view_var('vincod_your_customer_winery_id_placeholder_lang', "Identifiant Vincod de votre marque");
 
 wp_vincod_view_var('vincod_your_apikey_lang', "Votre clé API");
 wp_vincod_view_var('vincod_your_apikey_placeholder_lang', "La clé API de votre compte Vincod");

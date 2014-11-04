@@ -29,7 +29,8 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		$this->config(array(
 
 			'_customer_api' => get_option('vincod_setting_customer_api'),
-			'_customer_id' => get_option('vincod_setting_customer_id')
+			'_customer_id' => get_option('vincod_setting_customer_id'),
+			'_customer_winery_id' => get_option('vincod_setting_customer_winery_id')
 
 			));
 
@@ -239,6 +240,12 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		$wineries = $this->get_wineries_by_owner_id();
 		$ranges = $this->get_ranges_by_owner_id();
 		$wines = $this->get_wines_by_owner_id();
+
+		//Si winery specifique precise alors on cache le owner et on selectionne que cette winery
+		if (get_option('vincod_setting_customer_winery_id')) {
+			$owner=false;
+			$wineries = $this->get_winery_by_id(get_option('vincod_setting_customer_winery_id'));
+		}
 		
 		$view_datas = array(
 
@@ -249,7 +256,6 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 			'link' => $this->permalink
 
 			);
-
 		// Loader
 		$this->_view_loaded = $this->load_view('template/index', $view_datas, TRUE);
 

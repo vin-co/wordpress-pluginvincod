@@ -8,11 +8,11 @@
  * the file plugin-vincod/template/winery.php ; If you make this you can use 
  * all functions and all constants of the plugin.
  *
- * 
- * @author      Jérémie GES
- * @copyright   2013
  * @category    View
- *
+ * @author      Jérémie GES Philippe HUGON 
+ * @copyright   2014 VINTERNET
+ * @category    View
+ * @link		http://vin.co/
  */
 
 ?>
@@ -35,87 +35,208 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 
 <div class="plugin-vincod">
-
+	
 	<?= wp_vincod_breadcrumb($breadcrumb) ?>
-	<br/><br/>
+   
+    
+    <div class="blocparent">
+    
+		<!-- Winery presentation -->
+        
+        <? if ($winery): ?>
+            
+        <? /* var_dump($winery) */ ?> 
+                    
+            <!-- Create shorcut -->
+            <? $winery = $winery['wineries']['winery'][0] ?>
+           
+            
+            
+            <? if ($winery['picture']): ?>
+            	<? if ($winery['logo']): ?>
+                <!-- Logo winery & photo d'ambiance-->
+                	<div class="blocparentimgcontdouble" style="background-image:url('<?= $winery['picture'] ?>') ; " >
+                    <div class="blocparentimgdouble" style="background-image:url(<?= wp_include_picture_url($winery) ?>) ; background-repeat: no-repeat; background-position: center center; background-size:contain; "></div>    
+                	</div>
+            	<? else: ?>
+                <!-- photo d'ambiance -->
+                	<div class="blocparentimgcontdouble" style="background-image:url('<?= $winery['picture'] ?>') ; " ></div>
+                <? endif; ?>
+			<? else: ?>
+                <!-- Logo winery -->
+                <div class="blocparentimgcont" >
+                    <div class="blocparentimg" style="background-image:url(<?= wp_include_picture_url($winery) ?>) ; background-repeat: no-repeat; background-position: center center; background-size:contain; "></div>    
+                </div>
+            <? endif; ?>
+            
+            
+            
+            <!-- Winery Name & presentation -->
+            <div class="blocparenttxt">
+                <br /><h1><?= $winery['name'] ?></h1>
+                <? if (isset($winery['signature']['value'])): ?>
+						<h2><?= nl2br($winery['signature']['value']) ?></h2>
+				<? endif; ?>
+                <?= nl2br($winery['presentation']['value']) ?>
+            </div>
+            
+            
+            <div class="clear"></div>
+            
+        <? endif; ?>
+	
+    	</div>  
+    
 
-	<!-- About the winery -->
-	<? if ($winery): ?>
-			
-		<!-- Create shorcut -->
-		<? $winery = $winery['wineries']['winery'][0] ?>
+    <div class="blocfils">
+    
+   
 
-		<h2><?= $winery['name'] ?></h2> 
-		<p><?= nl2br($winery['presentation']['value']) ?></p>
+        <!-- List of ranges in the winery -->
+        
+        <? if ($ranges): ?>
+    
+            
+    
+                <? foreach ($ranges['wineries']['winery'] as $range): ?>
+    
+                    <!-- Old style 2 column
+                    <div><div class="fleft w50">
+                        <?= wp_include_picture($range) ?><br><br>
+                    </div>
+    
+                    <div class="fright w50">
+                        <h1><?= $range['name'] ?></h1>
+                        <?= nl2br($range['signature']['value']) ?>
+    
+                        
+    
+                        <a href="<?= wp_vincod_link('range', $range['id'], $range['name']) ?>"><?=$vincod_more_lang?></a>
+    
+                    </div>
+    
+                    <div class="clear"></div>
+                    <div class="spacer"></div>
+                    <hr>
+                    </div>
+                    -->
+                    
+                    <!-- New style like blocs -->
+                    
+                    
+                    <div class="blocfilsitems"> 
+                       
+                        <div class="blocfilsimg" style="background-image:url(<?= wp_include_picture_url($range) ?>); background-repeat: no-repeat; background-position: center center; background-size:100% auto;">
+                        
+                            <!--<a href="<?= wp_vincod_link('range', $range['id'], $range['name']) ?>"><?= wp_include_picture($range) ?></a><br><br>-->
+                            <a href="<?= wp_vincod_link('range', $range['id'], $range['name']) ?>" style="display:block; width:100%;height:100%;">&nbsp;</a>
+                        
+                        </div>
+                    
+                        <div class="blocfilstxt">
+                        
+                            <h2><a href="<?= wp_vincod_link('range', $range['id'], $range['name']) ?>"><?= $range['name'] ?></a></h2>
+                           <a href="<?= wp_vincod_link('range', $range['id'], $range['name']) ?>">
+						   	<? if (isset($range['signature']['value'])): ?>
+								<?= nl2br($range['signature']['value']) ?>
+							<? endif; ?>
+						   <? /* =$vincod_more_lang */ ?></a>
+        				</div>
+                        
+                        
+                        
+                    </div>
+                    
+            		
+    
+                    
+                    
+                    
+    
+                <? endforeach; ?>
+    
+            
+            
+        <? endif; ?>
+    
+        
+    
+        <!-- if no range list wines in the winery -->
+    
+        <? if ( ! $ranges): ?>
+    
+            <? if ($wines): ?>
+    
+                
+    
+                    <? foreach ($wines as $wine): ?>
+                    
+                    <!-- Old style 2 column
+                    <div>
+    
+                    <div class="fleft w50">
+                        <?= wp_include_picture($wine) ?><br><br>			
+                    </div>
+    
+                    <div class="fright w50">
+                        <h1><?= $wine['name'] ?></h1>
+                        <?= nl2br($wine['abstract']) ?>
+    
+                        
+    
+                        <a href="<?= wp_vincod_link('vincod', $wine['vincod'], $wine['name']) ?>"><?=$vincod_more_lang?></a>
+    
+                    </div>
+    
+                    <div class="clear"></div>
+                    <div class="spacer"></div>
+                    <hr>
+                    </div>
+                    
+                    -->
+                    <!-- New style like blocs -->
+                    <div class="blocfilsitems">
+                        
+                        <div class="blocfilsimgwine" style="background-image:url(<?= wp_include_picture_wine_url($wine) ?>); background-repeat: no-repeat; background-position: center center;background-size:contain;">
+                            <a href="<?= wp_vincod_link('vincod', $wine['vincod'], $wine['name']) ?>" style="display:block; width:100%;height:100%;">&nbsp;</a>			
+                        </div>
+                    
+                        <div class="blocfilstxt">
+                            <h2><a href="<?= wp_vincod_link('vincod', $wine['vincod'], $wine['name']) ?>"><?= $wine['name'] ?></a></h2>
+                            <? if (isset($wine['abstract'])): ?>
+                            	<a href="<?= wp_vincod_link('vincod', $wine['vincod'], $wine['name']) ?>"><?= nl2br($wine['abstract']) ?><br /><? /* =$vincod_more_lang */ ?></a>
+        					<? endif; ?>
+                        
+                        </div>
+    
+                    
+                    </div>
 
-	<? endif; ?>
-
-	<!-- Ranges for this winery -->
-	<? if ($ranges): ?>
-
-		<div>
-
-			<? foreach ($ranges['wineries']['winery'] as $winery): ?>
-
-				<div class="fleft w50">
-					<?= wp_include_picture($winery) ?>
-				</div>
-
-				<div class="fright w50">
-					<h2><?= $winery['name'] ?></h2>
-					<p><?= nl2br($winery['signature']['value']) ?></p>
-
-					<br/><br/>
-
-					<a href="<?= wp_vincod_link('range', $winery['id'], $winery['name']) ?>"><?=$vincod_more_lang?></a>
-
-				</div>
-
-				<div class="clear"></div>
-				<div class="spacer"></div>
-
-			<? endforeach; ?>
-
-		</div>
 
 
-	<? endif; ?>
+    
+                <? endforeach; ?>
 
-	<? if ( ! $ranges): ?>
+                
+    
+            <? else: ?>
+    
+                <?= $vincod_no_wines_lang ?>
+    
+            <? endif; ?>
+          
+        <? endif; ?>
+    
+    
+    </div>
 
-		<? if ($wines): ?>
-
-			<div>
-
-				<? foreach ($wines as $wine): ?>
-
-				<div class="fleft w50">
-					<?= wp_include_picture($wine) ?>			
-				</div>
-
-				<div class="fright w50">
-					<h2><?= $wine['name'] ?></h2>
-					<p><?= nl2br($wine['abstract']) ?></p>
-
-					<br/><br/>
-
-					<a href="<?= wp_vincod_link('vincod', $wine['vincod'], $wine['name']) ?>">En savoir plus</a>
-
-				</div>
-
-				<div class="clear"></div>
-				<div class="spacer"></div>
-
-			<? endforeach; ?>
-			</div>
-
-		<? else: ?>
-
-			<?= $vincod_no_wines_lang ?>
-
-		<? endif; ?>
-
-	<? endif; ?>
-
-
+    <div class="clear"></div>
+    <div class="spacer"></div>
+    
+    
+        
+    
+    
+    <?= wp_vincod_breadcrumb($breadcrumb) ?>
+    <div class="spacer"></div>
 </div>

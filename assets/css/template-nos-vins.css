@@ -4,9 +4,10 @@
  * The CSS layouts about the "Nos Vins" template
  *
  * @package		Vincod Layout
- * @author		Jérémie GES
- * @copyright	2013
- * @link		http://www.vincod.com/
+ * @author		Jérémie GES Philippe HUGON
+ * @copyright	2014 VINTERNET
+ * @link		http://vin.co/
+ 
  */
 
 
@@ -31,12 +32,81 @@
 
 	/* 1. Template
 	-------------------------------------------------- */
-	.plugin-vincod .fleft { float : left; }
-	.plugin-vincod .fright { float : right; }
-	.plugin-vincod .w50 { width : 50%; }
+	/*.plugin-vincod .fleft { float : left; }*/
+	
+	
+	
+	
+	.plugin-vincod {width : 100%; vertical-align:middle;}
+	
+	/* bloc owner/winery/range avant liste wineries/ranges/wine */
+	
+	.plugin-vincod .blocparent {width : 100%; /*border: 1px solid #D2D2D2;*/  background:#f9f9f9 ;}
+	
+		/*** cas logo seul */
+	.plugin-vincod .blocparentimgcont {width : 100%; height:auto; text-align:center; background:#fff; margin:0px; border:none; padding:20px;}
+	.plugin-vincod .blocparentimg {width:100%; height:180px; display:inline-block; background:#fff;}
+		/*** cas logo + visuel */
+	.plugin-vincod .blocparentimgcontdouble {width : 100%; height:280px; text-align:center; background:#000; padding:0px; margin:0px; border:none;background-repeat: no-repeat; background-position: center center; background-size:100% auto ;}
+	.plugin-vincod .blocparentimgdouble {width:220px; height:220px; margin-top:90px; display:inline-block; background:#fff;border: 1px solid #D2D2D2;  }
+	
+	.plugin-vincod .blocparenttxt {padding:0 20px 20px 20px; }
+	.plugin-vincod .blocparenttxt h1, .plugin-vincod .blocparenttxt h2{text-align:center;  }
+	
+	/* presentation liste gamme/vin  */
+	
+	.plugin-vincod .bloccenter {text-align:center; margin:auto; }
+	.plugin-vincod .blocfils {height:auto; /*overflow: hidden;*/ top:0px; left:0px; width: 100%; margin:10px auto;  position: relative; text-align:center; }
+	.plugin-vincod .blocfilsitems {width: 310px; margin:5px auto 0px auto;vertical-align:top; display:inline-block; /*border: 1px solid #D2D2D2;*/ overflow: hidden; position: relative; text-align:center;padding:0px; background:#fff}
+	.plugin-vincod .blocfilsimg {width : 310px; height:260px; margin:0px;/*border-bottom: 1px solid #D2D2D2;*/ background:#fff; display:inline-block;}
+	.plugin-vincod .blocfilsimgwine {width : 310px; height:320px; margin:0px;/*border-bottom: 1px solid #D2D2D2; */background:#fff; }
+	.plugin-vincod .blocfilstxt {padding:0 20px 20px 20px;}
+	.plugin-vincod .blocfilstxt h3{text-align:center;}
+	
+	
+	/* presentation vin  */
+	.plugin-vincod .blocvin_gen { width : 100%; height:auto; top:0px; left:0px;  overflow: hidden; position: relative; text-align:center; margin:0 auto; }
+	.plugin-vincod .blocvin_fiche {width: 100%;; vertical-align:top;position: relative;display:inline-block;  text-align:center; background:#fff; /*border: 1px solid #D2D2D2;*/ padding:20px;}
+	.plugin-vincod .blocvin_img {width : inherit;text-align:center; background:#fff; }
+	.plugin-vincod .blocvin_title {text-align:center;  }
+	.plugin-vincod .blocvin_vintage {text-align:center;  }
+	.plugin-vincod .blocvin_txt {text-align:left;  }
+	
+	.plugin-vincod .blocvin_share {text-align:center; background:#fff; /*border: 1px solid #D2D2D2;*/ padding:20px;}
+	
+	/* presentation vin media*/
+	
+	.plugin-vincod .media { margin:10px; width : 280px; float:left; vertical-align:middle; text-align:center; /*background:#f9f9f9;*/ border: 1px solid #D2D2D2;
+	-moz-box-shadow: 1px 1px 4px 0px #cccccc;
+-webkit-box-shadow: 1px 1px 4px 0px #cccccc;
+-o-box-shadow: 1px 1px 4px 0px #cccccc;
+box-shadow: 1px 1px 4px 0px #cccccc;
+filter:progid:DXImageTransform.Microsoft.Shadow(color=#cccccc, Direction=134, Strength=4);}
+	.plugin-vincod .mediaimg {width : 260px; height:320px; margin:10px;border-bottom: 1px solid #D2D2D2;background:#fff; display:inline-block;}
+	.plugin-vincod .mediatxt {padding:0 20px 20px 20px;}
+	
+	
+	
+	.plugin-vincod .fleft { margin:10px ; width : 300px; float:left; position:relative; vertical-align:middle; text-align:center;}
+	
+	.plugin-vincod .fleft1 { position:relative; display:inline; width:100%; text-align:center }
+	.plugin-vincod .fleft2 { margin:5px; padding:5px ; width : 280px; float:left; vertical-align:middle; text-align:center; border: 1px solid #D2D2D2;}
+	
+	
+	
+	.plugin-vincod .wleft { margin:10px ; width : 300px; float:left; position:relative; vertical-align:middle; text-align:center;}
+	
+	.plugin-vincod img { vertical-align:middle; text-align:center;}
+	
+	/*.plugin-vincod .shorty { height:30px;}
+	.plugin-vincod .fright { float : right; position:relative; }*/
+	.plugin-vincod .fright { margin:10px ; width : 300px; float : left; position:relative; }
+	.plugin-vincod .wright { margin:10px ; width : 300px; float : left; position:relative; }
+	/*.plugin-vincod .w50 { width : 50%; }*/
 	.plugin-vincod .spacer { margin-top : 2em; }
 	.plugin-vincod .clear { clear: both }
-
+	
+	
 	.plugin-vincod .button-vincod {
 		background: #eee; /* Old browsers */
 		background: #eee -moz-linear-gradient(top, rgba(255,255,255,.2) 0%, rgba(0,0,0,.2) 100%); /* FF3.6+ */
@@ -89,17 +159,16 @@
 		background: #ccc linear-gradient(top, rgba(255,255,255,.35) 0%,rgba(10,10,10,.4) 100%); /* W3C */ 
 	}
 
-	.plugin-vincod p { text-align: justify }
+	.plugin-vincod p {  }
 
 	.plugin-vincod hr { display : block; margin-top : 2em; margin-bottom: 2em }
 
 	.plugin-vincod div.widgets {
-		background-color: #dfd7ca;
-		border-top: 1px solid #dcd3c5;
-		margin-top: 15px;
-		margin-left: 0;
-		padding: 9px 0 10px;
+		
+		text-align:center;
+		
 	}
+	
 	.plugin-vincod div.widgets ul {
 
 		list-style: none;
@@ -107,6 +176,6 @@
 	}
 
 	.plugin-vincod div.widgets ul li {  margin-right : 0.5em; margin-left: 0.5em; display : inline-block; }
-	.plugin-vincod div.widgets ul li a { color: #4A4542; text-decoration: none; vertical-align: top}
-	.plugin-vincod div.widgets ul li a:hover { border : none;}
+	/*.plugin-vincod div.widgets ul li a { color: #4A4542; text-decoration: none; vertical-align: middle}
+	.plugin-vincod div.widgets ul li a:hover { border : none;}*/
 	.plugin-vincod div.widgets .bordered {  }

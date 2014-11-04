@@ -8,7 +8,9 @@
  * @author		Laurent SCHAFFNER / Jérémie GES
  * @copyright   2013
  * @category	Helper
- *
+ * @author		VINTERNET / PH
+ * @copyright   2014
+ * @
  */
 
 	$wp_vincod_views_datas = array(); // Our views datas
@@ -175,6 +177,36 @@
 		return $remote;
 
 	}
+	
+	function wp_vincod_url_resizer_wine($url_picture) {
+
+
+		// Get values
+		$width = get_option('vincod_setting_picture_width');
+		$height = get_option('vincod_setting_picture_height');
+		//$width = 200;
+		//$height = 600;
+
+		// Conditions
+		if (empty($width) OR !is_numeric($width)) {
+
+			$width = WP_VINCOD_TEMPLATE_PICTURE_WIDTH*2;
+			//$width = 500;
+
+		}
+
+		if (empty($height) OR !is_numeric($height)) {
+
+			$height = WP_VINCOD_TEMPLATE_PICTURE_HEIGHT*2;
+			//$height = 800;
+
+		}
+
+		$remote = WP_VINCOD_PLUGIN_URL . 'scripts/resizer.php?url=' . $url_picture . '&width=' . $width . '&height=' . $height;
+
+		return $remote;
+
+	}
 
 
 
@@ -235,11 +267,15 @@
 		$back = wp_vincod_get_lang_content('vincod_back_lang');
 		
 		$output = '<a href="' . $breadcrumb . '">' . $back . '</a>';
+		
+		
 
 		return $output;
 
 
 	}
+	
+	
 
 	function wp_include_picture($datas) {
 
@@ -277,6 +313,117 @@
 		return '<img src="' . $picture . '">';
 
 	}
+	
+		function wp_include_picture_url($datas) { // ajout PH pour insertion img en div
+
+		if ( ! empty($datas['logo'])) {
+
+			$picture = $datas['logo'];
+
+		} elseif ( ! empty($datas['picture'])) {
+
+			$picture = $datas['picture'];
+
+		} elseif ( ! empty($datas['medias']['media']['url'])) {
+
+			$picture = $datas['medias']['media']['url'];
+
+		} elseif ( ! empty($datas['medias']['media'][0]['url'])) {
+
+			$picture = $datas['medias']['media'][0]['url'];
+
+		} 
+
+
+
+		if (  isset($picture)) {
+
+			$picture = wp_vincod_url_resizer( wp_vincod_picture_format($picture) );
+
+		} else {
+
+			// Default picture
+			$picture = WP_VINCOD_PLUGIN_URL . 'assets/img/ico_wine.png';
+
+		}
+
+		return $picture;
+
+	}
+	
+	function wp_include_picture_wine($datas) {
+
+		if ( ! empty($datas['picture'])) { // PH remplace logo par picture
+
+			$picture = $datas['picture'];
+
+		} elseif ( ! empty($datas['tag'])) {// PH remplace picture par tag
+
+			$picture = $datas['tag'];
+
+		} elseif ( ! empty($datas['medias']['media']['url'])) {
+
+			$picture = $datas['medias']['media']['url'];
+
+		} elseif ( ! empty($datas['medias']['media'][0]['url'])) {
+
+			$picture = $datas['medias']['media'][0]['url'];
+
+		} 
+
+
+
+		if (  isset($picture)) {
+
+			$picture = wp_vincod_url_resizer_wine( wp_vincod_picture_format($picture) );
+
+		} else {
+
+			// Default picture
+			$picture = WP_VINCOD_PLUGIN_URL . 'assets/img/ico_wine.png';
+
+		}
+
+		return '<img src="' . $picture . '">';
+
+	}
+	
+	function wp_include_picture_wine_url($datas) { // PH ajout pour insertion img en div
+
+		if ( ! empty($datas['picture'])) {// PH remplace logo par picture
+
+			$picture = $datas['picture'];
+
+		} elseif ( ! empty($datas['tag'])) {// PH remplace logo par picture
+
+			$picture = $datas['tag'];
+
+		} elseif ( ! empty($datas['medias']['media']['url'])) {
+
+			$picture = $datas['medias']['media']['url'];
+
+		} elseif ( ! empty($datas['medias']['media'][0]['url'])) {
+
+			$picture = $datas['medias']['media'][0]['url'];
+
+		} 
+
+
+
+		if (  isset($picture)) {
+
+			$picture = wp_vincod_url_resizer_wine( wp_vincod_picture_format($picture) );
+
+		} else {
+
+			// Default picture
+			$picture = WP_VINCOD_PLUGIN_URL . 'assets/img/ico_wine.png';
+
+		}
+
+		return $picture;
+
+	}
 
 	function wp_vincod_picture_format($url, $type=640) {
 
@@ -299,6 +446,10 @@
 
 			}
 
+
+// LE BUG DE NAZE !! MANQUE LE CAS OLD WML exemple http://www.winemedialibrary.com/_clients_folder/vincod/marque/140/wml130527680565851.jpg
+
+
 			// CASE WML
 			if ($elements['host'] == 'www.winemedialibrary.com' OR $elements['host'] == 'winemedialibrary.com') {
 				
@@ -306,7 +457,7 @@
 				if (in_array($type, $allowed_type_wml)) {
 
 					// Is it a customer folder
-					if (strpos($url, '/_clients_folder/')) {
+					/*if (strpos($url, '/_clients_folder/')) {
 
 						$infos = pathinfo($url);
 						$pattern = '.' . $infos['extension']; // Ex. > .jpg
@@ -317,15 +468,29 @@
 
 						$url = str_replace('marque/', 'marque/' . $type . '/', $url);
 
+					}*/
+					
+					// Is it a customer folder
+					if (strpos($url, '/_clients_folder/vincod/')) {
+
+						$url = str_replace('marque/', 'marque/' . $type . '/', $url);
+
+						} else {
+	
+							
+							$infos = pathinfo($url);
+							$pattern = '.' . $infos['extension']; // Ex. > .jpg
+							$replace_pattern = '_' . $type . '.' . $infos['extension']; // Ex > _640.jpg
+							$url = str_replace($pattern, $replace_pattern, $url);
+	
+						}
+
 					}
- 
-
 				}
-			}
 
-		} 
+			 } 
 
-		return $url;
+		 return $url;
 
 
 	}
@@ -444,7 +609,12 @@
 	function wp_vincod_link($type, $id, $text) {
 
 		// Import wp_rewrite to use some functions
-		$link_page =  get_permalink();
+		$o_link_page =  get_permalink();
+		
+		// Erase lang param from url. it will be replaced at the end of new url
+		
+		$lang_page =  '?lang='.$_GET['lang'];
+		$link_page= str_replace($lang_page, '', $o_link_page);
 
 		// Check if permalinks used
 		if (wp_vincod_permalinks_used() === TRUE) {
@@ -455,24 +625,27 @@
 			switch($type) {
 
 				case 'winery':
-				$link_page .= 'exploitant-' . $id  . '-' . $text;
+				//$link_page .= 'exploitant-' . $id  . '-' . $text;
+				$link_page .= 'exploitant-' . $id  . '-' . $text.'/'.$lang_page;
 				break;
 
 				case 'range':
-				$link_page .= 'gamme-' . $id . '-' . $text;
+				$link_page .= 'gamme-' . $id . '-' . $text.'/'.$lang_page;
 				break;
 
 				case 'vincod':
 				$text = wp_vincod_wine_permalink($id, $text);
-				$link_page .= 'vin-' . $id . '-' . $text;
+				$link_page .= 'vin-' . $id . '-' . $text.'/'.$lang_page;
 				break;
 
 
 			}
+			
+			
 
 		} else {
 
-			$link_page .= '&' . $type . '=' . $id;
+			$link_page .= '&' . $type . '=' . $id.'&'.$lang_page;
 
 		}
 
@@ -960,7 +1133,6 @@
 
 
 	function wp_vincod_is_multi($array) {
-
 		return (count($array) != count($array, 1));
 
 	}
@@ -1216,6 +1388,7 @@
 					// Delete informations about api
 				delete_option('vincod_setting_customer_id');
 				delete_option('vincod_setting_customer_api');
+				delete_option('vincod_setting_customer_winery_id');
 
 				wp_vincod_devlog('vincod_we_delete_api_credentials_lang');
 
@@ -1230,6 +1403,7 @@
 
 					$customer_id = $cleaned_post['vincod_setting_customer_id'];
 					$customer_api = $cleaned_post['vincod_setting_customer_api'];
+					$customer_winery_id = $cleaned_post['vincod_setting_customer_winery_id'];
 
 
 					$tested = wp_vincod_test_api($customer_id, $customer_api);
@@ -1239,6 +1413,7 @@
 						// Update options
 						update_option('vincod_setting_customer_id', $customer_id);
 						update_option('vincod_setting_customer_api', $customer_api);
+						update_option('vincod_setting_customer_winery_id', $customer_winery_id);
 
 						// Switch page "Nos vins" (pending -> publish)
 						wp_vincod_switch_page(get_option('vincod_id_page_nos_vins'), 'publish');

@@ -7,12 +7,12 @@
  * You can replace this view by your, just create in your current theme folder
  * the file plugin-vincod/template/index.php ; If you make this you can use 
  * all functions and all constants of the plugin.
- *
  * 
- * @author      Jérémie GES
- * @copyright   2013
  * @category    View
- *
+ * @author      Jérémie GES Philippe HUGON 
+ * @copyright   2014 VINTERNET
+ * @category    View
+ * @link		http://vin.co/
  */
 ?>
 
@@ -34,67 +34,145 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 
 <div class="plugin-vincod">
+
 	
-	<!-- About owner -->
-	<? if ($owner): ?>
-
-		<h2><?= $owner['owners']['owner']['fields']['presentation']['label'] ?></h2>
-		<?= nl2br($owner['owners']['owner']['fields']['presentation']['value']) ?>
-
+	
+    <!-- About owner -->
+	
+	<? if ($owner):?> 
+   
+        <div class="blocparent">
+        
+        <!-- Create shorcut -->
+        <? $owner = $owner['owners']['owner'][0] ?>
+        
+            <? if ($owner['medias']['media'][1]['url']): ?><!-- ici on devrait identifier owner picture -->
+                <!-- Logo owner & photo d'ambiance-->
+                <div class="blocparentimgcontdouble" style="background-image:url('<?= $owner['medias']['media'][1]['url'] ?>') ; " >
+                    <div class="blocparentimgdouble" style="background-image:url(<?= wp_include_picture_url($owner) ?>) ; background-repeat: no-repeat; background-position: center center; background-size:contain; "></div>    
+                </div>
+                
+                <!-- ici il manque une condition pour afficher photo d'mabiance seule comme sur winery et range mais il faut pouvoir identifier owner logo -->
+                
+            <? else: ?>
+            <!-- Logo owner -->
+            <div class="blocparentimgcont" >
+                        <div class="blocparentimg" style="background-image:url(<?= wp_include_picture_url($owner) ?>) ; background-repeat: no-repeat; background-position: center center; background-size:contain; "></div>    
+			</div>
+            <? endif; ?>
+            
+            <!-- Winery Name & presentation -->
+            <div class="blocparenttxt">
+                <br /><h1><?= $owner['company'] ?></h1>
+                <?= nl2br($owner['fields']['presentation']['value']) ?>
+            </div>
+            
+            
+            <div class="clear"></div>
+        
+        
+        
+        </div>
+	
 	<? endif; ?>
+    
+    <!-- List all wineries -->
+    
+<!-- *************************************************************************
+	*
+	* il manque le cas où il n'y a que une winery alors on devrait basculer sur page presentation winery + list gamme/vin ... 
+	*
+	*************************************************************************-->	
 
-	<div class="spacer"></div>
-		
-	<!-- All wineries -->	
 	<? if ($wineries): ?>
+    
+    <div class="blocfils">
+    
 		
 		<?  foreach ($wineries['wineries']['winery'] as $winery): ?>
 
-			<!-- Result -->
-			<div>
+			<!-- Winery introduction -->
+			
+            <!-- Old style 2 columns
+            
+            <div>
 	
-				<!-- Name -->
-				<h2><?= $winery['name'] ?></h2><br/>
-
-				<!-- Block Picture -->
+				<!-- Block Picture 
 				<div class="w50 fleft">
 					<?= wp_include_picture($winery) ?>
 				</div>
 
-				<!-- Block Text -->
+				<!-- Block Text 
 				<div class="w50 fright">
+                
+                    <!-- Name 
+                    <h1><?= $winery['name'] ?></h1>
 
 					<? if (isset($winery['signature']['value'])): ?>
-						<p><?= nl2br($winery['signature']['value']) ?></p>
+						<?= nl2br($winery['signature']['value']) ?>
 					<? endif; ?>
 
 					<a href="<?= wp_vincod_link('winery', $winery['id'], $winery['name']) ?>"><?=$vincod_more_lang?></a>
 				</div>
 
 			</div>
-
-
-			<div class="spacer"></div>
+            
+            <div class="spacer"></div>
 			<div class="clear"></div>
 
 			<hr>
 			
 			<br/><br/>
+            -->
+            
+            <!-- New style like blocs -->
+            
+            <div class="blocfilsitems"> 
+               
+             	<div class="blocfilsimg" style="background-image:url(<?= wp_include_picture_url($winery) ?>); background-repeat: no-repeat; background-position: center center;">
+                
+                
+					<!--<a href="<?= wp_vincod_link('winery', $winery['id'], $winery['name']) ?>" ><?= wp_include_picture($winery) ?></a><br /><br />-->
+                    <a href="<?= wp_vincod_link('winery', $winery['id'], $winery['name']) ?>" style="display:block; width:100%;height:100%;">&nbsp;</a>
+                    
+				</div>
+                    
+                 <div class="blocfilstxt">
+
+				<!-- Block Text -->
+				
+                	<h2><a href="<?= wp_vincod_link('winery', $winery['id'], $winery['name']) ?>" ><?= $winery['name'] ?></a></h2>
+
+					
+
+					<a href="<?= wp_vincod_link('winery', $winery['id'], $winery['name']) ?>" >
+					
+                    <? if (isset($winery['signature']['value'])): ?>
+						<?= nl2br($winery['signature']['value']) ?>
+					<? endif; ?>
+                    
+					<? /* =$vincod_more_lang */ ?>
+                    
+                    </a>
+				
+                
+                </div>
+                
+            </div>
 
 		<? endforeach; ?>
-
+    </div>
+       
+	
 
 	<? elseif ( ! $wineries && $ranges): ?>
 
 
 	<? elseif ( ! $wineries && ! $ranges && $wines): ?>
 
-		
-
 	<? else: ?>
 
 		<?= $vincod_no_wines_lang ?>
-
 
 	<? endif; ?>
 

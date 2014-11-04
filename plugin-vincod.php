@@ -77,6 +77,8 @@ if (! class_exists('wp_vincod_plugin')) {
 		 */
 		private $_customer_api = FALSE;
 
+		private $_customer_winery_id = FALSE;
+
 		/**
 		 * The constructor
 		 *
@@ -183,6 +185,7 @@ if (! class_exists('wp_vincod_plugin')) {
 			// Delete API informations
 			delete_option('vincod_setting_customer_id');
 			delete_option('vincod_setting_customer_api');
+			delete_option('vincod_setting_customer_winery_id');
 
 			// Delete sitemap
 			wp_vincod_delete_sitemap();

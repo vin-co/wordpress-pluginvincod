@@ -73,9 +73,12 @@ class wp_vincod_controller_api {
 
 			// Create url to request
 			$url = 'http://api.vincod.com/2/json/%method/%action/%lang/%id?apiKey=' . $this->_customer_api;
+			//Appel de l'api de dev si ip = bureau itika
+		//	if ($_SERVER['REMOTE_ADDR']=='212.198.245.154' || $_SERVER['REMOTE_ADDR']=='195.200.172.178' || $_SERVER['REMOTE_ADDR']=='82.237.121.112'){
+		//		$url = 'http://maxime.apivincod.vinternet-redmine.reseaux.info/2/json/%method/%action/%lang/%id?apiKey=' . $this->_customer_api;
+		//	}
 
 			$url = $this->parse_url($url, $params);
-			
 			// Check in the cache
 			$already_cached = $this->already_cached($url);
 

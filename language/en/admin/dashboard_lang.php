@@ -14,12 +14,17 @@ wp_vincod_view_var('vincod_title_lang', "Vincod - Dashboard");
 wp_vincod_view_var('vincod_subtitle_lang', "Do you need to manage your plugin ? Make some datas analysis ? Customize what will appear ? Here you go...");
 
 wp_vincod_view_var('vincod_first_visit_lang', 'First visit ...');
-wp_vincod_view_var('vincod_first_visit_subtext_lang', "Is it your first visit ? To make the plugin effective, you must set up your customer ID and your API key (right below).");
+wp_vincod_view_var('vincod_first_visit_subtext_lang', "Is it your first visit ? For Vincod plugin to work properly, you first need to fill in set up informations. You need a valide API Key and an authorized account id. If needed email <a href='mailto:support@vincod.com'>support@vincod.com</a>..");
 
 wp_vincod_view_var('vincod_settings_lang', "Settings");
 
-wp_vincod_view_var('vincod_your_customer_id_lang', "Your customer ID");
-wp_vincod_view_var('vincod_your_customer_id_placeholder_lang', "Your Vincod customer ID");
+wp_vincod_view_var('vincod_your_customer_id_lang', "Account id ");
+wp_vincod_view_var('vincod_your_customer_id_placeholder_lang', "Your Vincod account id");
+
+wp_vincod_view_var('vincod_your_customer_winery_id_txt_lang', "If you want only one brand from the account, specify the brand id. If needed email <a href='mailto:support@vincod.com'>support@vincod.com</a>.");
+
+wp_vincod_view_var('vincod_your_customer_winery_id_lang', "Brand id");
+wp_vincod_view_var('vincod_your_customer_winery_id_placeholder_lang', "Your brand vincod id");
 
 wp_vincod_view_var('vincod_your_apikey_lang', "Your API key");
 wp_vincod_view_var('vincod_your_apikey_placeholder_lang', "The API key from your Vincod customer account");

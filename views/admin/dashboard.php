@@ -39,32 +39,19 @@ var vincod_plugin_app = {
 
     <!-- Simple help for the first visit -->
     <div class="alert alert-warning">
-
-      <h4><i class="icon-question-sign"></i> <?=$vincod_first_visit_lang?></h4>
-      <p><?=$vincod_first_visit_subtext_lang?></p>
-   
-    </div>
+		<h4><i class="icon-question-sign"></i> <?=$vincod_first_visit_lang?></h4>
+      	<p><?=$vincod_first_visit_subtext_lang?></p>
+   </div>
 
     <!-- Settings -->
     <div class="page-header">
+		<h2><?=$vincod_settings_lang?></h2>
+	</div>
 
-    	<h2><?=$vincod_settings_lang?></h2>
-
-    </div>
-
-
-
-    <!-- About API connect -->
+	<!-- About API connect -->
     <form id="settings" name="settings" method="POST" target="_self" action="">
 
     <div class="pspacer"></div>
-
-    		<div class="input-group">
-    			<span class="input-group-addon"><?=$vincod_your_customer_id_lang?></span>
-    			<input type="text" class="form-control" name="vincod_setting_customer_id" value="<?=get_option('vincod_setting_customer_id')?>" placeholder="<?=$vincod_your_customer_id_placeholder_lang?>">
-    		</div>
-
-    		<div class="pspacer"></div>
 
     		<div class="input-group">
     			<span class="input-group-addon"><?=$vincod_your_apikey_lang?></span>
@@ -72,6 +59,24 @@ var vincod_plugin_app = {
     		</div>
 
     		<div class="pspacer"></div>
+            
+            
+            
+            <div class="input-group">
+    			<span class="input-group-addon"><?=$vincod_your_customer_id_lang?></span>
+    			<input type="text" class="form-control" name="vincod_setting_customer_id" value="<?=get_option('vincod_setting_customer_id')?>" placeholder="<?=$vincod_your_customer_id_placeholder_lang?>">
+    		</div>
+
+            <div class="pspacer"></div>
+            <p><?=$vincod_your_customer_winery_id_txt_lang?></p>
+            <div class="input-group">
+    			<span class="input-group-addon"><?=$vincod_your_customer_winery_id_lang?></span>
+    			<input type="text" class="form-control" name="vincod_setting_customer_winery_id" value="<?=get_option('vincod_setting_customer_winery_id')?>" placeholder="<?=$vincod_your_customer_winery_id_placeholder_lang?>">
+    		</div>
+
+    		<div class="pspacer"></div>
+
+    		
 
     		<div class="pull-right">
 

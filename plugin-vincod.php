@@ -206,7 +206,7 @@ if (! class_exists('wp_vincod_plugin')) {
 			// The end of cool story dude.
 
 		}
-
+		
 
 		public function run() {
 			
@@ -215,6 +215,16 @@ if (! class_exists('wp_vincod_plugin')) {
 
 			// Get infos about the page
 			$page_id = get_option('vincod_id_page_nos_vins');
+			
+			//TC
+			//If polylang exists, get translated page ID "NOS VINS"
+			if (function_exists('pll_current_language')) {
+//var_dump(pll_current_language('locale'));
+				$page_id = pll_get_post($page_id,pll_current_language('slug'));
+			}
+			//END TC
+			
+			
 			$slug = wp_vincod_get_page_slug( $page_id );
 
 			// Here the magic happen
@@ -239,6 +249,13 @@ if (! class_exists('wp_vincod_plugin')) {
 		public function template($content) {
 
 			$id = get_option('vincod_id_page_nos_vins');
+			
+			//TC
+			//If polylang exists, get translated page ID "NOS VINS"
+			if (function_exists('pll_current_language')) {
+				$id = pll_get_post($id);
+			}
+			//END TC
 
 			// Page "Nos Vins" ?
 			if (is_page($id)) {

@@ -275,7 +275,7 @@
 
 	}
 	
-	
+	// recup logo
 
 	function wp_include_picture($datas) {
 
@@ -287,11 +287,11 @@
 
 			$picture = $datas['picture'];
 
-		} elseif ( ! empty($datas['medias']['media']['url'])) {
+		} elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media']['url'])) {
 
 			$picture = $datas['medias']['media']['url'];
 
-		} elseif ( ! empty($datas['medias']['media'][0]['url'])) {
+		} elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media'][0]['url'])) {
 
 			$picture = $datas['medias']['media'][0]['url'];
 
@@ -314,7 +314,7 @@
 
 	}
 	
-		function wp_include_picture_url($datas) { // ajout PH pour insertion img en div
+	function wp_include_picture_url($datas) { // ajout PH pour insertion img en div
 
 		if ( ! empty($datas['logo'])) {
 
@@ -324,11 +324,11 @@
 
 			$picture = $datas['picture'];
 
-		} elseif ( ! empty($datas['medias']['media']['url'])) {
+		} elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media']['url'])) {
 
 			$picture = $datas['medias']['media']['url'];
 
-		} elseif ( ! empty($datas['medias']['media'][0]['url'])) {
+		} elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media'][0]['url'])) {
 
 			$picture = $datas['medias']['media'][0]['url'];
 
@@ -343,7 +343,65 @@
 		} else {
 
 			// Default picture
+			$picture = WP_VINCOD_PLUGIN_URL . 'assets/img/ico_winery.png';
+
+		}
+
+		return $picture;
+
+	}
+	
+	// recup image
+	
+	function wp_include_picture_photo($datas) {
+
+		if ( ! empty($datas['picture'])) {
+
+			$picture = $datas['picture'];
+
+		} /*elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media'][0]['url'])) {
+
+			$picture = $datas['medias']['media'][0]['url'];
+
+		} */
+
+		if (  isset($picture)) {
+
+			$picture = wp_vincod_url_resizer( wp_vincod_picture_format($picture) );
+
+		} else {
+
+			// Default picture
 			$picture = WP_VINCOD_PLUGIN_URL . 'assets/img/ico_wine.png';
+
+		}
+
+		return '<img src="' . $picture . '">';
+
+	}
+	
+	function wp_include_picture_photo_url($datas) { // ajout PH pour insertion img en div
+
+		if ( ! empty($datas['picture'])) {
+
+			$picture = $datas['picture'];
+
+		} /*elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media'][0]['url'])) {
+
+			$picture = $datas['medias']['media'][0]['url'];
+
+		} */
+
+
+
+		if (  isset($picture)) {
+
+			$picture = wp_vincod_url_resizer( wp_vincod_picture_format($picture) );
+
+		} else {
+
+			// Default picture
+			$picture = WP_VINCOD_PLUGIN_URL . 'assets/img/ico_winery.png';
 
 		}
 
@@ -361,11 +419,11 @@
 
 			$picture = $datas['tag'];
 
-		} elseif ( ! empty($datas['medias']['media']['url'])) {
+		} elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media']['url'])) {
 
 			$picture = $datas['medias']['media']['url'];
 
-		} elseif ( ! empty($datas['medias']['media'][0]['url'])) {
+		} elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media'][0]['url'])) {
 
 			$picture = $datas['medias']['media'][0]['url'];
 
@@ -380,7 +438,7 @@
 		} else {
 
 			// Default picture
-			$picture = WP_VINCOD_PLUGIN_URL . 'assets/img/ico_wine.png';
+			$picture = WP_VINCOD_PLUGIN_URL . 'assets/img/ico_winery.png';
 
 		}
 
@@ -398,11 +456,11 @@
 
 			$picture = $datas['tag'];
 
-		} elseif ( ! empty($datas['medias']['media']['url'])) {
+		} elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media']['url'])) {
 
 			$picture = $datas['medias']['media']['url'];
 
-		} elseif ( ! empty($datas['medias']['media'][0]['url'])) {
+		} elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media'][0]['url'])) {
 
 			$picture = $datas['medias']['media'][0]['url'];
 
@@ -451,7 +509,7 @@
 
 
 			// CASE WML
-			if ($elements['host'] == 'www.winemedialibrary.com' OR $elements['host'] == 'winemedialibrary.com') {
+			if ($elements['host'] == 'www.winemedialibrary.com' OR $elements['host'] == 'winemedialibrary.com' OR $elements['host'] == 'vin.co' OR $elements['host'] == 'www.vin.co') {
 				
 
 				if (in_array($type, $allowed_type_wml)) {
@@ -597,6 +655,7 @@
 		return $wines_filtered;
 
 	}
+	
 	/**
 	 * Construct the right link with smart detect permalinks used
 	 *
@@ -609,43 +668,48 @@
 	function wp_vincod_link($type, $id, $text) {
 
 		// Import wp_rewrite to use some functions
-		$o_link_page =  get_permalink();
+		$link_page =  get_permalink();
+		$lang_page = '';
 		
-		// Erase lang param from url. it will be replaced at the end of new url
+		// Taking care of Qtranslate Erase lang param from url. it will be replaced at the end of new url
 		
-		$lang_page =  '?lang='.$_GET['lang'];
-		$link_page= str_replace($lang_page, '', $o_link_page);
+		if(function_exists('qtrans_getLanguage'))
+		{
+			$lang_page =  'lang='.$_GET['lang'];
+			$link_page = str_replace(array('?'.$lang_page, '&'.$lang_page), array('',''), $link_page);
+		} 
 
 		// Check if permalinks used
 		if (wp_vincod_permalinks_used() === TRUE) {
 
 			// Permalink from string
 			$text = sanitize_title_with_dashes($text);
+			
+			if ($lang_page<>'') $lang_page='/?'.$lang_page; // case qtranslate
 
 			switch($type) {
 
 				case 'winery':
 				//$link_page .= 'exploitant-' . $id  . '-' . $text;
-				$link_page .= 'exploitant-' . $id  . '-' . $text.'/'.$lang_page;
+				$link_page .= 'exploitant-' . $id  . '-' . $text.$lang_page;
 				break;
 
 				case 'range':
-				$link_page .= 'gamme-' . $id . '-' . $text.'/'.$lang_page;
+				$link_page .= 'gamme-' . $id . '-' . $text.$lang_page;
 				break;
 
 				case 'vincod':
 				$text = wp_vincod_wine_permalink($id, $text);
-				$link_page .= 'vin-' . $id . '-' . $text.'/'.$lang_page;
+				$link_page .= 'vin-' . $id . '-' . $text.$lang_page;
 				break;
 
 
 			}
 			
-			
-
 		} else {
 
-			$link_page .= '&' . $type . '=' . $id.'&'.$lang_page;
+			if ($lang_page<>'') $lang_page='&'.$lang_page; // case qtranslate
+			$link_page .= '&' . $type . '=' . $id.$lang_page;
 
 		}
 
@@ -1081,8 +1145,19 @@
 	 * @return mixed (string/false)
 	 */
 	function wp_vincod_get_page_slug($id) {
-
+		
+		//TC
+		//If polylang exists, get translated page ID "NOS VINS"
+		/*
+if (function_exists('pll_current_language')) {
+			$id = pll_get_post($id);
+		}
+*/
+		//END TC
+		
 		$post = get_post($id);
+		
+		
 
 		if (!empty($post)) {
 
@@ -1121,6 +1196,10 @@
 
 			$lang = qtrans_getLanguage();
 
+		} elseif (function_exists('pll_current_language')) {
+				
+			$lang = pll_current_language();
+		
 		} else {
 
 			$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);

@@ -82,9 +82,10 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 		// Init final params
 		$out = array();
-
 		$request = ltrim($request, '/');
 		$split = explode('-', $request);
+
+
 
 		// Right request ?
 		if (isset($split[0]) && !empty($split[0]) && isset($split[1]) && !empty($split[1])) {
@@ -240,11 +241,12 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		$wineries = $this->get_wineries_by_owner_id();
 		$ranges = $this->get_ranges_by_owner_id();
 		$wines = $this->get_wines_by_owner_id();
-
-		//Si winery specifique precise alors on cache le owner et on selectionne que cette winery
+		//Si une seule winery alors on cache le owner et on renvoit au template winery
 		if (get_option('vincod_setting_customer_winery_id')) {
 			$owner=false;
 			$wineries = $this->get_winery_by_id(get_option('vincod_setting_customer_winery_id'));
+			$this->_exec_winery(array('winery'=>get_option('vincod_setting_customer_winery_id')));
+			return;
 		}
 		
 		$view_datas = array(
@@ -263,7 +265,6 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 
 	// Winery + Ranges
 	private function _exec_winery($params) {
-
 		$winery = $this->get_winery_by_id($params['winery']);
 		$ranges = $this->get_ranges_by_winery_id($params['winery']);
 		$wines = $this->get_wines_by_winery_id($params['winery']);

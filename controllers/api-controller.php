@@ -354,7 +354,7 @@ class wp_vincod_controller_api {
 		}
 
 		$wineries = $this->_prevent_api($wineries, 'wineries', 'winery');
-
+		
 		return $wineries;
 
 	}

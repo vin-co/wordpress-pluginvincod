@@ -1,4 +1,5 @@
 <?php
+if (!function_exists ('wp_vincod_get_setting')) {
 function wp_vincod_get_setting($setting, $default='') {
 
 	$opt = get_option($setting);
@@ -9,6 +10,7 @@ function wp_vincod_get_setting($setting, $default='') {
 		return $opt;
 	}
 
+}
 }
 ?>
 <style type="text/css">

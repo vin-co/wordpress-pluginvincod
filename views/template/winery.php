@@ -45,13 +45,11 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
         
         <? if ($winery): ?>
             
-        <? /* var_dump($winery) */ ?> 
+        <? // var_dump($winery); ?> 
                     
             <!-- Create shorcut -->
             <? $winery = $winery['wineries']['winery'][0] ?>
            
-            
-            
             <? if ($winery['picture']): ?>
             	<? if ($winery['logo']): ?>
                 <!-- Logo winery & photo d'ambiance-->
@@ -135,17 +133,16 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
                     
                         <div class="blocfilstxt">
                         
-                            <h2><a href="<?= wp_vincod_link('range', $range['id'], $range['name']) ?>"><?= $range['name'] ?></a></h2>
-                           <a href="<?= wp_vincod_link('range', $range['id'], $range['name']) ?>">
-						   	<? if (isset($range['signature']['value'])): ?>
+                            <h2><?= $range['name'] ?></h2>
+                           
+                           <? if (isset($range['signature']['value'])): ?>
 								<?= nl2br($range['signature']['value']) ?>
 							<? endif; ?>
-						   <? /* =$vincod_more_lang */ ?></a>
+                            
+						   <a href="<?= wp_vincod_link('range', $range['id'], $range['name']) ?>"><?= $vincod_more_lang ?></a>
         				</div>
                         
-                        
-                        
-                    </div>
+                   </div>
                     
             		
     
@@ -167,9 +164,9 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
     
             <? if ($wines): ?>
     
-                
-    
-                    <? foreach ($wines as $wine): ?>
+            	<? foreach ($wines as $wine): ?>
+                    
+                    
                     
                     <!-- Old style 2 column
                     <div>
@@ -202,10 +199,12 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
                         </div>
                     
                         <div class="blocfilstxt">
-                            <h2><a href="<?= wp_vincod_link('vincod', $wine['vincod'], $wine['name']) ?>"><?= $wine['name'] ?></a></h2>
+                            <h2><?= $wine['name'] ?></h2>
                             <? if (isset($wine['abstract'])): ?>
-                            	<a href="<?= wp_vincod_link('vincod', $wine['vincod'], $wine['name']) ?>"><?= nl2br($wine['abstract']) ?><br /><? /* =$vincod_more_lang */ ?></a>
+                            	<h3><?= nl2br($wine['abstract']) ?><br /><? /* =$vincod_more_lang */ ?></h3>
         					<? endif; ?>
+                            
+                            <a href="<?= wp_vincod_link('vincod', $wine['vincod'], $wine['name']) ?>"><?= $vincod_more_lang ?></a>
                         
                         </div>
     

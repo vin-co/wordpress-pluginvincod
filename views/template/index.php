@@ -38,18 +38,24 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 	
 	
     <!-- About owner -->
-	
-	<? if ($owner):?> 
+    
+    <!-- *************************************************************************
+	*
+	* tester avec le compte marcel petit, la page owner ne s'affichge pas alors qu'elle existe...
+	*
+	*************************************************************************-->	
+	<? // var_dump($owner);?>
+     
+	<? if ($owner): ?> 
    
         <div class="blocparent">
         
         <!-- Create shorcut -->
         <? $owner = $owner['owners']['owner'][0] ?>
-        
-            <? if ($owner['medias']['media'][1]['url']): ?><!-- ici on devrait identifier owner picture -->
+            <?if (is_array($owner['medias']) && $owner['medias']['media'][1]['url']): ?><!-- ici on devrait identifier owner picture -->
                 <!-- Logo owner & photo d'ambiance-->
                 <div class="blocparentimgcontdouble" style="background-image:url('<?= $owner['medias']['media'][1]['url'] ?>') ; " >
-                    <div class="blocparentimgdouble" style="background-image:url(<?= wp_include_picture_url($owner) ?>) ; background-repeat: no-repeat; background-position: center center; background-size:contain; "></div>    
+                <div class="blocparentimgdouble" style="background-image:url(<?= wp_include_picture_url($owner) ?>) ; background-repeat: no-repeat; background-position: center center; background-size:contain; "></div>    
                 </div>
                 
                 <!-- ici il manque une condition pour afficher photo d'mabiance seule comme sur winery et range mais il faut pouvoir identifier owner logo -->
@@ -77,19 +83,16 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 	<? endif; ?>
     
     <!-- List all wineries -->
-    
-<!-- *************************************************************************
-	*
-	* il manque le cas où il n'y a que une winery alors on devrait basculer sur page presentation winery + list gamme/vin ... 
-	*
-	*************************************************************************-->	
-
+ 
+ 
+ 
 	<? if ($wineries): ?>
-    
+   
     <div class="blocfils">
     
 		
 		<?  foreach ($wineries['wineries']['winery'] as $winery): ?>
+
 
 			<!-- Winery introduction -->
 			
@@ -141,22 +144,15 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
 
 				<!-- Block Text -->
 				
-                	<h2><a href="<?= wp_vincod_link('winery', $winery['id'], $winery['name']) ?>" ><?= $winery['name'] ?></a></h2>
+                	<h2><?= $winery['name'] ?></h2>
 
-					
-
-					<a href="<?= wp_vincod_link('winery', $winery['id'], $winery['name']) ?>" >
-					
-                    <? if (isset($winery['signature']['value'])): ?>
+					<? if (isset($winery['signature']['value'])): ?>
 						<?= nl2br($winery['signature']['value']) ?>
 					<? endif; ?>
                     
-					<? /* =$vincod_more_lang */ ?>
+					<a href="<?= wp_vincod_link('winery', $winery['id'], $winery['name']) ?>" ><?= $vincod_more_lang  ?></a>
                     
-                    </a>
-				
-                
-                </div>
+               </div>
                 
             </div>
 

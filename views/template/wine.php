@@ -52,21 +52,25 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
     
     <div class="blocvin_gen">
     	
-    	<div class="blocvin_fiche">
+    	
      
             <!-- The Wine : Picture, name and appellation -->
             
-            <div class="blocvin_img" >
-                
-                <?= wp_include_picture_wine($wine) ?>
-                
-            </div>
+        <div class="blocvin_share" >
             
+            <?= wp_include_picture_wine($wine) ?>
+            
+          
+        
+        </div>
+            
+        <div class="blocvin_fiche">
+        
             <div class="blocvin_title" >
     
                 <h1><?= $wine['name'] ?></h1>
                 
-                <?= $wine['appellation'] ?><br /><br />
+                <h2><?= $wine['appellation'] ?></h2>
                 
             </div>    
             
@@ -128,46 +132,48 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
             <div class="blocvin_txt" >     
                 <? if ( ! empty($wine['abstract'])): ?>
                 <!--<strong><?= $vincod_brief_lang ?></strong><br/>-->
-                <hr /><h2><?= $wine['abstract'] ?></h2>
+                <hr /><h3><?= $wine['abstract'] ?></h3>
             <? endif; ?>
                 
             </div>
       
             
                 
-            <hr />
+            <!-- <hr />
         
         
         
-            <!-- Navigation -->
-            <div class="nav-vincod">
-                <h2>
+            Navigation 
+            <div class="blocvin_txt" > 
+            	<div class="nav-vincod">
+                <h3>-->
                     <!-- About Button -->
-                    <? if (!empty($wine['fields']['presentation'])) : ?>
+                    <!-- <? if (!empty($wine['fields']['presentation'])) : ?>
                         <a id="trigger-about-wine" href="#"><?= $vincod_details_lang ?></a>&nbsp;&nbsp;
-                    <? endif; ?>
+                    <? endif; ?>-->
             
                     <!-- Advice button -->
-                    <? if (! empty($wine['fields']['advice'])): ?>
+                    <!-- <? if (! empty($wine['fields']['advice'])): ?>
                         <a id="trigger-advice-wine" href="#"><?= $vincod_tips_lang ?></a>&nbsp;&nbsp;
-                    <? endif; ?>
+                    <? endif; ?>-->
             
                     <!-- Review button-->
-                    <? if ( ! empty($wine['reviews']['review'])): ?>
+                    <!-- <? if ( ! empty($wine['reviews']['review'])): ?>
                         <a id="trigger-reviews-wine" href="#"><?= $vincod_reviews_lang ?></a>&nbsp;&nbsp;
-                    <? endif; ?>
+                    <? endif; ?>-->
             
                     <!-- Shop button-->
-                    <? if ( ! empty($wine['shops'])): ?>
+                    <!-- <? if ( ! empty($wine['shops'])): ?>
                         <a id="trigger-shop-wine" href="#"><?= $vincod_shop_lang ?></a>&nbsp;&nbsp;
-                    <? endif; ?>
+                    <? endif; ?>-->
             
                     <!-- Medias button-->
-                    <? if ( ! empty($wine['medias']['media'])): ?>
+                    <!-- <? if ( ! empty($wine['medias']['media'])): ?>
                         <a id="trigger-media-wine" href="#"><?= $vincod_medias_lang ?></a>&nbsp;&nbsp;
-                    <? endif; ?>
-                </h2>
-            </div>
+                    <? endif; ?>-->
+                <!-- </h3>
+                </div>
+            </div>-->
             
             <hr />
         
@@ -177,8 +183,10 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
                     
     
                 <div data-blocks="about-wine">
+                
                     <div class="blocvin_txt">
-                    <!--<h2><?= $vincod_details_lang ?></h2><br />-->
+                    
+                    <h3><?= $vincod_details_lang ?></h3>
             
                         <!-- Presentation fields -->
                         <? if ( ! wp_vincod_is_multi($wine['fields']['presentation'])): ?>
@@ -284,9 +292,11 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
         
             <? if (! empty($wine['fields']['advice'])): ?>
     
-                <div data-blocks="advice-wine">
+                <!--<div data-blocks="advice-wine">-->
+                
                    <div class="blocvin_txt">
-                    <!--<h2><?= $vincod_tips_lang ?></h2><br />-->
+                   
+                    <h3><?= $vincod_tips_lang ?></h3>
             
                         <? if ( ! wp_vincod_is_multi($wine['fields']['advice'])): ?>
             
@@ -321,7 +331,7 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
                         <? endforeach; ?>
             
                     </div>
-                </div>
+                <!--</div>-->
     
             <? endif; ?>
     
@@ -329,9 +339,10 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
             <!-- Reviews -->
             <? if ( ! empty($wine['reviews']['review'])): ?>
     
-                <div data-blocks="reviews-wine">
+                <!--<div data-blocks="reviews-wine">-->
+                
                     <div class="blocvin_txt">
-                    <!--<h2><?= $vincod_reviews_lang ?></h2><br />-->
+                    <h3><?= $vincod_reviews_lang ?></h3>
             
             
                         
@@ -379,16 +390,17 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
                         <? endforeach; ?>
             
                     </div>
-                </div>
+                <!--</div>-->
     
             <? endif; ?>
     
             <!-- Shop about wine -->
             <? if ( ! empty($wine['shops'])): ?>
             
-                <div data-blocks="shop-wine">
+                <!--<div data-blocks="shop-wine">-->
+                
                     <div class="blocvin_txt">
-                    <!--<h2><?= $vincod_shop_lang ?></h2><br />-->
+                    <h3><?= $vincod_shop_lang ?></h3>
             
                         <? if ( ! wp_vincod_is_multi($wine['shops']['shop'])): ?>
             
@@ -416,19 +428,19 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
                         <? endforeach; ?>
             
                     </div>
-                </div>
+                <!--</div>-->
     
             <? endif; ?>
     
             <!-- Pictures -->
         
         
-            <? if ( ! empty($wine['medias'])): ?>
+            <? if ( ! empty($wine['medias']['media'])): ?>
     
-                <div data-blocks="media-wine">
+                <!--<div data-blocks="media-wine">-->
                 
                     <div class="blocvin_txt">
-                        <!--<h2><?= $vincod_medias_lang ?></h2><br />-->
+                        <h3><?= $vincod_medias_lang ?></h3>
                         <? if ( ! wp_vincod_is_multi($wine['medias']['media'])): ?>
                             <!-- Manage problem API -->
                             <? $wine['medias']['media'] = array($wine['medias']['media']); ?>
@@ -452,44 +464,48 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
                         <? endforeach ?>
                     </div>
                     
-                </div>
+                <!--</div>-->
     
             <? endif; ?>
+    
+    
+    <!-- Widgets -->
+        
+            <div class="blocvin_share">
+            
+                <!--<h2><?= $vincod_dwnl_lang ?></h2>-->
+                <hr /> 
+                <div class="widgets">
+                    <ul>
+                        <li><a href="http://vincod.com/<?=$wine['vincod']?>/get/pdf" target="_blank" title="Fiche techniqe <?=$wine['name']?>"><img src="http://vincod.com/images/picto/24px/pdf-nb.png" /></a></li>
+                        <li><a href="http://vincod.com/<?=$wine['vincod']?>/get/set" target="_blank" title="Set de dégustation <?=$wine['name']?> - Vincod"><img src="http://vincod.com/images/picto/24px/set-nb.png" /></a></li>
+                        <li><a href="http://vincod.com/<?=$wine['vincod']?>/get/qrcode" target="_blank" title="QR Code <?=$wine['name']?> - Vincod"><img src="http://vincod.com/images/picto/24px/qrcode.png" /></a></li>
+                        <li><a href="http://vincod.com/<?=$wine['vincod']?>" target="_blank" title="Permalien (Webapp Mobile) <?=$wine['name']?> - Vincod"><img src="http://vincod.com/images/picto/24px/mobile.png" /></a></li>
+                        <li><a href="http://vincod.com/<?=$wine['vincod']?>/get/embed" target="_blank" title="Shorcode <?=$wine['name']?> - Vincod"><img src="http://vincod.com/images/picto/24px/widget.png" /></a></li>
+                        <!--
+                       <li><a href="http://vincod.com/<?=$wine['vincod']?>" target="_blank" title="<?=$wine['name']?> - Vincod">Partager <img src="<?= WP_VINCOD_PLUGIN_URL ?>assets/img/b_permalink.png"></a></li>-->
+                    </ul>
+                </div>
+                
+                <!-- AddThis Button BEGIN -->
+                <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:200px; text-align:center; display:inline-block;">
+                    <a class="addthis_button_email"></a>
+                    <a class="addthis_button_facebook"></a>
+                    <a class="addthis_button_twitter"></a>
+                    <a class="addthis_button_pinterest_share"></a>
+                    <a class="addthis_button_compact"></a>
+                </div>
+                <!--<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>-->
+                <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f9000e64529dca2"></script>
+                <!-- AddThis Button END -->
+                
+            </div> 
+    
     
         </div>
     
     
-        <!-- Widgets -->
         
-        <div class="blocvin_share">
-        
-            <!--<h2><?= $vincod_dwnl_lang ?></h2>-->
-            <hr /> 
-            <div class="widgets">
-                <ul>
-                    <li><a href="http://vincod.com/print/<?=$wine['vincod']?>" target="_blank" title="Fiche techniqe <?=$wine['name']?>"><img src="http://vincod.com/images/picto/24px/pdf-nb.png" /></a></li>
-                    <li><a href="http://vincod.com/set/<?=$wine['vincod']?>" target="_blank" title="Set de dégustation <?=$wine['name']?> - Vincod"><img src="http://vincod.com/images/picto/24px/set-nb.png" /></a></li>
-                    <li><a href="http://vincod.com/qrcode/<?=$wine['vincod']?>" target="_blank" title="QR Code <?=$wine['name']?> - Vincod"><img src="http://vincod.com/images/picto/24px/qrcode.png" /></a></li>
-                    <li><a href="http://vincod.com/<?=$wine['vincod']?>" target="_blank" title="Permalien (Webapp Mobile) <?=$wine['name']?> - Vincod"><img src="http://vincod.com/images/picto/24px/mobile.png" /></a></li>
-                    <li><a href="http://vincod.com/get-widget/<?=$wine['vincod']?>" target="_blank" title="Shorcode <?=$wine['name']?> - Vincod"><img src="http://vincod.com/images/picto/24px/widget.png" /></a></li>
-                    <!--
-                   <li><a href="http://vincod.com/<?=$wine['vincod']?>" target="_blank" title="<?=$wine['name']?> - Vincod">Partager <img src="<?= WP_VINCOD_PLUGIN_URL ?>assets/img/b_permalink.png"></a></li>-->
-                </ul>
-            </div>
-            
-            <!-- AddThis Button BEGIN -->
-            <div class="addthis_toolbox addthis_default_style addthis_32x32_style" style="width:200px; text-align:center; display:inline-block;">
-                <a class="addthis_button_email"></a>
-                <a class="addthis_button_facebook"></a>
-                <a class="addthis_button_twitter"></a>
-                <a class="addthis_button_pinterest_share"></a>
-                <a class="addthis_button_compact"></a>
-            </div>
-            <!--<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>-->
-            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4f9000e64529dca2"></script>
-            <!-- AddThis Button END -->
-            
-        </div>   
 	</div>        
 	<div class="clear"></div>
 	<div class="spacer"></div>

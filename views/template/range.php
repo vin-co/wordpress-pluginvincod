@@ -129,11 +129,11 @@ require(WP_VINCOD_PLUGIN_PATH . 'assets/css/hook.php')
     				</div>
                     
                     <div class="blocfilstxt">
-                            <h2><a href="<?= wp_vincod_link('vincod', $wine['vincod'], $wine['name']) ?>"><?= $wine['name'] ?></a></h2>
+                            <h2><?= $wine['name'] ?></h2>
                             <? if (isset($wine['abstract'])): ?>
-                            	<a href="<?= wp_vincod_link('vincod', $wine['vincod'], $wine['name']) ?>"><?= nl2br($wine['abstract']) ?><br /><? /*=$vincod_more_lang */ ?></a>
+                            	<?= nl2br($wine['abstract']) ?>
         					<? endif; ?>
-                        
+                        	<a href="<?= wp_vincod_link('vincod', $wine['vincod'], $wine['name']) ?>"><?=$vincod_more_lang?></a>
                         </div>
 
 				

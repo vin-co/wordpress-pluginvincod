@@ -81,7 +81,7 @@ function wp_vincod_xss_clean($str) {
  * @param string $view the view name (e.g. 'admin/dashboard')
  * @return string
  */
-function wp_vincod_load_view($view, $datas = array(), $return = false, $start_path = WP_VINCOD_PLUGIN_PATH.'views') {
+function wp_vincod_load_view($view, $datas = array(), $return = false, $start_path) {
 	
 	// We want return, so we must stock the buffer
 	if($return)
@@ -136,7 +136,7 @@ function wp_vincod_launch($view) {
 	 * The _repeat/header is in the /views/
 	 *
 	 */
-	wp_vincod_load_view('admin/header', $wp_vincod_views_datas);
+	wp_vincod_load_view('admin/header', $wp_vincod_views_datas, false, WP_VINCOD_PLUGIN_PATH.'views');
 	
 	
 	/*
@@ -145,14 +145,14 @@ function wp_vincod_launch($view) {
 	 *
 	 *
 	 */
-	wp_vincod_load_view($view, $wp_vincod_views_datas);
+	wp_vincod_load_view($view, $wp_vincod_views_datas, false, WP_VINCOD_PLUGIN_PATH.'views');
 	
 	/*
 	 *
 	 * FOOTER
 	 *
 	 */
-	wp_vincod_load_view('admin/footer', $wp_vincod_views_datas);
+	wp_vincod_load_view('admin/footer', $wp_vincod_views_datas, false, WP_VINCOD_PLUGIN_PATH.'views');
 	
 	
 }

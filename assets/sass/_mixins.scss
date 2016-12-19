@@ -1,0 +1,43 @@
+//=========================================
+//	!---------- GLOBAL MIXINS ----------
+//=========================================
+
+@mixin btn-inverse($btn-color: $brand-primary, $bg-color: white) {
+	&:hover,
+	&:active,
+	&.active {
+		border-color: $btn-color;
+		background-color: $btn-color;
+		color: $body-bg;
+		outline: none;
+	}
+
+	&:focus, .open > &.dropdown-toggle:focus {
+		outline: none !important;
+	}
+
+	&:active:hover, &:active:focus {
+		color: $btn-color !important;
+		background-color: $bg-color !important;
+		outline: none !important;
+	}
+}
+
+@mixin aspect-ratio($width, $height) {
+	position: relative;
+
+	&:before {
+		display: block;
+		content: "";
+		width: 100%;
+		padding-top: ($height / $width) * 100%;
+	}
+
+	> * {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+}

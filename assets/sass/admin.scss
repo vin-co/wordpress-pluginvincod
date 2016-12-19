@@ -1,0 +1,116 @@
+// Icons
+// -----------------------------------------------------
+@import "ionicons/scss/ionicons";
+
+//=================================
+//	!---------- ADMIN ----------
+//=================================
+
+#plugin-vincod {
+
+	// Overrides
+	// -----------------------------------------------------
+
+	$brand-warning: #FAA022 !global;
+	$brand-info: #aaa !global;
+	$gray-lighter: #F7F7F7 !global;
+
+	// Imports
+	// -----------------------------------------------------
+
+	@import "bootswatch/lumen/variables";
+	@import "imports";
+	@import "bootswatch/lumen/bootswatch";
+
+	// Styles
+	// -----------------------------------------------------
+
+	> .container-fluid {
+		margin-bottom: 20px;
+	}
+
+	// ---------- Devlogs styles ----------
+
+	.devlog {
+
+		&.scroll .devlog_content {
+			overflow: scroll;
+			height: 150px;
+		}
+
+		&.auto devlog_content {
+			overflow: auto;
+		}
+
+		.devlog_content {
+			@extend .clearfix;
+			background-color: #191818;
+			color: #f3f3f3;
+			font-family: Arial;
+			font-weight: 300;
+			margin: 15px auto;
+			padding: 15px 20px;
+			letter-spacing: 1.2px;
+			font-size: 11px;
+			line-height: 20px;
+
+			.title {
+				font-size: 12px;
+			}
+
+			.time {
+				display: inline-block;
+				width: 20%;
+				float: left;
+			}
+
+			.time span {
+				font-style: italic;
+			}
+
+			.msg {
+				float: left;
+				width: 80%;
+				color: #d5d5d5;
+			}
+
+			.msg:hover {
+				color: #f3f3f3 !important;
+			}
+		}
+	}
+
+	// ---------- Fix bug WP/Bootstrap ----------
+
+	#adminmenuback {
+		z-index: 0 !important;
+	}
+
+	// ---------- Table Fix ----------
+
+	table input[type=checkbox] {
+		height: 17px !important;
+		width: auto !important;
+	}
+
+	// ---------- Forms ----------
+
+	.page-header {
+		border-bottom-color: #ddd;
+	}
+
+	.input-group {
+		margin-bottom: 20px;
+	}
+
+	.buttons-group {
+
+		@media #{$sm-max} {
+			text-align: center;
+		}
+
+		.btn {
+			margin-bottom: 10px;
+		}
+	}
+}

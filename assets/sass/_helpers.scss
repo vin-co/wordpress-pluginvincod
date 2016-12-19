@@ -1,0 +1,236 @@
+//=================================================
+//	!---------- EFFECTS & TRANSITIONS ----------
+//=================================================
+
+.fade {
+	transition: opacity .5s linear;
+}
+
+//===================================
+//	!---------- HELPERS ----------
+//===================================
+
+.full-height {
+	height: 100%;
+}
+
+.screen-height {
+	height: 768px;
+	height: 100vh;
+}
+
+.full-width {
+	width: 100%;
+}
+
+.screen-width {
+	width: 100%;
+	width: 100vw;
+}
+
+.auto-width {
+	width: auto !important;
+}
+
+.no-border {
+	border: none !important;
+}
+
+.no-border-top {
+	border-top: none !important;
+}
+
+.no-border-bottom {
+	border-bottom: none !important;
+}
+
+.no-border-vertical {
+	border-top: none !important;
+	border-bottom: none !important;
+}
+
+.no-border-left {
+	border-left: none !important;
+}
+
+.no-border-right {
+	border-right: none !important;
+}
+
+.no-border-horizontal {
+	border-left: none !important;
+	border-right: none !important;
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.no-padding-top {
+	padding-top: 0 !important;
+}
+
+.no-padding-bottom {
+	padding-bottom: 0 !important;
+}
+
+.no-padding-vertical {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+.no-padding-left {
+	padding-left: 0 !important;
+}
+
+.no-padding-right {
+	padding-right: 0 !important;
+}
+
+.no-padding-horizontal {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+.no-margin {
+	margin: 0 !important;
+}
+
+.no-margin-top {
+	margin-top: 0 !important;
+}
+
+.no-margin-bottom {
+	margin-bottom: 0 !important;
+}
+
+.no-margin-vertical {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+.no-margin-left {
+	margin-left: 0 !important;
+}
+
+.no-margin-right {
+	margin-right: 0 !important;
+}
+
+.no-margin-horizontal {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+}
+
+.no-float {
+	float: none !important;
+}
+
+.inline-block {
+	display: inline-block !important;
+}
+
+.top-align {
+	vertical-align: top !important;
+}
+
+.middle-align {
+	vertical-align: middle !important;
+}
+
+.bottom-align {
+	vertical-align: bottom !important;
+}
+
+.block {
+	display: table;
+	width: 100%;
+	height: 100%;
+	table-layout: fixed;
+}
+
+.higher-item {
+	display: table-header-group;
+	vertical-align: top;
+	width: 100%;
+}
+
+.top-item {
+	display: table-cell;
+	vertical-align: top;
+	width: 100%;
+}
+
+.centered-item {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.bottom-item {
+	display: table-cell;
+	vertical-align: bottom;
+	width: 100%;
+}
+
+.lower-item {
+	display: table-footer-group;
+	vertical-align: bottom;
+	width: 100%;
+}
+
+.col-centered {
+	float: none !important;
+	display: inline-block;
+	margin-right: -0.25em;
+	vertical-align: middle;
+}
+
+.col-xs-12[class*="col-centered"] {
+	@media screen and (max-width: 767px) {
+		margin-right: 0;
+	}
+}
+
+.hide-text {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.text-serif {
+	font-family: $font-family-serif;
+}
+
+.text-sans-serif {
+	font-family: $font-family-sans-serif;
+}
+
+select, textarea, input:not([type="submit"]) {
+	@extend .form-control;
+}
+
+input[type="submit"] {
+	@extend .btn;
+	@extend .btn-primary;
+}
+
+//=========================================
+//	!---------- MEDIA QUERIES ----------
+//=========================================
+
+//---------- Mobile (xs) -----------
+$xs-max: "(max-width:" $screen-xs - 1 ")";
+$xs-min: "(min-width:" $screen-xs ")";
+
+//---------- Tablets Portait (sm) -----------
+$sm-max: "(max-width:" $screen-sm - 1 ")";
+$sm-min: "(min-width:" $screen-sm ")";
+
+//---------- Tablets Landscape (md) -----------
+$md-max: "(max-width:" $screen-md - 1 ")";
+$md-min: "(min-width:" $screen-md ")";
+
+//---------- Desktop (lg) -----------
+$lg-max: "(max-width:" $screen-lg - 1 ")";
+$lg-min: "(min-width:" $screen-lg ")";

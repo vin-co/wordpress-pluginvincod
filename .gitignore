@@ -136,3 +136,8 @@ Temporary Items
 
 # Linux trash folder which might appear on any partition or disk
 .Trash-*
+
+cache/api/*
+!cache/api/index.php
+cache/sitemap/*
+!cache/sitemap/index.php

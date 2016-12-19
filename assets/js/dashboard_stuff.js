@@ -1,25 +1,30 @@
-jQuery(document).ready(function ($) {
+jQuery(document).ready(function($) {
 
-   /*
-    * This is to make a favorite button to activate when the user press enter
-    * @author Schaffner Laurent
-    */
-   $("#settings input").bind("keydown", function(event) {
+	/*
+	 * This is to make a favorite button to activate when the user press enter
+	 * @author Schaffner Laurent
+	 */
+	$("#settings input").bind("keydown", function(event) {
 
-      var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
-      
-      if (keycode == 13) { // Key ENTER
+		var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
 
-         document.getElementById('validate_settings').click();
+		if(keycode == 13) { // Key ENTER
 
-         return false;
+			document.getElementById('validate_settings').click();
 
-      } else  {
+			return false;
 
-         return true;
+		}
+		else {
 
-      }
+			return true;
 
-   });
+		}
+
+	});
+
+	$('#first-time-visit').on('closed.bs.alert', function () {
+		wpCookies.setHash( 'wp_vincod_first_visit', 'true' );
+	});
 
 });

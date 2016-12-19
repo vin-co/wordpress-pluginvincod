@@ -1,0 +1,24 @@
+{
+  "name": "wp-vincod-plugin",
+  "version": "4.0.0",
+  "description": "The « Vincod for WordPress » plugin allows you to instantly create a « Our Wines » section in your WordPress website.",
+  "author": "Vinternet",
+  "license": "GPL-2.0+",
+  "homepage": "http://dev.vincod.com",
+  "dependencies": {
+    "Ionicons": "ionicons#^2.0.1",
+    "bootstrap-sass": "^3.3.7",
+    "bootswatch": "^3.3.7"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "dependencies": {}
+    },
+    "bootswatch": {
+      "dependencies": {}
+    },
+    "jquery": {
+      "main": []
+    }
+  }
+}

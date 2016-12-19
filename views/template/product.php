@@ -106,7 +106,7 @@
 				<!-- The Product : Name and Vintages -->
 				<div class="product-name">
 					
-					<div class="btn-group vintage-btn-group">
+					<div class="btn-group vintage-btn-group clearfix">
 						
 						<?php if($vintages && count($vintages) > 1): ?>
 							

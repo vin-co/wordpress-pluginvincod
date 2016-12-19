@@ -21,6 +21,10 @@
 	@import "imports";
 	@import "bootswatch/yeti/bootswatch";
 
+	// Icons
+	// -----------------------------------------------------
+	@import "ionicons/scss/ionicons";
+
 	// ---------- Global styles ----------
 
 	a, button {
@@ -84,6 +88,7 @@
 		.vincod-menu {
 			list-style: none;
 			padding: 0;
+			margin: 0;
 
 			li.active > a, a:hover {
 				background-color: $gray;
@@ -180,6 +185,10 @@
 
 	.content-links {
 		text-align: center;
+
+		a {
+			box-shadow: none !important;
+		}
 	}
 
 	.collection-link, .brand-link, .range-link {
@@ -276,15 +285,22 @@
 		}
 
 		.vintage-btn-group {
+			display: block;
 
 			.btn {
 				display: block;
+				width: 100%;
+				height: auto;
 				padding: 0;
 				white-space: normal;
 				border-color: $gray-light;
 
 				&.no-vintage {
 					cursor: default;
+				}
+
+				&:after {
+					display: none;
 				}
 			}
 
@@ -386,6 +402,7 @@
 		a {
 			padding: 15px;
 			text-transform: uppercase;
+			box-shadow: none !important;
 
 			@media #{$sm-max} {
 				border-color: $gray-light !important;

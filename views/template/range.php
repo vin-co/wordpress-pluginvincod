@@ -25,7 +25,7 @@
 				var s = document.createElement("script");
 				s.type = "text/javascript";
 				s.src = "<?= WP_VINCOD_PLUGIN_URL ?>assets/js/vendor.js";
-				document.body.appendChild(script);
+				document.body.appendChild(s);
 			}
 		});
 	})(jQuery);

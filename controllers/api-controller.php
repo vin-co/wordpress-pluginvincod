@@ -31,17 +31,17 @@ class wp_vincod_controller_api {
 
 	public function __construct() {
 
-	}	
+	}
 
 
 	/**
 	* Config
-	* 
+	*
 	* Config the api by array params
 	*
 	* @access	public
 	* @return	void
-	* 
+	*
 	*/
 	public function config(array $config = array()) {
 
@@ -60,27 +60,30 @@ class wp_vincod_controller_api {
 
 	/**
 	* Request API
-	* 
+	*
 	* Simple interface for API requests
 	*
 	* @access	public
 	* @return	void
-	* 
+	*
 	*/
 	public function request_api(array $params = array()) {
 
 		if (isset($params['method']) && !empty($params['method']) && isset($params['action']) && !empty($params['action'])) {
 
+			$additional_params = (isset($params['params'])) ? $params['params'].'&' : '';
+
 			// Create url to request
-			$url = 'http://api.vincod.com/2/json/%method/%action/%lang/%id?apiKey=' . $this->_customer_api;
-			//Appel de l'api de dev si ip = bureau itika
-		//	if ($_SERVER['REMOTE_ADDR']=='212.198.245.154' || $_SERVER['REMOTE_ADDR']=='195.200.172.178' || $_SERVER['REMOTE_ADDR']=='82.237.121.112'){
-		//		$url = 'http://maxime.apivincod.vinternet-redmine.reseaux.info/2/json/%method/%action/%lang/%id?apiKey=' . $this->_customer_api;
-		//	}
+			$url = 'http://api.vincod.com/2/json/%method/%action/%lang/%id?'. $additional_params .'apiKey=' . $this->_customer_api;
+
 
 			$url = $this->parse_url($url, $params);
 			// Check in the cache
 			$already_cached = $this->already_cached($url);
+
+			if(WP_DEBUG == true) {
+				var_dump($url);
+			}
 
 			if (! $already_cached) {
 
@@ -216,7 +219,7 @@ class wp_vincod_controller_api {
 
 			}
 
-		} 
+		}
 
 		return FALSE;
 
@@ -224,14 +227,14 @@ class wp_vincod_controller_api {
 
 	/**
 	* Cache
-	* 
+	*
 	* Write new file for cache
 	*
 	* @access	private
 	* @param 	string 	Url to cache
 	* @param  	json 	Json to stock
 	* @return	string
-	* 
+	*
 	*/
 	private function cache($url, $datas) {
 
@@ -245,6 +248,168 @@ class wp_vincod_controller_api {
 
 
 	/* ---------------------------------------------------------------- */
+	// Owner
+	/* ---------------------------------------------------------------- */
+
+	public function get_owner_by_id() {
+
+		$owner = $this->request_api(array(
+
+			'method' => 'owner',
+			'action' => 'GetOwnerById'
+
+			));
+
+
+		// Check error
+		if (isset($owner['owners']['error'])) {
+
+			return FALSE;
+
+		}
+
+		return $owner;
+	}
+
+	public function get_catalogue_by_vincod($vincod = NULL) {
+
+		$params = array(
+
+			'method' => 'owner',
+			'action' => 'GetCatalogueByVincod'
+
+		);
+
+		if($vincod !== NULL) {
+			$params['params'] = 'vincod='. $vincod;
+		}
+
+		$menu = $this->request_api($params);
+
+
+		// Check error
+		if (isset($menu['owners']['error'])) {
+
+			return FALSE;
+
+		}
+
+		return $menu;
+	}
+
+
+	/* ---------------------------------------------------------------- */
+	// Family
+	/* ---------------------------------------------------------------- */
+
+	public function get_families_by_owner_id() {
+
+		$families = $this->request_api(array(
+
+			'method' => 'family',
+			'action' => 'GetFamiliesByOwnerId'
+
+			));
+
+		if (isset($families['families']['error']) || !isset($families['families']['family'])) {
+
+			return FALSE;
+
+		}
+
+		$families = $this->_prevent_api($families, 'families', 'family');
+
+		return $families;
+
+	}
+
+	public function get_family_by_id($id) {
+
+
+		$family = $this->request_api(array(
+
+			'method' => 'family',
+			'action' => 'GetFamilyById',
+			'id'	 => $id
+
+			));
+
+		if (isset($family['owners']['error']) || empty($family['owners']['family'])) {
+
+			return FALSE;
+
+		}
+
+		return $family;
+	}
+
+	public function get_family_by_winery_id($id) {
+
+
+		$family = $this->request_api(array(
+
+			'method' => 'family',
+			'action' => 'GetFamilyByWineryId',
+			'id'	 => $id
+
+			));
+
+		if (isset($family['owners']['error']) || empty($family['owners']['family'])) {
+
+			return FALSE;
+
+		}
+
+		return $family;
+	}
+
+
+	/* ---------------------------------------------------------------- */
+	// Winery
+	/* ---------------------------------------------------------------- */
+
+	public function get_wineries_by_owner_id() {
+
+		$wineries = $this->request_api(array(
+
+			'method' => 'winery',
+			'action' => 'GetWineriesByOwnerId'
+
+			));
+
+		if (isset($wineries['wineries']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$wineries = $this->_prevent_api($wineries, 'wineries', 'winery');
+
+		return $wineries;
+
+	}
+
+	public function get_wineries_by_family_id($id) {
+
+		$wineries = $this->request_api(array(
+
+			'method' => 'winery',
+			'action' => 'GetWineriesByFamilyId',
+			'id' 	 => $id
+
+			));
+
+		if (isset($wineries['wineries']['error'])) {
+
+			return FALSE;
+
+		}
+
+		$wineries = $this->_prevent_api($wineries, 'wineries', 'winery');
+
+		return $wineries;
+
+	}
 
 	public function get_winery_by_id($id) {
 
@@ -262,8 +427,6 @@ class wp_vincod_controller_api {
 			return FALSE;
 
 		}
-
-		$winery = $this->_prevent_api($winery, 'wineries', 'winery');
 
 		return $winery;
 	}
@@ -285,10 +448,8 @@ class wp_vincod_controller_api {
 
 		}
 
-		$winery = $this->_prevent_api($winery, 'wineries', 'winery');
-
 		return $winery;
-	
+
 
 	}
 
@@ -309,54 +470,33 @@ class wp_vincod_controller_api {
 
 		}
 
-		$winery = $this->_prevent_api($winery, 'wineries', 'winery');
-
 		return $winery;
 
 	}
 
-	public function get_owner_by_id() {
 
-		$owner = $this->request_api(array(
+	/* ---------------------------------------------------------------- */
+	// Range
+	/* ---------------------------------------------------------------- */
 
-			'method' => 'owner',
-			'action' => 'GetOwnerById'
+	public function get_ranges_by_owner_id() {
+
+		$ranges = $this->request_api(array(
+
+			'method' => 'range',
+			'action' => 'GetRangesByOwnerId',
 
 			));
 
-
-		// Check error
-		if (isset($owner['owners']['error'])) {
+		if (isset($ranges['wineries']['error'])) {
 
 			return FALSE;
 
 		}
 
-		$owner = $this->_prevent_api($owner, 'owners', 'owner');
+		$ranges = $this->_prevent_api($ranges, 'wineries', 'winery');
 
-		return $owner;
-	}
-
-
-	public function get_wineries_by_owner_id() {
-
-		$wineries = $this->request_api(array(
-
-			'method' => 'winery',
-			'action' => 'GetWineriesByOwnerId'
-
-			));
-
-		if (isset($wineries['wineries']['error'])) {
-
-			return FALSE;
-
-		}
-
-		$wineries = $this->_prevent_api($wineries, 'wineries', 'winery');
-		
-		return $wineries;
-
+		return $ranges;
 	}
 
 	public function get_ranges_by_winery_id($id) {
@@ -429,8 +569,6 @@ class wp_vincod_controller_api {
 
 		}
 
-		$range = $this->_prevent_api($range, 'wineries', 'winery');
-
 		return $range;
 	}
 
@@ -451,11 +589,14 @@ class wp_vincod_controller_api {
 
 		}
 
-		$range = $this->_prevent_api($range, 'wineries', 'winery');
-
 		return $range;
 
 	}
+
+
+	/* ---------------------------------------------------------------- */
+	// Wine
+	/* ---------------------------------------------------------------- */
 
 	public function get_wines_by_range_id($id) {
 
@@ -497,7 +638,6 @@ class wp_vincod_controller_api {
 
 		}
 
-		$wine = $this->_prevent_api($wine, 'wines', 'wine');
 		return $wine;
 
 	}
@@ -546,25 +686,7 @@ class wp_vincod_controller_api {
 		return $wines;
 	}
 
-	public function get_ranges_by_owner_id() {
 
-		$ranges = $this->request_api(array(
-
-			'method' => 'range',
-			'action' => 'GetRangesByOwnerId',
-
-			));
-
-		if (isset($ranges['wineries']['error'])) {
-
-			return FALSE;
-
-		}
-
-		$ranges = $this->_prevent_api($ranges, 'wineries', 'winery');
-
-		return $ranges;
-	}
 
 	public function get_wines_by_owner_id() {
 
@@ -592,9 +714,7 @@ class wp_vincod_controller_api {
 		// Problem with return api datas
 		// Sometimes return just one wine without multidimensionnal
 
-
-
-		if( ! wp_vincod_is_multi($datas[$key][$second_key][0])) {
+		if( ! wp_vincod_is_multi($datas[$key][$second_key])) {
 
 			// Re format array
 			$tmp = $datas[$key][$second_key];
@@ -606,7 +726,7 @@ class wp_vincod_controller_api {
 		}
 
 		return $datas;
-		
+
 
 	}
 

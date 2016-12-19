@@ -22,6 +22,11 @@
 /* #Global Html
 ================================================== */
 
+body {
+	background-color: RGB(241,241,241);
+	font-family: "Open Sans",sans-serif !important;
+}
+
 /* Homemade Framework */
 .btn-spacer { margin-left : 2em; display : inline-block; }
 

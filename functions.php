@@ -1,5 +1,8 @@
 <?php defined( 'ABSPATH' ) OR exit;
 
+require_once('controllers/api-controller.php');
+require_once('controllers/template-controller.php');
+
 /**
  * Plugin functions
  *
@@ -19,7 +22,7 @@
 	|-------------------------------------------------------------------
 	| Wordpress Hooks
 	|-------------------------------------------------------------------
-	| 
+	|
 	| All extends wordpress functions
 	|
 	*/
@@ -39,12 +42,12 @@
 		wp_die($content, $title);
 
 	}
-	
+
 	/*
 	|-------------------------------------------------------------------
-	| Security 
+	| Security
 	|-------------------------------------------------------------------
-	| 
+	|
 	| All functions about application security
 	|
 	*/
@@ -54,7 +57,7 @@
 	 *
 	 * @access public
 	 * @param string $str
-	 * @return void
+	 * @return bool
 	 */
 	function wp_vincod_xss_clean($str) {
 
@@ -100,7 +103,7 @@
 	|-------------------------------------------------------------------
 	| Url
 	|-------------------------------------------------------------------
-	| 
+	|
 	| All functions about urls/uris
 	|
 	*/
@@ -123,7 +126,7 @@
 			curl_setopt($ch, CURLOPT_HEADER, 0);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($ch, CURLOPT_URL, $url);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);       
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
 
 			$datas = curl_exec($ch);
 			curl_close($ch);
@@ -136,7 +139,7 @@
 		}
 
 		// Do you auto-decode json results
-		if ($json_decode === TRUE) { 
+		if ($json_decode === TRUE) {
 
 			// TRUE -> Return array
 			$datas = json_decode($datas, TRUE);
@@ -146,87 +149,23 @@
 		return $datas;
 	}
 
-	/**
-	 * Get the link to resize
-	 *
-	 * @access public
-	 * @param string Url of picture
-	 * @return string
-	 */
-	function wp_vincod_url_resizer($url_picture) {
-
-		// Get values
-		$width = get_option('vincod_setting_picture_width');
-		$height = get_option('vincod_setting_picture_height');
-
-		// Conditions
-		if (empty($width) OR !is_numeric($width)) {
-
-			$width = WP_VINCOD_TEMPLATE_PICTURE_WIDTH;
-
-		}
-
-		if (empty($height) OR !is_numeric($height)) {
-
-			$height = WP_VINCOD_TEMPLATE_PICTURE_HEIGHT;
-
-		}
-
-		$remote = WP_VINCOD_PLUGIN_URL . 'scripts/resizer.php?url=' . $url_picture . '&width=' . $width . '&height=' . $height;
-
-		return $remote;
-
-	}
-	
-	function wp_vincod_url_resizer_wine($url_picture) {
-
-
-		// Get values
-		$width = get_option('vincod_setting_picture_width');
-		$height = get_option('vincod_setting_picture_height');
-		//$width = 200;
-		//$height = 600;
-
-		// Conditions
-		if (empty($width) OR !is_numeric($width)) {
-
-			$width = WP_VINCOD_TEMPLATE_PICTURE_WIDTH*2;
-			//$width = 500;
-
-		}
-
-		if (empty($height) OR !is_numeric($height)) {
-
-			$height = WP_VINCOD_TEMPLATE_PICTURE_HEIGHT*2;
-			//$height = 800;
-
-		}
-
-		$remote = WP_VINCOD_PLUGIN_URL . 'scripts/resizer.php?url=' . $url_picture . '&width=' . $width . '&height=' . $height;
-
-		return $remote;
-
-	}
-
-
-
 	/*
 	|-------------------------------------------------------------------
 	| Custom functions
 	|-------------------------------------------------------------------
-	| 
+	|
 	| Custom functions for this plugin
 	|
-	*/	
+	*/
 
 	function wp_vincod_include_video($value, $extend) {
 
-		// Maybe add this in dashboard to customise width & height ?		
+		// Maybe add this in dashboard to customise width & height ?
 		$width = 400;
 		$height = 250;
 
 
-		if(preg_match('/^http(s?):\/\/vimeo.com\/([0-9_-]+)/', $value, $matches)) {        
+		if(preg_match('/^http(s?):\/\/vimeo.com\/([0-9_-]+)/', $value, $matches)) {
 			return '<iframe src="http://player.vimeo.com/video/'.$matches[2].'" width="'.$width.'" height="'.$height.'" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>' . $extend;
 		} else if(preg_match('/^http(s?):\/\/www.youtube.com\/watch\?v=([a-zA-Z0-9_-]+)&?/', $value, $matches)) {
 			return '<iframe src="http://www.youtube.com/embed/'.$matches[2].'" width="'.$width.'" height="'.$height.'" frameborder="0" allowFullScreen></iframe>' . $extend;
@@ -252,7 +191,7 @@
 		return $varieties;
 	}
 
-	function wp_vincod_breadcrumb($breadcrumb) {
+	function wp_vincod_breadcrumb($breadcrumb, $custom_text = '') {
 
 		if ($breadcrumb === FALSE) {
 
@@ -265,19 +204,15 @@
 
 		// Get content
 		$back = wp_vincod_get_lang_content('vincod_back_lang');
-		
-		$output = '<a href="' . $breadcrumb . '">' . $back . '</a>';
-		
-		
+
+		$output = ($custom_text == '') ? '<a href="' . $breadcrumb . '">' . $back . '</a>' : '<a href="' . $breadcrumb . '">' . $custom_text . '</a>';
 
 		return $output;
 
-
 	}
-	
-	// recup logo
 
-	function wp_include_picture($datas) {
+
+	function wp_include_picture_url($datas, $type=false) { // ajout PH pour insertion img en div
 
 		if ( ! empty($datas['logo'])) {
 
@@ -295,50 +230,13 @@
 
 			$picture = $datas['medias']['media'][0]['url'];
 
-		} 
-
-
-
-		if (  isset($picture)) {
-
-			$picture = wp_vincod_url_resizer( wp_vincod_picture_format($picture) );
-
-		} else {
-
-			// Default picture
-			$picture = WP_VINCOD_PLUGIN_URL . 'assets/img/ico_wine.png';
-
 		}
 
-		return '<img src="' . $picture . '">';
-
-	}
-	
-	function wp_include_picture_url($datas) { // ajout PH pour insertion img en div
-
-		if ( ! empty($datas['logo'])) {
-
-			$picture = $datas['logo'];
-
-		} elseif ( ! empty($datas['picture'])) {
-
-			$picture = $datas['picture'];
-
-		} elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media']['url'])) {
-
-			$picture = $datas['medias']['media']['url'];
-
-		} elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media'][0]['url'])) {
-
-			$picture = $datas['medias']['media'][0]['url'];
-
-		} 
-
 
 
 		if (  isset($picture)) {
 
-			$picture = wp_vincod_url_resizer( wp_vincod_picture_format($picture) );
+			$picture = wp_vincod_picture_format($picture, $type);
 
 		} else {
 
@@ -350,103 +248,8 @@
 		return $picture;
 
 	}
-	
-	// recup image
-	
-	function wp_include_picture_photo($datas) {
 
-		if ( ! empty($datas['picture'])) {
-
-			$picture = $datas['picture'];
-
-		} /*elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media'][0]['url'])) {
-
-			$picture = $datas['medias']['media'][0]['url'];
-
-		} */
-
-		if (  isset($picture)) {
-
-			$picture = wp_vincod_url_resizer( wp_vincod_picture_format($picture) );
-
-		} else {
-
-			// Default picture
-			$picture = WP_VINCOD_PLUGIN_URL . 'assets/img/ico_wine.png';
-
-		}
-
-		return '<img src="' . $picture . '">';
-
-	}
-	
-	function wp_include_picture_photo_url($datas) { // ajout PH pour insertion img en div
-
-		if ( ! empty($datas['picture'])) {
-
-			$picture = $datas['picture'];
-
-		} /*elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media'][0]['url'])) {
-
-			$picture = $datas['medias']['media'][0]['url'];
-
-		} */
-
-
-
-		if (  isset($picture)) {
-
-			$picture = wp_vincod_url_resizer( wp_vincod_picture_format($picture) );
-
-		} else {
-
-			// Default picture
-			$picture = WP_VINCOD_PLUGIN_URL . 'assets/img/ico_winery.png';
-
-		}
-
-		return $picture;
-
-	}
-	
-	function wp_include_picture_wine($datas) {
-
-		if ( ! empty($datas['picture'])) { // PH remplace logo par picture
-
-			$picture = $datas['picture'];
-
-		} elseif ( ! empty($datas['tag'])) {// PH remplace picture par tag
-
-			$picture = $datas['tag'];
-
-		} elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media']['url'])) {
-
-			$picture = $datas['medias']['media']['url'];
-
-		} elseif ( is_array($datas['medias']) && ! empty($datas['medias']['media'][0]['url'])) {
-
-			$picture = $datas['medias']['media'][0]['url'];
-
-		} 
-
-
-
-		if (  isset($picture)) {
-
-			$picture = wp_vincod_url_resizer_wine( wp_vincod_picture_format($picture) );
-
-		} else {
-
-			// Default picture
-			$picture = WP_VINCOD_PLUGIN_URL . 'assets/img/ico_winery.png';
-
-		}
-
-		return '<img src="' . $picture . '">';
-
-	}
-	
-	function wp_include_picture_wine_url($datas) { // PH ajout pour insertion img en div
+	function wp_include_picture_wine_url($datas, $type=false) { // PH ajout pour insertion img en div
 
 		if ( ! empty($datas['picture'])) {// PH remplace logo par picture
 
@@ -464,13 +267,13 @@
 
 			$picture = $datas['medias']['media'][0]['url'];
 
-		} 
+		}
 
 
 
 		if (  isset($picture)) {
 
-			$picture = wp_vincod_url_resizer_wine( wp_vincod_picture_format($picture) );
+			$picture = wp_vincod_picture_format($picture, $type);
 
 		} else {
 
@@ -483,75 +286,44 @@
 
 	}
 
-	function wp_vincod_picture_format($url, $type=640) {
+	function wp_vincod_picture_format($url, $type = false) {
 
-		$allowed_type_vincod = array(70, 140, 480, 640);
-		$allowed_type_wml = array(72, 140, 640, 1024);
+		if($type == false) $type = 640;
+
+		$allowed_type_vincod = array(70, 80, 320, 640, 1024, 2048);
+		$allowed_type_wml = array('mini', 320, 640, 1024, 'retina');
+
+		if(!in_array($type, $allowed_type_vincod) && !in_array($type, $allowed_type_wml)) $type = 640;
 
 		// Get domain of url
 		$elements = parse_url($url);
 
-		if (isset($elements['host'])) {
+		if(strpos($url, '/_clients_folder/')) {
 
-			// CASE VINCOD.COM
-			if ($elements['host'] == 'vincod.com' OR $elements['host'] == 'www.vincod.com') {
-
-				if (in_array($type, $allowed_type_vincod)) {
-
-					$url = str_replace('marque/', 'marque/' . $type . '/', $url);
-
-				}
+			if(strpos($url, '/_clients_folder/vincod/')) {
+				$url = str_replace('marque/', 'marque/' . $type . '/', $url);
 
 			}
+			else {
+
+				$infos = pathinfo($url);
+				$pattern = '.' . $infos['extension']; // Ex. > .jpg
+				$replace_pattern = '_' . $type . '.' . $infos['extension']; // Ex > _640.jpg
+				$url = str_replace($pattern, $replace_pattern, $url);
+			}
+		}
+		else {
+
+			//$url = str_replace('marque/', 'marque/' . $type . '/', $url);
+			$url = str_replace('640/', $type . '/', $url); // parceque l'API remonte par défaut l'image en 640
+
+		}
 
 
-// LE BUG DE NAZE !! MANQUE LE CAS OLD WML exemple http://www.winemedialibrary.com/_clients_folder/vincod/marque/140/wml130527680565851.jpg
-
-
-			// CASE WML
-			if ($elements['host'] == 'www.winemedialibrary.com' OR $elements['host'] == 'winemedialibrary.com' OR $elements['host'] == 'vin.co' OR $elements['host'] == 'www.vin.co') {
-				
-
-				if (in_array($type, $allowed_type_wml)) {
-
-					// Is it a customer folder
-					/*if (strpos($url, '/_clients_folder/')) {
-
-						$infos = pathinfo($url);
-						$pattern = '.' . $infos['extension']; // Ex. > .jpg
-						$replace_pattern = '_' . $type . '.' . $infos['extension']; // Ex > _640.jpg
-						$url = str_replace($pattern, $replace_pattern, $url);
-
-					} else {
-
-						$url = str_replace('marque/', 'marque/' . $type . '/', $url);
-
-					}*/
-					
-					// Is it a customer folder
-					if (strpos($url, '/_clients_folder/vincod/')) {
-
-						$url = str_replace('marque/', 'marque/' . $type . '/', $url);
-
-						} else {
-	
-							
-							$infos = pathinfo($url);
-							$pattern = '.' . $infos['extension']; // Ex. > .jpg
-							$replace_pattern = '_' . $type . '.' . $infos['extension']; // Ex > _640.jpg
-							$url = str_replace($pattern, $replace_pattern, $url);
-	
-						}
-
-					}
-				}
-
-			 } 
-
-		 return $url;
-
-
+		return $url;
 	}
+
+
 	/**
 	 * Get the custom permalink defined by the user in the dashboard
 	 *
@@ -570,7 +342,7 @@
 
 		} else {
 
-			return sanitize_title_with_dashes($else_permalink);
+			return sanitize_title($else_permalink);
 
 		}
 
@@ -602,7 +374,7 @@
 		$api = get_option('vincod_setting_customer_api');
 
 		// The request to get all wines
-		$request =  'http://api.vincod.com/json/wine/GetWinesByOwnerId/fr/' . $id . '?apiKey=' . $api;
+		$request =  'http://api.vincod.com/2/json/wine/GetWinesByOwnerId/fr/' . $id . '?apiKey=' . $api;
 
 		$results = wp_vincod_file_get_contents($request, TRUE);
 
@@ -625,11 +397,16 @@
 
 			return $text;
 
-		} 
+		}
 
 		return $data;
 
 	}
+
+	function wp_vincod_is_not_empty($var){
+		return isset($var) && !empty($var);
+	}
+
 
 	function wp_vincod_group_wines($wines) {
 
@@ -639,7 +416,7 @@
 		foreach ($wines as $wine) {
 
 			$wineid = $wine['wineid'];
-			
+
 			if ( ! in_array($wineid, $wineid_found)) {
 
 				$wineid_found[] = $wineid;
@@ -655,7 +432,7 @@
 		return $wines_filtered;
 
 	}
-	
+
 	/**
 	 * Construct the right link with smart detect permalinks used
 	 *
@@ -663,53 +440,43 @@
 	 * @param string The type (winery/range/vincod)
 	 * @param int 	 The id for this type
 	 * @param text   The text to add if permalinks used
-	 * @return void
+	 * @return bool|string
 	 */
 	function wp_vincod_link($type, $id, $text) {
 
 		// Import wp_rewrite to use some functions
 		$link_page =  get_permalink();
-		$lang_page = '';
-		
-		// Taking care of Qtranslate Erase lang param from url. it will be replaced at the end of new url
-		
-		if(function_exists('qtrans_getLanguage'))
-		{
-			$lang_page =  'lang='.$_GET['lang'];
-			$link_page = str_replace(array('?'.$lang_page, '&'.$lang_page), array('',''), $link_page);
-		} 
 
 		// Check if permalinks used
 		if (wp_vincod_permalinks_used() === TRUE) {
 
 			// Permalink from string
-			$text = sanitize_title_with_dashes($text);
-			
-			if ($lang_page<>'') $lang_page='/?'.$lang_page; // case qtranslate
+			$text = sanitize_title($text);
 
-			switch($type) {
-
-				case 'winery':
-				//$link_page .= 'exploitant-' . $id  . '-' . $text;
-				$link_page .= 'exploitant-' . $id  . '-' . $text.$lang_page;
-				break;
-
-				case 'range':
-				$link_page .= 'gamme-' . $id . '-' . $text.$lang_page;
-				break;
-
-				case 'vincod':
+			if($type == 'wine') {
 				$text = wp_vincod_wine_permalink($id, $text);
-				$link_page .= 'vin-' . $id . '-' . $text.$lang_page;
-				break;
-
-
 			}
-			
+
+			if(!empty($type)) {
+				$link_page .= $type . '-' . $id . '-' . $text;
+			}
+
+
 		} else {
 
-			if ($lang_page<>'') $lang_page='&'.$lang_page; // case qtranslate
-			$link_page .= '&' . $type . '=' . $id.$lang_page;
+			switch($type) {
+				case 'collection':
+					$type = 'family';
+					break;
+				case 'brand':
+					$type = 'winery';
+					break;
+				case 'product':
+					$type = 'wine';
+					break;
+			}
+
+			$link_page .= '&' . $type . '=' . $id;
 
 		}
 
@@ -735,9 +502,9 @@
 		$xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 
 		// All requests
-		$request_wineries = 'http://api.vincod.com/json/winery/GetWineriesByOwnerId/fr/' . $customer_id . '?apiKey=' . $customer_api;
-		$request_ranges = 'http://api.vincod.com/json/range/GetRangesByOwnerId/fr/' . $customer_id . '?apiKey=' . $customer_api;
-		$request_wines = 'http://api.vincod.com/json/wine/GetWinesByOwnerId/fr/' . $customer_id . '?apiKey=' . $customer_api;
+		$request_wineries = 'http://api.vincod.com/2/json/winery/GetWineriesByOwnerId/fr/' . $customer_id . '?apiKey=' . $customer_api;
+		$request_ranges = 'http://api.vincod.com/2/json/range/GetRangesByOwnerId/fr/' . $customer_id . '?apiKey=' . $customer_api;
+		$request_wines = 'http://api.vincod.com/2/json/wine/GetWinesByOwnerId/fr/' . $customer_id . '?apiKey=' . $customer_api;
 
 		// Datas about requests
 		$datas_wineries = wp_vincod_file_get_contents($request_wineries, TRUE);
@@ -752,7 +519,7 @@
 		// Wineries
 		if (!isset($datas_wineries['wineries']['error'])) {
 
-			if( ! wp_vincod_is_multi($datas_wineries['wineries']['winery'][0])) {
+			if( ! wp_vincod_is_multi($datas_wineries['wineries']['winery'])) {
 
 				$datas_wineries['wineries']['winery'] = array($datas_wineries['wineries']['winery']);
 
@@ -769,7 +536,7 @@
 		// Wines
 		if (!isset($datas_wines['wines']['error'])) {
 
-			if( ! wp_vincod_is_multi($datas_wines['wines']['wine'][0])) {
+			if( ! wp_vincod_is_multi($datas_wines['wines']['wine'])) {
 
 				$datas_wines['wines']['wine'] = array($datas_wines['wines']['wine']);
 
@@ -998,7 +765,7 @@
 	 * Check if page exists
 	 *
 	 * @access public
-	 * @return void
+	 * @return bool
 	 */
 	function wp_vincod_exists_page($name) {
 
@@ -1029,18 +796,18 @@
 	 */
 	function wp_vincod_create_page() {
 
-		// Create new page with pending statut		
+		// Create new page with pending statut
 		$created = wp_insert_post(array(
 
 			'comment_status' => 'closed',
 			'ping_status' => 'closed',
-			'post_name' => 'plugin-vincod-nos-vins',			  
-			'post_status' => 'pending', 
-			'post_title' => 'Plugin Vincod Nos Vins',
+			'post_name' => 'nos-vins',
+			'post_status' => 'pending',
+			'post_title' => 'Nos Vins (powered by Vincod)',
 			'post_type' => 'page',
 			'post_content' => 'Cette page est utilisé par le plugin vincod, merci de ne pas y toucher'
 
-			), TRUE); 	
+			), TRUE);
 
 		if (isset($created->errors)) {
 
@@ -1089,7 +856,7 @@
 	 *
 	 * @access public
 	 * @param  int 	The page id to delete
-	 * @return void
+	 * @return bool
 	 */
 	function wp_vincod_delete_page($id) {
 
@@ -1105,7 +872,7 @@
 
 		}
 
-	}	
+	}
 
 	/**
 	 * Check if you can deal with the API
@@ -1145,25 +912,22 @@
 	 * @return mixed (string/false)
 	 */
 	function wp_vincod_get_page_slug($id) {
-		
-		//TC
+
 		//If polylang exists, get translated page ID "NOS VINS"
-		/*
-if (function_exists('pll_current_language')) {
-			$id = pll_get_post($id);
+
+		if (function_exists('pll_current_language')) {
+			$id = pll_get_post($id, pll_current_language());
 		}
-*/
-		//END TC
-		
+
 		$post = get_post($id);
-		
-		
+
+
 
 		if (!empty($post)) {
 
 			return $post->post_name;
 
-		} 
+		}
 
 		return false;
 
@@ -1186,25 +950,15 @@ if (function_exists('pll_current_language')) {
 	|-------------------------------------------------------------------
 	| Micro-Framework plugin development
 	|-------------------------------------------------------------------
-	| 
+	|
 	| Commons functions to use when you create a plugin
 	|
 	*/
 	function wp_vincod_detect_lang() {
 
-		if(function_exists('qtrans_getLanguage')) {
-
-			$lang = qtrans_getLanguage();
-
-		} elseif (function_exists('pll_current_language')) {
-				
-			$lang = pll_current_language();
-		
-		} else {
-
-			$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-
-		}
+		$lang = get_locale();
+		$lang = explode('_', $lang);
+		$lang = $lang[0];
 
 		return $lang;
 
@@ -1212,8 +966,7 @@ if (function_exists('pll_current_language')) {
 
 
 	function wp_vincod_is_multi($array) {
-		return (count($array) != count($array, 1));
-
+		return ! count(array_filter(array_keys($array), 'is_string')) > 0;
 	}
 
 	/**
@@ -1304,8 +1057,8 @@ if (function_exists('pll_current_language')) {
 		// Add styles
 		$wp_styles->add('bootstrap', plugin_dir_url(__FILE__).'/assets/libs/bootstrap/bootstrap.css');
 		$wp_styles->add('font-awesome', plugin_dir_url(__FILE__).'/assets/libs/font-awesome/css/font-awesome.css');
-		$wp_styles->add('layout', plugin_dir_url(__FILE__).'/assets/css/layout.css');	
-		
+		$wp_styles->add('layout', plugin_dir_url(__FILE__).'/assets/css/layout.css');
+
 		// And put enqueue
 		$wp_styles->enqueue(array('bootstrap', 'font-awesome', 'layout'));
 
@@ -1336,13 +1089,13 @@ if (function_exists('pll_current_language')) {
 	 *
 	 * @access public
 	 * @param string $view the view name (e.g. 'admin/dashboard')
-	 * @return void
+	 * @return string
 	 */
 	function wp_vincod_load_view($view, $datas=array(), $return = FALSE, $start_path = 'views') {
-		
+
 		// We want return, so we must stock the buffer
 		if ($return) ob_start();
-		
+
 		/*
 		 * We get our global variable and extract it to simulate a view variable system
 		 * For example, $wp_vincod_views_datas['var'] will become $var within this function and our view
@@ -1395,15 +1148,136 @@ if (function_exists('pll_current_language')) {
 
 		$path = 'language/' . $actual_language . '/' . ltrim($view, '/') . '_lang.php';
 
-		if ( ! file_exists(WP_VINCOD_PLUGIN_PATH . $path)) {
-
-			require('language/fr/' . ltrim($view, '/') . '_lang.php');
-
-		} else {
+		if ( file_exists(WP_VINCOD_PLUGIN_PATH . $path)) {
 
 			require('language/' . $actual_language . '/' . ltrim($view, '/') . '_lang.php');
 
+		} else {
+
+			require('language/en/' . ltrim($view, '/') . '_lang.php');
+
 		}
+	}
+
+	/**
+	 * Set Body Classes
+	 *
+	 * @access public
+	 * @return array
+	 */
+
+	function wp_vincod_body_classes($classes) {
+		$classes[] = 'plugin-vincod-page';
+
+		return $classes;
+	}
+
+
+	/**
+	 * Get the Menu
+	 *
+	 * @access public
+	 * @return string
+	 */
+	function wp_vincod_get_menu($vincod = NULL) {
+
+		$api = new wp_vincod_controller_template();
+
+		$menu = $api->get_catalogue_by_vincod($vincod);
+
+		$menu = wp_vincod_render_menu($menu['owners']);
+
+		return $menu;
+	}
+
+
+	/**
+	 * Render the Menu
+	 *
+	 * @access public
+	 * @return string
+	 */
+	function wp_vincod_render_menu($menu_array) {
+
+		if(isset($menu_array['menu']) && isset($menu_array['menu'][0])) {
+
+			$menu = '<ul class="vincod-menu '. $menu_array['menu'][0]['@attributes']['type'] .'">';
+
+			foreach ($menu_array['menu'] as $sub_menu) {
+				$menu_link = '';
+				$permalink_type = $sub_menu['@attributes']['type'];
+
+				switch($permalink_type) {
+					case 'owner':
+						$menu_link = get_permalink();
+						break;
+					case 'family':
+						$permalink_type = 'collection';
+						$menu_link = wp_vincod_link($permalink_type, $sub_menu['@attributes']['vincod'], $sub_menu['title']);
+						break;
+					case 'winery':
+						$permalink_type = 'brand';
+						$menu_link = wp_vincod_link($permalink_type, $sub_menu['@attributes']['vincod'], $sub_menu['title']);
+						break;
+					case 'range':
+						$permalink_type = 'range';
+						$menu_link = wp_vincod_link($permalink_type, $sub_menu['@attributes']['vincod'], $sub_menu['title']);
+						break;
+				}
+
+				$is_active = (isset($sub_menu['actif']) && $sub_menu['actif'] == 1) ? ' active' : '';
+
+				$menu .= '<li class="vincod-menu-item '. $sub_menu['@attributes']['type'] . $is_active .'">';
+				$menu .= '<a href="'. $menu_link .'" title="'. $sub_menu['title'] .'">'. $sub_menu['title'] .'</a>';
+
+				if(isset($sub_menu['menu'])) {
+					$menu .= wp_vincod_render_menu($sub_menu);
+				}
+
+				$menu .= '</li>';
+			}
+			$menu .= '</ul>';
+		}
+		elseif (isset($menu_array['menu'])) {
+
+			$menu = '<ul class="vincod-menu '. $menu_array['menu']['@attributes']['type'] .'">';
+
+			$menu_link = '';
+			$permalink_type = $menu_array['menu']['@attributes']['type'];
+
+			switch($permalink_type) {
+				case 'owner':
+					$menu_link = get_permalink();
+					break;
+				case 'family':
+					$permalink_type = 'collection';
+					$menu_link = wp_vincod_link($permalink_type, $menu_array['menu']['@attributes']['vincod'], $menu_array['menu']['title']);
+					break;
+				case 'winery':
+					$permalink_type = 'brand';
+					$menu_link = wp_vincod_link($permalink_type, $menu_array['menu']['@attributes']['vincod'], $menu_array['menu']['title']);
+					break;
+				case 'range':
+					$permalink_type = 'range';
+					$menu_link = wp_vincod_link($permalink_type, $menu_array['menu']['@attributes']['vincod'], $menu_array['menu']['title']);
+					break;
+			}
+
+			$is_active = (isset($menu_array['menu']['actif']) && $menu_array['menu']['actif'] == 1) ? ' active' : '';
+
+			$menu .= '<li class="vincod-menu-item '. $menu_array['menu']['@attributes']['type'] .'">';
+			$menu .= '<a href="'. $menu_link .'" title="'. $menu_array['menu']['title'] .'">'. $menu_array['menu']['title'] .'</a>';
+
+			if(isset($menu_array['menu']['menu'])) {
+				$menu .= wp_vincod_render_menu($menu_array['menu']);
+			}
+
+			$menu .= '</li>';
+			$menu .= '</ul>';
+		}
+
+
+		return $menu;
 	}
 
 	/**
@@ -1604,7 +1478,7 @@ if (function_exists('pll_current_language')) {
 			$the_permalink = $cleaned_post['vincod_' . $vincod];
 
 			// Convert the permalink
-			$new_permalink = sanitize_title_with_dashes($the_permalink);
+			$new_permalink = sanitize_title($the_permalink);
 
 			$permalinks = get_option('vincod_setting_permalinks');
 

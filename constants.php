@@ -35,14 +35,14 @@ define('WP_VINCOD_PLUGIN_PATH', plugin_dir_path( __FILE__ ));
 // Defaut general text
 define('WP_VINCOD_TEMPLATE_SIZE_GENERAL_TEXT', 14);
 
-// Size for titles 
+// Size for titles
 define('WP_VINCOD_TEMPLATE_SIZE_TITLES_TEXT', 25);
 
 // Default width template picture
-define('WP_VINCOD_TEMPLATE_PICTURE_WIDTH', 250);
+define('WP_VINCOD_TEMPLATE_PICTURE_WIDTH', 1280);
 
 // Default height template picture
-define('WP_VINCOD_TEMPLATE_PICTURE_HEIGHT', 250);
+define('WP_VINCOD_TEMPLATE_PICTURE_HEIGHT', 720);
 
 
 ?>

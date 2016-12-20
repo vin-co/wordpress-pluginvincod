@@ -1,3 +1,7 @@
+// Icons
+// -----------------------------------------------------
+@import "ionicons/scss/ionicons";
+
 //=================================
 //	!---------- FRONT ----------
 //=================================
@@ -21,10 +25,6 @@
 	@import "imports";
 	@import "bootswatch/yeti/bootswatch";
 
-	// Icons
-	// -----------------------------------------------------
-	@import "ionicons/scss/ionicons";
-
 	// ---------- Global styles ----------
 
 	a, button {
@@ -47,6 +47,10 @@
 		max-width: 1600px;
 		margin: auto;
 		padding: 20px 0;
+	}
+
+	ul, ol {
+		margin: 0;
 	}
 
 	// ---------- Menu styles ----------
@@ -104,6 +108,7 @@
 
 		.menu-well {
 			margin: 0;
+			border-color: $gray-light;
 
 			@media #{$md-max} {
 				margin-top: 20px;
@@ -155,7 +160,7 @@
 		.panel-heading {
 			height: 300px;
 			padding: 0;
-			background-color: $gray-light;
+			background-color: $well-bg;
 
 			.content-cover {
 				height: 100%;
@@ -235,6 +240,7 @@
 			display: inline-block;
 			padding: 30px;
 			border: 1px solid $gray-light;
+			background-color: $well-bg;
 			color: inherit;
 			font-size: $font-size-base;
 			text-align: center;
@@ -293,6 +299,7 @@
 				height: auto;
 				padding: 0;
 				white-space: normal;
+				background-color: $well-bg;
 				border-color: $gray-light;
 
 				&.no-vintage {
@@ -354,6 +361,7 @@
 				margin: -1px 0 0;
 				min-width: 100px;
 				border-color: $gray-light;
+				background-color: $well-bg;
 
 				@media #{$sm-max} {
 					width: 100%;

@@ -7550,7 +7550,7 @@
     max-width: 1600px;
     margin: auto;
     padding: 20px 0; }
-  #plugin-vincod ul, #plugin-vincod ol {
+  #plugin-vincod ul, #plugin-vincod ol, #plugin-vincod li {
     margin: 0; }
   @media (min-width: 992px) {
     #plugin-vincod .menu-container {

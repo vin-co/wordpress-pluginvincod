@@ -29,8 +29,8 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		
 		$this->config(array(
 			
-			'_customer_api' => get_option('vincod_setting_customer_api'),
-			'_customer_id' => get_option('vincod_setting_customer_id'),
+			'_customer_api'       => get_option('vincod_setting_customer_api'),
+			'_customer_id'        => get_option('vincod_setting_customer_id'),
 			'_customer_winery_id' => get_option('vincod_setting_customer_winery_id')
 		
 		));
@@ -278,18 +278,21 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		
 		$menu = ($owner) ? wp_vincod_get_menu($owner['vincod']) : '';
 		
+		$breadcrumb = ($owner) ? wp_vincod_get_breadcrumb($owner['vincod']) : '';
+		
 		if(!empty($owner['fields']['presentation'])) {
 			$owner['presentation'] = $owner['fields']['presentation']['value'];
 		}
 		
 		$view_datas = array(
 			
-			'owner' => $owner,
+			'owner'       => $owner,
 			'collections' => $collections,
-			'brands' => $brands,
-			'link' => $this->permalink,
-			'settings' => get_option('vincod_owner_settings'),
-			'menu' => $menu
+			'brands'      => $brands,
+			'link'        => $this->permalink,
+			'settings'    => get_option('vincod_owner_settings'),
+			'menu'        => $menu,
+			'breadcrumb'  => $breadcrumb,
 		
 		);
 		// Loader
@@ -315,6 +318,8 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		
 		$menu = ($collection) ? wp_vincod_get_menu($collection['vincod']) : '';
 		
+		$breadcrumb = ($collection) ? wp_vincod_get_breadcrumb($collection['vincod']) : '';
+		
 		if(!empty($collection['fields']['presentation'])) {
 			$collection['presentation'] = $collection['fields']['presentation']['value'];
 		}
@@ -322,11 +327,12 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		$view_datas = array(
 			
 			'collection' => $collection,
-			'brands' => $brands,
-			'back_link' => $back_link,
-			'link' => $this->permalink,
-			'settings' => get_option('vincod_collection_settings'),
-			'menu' => $menu
+			'brands'     => $brands,
+			'back_link'  => $back_link,
+			'link'       => $this->permalink,
+			'settings'   => get_option('vincod_collection_settings'),
+			'menu'       => $menu,
+			'breadcrumb' => $breadcrumb,
 		
 		);
 		
@@ -357,21 +363,24 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		
 		$menu = ($brand) ? wp_vincod_get_menu($brand['vincod']) : '';
 		
+		$breadcrumb = ($brand) ? wp_vincod_get_breadcrumb($brand['vincod']) : '';
+		
 		if(!empty($brand['presentation'])) {
 			
 			$brand['presentation'] = $brand['presentation']['value'];
 		}
-			
+		
 		
 		$view_datas = array(
 			
-			'brand' => $brand,
-			'ranges' => $ranges,
-			'products' => $products,
-			'back_link' => $back_link,
-			'link' => $this->permalink,
-			'settings' => get_option('vincod_brand_settings'),
-			'menu' => $menu
+			'brand'      => $brand,
+			'ranges'     => $ranges,
+			'products'   => $products,
+			'back_link'  => $back_link,
+			'link'       => $this->permalink,
+			'settings'   => get_option('vincod_brand_settings'),
+			'menu'       => $menu,
+			'breadcrumb' => $breadcrumb,
 		
 		);
 		
@@ -402,18 +411,21 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		
 		$menu = ($range) ? wp_vincod_get_menu($range['vincod']) : '';
 		
+		$breadcrumb = ($range) ? wp_vincod_get_breadcrumb($range['vincod']) : '';
+		
 		if(!empty($range['presentation'])) {
 			$range['presentation'] = $range['presentation']['value'];
 		}
 		
 		$view_datas = array(
 			
-			'range' => $range,
-			'products' => $products,
-			'back_link' => $back_link,
-			'link' => $this->permalink,
-			'settings' => get_option('vincod_range_settings'),
-			'menu' => $menu
+			'range'      => $range,
+			'products'   => $products,
+			'back_link'  => $back_link,
+			'link'       => $this->permalink,
+			'settings'   => get_option('vincod_range_settings'),
+			'menu'       => $menu,
+			'breadcrumb' => $breadcrumb,
 		
 		);
 		
@@ -462,6 +474,8 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		
 		$menu = ($parent) ? wp_vincod_get_menu($parent['vincod']) : '';
 		
+		$breadcrumb = ($parent) ? wp_vincod_get_breadcrumb($parent['vincod']) : '';
+		
 		if(!empty($product['fields']['presentation'])) {
 			$product['presentation'] = (!wp_vincod_is_multi($product['fields']['presentation'])) ? array($product['fields']['presentation']) : $product['fields']['presentation'];
 		}
@@ -500,12 +514,13 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		
 		$view_datas = array(
 			
-			'product' => $product,
-			'vintages' => $vintages,
-			'back_link' => $back_link,
-			'link' => $this->permalink,
-			'settings' => get_option('vincod_product_settings'),
-			'menu' => $menu
+			'product'    => $product,
+			'vintages'   => $vintages,
+			'back_link'  => $back_link,
+			'link'       => $this->permalink,
+			'settings'   => get_option('vincod_product_settings'),
+			'menu'       => $menu,
+			'breadcrumb' => $breadcrumb,
 		
 		);
 		

@@ -19,7 +19,7 @@
 <!-- Default plugin js -->
 <script type="text/javascript">
 	// <![CDATA[
-	(function($){
+	(function($) {
 		$(document).ready(function() {
 			if(typeof($.fn.popover) === 'undefined') {
 				var s = document.createElement("script");
@@ -47,7 +47,7 @@
 				
 				<div class="menu-collapse collapse" id="menu-collapse">
 					<div class="well menu-well no-padding">
-						<?= $menu ?>
+						<?= $menu; ?>
 					</div>
 				</div>
 			
@@ -55,7 +55,19 @@
 		
 		<?php endif; ?>
 		
+		
 		<div class="content-container <?= ($settings['has_menu']) ? 'col-xs-12 col-md-9' : 'clearfix' ?>">
+			
+			<?php if($settings['has_breadcrumb']): ?>
+				
+				<div class="col-xs-12">
+					<ol class="breadcrumb">
+						<?= $breadcrumb; ?>
+					</ol>
+				</div>
+			
+			<?php endif; ?>
+			
 			
 			<!-- The product : Picture -->
 			<div class="col-xs-12 col-md-5">
@@ -153,7 +165,7 @@
 						<?php endif; ?>
 					
 					</div>
-					
+				
 				</div>
 				
 				
@@ -404,9 +416,9 @@
 														, <?= $review['date'] ?>
 													<?php endif; ?>
 												</em>
-												
-											</span>
 											
+											</span>
+										
 										</p>
 									
 									</div>
@@ -434,7 +446,7 @@
 										</p>
 									
 									<?php endforeach; ?>
-									
+								
 								<?php endif; ?>
 								
 								<?php if(!empty($product['products'])): ?>

@@ -111,10 +111,21 @@ function wp_wincod_post_updates(array $post) {
 	// API cache
 	if(isset($cleaned_post['vincod_setting_cache_api'])) {
 		
-		// Update
-		update_option('vincod_setting_cache_api', $cleaned_post['vincod_setting_cache_api']);
-		
-		wp_vincod_devlog(__("Cache duration was updated.", 'vincod'));
+		if(isset($cleaned_post['vincod_clear_cache'])) {
+			
+			array_map('unlink', (glob(WP_VINCOD_PLUGIN_PATH . 'cache/api/*.json') ? glob(WP_VINCOD_PLUGIN_PATH . 'cache/api/*.json') : array()));
+			
+			wp_vincod_devlog(__("Cache was cleared.", 'vincod'));
+			
+		}
+		else {
+			
+			// Update
+			update_option('vincod_setting_cache_api', $cleaned_post['vincod_setting_cache_api']);
+			
+			wp_vincod_devlog(__("Cache duration was updated.", 'vincod'));
+			
+		}
 		
 	}
 	
@@ -122,13 +133,13 @@ function wp_wincod_post_updates(array $post) {
 	// Styles
 	foreach(array('owner', 'collection', 'brand', 'range', 'product') as $value) {
 		
-		if(isset($cleaned_post['vincod_' . $value .'_settings'])) {
+		if(isset($cleaned_post['vincod_' . $value . '_settings'])) {
 			
-			$setting = $cleaned_post['vincod_' . $value .'_settings'];
+			$setting = $cleaned_post['vincod_' . $value . '_settings'];
 			
-			update_option('vincod_' . $value .'_settings', $setting);
+			update_option('vincod_' . $value . '_settings', $setting);
 			
-			wp_vincod_devlog(__("Value was updated :", 'vincod'), ' ' . ucwords($value) .' settings');
+			wp_vincod_devlog(__("Value was updated :", 'vincod'), ' ' . ucwords($value) . ' settings');
 			
 		}
 		
@@ -255,12 +266,12 @@ function wp_vincod_create_page() {
 	$created = wp_insert_post(array(
 		
 		'comment_status' => 'closed',
-		'ping_status' => 'closed',
-		'post_name' => __('our-wines', 'vincod'),
-		'post_status' => 'pending',
-		'post_title' => __('Our Wines (powered by Vincod)', 'vincod'),
-		'post_type' => 'page',
-		'post_content' => __("This page is used by the Vincod Plugin. Please don't modify it.", 'vincod')
+		'ping_status'    => 'closed',
+		'post_name'      => __('our-wines', 'vincod'),
+		'post_status'    => 'pending',
+		'post_title'     => __('Our Wines (powered by Vincod)', 'vincod'),
+		'post_type'      => 'page',
+		'post_content'   => __("This page is used by the Vincod Plugin. Please don't modify it.", 'vincod')
 	
 	), true);
 	
@@ -311,7 +322,7 @@ function wp_vincod_reset_app() {
 	// Delete style options
 	foreach(array('owner', 'collection', 'brand', 'range', 'product') as $value) {
 		
-		delete_option('vincod_' . $value .'_settings');
+		delete_option('vincod_' . $value . '_settings');
 		
 	}
 	wp_vincod_devlog(__("Style options were removed.", 'vincod'));
@@ -395,8 +406,8 @@ function wp_vincod_devlog($new_entry = null, $details = '') {
 		$_SESSION['devlog'][] = array(
 			
 			'time' => time(),
-			'msg' => $new_entry,
-			'ip' => $_SERVER['REMOTE_ADDR'] // We won't use it but still.
+			'msg'  => $new_entry,
+			'ip'   => $_SERVER['REMOTE_ADDR'] // We won't use it but still.
 		
 		);
 		

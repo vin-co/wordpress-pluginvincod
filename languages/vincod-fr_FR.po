@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vincod\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-12-19 17:23+0000\n"
-"PO-Revision-Date: 2016-12-19 17:28+0000\n"
+"POT-Creation-Date: 2017-04-18 15:02+0000\n"
+"PO-Revision-Date: 2017-04-18 16:21+0000\n"
 "Last-Translator: admin <apps@vinternet.net>\n"
 "Language-Team: French (France)\n"
 "Language: fr-FR\n"
@@ -13,98 +13,59 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco - https://localise.biz/"
 
-#: functions/admin.php:351
-msgid "We reset style settings."
-msgstr "Remise à zéro des options de style"
+#: functions/admin.php:118
+msgid "Cache was cleared."
+msgstr "Le cache a été vidé."
 
-#: views/template/brand.php:151 views/template/collection.php:134
-#: views/template/index.php:170 views/template/range.php:115
-msgid "Nothing to Show."
-msgstr "Aucun produit."
+#: views/admin/dashboard.php:126
+msgid "Clear Cache"
+msgstr "Vider le Cache"
 
-#: views/template/brand.php:153 views/template/collection.php:136
-#: views/template/index.php:172 views/template/range.php:117
-msgid ""
-"Please check your Vincod Account id or enter a Brand Vincod id if you want "
-"to show only one brand."
-msgstr ""
-"Vérifiez l'identifiant Vincod du compte ou précisez l'identifiant Vincod de "
-"la marque si le compte ne présente qu'une marque."
+#: views/admin/dashboard.php:166
+msgid "Breadcrumb"
+msgstr "Fil d'Ariane"
 
-#: views/template/product.php:68
-msgid "Downloads"
-msgstr "Téléchargements"
+#. Name of the plugin
+msgid "Vincod"
+msgstr "Vincod"
 
-#: views/template/product.php:88 views/template/product.php:88
-msgid "Product datasheet"
-msgstr "Fiche technique"
+#. URI of the plugin
+msgid "http://dev.vincod.com/"
+msgstr "http://dev.vincod.com/"
 
-#: views/template/product.php:92 views/template/product.php:92
-msgid "Table stand"
-msgstr "Chevalet de table"
+#. Author of the plugin
+msgid "Vinternet"
+msgstr "Vinternet"
 
-#: views/template/product.php:110
-msgid "See all vintages"
-msgstr "Voir tous les millésimes"
+#. Author URI of the plugin
+msgid "http://www.vinternet.net/"
+msgstr "http://www.vinternet.net/"
 
-#: views/template/product.php:177
-msgid "Presentation"
-msgstr "Présentation"
-
-#: views/template/product.php:187
-msgid "Tasting tips"
-msgstr "Conseils"
-
-#: views/template/product.php:197
-msgid "Specifications"
-msgstr "Spécifications"
-
-#: views/template/product.php:207
-msgid "Reviews & awards"
-msgstr "Avis & récompenses"
-
-#: views/template/product.php:217 views/template/product.php:428
-#: views/template/product.php:429
-msgid "Where to buy"
-msgstr "Commander"
-
-#: views/template/product.php:295
-msgid "Recipes"
-msgstr "Recettes"
-
-#: views/template/product.php:338
-msgid "Grapes"
-msgstr "Cépages"
-
-#: views/template/product.php:442 views/template/product.php:443
-msgid "Order now"
-msgstr "Commander"
-
-#: vincod.php:158 functions/admin.php:261
+#: vincod.php:159 functions/admin.php:272
 msgid "Our Wines (powered by Vincod)"
 msgstr "Nos Vins (propulsé par Vincod)"
 
-#: vincod.php:165
+#: vincod.php:166
 msgid "Install : \"Our Wines\" Page created"
 msgstr "Installation : Page \"Nos Vins\" Créée"
 
-#: vincod.php:170
+#: vincod.php:171
 msgid "Install : Page ID successfully stored -> "
 msgstr "Installation : ID de la Page enregistré ->"
 
-#: vincod.php:179 vincod.php:186 vincod.php:385
+#: vincod.php:180 vincod.php:187 vincod.php:387
 msgid "Install Error"
 msgstr "Erreur d'installation"
 
-#: vincod.php:179
+#: vincod.php:180
 msgid "Unable to create the \"Our Wines\" Page"
 msgstr "Impossible de créer la Page \"Nos Vins\""
 
-#: vincod.php:186
+#: vincod.php:187
 msgid "The \"Our Wines\" Page already exists"
 msgstr "La Page \"Nos Vins\" existe déjà"
 
-#: vincod.php:385
+#: vincod.php:387
 msgid ""
 "Unable to install Vincod Plugin, the <em>wp_vincod_plugin</em> Class already "
 "exists"
@@ -112,7 +73,7 @@ msgstr ""
 "Impossible d'installer le Plugin Vincod, la Classe <em>wp_vincod_plugin</em> "
 "existe déjà"
 
-#: functions/admin.php:62 functions/admin.php:333
+#: functions/admin.php:62 functions/admin.php:344
 msgid "We deleted the API credentials."
 msgstr "Suppression des identifiants de connexion à l'API."
 
@@ -133,74 +94,98 @@ msgstr "La page 'Nos Vins' est maintenant publié."
 msgid "Credentials Update"
 msgstr "Mise à jour identifiants"
 
-#: functions/admin.php:97 functions/admin.php:154
+#: functions/admin.php:97 functions/admin.php:165
 msgid "Unable to connect to the API with these credentials"
 msgstr "Impossible de se connecter à l'API avec ses identifiants"
 
-#: functions/admin.php:104 functions/admin.php:146
+#: functions/admin.php:104 functions/admin.php:157
 msgid "You must enter your Vincod credentials"
 msgstr "Vous devez saisir vos informations de connexion"
 
-#: functions/admin.php:117
+#: functions/admin.php:126
 msgid "Cache duration was updated."
 msgstr "Mise à jour de la durée du cache."
 
-#: functions/admin.php:131
+#: functions/admin.php:142
 msgid "Value was updated :"
 msgstr "Mise à jour de la valeur :"
 
-#: functions/admin.php:146 functions/admin.php:154
+#: functions/admin.php:157 functions/admin.php:165
 msgid "Sitemap Error"
 msgstr "Erreur sitemap"
 
-#: functions/admin.php:160
+#: functions/admin.php:171
 msgid "Sitemap generation ..."
 msgstr "Création du sitemap ..."
 
-#: functions/admin.php:167 functions/admin.php:304
+#: functions/admin.php:178 functions/admin.php:315
 msgid "Sitemap was removed."
 msgstr "Suppression du sitemap."
 
-#: functions/admin.php:259
+#: functions/admin.php:270
 msgid "our-wines"
 msgstr "nos-vins"
 
-#: functions/admin.php:263
+#: functions/admin.php:274
 msgid "This page is used by the Vincod Plugin. Please don't modify it."
 msgstr ""
 "Cette page est utilisé par le Plugin Vincod. Merci de ne pas la modifier."
 
-#: functions/admin.php:293
+#: functions/admin.php:304
 msgid "We are resetting the plugin ..."
 msgstr "Remise à zéro du plugin en cours ..."
 
-#: functions/admin.php:301
+#: functions/admin.php:312
 msgid "The page 'Our Wines' was removed."
 msgstr "La page 'Nos Vins' a été supprimée."
 
-#: functions/admin.php:308
+#: functions/admin.php:319
 msgid "Cache setting was removed."
 msgstr "Suppression de la configuration du cache."
 
-#: functions/admin.php:317
+#: functions/admin.php:328
 msgid "Style options were removed."
 msgstr "Suppression des differentes options de style."
 
-#: functions/admin.php:322
+#: functions/admin.php:333
 msgid "The page 'Our Wines' was created again."
 msgstr "La page 'Nos Vins' a été recrée."
 
-#: functions/admin.php:327
+#: functions/admin.php:338
 msgid "We saved the new Page ID of 'Our Wines' : "
 msgstr "Stockage du nouvel identifiant de la page 'Nos Vins' :"
 
-#: functions/admin.php:353
+#: functions/admin.php:362
+msgid "We reset style settings."
+msgstr "Remise à zéro des options de style"
+
+#: functions/admin.php:364
 msgid "End of the plugin reset !"
 msgstr "Fin de la remise à zéro !"
 
 #: functions/global.php:23
 msgid "Back"
 msgstr "Retour"
+
+#: functions/helpers.php:257
+msgid "owner"
+msgstr "proprietaire"
+
+#: functions/helpers.php:258
+msgid "collection"
+msgstr "collection"
+
+#: functions/helpers.php:259
+msgid "brand"
+msgstr "marque"
+
+#: functions/helpers.php:260
+msgid "range"
+msgstr "gamme"
+
+#: functions/helpers.php:261
+msgid "product"
+msgstr "produit"
 
 #: views/admin/dashboard.php:19
 msgid "Trying to connect to Vincod API ..."
@@ -303,8 +288,8 @@ msgstr "Tester la connexion à l'API"
 msgid "Remove my credentials"
 msgstr "Supprimer mes identifiants"
 
-#: views/admin/dashboard.php:97 views/admin/dashboard.php:126
-#: views/admin/dashboard.php:223
+#: views/admin/dashboard.php:97 views/admin/dashboard.php:129
+#: views/admin/dashboard.php:227
 msgid "Validate my settings"
 msgstr "Valider les modifications"
 
@@ -324,12 +309,12 @@ msgstr "Exemple : 1 (mettre 0 pour ne jamais mettre en cache)"
 msgid "day(s)"
 msgstr "jour(s)"
 
-#: views/admin/dashboard.php:123 views/admin/dashboard.php:220
-#: views/admin/dashboard.php:321 views/admin/dashboard.php:333
+#: views/admin/dashboard.php:123 views/admin/dashboard.php:224
+#: views/admin/dashboard.php:325 views/admin/dashboard.php:337
 msgid "What is this"
 msgstr "Qu'est-ce que c'est"
 
-#: views/admin/dashboard.php:130
+#: views/admin/dashboard.php:133
 msgid ""
 "The plugin communicate with the vincod API to get different details. It will "
 "cache these datas to improve the global treatment speed. You can setup the "
@@ -340,47 +325,47 @@ msgstr ""
 "rapidité de traitement. Vous pouvez régler la durée de régénération dans le "
 "formulaire ci-dessus."
 
-#: views/admin/dashboard.php:161
+#: views/admin/dashboard.php:164
 msgid "Template name"
 msgstr "Nom du template"
 
-#: views/admin/dashboard.php:162
+#: views/admin/dashboard.php:165
 msgid "Menu"
 msgstr "Menu"
 
-#: views/admin/dashboard.php:163
+#: views/admin/dashboard.php:167
 msgid "Search"
 msgstr "Recherche"
 
-#: views/admin/dashboard.php:164
+#: views/admin/dashboard.php:168
 msgid "Content"
 msgstr "Contenu"
 
-#: views/admin/dashboard.php:165
+#: views/admin/dashboard.php:169
 msgid "Links"
 msgstr "Liens"
 
-#: views/admin/dashboard.php:170
+#: views/admin/dashboard.php:174
 msgid "Owner"
 msgstr "Propriétaire"
 
-#: views/admin/dashboard.php:179
+#: views/admin/dashboard.php:183
 msgid "Collection"
 msgstr "Collection"
 
-#: views/admin/dashboard.php:188
+#: views/admin/dashboard.php:192
 msgid "Brand"
 msgstr "Marque"
 
-#: views/admin/dashboard.php:197
+#: views/admin/dashboard.php:201
 msgid "Range"
 msgstr "Gamme"
 
-#: views/admin/dashboard.php:206
+#: views/admin/dashboard.php:210
 msgid "Product"
 msgstr "Produit"
 
-#: views/admin/dashboard.php:227
+#: views/admin/dashboard.php:231
 msgid ""
 "This part allow you to customize your page styles such as the elements "
 "showed in the page layout."
@@ -388,35 +373,35 @@ msgstr ""
 "Cette partie vous permet de personnaliser le style des pages générés par le "
 "plugin tels que les éléments affichés sur la page"
 
-#: views/admin/dashboard.php:237
+#: views/admin/dashboard.php:241
 msgid "SEO"
 msgstr "Référencement"
 
-#: views/admin/dashboard.php:244
+#: views/admin/dashboard.php:248
 msgid "Your SEO is correctly optimized."
 msgstr "Votre référencement est correctement optimisé"
 
-#: views/admin/dashboard.php:245
+#: views/admin/dashboard.php:249
 msgid "Check your site-map"
 msgstr "Voir le sitemap"
 
-#: views/admin/dashboard.php:250
+#: views/admin/dashboard.php:254
 msgid "Your SEO isn't optimized (site-map was not found)"
 msgstr "Le référencement n'est pas optimisé (site-map introuvable)"
 
-#: views/admin/dashboard.php:258
+#: views/admin/dashboard.php:262
 msgid "Remove your sitemap"
 msgstr "Supprimer le sitemap"
 
-#: views/admin/dashboard.php:266
+#: views/admin/dashboard.php:270
 msgid "Optimize my SEO"
 msgstr "Optimiser mon référencement"
 
-#: views/admin/dashboard.php:270
+#: views/admin/dashboard.php:274
 msgid "What will happen"
 msgstr "Que va-t-il se passer"
 
-#: views/admin/dashboard.php:274
+#: views/admin/dashboard.php:278
 msgid ""
 "The plugin will generate a sitemap which will be visited by some search "
 "engine robots ; each wine will be properly indexed."
@@ -425,19 +410,19 @@ msgstr ""
 "recherche pourront accéder ; chacun de vos vins sera indexé individuellement "
 "sur les moteurs."
 
-#: views/admin/dashboard.php:286
+#: views/admin/dashboard.php:290
 msgid "Analysis & Debug"
 msgstr "Analyse & Débug"
 
-#: views/admin/dashboard.php:305
+#: views/admin/dashboard.php:309
 msgid "No log to show"
 msgstr "Aucun log disponible pour le moment"
 
-#: views/admin/dashboard.php:318
+#: views/admin/dashboard.php:322
 msgid "Remove your devlog"
 msgstr "Effacer le devlog"
 
-#: views/admin/dashboard.php:325 views/admin/dashboard.php:337
+#: views/admin/dashboard.php:329 views/admin/dashboard.php:341
 msgid ""
 "The plugin save each process that have been done ; what you can see here is "
 "the plugin latest API call. If there's any bug, it cans be solved by looking "
@@ -448,19 +433,19 @@ msgstr ""
 "a pu s'y passer. S'il y a un bug, c'est cette partie qui sera décisive pour "
 "le comprendre."
 
-#: views/admin/dashboard.php:347
+#: views/admin/dashboard.php:351
 msgid "Plugin reset"
 msgstr "Remise à zéro du plugin"
 
-#: views/admin/dashboard.php:355
+#: views/admin/dashboard.php:359
 msgid "Reset my plugin"
 msgstr "Remettre le plugin à son état d'origine"
 
-#: views/admin/dashboard.php:359
+#: views/admin/dashboard.php:363
 msgid "Is there a problem with your plugin"
 msgstr "Votre plugin bug"
 
-#: views/admin/dashboard.php:363
+#: views/admin/dashboard.php:367
 msgid ""
 "If your plugin got bugs, don't hesitate to reset it ; this will refresh your "
 "datas and make the structure clean."
@@ -472,6 +457,69 @@ msgstr ""
 msgid "All rights reserved"
 msgstr "Tous droits réservés"
 
+#: views/template/brand.php:163 views/template/collection.php:147
+#: views/template/index.php:182 views/template/range.php:127
+msgid "Nothing to Show."
+msgstr "Aucun produit."
+
+#: views/template/brand.php:165 views/template/collection.php:149
+#: views/template/index.php:184 views/template/range.php:129
+msgid ""
+"Please check your Vincod Account id or enter a Brand Vincod id if you want "
+"to show only one brand."
+msgstr ""
+"Vérifiez l'identifiant Vincod du compte ou précisez l'identifiant Vincod de "
+"la marque si le compte ne présente qu'une marque."
+
+#: views/template/product.php:83
+msgid "Downloads"
+msgstr "Téléchargements"
+
+#: views/template/product.php:103 views/template/product.php:103
+msgid "Product datasheet"
+msgstr "Fiche technique"
+
+#: views/template/product.php:107 views/template/product.php:107
+msgid "Table stand"
+msgstr "Chevalet de table"
+
+#: views/template/product.php:125
+msgid "See all vintages"
+msgstr "Voir tous les millésimes"
+
+#: views/template/product.php:192
+msgid "Presentation"
+msgstr "Présentation"
+
+#: views/template/product.php:202
+msgid "Tasting tips"
+msgstr "Conseils"
+
+#: views/template/product.php:212
+msgid "Specifications"
+msgstr "Spécifications"
+
+#: views/template/product.php:222
+msgid "Reviews & awards"
+msgstr "Avis & récompenses"
+
+#: views/template/product.php:232 views/template/product.php:443
+#: views/template/product.php:444
+msgid "Where to buy"
+msgstr "Commander"
+
+#: views/template/product.php:310
+msgid "Recipes"
+msgstr "Recettes"
+
+#: views/template/product.php:353
+msgid "Grapes"
+msgstr "Cépages"
+
+#: views/template/product.php:457 views/template/product.php:458
+msgid "Order now"
+msgstr "Commander"
+
 #. Description of the plugin
 msgid ""
 "The « Vincod for WordPress » plugin allows you to instantly create a « Our "
@@ -479,18 +527,3 @@ msgid ""
 msgstr ""
 "Le plugin « Vincod pour WordPress » vous permet de créer instantanément la "
 "rubrique « Nos vins » de votre site WordPress."
-
-msgid "owner"
-msgstr "proprietaire"
-
-msgid "collection"
-msgstr "collection"
-
-msgid "brand"
-msgstr "marque"
-
-msgid "range"
-msgstr "gamme"
-
-msgid "product"
-msgstr "produit"

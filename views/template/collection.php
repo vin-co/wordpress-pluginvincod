@@ -47,7 +47,7 @@
 				
 				<div class="menu-collapse collapse" id="menu-collapse">
 					<div class="well menu-well no-padding">
-						<?= $menu ?>
+						<?= $menu; ?>
 					</div>
 				</div>
 			
@@ -56,6 +56,16 @@
 		<?php endif; ?>
 		
 		<div class="content-container <?= ($settings['has_menu']) ? 'col-xs-12 col-md-9' : 'clearfix' ?>">
+			
+			<?php if($settings['has_breadcrumb']): ?>
+				
+				<ol class="breadcrumb">
+					<?= $breadcrumb; ?>
+				</ol>
+			
+			<?php endif; ?>
+			
+			
 			
 			<?php if($settings['has_content']): ?>
 				
@@ -101,19 +111,19 @@
 						<?php foreach($brands as $brand): ?>
 							
 							<a href="<?= wp_vincod_link('brand', $brand['vincod'], $brand['name']) ?>" title="<?= $brand['name'] ?>">
-								
+							
 							<?php if(wp_vincod_get_picture_url($brand, 'retina')): ?>
 								
 								<div class="well brand-link" style="background-image: url('<?= wp_vincod_get_picture_url($brand, 'retina') ?>')">
-									
+								
 							<?php elseif(wp_vincod_get_logo_url($brand, 'retina')): ?>
-									
+								
 								<div class="well brand-link" style="background-image: url('<?= wp_vincod_get_logo_url($brand, 'retina') ?>')">
 								
 							<?php else: ?>
 								
 								<div class="well brand-link">
-									
+								
 							<?php endif; ?>
 									
 									<div class="block">

@@ -219,7 +219,7 @@ function wp_vincod_get_page_slug($id) {
  * @return array|bool|string
  */
 function wp_vincod_detect_lang() {
-		
+	
 	$lang = get_locale();
 	$lang = explode('_', $lang);
 	$lang = $lang[0];
@@ -251,5 +251,13 @@ function wp_vincod_view_var($label, $value = null) {
 		
 	}
 	
+}
+
+function wp_vincod_untranslated_strings() {
+	__('owner', 'vincod');
+	__('collection', 'vincod');
+	__('brand', 'vincod');
+	__('range', 'vincod');
+	__('product', 'vincod');
 }
 

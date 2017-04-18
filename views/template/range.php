@@ -19,7 +19,7 @@
 <!-- Default plugin js -->
 <script type="text/javascript">
 	// <![CDATA[
-	(function($){
+	(function($) {
 		$(document).ready(function() {
 			if(typeof($.fn.popover) === 'undefined') {
 				var s = document.createElement("script");
@@ -47,7 +47,7 @@
 				
 				<div class="menu-collapse collapse" id="menu-collapse">
 					<div class="well menu-well no-padding">
-						<?= $menu ?>
+						<?= $menu; ?>
 					</div>
 				</div>
 			
@@ -56,6 +56,15 @@
 		<?php endif; ?>
 		
 		<div class="content-container <?= ($settings['has_menu']) ? 'col-xs-12 col-md-9' : 'clearfix' ?>">
+			
+			<?php if($settings['has_breadcrumb']): ?>
+				
+				<ol class="breadcrumb">
+					<?= $breadcrumb; ?>
+				</ol>
+			
+			<?php endif; ?>
+			
 			
 			<?php if($settings['has_content']): ?>
 				
@@ -120,7 +129,7 @@
 						<?php _e("Please check your Vincod Account id or enter a Brand Vincod id if you want to show only one brand.", 'vincod') ?>
 					
 					<?php endif; ?>
-					
+				
 				</div>
 			
 			<?php endif; ?>

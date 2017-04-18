@@ -377,6 +377,86 @@ function wp_vincod_menu_permalink_type($type) {
 	}
 }
 
+/**
+ * Get the Breadcrumb
+ *
+ * @return string
+ */
+function wp_vincod_get_breadcrumb($vincod = null) {
+	
+	$api = new wp_vincod_controller_template();
+	
+	$menu = $api->get_catalogue_by_vincod($vincod);
+	
+	$menu = wp_vincod_render_breadcrumb($menu);
+	
+	return $menu;
+}
+
+
+/**
+ * Render the Breacrumb
+ *
+ * @return string
+ */
+function wp_vincod_render_breadcrumb($menu_array) {
+	
+	$menu = '';
+	
+	if(isset($menu_array['menu']) && isset($menu_array['menu'][0])) {
+		
+		foreach($menu_array['menu'] as $sub_menu) {
+			
+			$is_active = (isset($sub_menu['actif']) && $sub_menu['actif'] == 1);
+			
+			if($is_active) {
+				
+				$permalink_type = wp_vincod_menu_permalink_type($menu_array['menu'][0]['@attributes']['type']);
+				
+				$menu = '<li class="vincod-breadcrumb ' . $permalink_type . '">';
+				
+				$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $sub_menu['@attributes']['vincod'], $sub_menu['title']);
+				
+				$menu .= '<a href="' . $menu_link . '" title="' . $sub_menu['title'] . '">' . $sub_menu['title'] . '</a>';
+				
+				$menu .= '</li>';
+				
+				if(isset($sub_menu['menu'])) {
+					$menu .= wp_vincod_render_breadcrumb($sub_menu);
+				}
+				
+			}
+		}
+		
+	}
+	elseif(isset($menu_array['menu'])) {
+		
+		$is_active = (isset($menu_array['menu']['actif']) && $menu_array['menu']['actif'] == 1);
+		
+		if($is_active) {
+			
+			$permalink_type = wp_vincod_menu_permalink_type($menu_array['menu']['@attributes']['type']);
+			
+			$menu = '<li class="vincod-menu ' . $permalink_type . '">';
+			
+			$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $menu_array['menu']['@attributes']['vincod'], $menu_array['menu']['title']);
+			
+			$menu .= '<a href="' . $menu_link . '" title="' . $menu_array['menu']['title'] . '">' . $menu_array['menu']['title'] . '</a>';
+			
+			$menu .= '</li>';
+			
+			
+			if(isset($menu_array['menu']['menu'])) {
+				$menu .= wp_vincod_render_breadcrumb($menu_array['menu']);
+			}
+			
+		}
+		
+	}
+	
+	return $menu;
+}
+
 
 /**
  * Set Body Classes

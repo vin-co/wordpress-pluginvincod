@@ -17,7 +17,6 @@
 	$font-family-sans-serif: inherit !global;
 	$font-family-serif: inherit !global;
 	$font-size-base: 16px !global;
-	$grid-gutter-width: 40px !global;
 
 	// Imports
 	// -----------------------------------------------------
@@ -46,7 +45,7 @@
 	.vincod-container {
 		max-width: 1600px;
 		margin: auto;
-		padding: 20px 0;
+		padding: #{$grid-gutter-width / 2} 0;
 	}
 
 	ul, ol, li {
@@ -116,26 +115,38 @@
 
 			> .vincod-menu > li {
 
-				> a {
-					margin-top: 10px;
-				}
-
 				> ul > li {
 
 					> a {
 						padding-left: 25px;
 					}
 
-					> ul > li {
+					> ul {
+						display: none;
+					}
 
-						> a {
-							padding-left: 35px;
-						}
+					&.active > ul {
+						display: block;
 
-						> ul > li {
+						> li {
 
 							> a {
-								padding-left: 45px;
+								padding-left: 40px;
+							}
+
+							> ul {
+								display: none;
+							}
+
+							&.active > ul {
+								display: block;
+
+								> li {
+
+									> a {
+										padding-left: 55px;
+									}
+								}
 							}
 						}
 					}
@@ -148,14 +159,20 @@
 
 	.content-container {
 		max-width: $screen-lg;
-		margin: 20px auto;
+		margin: #{$grid-gutter-width / 2} auto;
 
 		@media #{$md-min} {
 			margin: auto;
 		}
+
+		.breadcrumb {
+			background-color: $well-bg;
+			border-radius: 0;
+		}
 	}
 
 	.content-panel {
+		margin-bottom: #{$grid-gutter-width / 2};
 
 		.panel-heading {
 			height: 300px;
@@ -198,7 +215,7 @@
 
 	.collection-link, .brand-link, .range-link {
 		height: 50vh;
-		margin: 20px auto;
+		margin: #{$grid-gutter-width / 2} auto;
 		padding: 0;
 		text-align: center;
 		@extend %cover-bg;
@@ -209,7 +226,7 @@
 
 		h2 {
 			display: inline-block;
-			margin: 5px 20px;
+			margin: 5px #{$grid-gutter-width / 2};
 			padding: 30px;
 			border: 1px solid $gray-lighter;
 			background-color: fade_out($gray-lighter, .1);
@@ -420,7 +437,6 @@
 				margin: 0;
 				font-size: $font-size-small;
 				color: $gray-dark;
-
 
 				@media #{$sm-max} {
 					font-size: $font-size-base;

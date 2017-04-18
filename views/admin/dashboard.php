@@ -122,6 +122,9 @@
 				<button class="btn btn-default" type="button" data-toggle="collapse" data-target="#collapse-cache" aria-expanded="false" aria-controls="collapse-cache">
 					<i class="ion-help-circled"></i> <?php _e("What is this", 'vincod') ?> ?
 				</button>
+				<button type="submit" id="clear_cache" name="vincod_clear_cache" class="btn btn-danger">
+					<?php _e("Clear Cache", 'vincod') ?>
+				</button>
 				<button type="submit" name="" class="btn btn-primary">
 					<?php _e("Validate my settings", 'vincod') ?>
 				</button>
@@ -142,7 +145,7 @@
 		
 		<?php
 		
-		$style_settings = array('has_menu', 'has_search', 'has_content', 'has_links');
+		$style_settings = array('has_menu', 'has_breadcrumb', 'has_search', 'has_content', 'has_links');
 		$templates_names = array('owner', 'collection', 'brand', 'range', 'product');
 		$saved_settings = array();
 		
@@ -160,6 +163,7 @@
 				<tr>
 					<th><?php _e("Template name", 'vincod') ?></th>
 					<th><?php _e("Menu", 'vincod') ?></th>
+					<th><?php _e("Breadcrumb", 'vincod') ?></th>
 					<th><?php _e("Search", 'vincod') ?></th>
 					<th><?php _e("Content", 'vincod') ?></th>
 					<th><?php _e("Links", 'vincod') ?></th>

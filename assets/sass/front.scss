@@ -28,8 +28,9 @@
 
 	a, button {
 		transition: all .5s ease;
+		box-shadow: none;
 	}
-
+	
 	%cover-bg {
 		background-position: center;
 		background-size: cover;

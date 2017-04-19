@@ -7537,7 +7537,9 @@
     color: #222222; }
   #plugin-vincod a, #plugin-vincod button {
     -webkit-transition: all .5s ease;
-    transition: all .5s ease; }
+    transition: all .5s ease;
+    -webkit-box-shadow: none;
+    box-shadow: none; }
   #plugin-vincod .content-panel .panel-heading .content-cover, #plugin-vincod .collection-link, #plugin-vincod .brand-link, #plugin-vincod .range-link {
     background-position: center;
     background-size: cover;

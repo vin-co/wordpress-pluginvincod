@@ -20,6 +20,10 @@
  */
 function wp_wincod_post_updates(array $post) {
 	
+	if(!isset($post['wp_vincod_admin_nonce']) && !wp_verify_nonce($post['wp_vincod_admin_nonce'], 'wp_vincod_admin_form')) {
+		return;
+	}
+	
 	// Our container
 	$cleaned_post = array();
 	

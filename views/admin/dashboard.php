@@ -68,6 +68,8 @@
 		
 		<form id="settings" name="settings" method="POST" target="_self" action="">
 			
+			<?php wp_nonce_field('wp_vincod_admin_form', 'wp_vincod_admin_nonce'); ?>
+			
 			<div class="input-group">
 				<span class="input-group-addon"><?php _e("Your API key", 'vincod') ?></span>
 				<input type="text" class="form-control" name="vincod_setting_customer_api" value="<?= get_option('vincod_setting_customer_api') ?>" placeholder="<?php _e("The API key from your Vincod customer account", 'vincod') ?>">
@@ -111,6 +113,8 @@
 		</div>
 		
 		<form method="POST" action="" target="_self" id="cache_api">
+			
+			<?php wp_nonce_field('wp_vincod_admin_form', 'wp_vincod_admin_nonce'); ?>
 			
 			<div class="input-group">
 				<span class="input-group-addon"><?php _e("Cache duration", 'vincod') ?></span>
@@ -157,6 +161,8 @@
 		
 		?>
 		<form method="POST" action="" target="_self" id="style">
+			
+			<?php wp_nonce_field('wp_vincod_admin_form', 'wp_vincod_admin_nonce'); ?>
 			
 			<table class="table table-striped">
 				<thead>
@@ -243,6 +249,8 @@
 		
 		<form id="seo" name="seo" method="POST" target="_self" action="">
 			
+			<?php wp_nonce_field('wp_vincod_admin_form', 'wp_vincod_admin_nonce'); ?>
+			
 			<?php if($sitemap_exists): ?>
 				
 				<h5><?php _e("Your SEO is correctly optimized.", 'vincod') ?>
@@ -317,6 +325,9 @@
 			<?php if(!empty($devlog_content)): ?>
 				
 				<form method="POST" target="_self" action="">
+					
+					<?php wp_nonce_field('wp_vincod_admin_form', 'wp_vincod_admin_nonce'); ?>
+					
 					<input type="hidden" name="vincod_clear_log" value="">
 					<button class="btn btn-danger">
 						<?php _e("Remove your devlog", 'vincod') ?>
@@ -352,6 +363,8 @@
 		</div>
 		
 		<form id="debug" name="debug" method="POST" target="_self" action="">
+			
+			<?php wp_nonce_field('wp_vincod_admin_form', 'wp_vincod_admin_nonce'); ?>
 			
 			<div class="buttons-group">
 				<input type="hidden" name="vincod_reset_app" value=""/>

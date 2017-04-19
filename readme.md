@@ -1,4 +1,4 @@
-#Plugin Vincod WordPress
+# Plugin Vincod WordPress
 
 **Contributors:** Vinternet Crew
 
@@ -14,10 +14,10 @@
 
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html
 
-##Description
+## Description
 Plugin permettant l'intégration de vos fiches vincod directement sur votre site Wordpress.
 
-##Installation
+## Installation
 **PHP5 Required.**
  
 1. Download, unzip and upload to your WordPress plugins directory
@@ -25,20 +25,20 @@ Plugin permettant l'intégration de vos fiches vincod directement sur votre site
 3. Go to Settings > Vincod
 4. Configure the Plugin
 
-##Bibliothèques utilisées
+## Bibliothèques utilisées
 * Bootstrap 3.3.7
 * Bootswatch 3.3.7 (Theme Lumen pour l'Admin et Yeti pour le Front)
 * Ionicons 2.0.1
 
-##Comment modifier les fichiers source ?
+## Comment modifier les fichiers source ?
 
-###Prérequis
+### Prérequis
 * NodeJS LTS+
 * Bower
 * Gulp-CLI
 * Node SASS
 
-###Commandes utiles
+### Commandes utiles
 * Au téléchargement ou `git clone` du projet, lancer la commande `npm run init` qui installera les librairies requises à la modification du projet.
 
 * Les feuilles de style se trouvent dans le dossier `(assets/sass)`. Ne pas modifier directement `(assets/css/admin.css)` et `(assets/css/front.css)` car ils seront écrasés à la prochaine compilation.

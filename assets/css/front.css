@@ -7594,15 +7594,15 @@
       padding-left: 25px; }
     #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li > ul {
       display: none; }
-    #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul {
+    #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul {
       display: block; }
-      #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li > a {
+      #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li > a, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li > a {
         padding-left: 40px; }
-      #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li > ul {
+      #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li > ul {
         display: none; }
-      #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.active > ul {
+      #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li.parent > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li.active > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.parent > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.active > ul {
         display: block; }
-        #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.active > ul > li > a {
+        #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li.parent > ul > li > a, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li.active > ul > li > a, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.parent > ul > li > a, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.active > ul > li > a {
           padding-left: 55px; }
   #plugin-vincod .content-container {
     max-width: 1200px;

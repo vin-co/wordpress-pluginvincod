@@ -307,75 +307,54 @@ function wp_vincod_render_menu($menu_array) {
 	
 	if(isset($menu_array['menu']) && isset($menu_array['menu'][0])) {
 		
-		$permalink_type = wp_vincod_menu_permalink_type($menu_array['menu'][0]['@attributes']['type']);
-		$menu = '<ul class="vincod-menu ' . $permalink_type . '">';
+		$menu = '<ul class="vincod-menu">';
 		
 		foreach($menu_array['menu'] as $sub_menu) {
-			$menu_link = '';
-			$permalink_type = wp_vincod_menu_permalink_type($sub_menu['@attributes']['type']);
-			
-			$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $sub_menu['@attributes']['vincod'], $sub_menu['title']);
-			
-			$is_active = (isset($sub_menu['actif']) && $sub_menu['actif'] == 1) ? ' active' : '';
-			
-			$menu .= '<li class="vincod-menu-item ' . $permalink_type . $is_active . '">';
-			$menu .= '<a href="' . $menu_link . '" title="' . $sub_menu['title'] . '">' . $sub_menu['title'] . '</a>';
-			
-			if(isset($sub_menu['menu'])) {
-				$menu .= wp_vincod_render_menu($sub_menu);
-			}
-			
-			$menu .= '</li>';
+			$menu .= wp_vincod_render_menu_links($sub_menu);
 		}
 		
 		$menu .= '</ul>';
 	}
 	elseif(isset($menu_array['menu'])) {
 		
-		$permalink_type = wp_vincod_menu_permalink_type($menu_array['menu']['@attributes']['type']);
+		$menu = '<ul class="vincod-menu">';
 		
-		$menu = '<ul class="vincod-menu ' . $permalink_type . '">';
+		$menu .= wp_vincod_render_menu_links($menu_array['menu']);
 		
-		$menu_link = '';
-		
-		$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $menu_array['menu']['@attributes']['vincod'], $menu_array['menu']['title']);
-		
-		$is_active = (isset($menu_array['menu']['actif']) && $menu_array['menu']['actif'] == 1) ? ' active' : '';
-		
-		$menu .= '<li class="vincod-menu-item ' . $permalink_type . $is_active . '">';
-		$menu .= '<a href="' . $menu_link . '" title="' . $menu_array['menu']['title'] . '">' . $menu_array['menu']['title'] . '</a>';
-		
-		if(isset($menu_array['menu']['menu'])) {
-			$menu .= wp_vincod_render_menu($menu_array['menu']);
-		}
-		
-		$menu .= '</li>';
 		$menu .= '</ul>';
 	}
 	
 	return $menu;
 }
 
-
 /**
- * Get the correct permalink type
+ * Render the Menu Links
  *
  * @return string
  */
-function wp_vincod_menu_permalink_type($type) {
-	switch($type) {
-		case 'owner':
-			return 'owner';
-		case 'family':
-			return 'collection';
-		case 'winery':
-			return 'brand';
-		case 'range':
-			return 'range';
-		default:
-			return $type;
+function wp_vincod_render_menu_links($sub_menu) {
+	
+	$menu = '';
+	
+	$permalink_type = wp_vincod_menu_permalink_type($sub_menu['@attributes']['type']);
+	
+	$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $sub_menu['@attributes']['vincod'], $sub_menu['title']);
+	
+	$is_active = (isset($sub_menu['actif']) && $sub_menu['actif'] == 1) ? ' active' : '';
+	$is_parent = (isset($sub_menu['parent']) && $sub_menu['parent'] == 1) ? ' parent' : '';
+	
+	$menu .= '<li class="vincod-menu-item ' . $permalink_type . $is_parent . $is_active . '">';
+	$menu .= '<a href="' . $menu_link . '" title="' . $sub_menu['title'] . '">' . $sub_menu['title'] . '</a>';
+	
+	if(isset($sub_menu['menu'])) {
+		$menu .= wp_vincod_render_menu($sub_menu);
 	}
+	
+	$menu .= '</li>';
+	
+	return $menu;
 }
+
 
 /**
  * Get the Breadcrumb
@@ -407,56 +386,53 @@ function wp_vincod_render_breadcrumb($menu_array) {
 		
 		foreach($menu_array['menu'] as $sub_menu) {
 			
-			$is_active = (isset($sub_menu['actif']) && $sub_menu['actif'] == 1);
+			$menu .= wp_vincod_render_breadcrumb_links($sub_menu);
 			
-			if($is_active) {
-				
-				$permalink_type = wp_vincod_menu_permalink_type($menu_array['menu'][0]['@attributes']['type']);
-				
-				$menu = '<li class="vincod-breadcrumb ' . $permalink_type . '">';
-				
-				$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $sub_menu['@attributes']['vincod'], $sub_menu['title']);
-				
-				$menu .= '<a href="' . $menu_link . '" title="' . $sub_menu['title'] . '">' . $sub_menu['title'] . '</a>';
-				
-				$menu .= '</li>';
-				
-				if(isset($sub_menu['menu'])) {
-					$menu .= wp_vincod_render_breadcrumb($sub_menu);
-				}
-				
-			}
 		}
 		
 	}
 	elseif(isset($menu_array['menu'])) {
 		
-		$is_active = (isset($menu_array['menu']['actif']) && $menu_array['menu']['actif'] == 1);
-		
-		if($is_active) {
-			
-			$permalink_type = wp_vincod_menu_permalink_type($menu_array['menu']['@attributes']['type']);
-			
-			$menu = '<li class="vincod-menu ' . $permalink_type . '">';
-			
-			$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $menu_array['menu']['@attributes']['vincod'], $menu_array['menu']['title']);
-			
-			$menu .= '<a href="' . $menu_link . '" title="' . $menu_array['menu']['title'] . '">' . $menu_array['menu']['title'] . '</a>';
-			
-			$menu .= '</li>';
-			
-			
-			if(isset($menu_array['menu']['menu'])) {
-				$menu .= wp_vincod_render_breadcrumb($menu_array['menu']);
-			}
-			
-		}
+		$menu .= wp_vincod_render_breadcrumb_links($menu_array['menu']);
 		
 	}
 	
 	return $menu;
 }
 
+/**
+ * Render the Breacrumb
+ *
+ * @return string
+ */
+function wp_vincod_render_breadcrumb_links($sub_menu) {
+	
+	$menu = '';
+	
+	$is_active = (isset($sub_menu['actif']) && $sub_menu['actif'] == 1);
+	$is_parent = (isset($sub_menu['parent']) && $sub_menu['parent'] == 1);
+	
+	if($is_active || $is_parent) {
+		
+		$permalink_type = wp_vincod_menu_permalink_type($sub_menu['@attributes']['type']);
+		
+		$menu = '<li class="vincod-breadcrumb ' . $permalink_type . ($is_active ? ' active' : '') . '">';
+		
+		$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $sub_menu['@attributes']['vincod'], $sub_menu['title']);
+		
+		$menu .= '<a href="' . $menu_link . '" title="' . $sub_menu['title'] . '">' . $sub_menu['title'] . '</a>';
+		
+		$menu .= '</li>';
+		
+		if(isset($sub_menu['menu'])) {
+			$menu .= wp_vincod_render_breadcrumb($sub_menu);
+		}
+		
+	}
+	
+	return $menu;
+	
+}
 
 /**
  * Set Body Classes

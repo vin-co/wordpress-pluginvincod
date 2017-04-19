@@ -125,7 +125,7 @@
 						display: none;
 					}
 
-					&.active > ul {
+					&.parent > ul, &.active > ul  {
 						display: block;
 
 						> li {
@@ -138,7 +138,7 @@
 								display: none;
 							}
 
-							&.active > ul {
+							&.parent > ul, &.active > ul {
 								display: block;
 
 								> li {

@@ -7611,8 +7611,12 @@
       #plugin-vincod .content-container {
         margin: auto; } }
     #plugin-vincod .content-container .breadcrumb {
+      margin-bottom: 15px;
       background-color: #fafafa;
-      border-radius: 0; }
+      border-radius: 0;
+      font-size: 12px; }
+      #plugin-vincod .content-container .breadcrumb li.active a {
+        color: #6f6f6f; }
   #plugin-vincod .content-panel {
     margin-bottom: 15px; }
     #plugin-vincod .content-panel .panel-heading {

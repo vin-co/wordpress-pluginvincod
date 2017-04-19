@@ -125,7 +125,7 @@
 						display: none;
 					}
 
-					&.parent > ul, &.active > ul  {
+					&.parent > ul, &.active > ul {
 						display: block;
 
 						> li {
@@ -166,8 +166,14 @@
 		}
 
 		.breadcrumb {
+			margin-bottom: #{$grid-gutter-width / 2};
 			background-color: $well-bg;
 			border-radius: 0;
+			font-size: $font-size-small;
+
+			li.active a {
+				color: $gray;
+			}
 		}
 	}
 

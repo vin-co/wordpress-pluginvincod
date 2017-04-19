@@ -286,6 +286,55 @@ function wp_vincod_include_video($value, $extend) {
  *
  * @return string
  */
+function wp_vincod_get_search_form() {
+	
+	ob_start();
+	
+	?>
+	
+	<form method="POST" action="<?= wp_vincod_get_permalink(get_option('vincod_id_page_nos_vins')); ?>" id="vincod-search-form" class="vincod-search-form">
+		
+		<div class="input-group">
+			<input type="text" class="form-control" name="search_wine" placeholder="<?php _e('Search', 'vincod'); ?>">
+			<span class="input-group-btn">
+				<button class="btn btn-default" type="submit"><i class="ion-android-search"></i></button>
+			</span>
+		</div>
+		
+	</form>
+
+	<?php
+	
+	return ob_get_clean();
+}
+
+
+/**
+ * Get the correct permalink type
+ *
+ * @return string
+ */
+function wp_vincod_menu_permalink_type($type) {
+	switch($type) {
+		case 'owner':
+			return 'owner';
+		case 'family':
+			return 'collection';
+		case 'winery':
+			return 'brand';
+		case 'range':
+			return 'range';
+		default:
+			return $type;
+	}
+}
+
+
+/**
+ * Get the Menu
+ *
+ * @return string
+ */
 function wp_vincod_get_menu($vincod = null) {
 	
 	$api = new wp_vincod_controller_template();

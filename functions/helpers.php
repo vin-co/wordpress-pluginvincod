@@ -216,6 +216,35 @@ function wp_vincod_get_page_slug($id) {
 
 
 /**
+ * Get the permalink of page by ID
+ *
+ * @param  int  The page ID
+ *
+ * @return string|bool
+ */
+function wp_vincod_get_permalink($id) {
+	
+	//If polylang exists, get translated page ID "NOS VINS"
+	
+	if(function_exists('pll_current_language')) {
+		$id = pll_get_post($id, pll_current_language());
+	}
+	
+	$post = get_post($id);
+	
+	
+	if(!empty($post)) {
+		
+		return get_permalink($post);
+		
+	}
+	
+	return false;
+	
+}
+
+
+/**
  * @return array|bool|string
  */
 function wp_vincod_detect_lang() {

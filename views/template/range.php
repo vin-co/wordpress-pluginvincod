@@ -36,26 +36,36 @@
 	
 	<div class="container-fluid vincod-container">
 		
-		<?php if($settings['has_menu']): ?>
+		<?php if($settings['has_menu'] || $settings['has_search']): ?>
 			
 			<div class="menu-container col-xs-12 col-md-3">
 				
-				<a class="btn btn-link hidden-lg hidden-md" role="button" data-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
-					<i class="ion-navicon"></i>
-					<span>Menu</span>
-				</a>
-				
-				<div class="menu-collapse collapse" id="menu-collapse">
-					<div class="well menu-well no-padding">
-						<?= $menu; ?>
+				<?php if($settings['has_menu']): ?>
+					
+					<a class="btn btn-link hidden-lg hidden-md" role="button" data-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
+						<i class="ion-navicon"></i>
+						<span>Menu</span>
+					</a>
+					
+					<div class="menu-collapse collapse" id="menu-collapse">
+						<div class="well menu-well no-padding">
+							<?= $menu; ?>
+						</div>
 					</div>
-				</div>
+				
+				<?php endif; ?>
+				
+				<?php if($settings['has_search']): ?>
+					
+					<?= $search_form; ?>
+				
+				<?php endif; ?>
 			
 			</div>
 		
 		<?php endif; ?>
 		
-		<div class="content-container <?= ($settings['has_menu']) ? 'col-xs-12 col-md-9' : 'clearfix' ?>">
+		<div class="content-container <?= ($settings['has_menu'] || $settings['has_search']) ? 'col-xs-12 col-md-9' : 'clearfix' ?>">
 			
 			<?php if($settings['has_breadcrumb']): ?>
 				
@@ -64,7 +74,6 @@
 				</ol>
 			
 			<?php endif; ?>
-			
 			
 			<?php if($settings['has_content']): ?>
 				

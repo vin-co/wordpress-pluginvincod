@@ -293,6 +293,7 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 			'settings'    => get_option('vincod_owner_settings'),
 			'menu'        => $menu,
 			'breadcrumb'  => $breadcrumb,
+			'search_form' => wp_vincod_get_search_form()
 		
 		);
 		// Loader
@@ -333,6 +334,7 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 			'settings'   => get_option('vincod_collection_settings'),
 			'menu'       => $menu,
 			'breadcrumb' => $breadcrumb,
+			'search_form' => wp_vincod_get_search_form()
 		
 		);
 		
@@ -381,6 +383,7 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 			'settings'   => get_option('vincod_brand_settings'),
 			'menu'       => $menu,
 			'breadcrumb' => $breadcrumb,
+			'search_form' => wp_vincod_get_search_form()
 		
 		);
 		
@@ -426,6 +429,7 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 			'settings'   => get_option('vincod_range_settings'),
 			'menu'       => $menu,
 			'breadcrumb' => $breadcrumb,
+			'search_form' => wp_vincod_get_search_form()
 		
 		);
 		
@@ -521,6 +525,7 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 			'settings'   => get_option('vincod_product_settings'),
 			'menu'       => $menu,
 			'breadcrumb' => $breadcrumb,
+			'search_form' => wp_vincod_get_search_form()
 		
 		);
 		

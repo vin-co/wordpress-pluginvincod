@@ -7552,63 +7552,66 @@
     padding: 15px 0; }
   #plugin-vincod ul, #plugin-vincod ol, #plugin-vincod li {
     margin: 0; }
-  @media (min-width: 992px) {
-    #plugin-vincod .menu-container {
-      padding-bottom: 20px;
-      padding-right: 0; } }
-  #plugin-vincod .menu-container > .btn, #plugin-vincod .menu-container > input[type="submit"] {
-    padding: 0 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    text-align: left;
-    line-height: 1; }
-    #plugin-vincod .menu-container > .btn i, #plugin-vincod .menu-container > input[type="submit"] i {
-      font-size: 40px;
-      vertical-align: middle;
-      margin-right: 10px; }
-    #plugin-vincod .menu-container > .btn span, #plugin-vincod .menu-container > input[type="submit"] span {
-      vertical-align: middle; }
-  @media (min-width: 992px) {
-    #plugin-vincod .menu-container .menu-collapse {
-      display: block !important;
-      height: auto !important;
-      margin: 0; } }
-  #plugin-vincod .menu-container .vincod-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0; }
-    #plugin-vincod .menu-container .vincod-menu li.active > a, #plugin-vincod .menu-container .vincod-menu a:hover {
-      background-color: #6f6f6f;
-      color: white; }
-  #plugin-vincod .menu-container a {
-    display: block;
-    padding: 8px 15px;
-    text-transform: capitalize; }
-  #plugin-vincod .menu-container .menu-well {
-    margin: 0;
-    border-color: #ddd; }
-    @media (max-width: 991px) {
-      #plugin-vincod .menu-container .menu-well {
-        margin-top: 20px; } }
-    #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li > a {
-      padding-left: 25px; }
-    #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li > ul {
-      display: none; }
-    #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul {
-      display: block; }
-      #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li > a, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li > a {
-        padding-left: 40px; }
-      #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li > ul {
+  #plugin-vincod .menu-container {
+    padding: 0; }
+    @media (min-width: 992px) {
+      #plugin-vincod .menu-container {
+        padding: 0 0 20px; } }
+    #plugin-vincod .menu-container > .btn, #plugin-vincod .menu-container > input[type="submit"] {
+      padding: 0 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: left;
+      line-height: 1; }
+      #plugin-vincod .menu-container > .btn i, #plugin-vincod .menu-container > input[type="submit"] i {
+        font-size: 40px;
+        vertical-align: middle;
+        margin-right: 10px; }
+      #plugin-vincod .menu-container > .btn span, #plugin-vincod .menu-container > input[type="submit"] span {
+        vertical-align: middle; }
+    @media (min-width: 992px) {
+      #plugin-vincod .menu-container .menu-collapse {
+        display: block !important;
+        height: auto !important;
+        margin: 0; } }
+    #plugin-vincod .menu-container .vincod-menu {
+      list-style: none;
+      padding: 0;
+      margin: 0; }
+      #plugin-vincod .menu-container .vincod-menu li.active > a, #plugin-vincod .menu-container .vincod-menu a:hover {
+        background-color: #6f6f6f;
+        color: white; }
+    #plugin-vincod .menu-container a {
+      display: block;
+      padding: 8px 15px;
+      text-transform: capitalize; }
+    #plugin-vincod .menu-container .menu-well {
+      margin: 0;
+      border-color: #ddd; }
+      @media (max-width: 991px) {
+        #plugin-vincod .menu-container .menu-well {
+          margin-top: 20px; } }
+      #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li > a {
+        padding-left: 25px; }
+      #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li > ul {
         display: none; }
-      #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li.parent > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li.active > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.parent > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.active > ul {
+      #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul {
         display: block; }
-        #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li.parent > ul > li > a, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li.active > ul > li > a, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.parent > ul > li > a, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.active > ul > li > a {
-          padding-left: 55px; }
+        #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li > a, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li > a {
+          padding-left: 40px; }
+        #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li > ul {
+          display: none; }
+        #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li.parent > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li.active > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.parent > ul, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.active > ul {
+          display: block; }
+          #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li.parent > ul > li > a, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.parent > ul > li.active > ul > li > a, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.parent > ul > li > a, #plugin-vincod .menu-container .menu-well > .vincod-menu > li > ul > li.active > ul > li.active > ul > li > a {
+            padding-left: 55px; }
   #plugin-vincod .content-container {
     max-width: 1200px;
-    margin: 15px auto; }
+    margin: 15px auto;
+    padding: 0; }
     @media (min-width: 992px) {
       #plugin-vincod .content-container {
+        padding: 0 0 0 15px;
         margin: auto; } }
     #plugin-vincod .content-container .breadcrumb {
       margin-bottom: 15px;

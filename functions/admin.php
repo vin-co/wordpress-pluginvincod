@@ -135,7 +135,7 @@ function wp_wincod_post_updates(array $post) {
 	
 	
 	// Styles
-	foreach(array('owner', 'collection', 'brand', 'range', 'product') as $value) {
+	foreach(array('owner', 'collection', 'brand', 'range', 'product', 'search') as $value) {
 		
 		if(isset($cleaned_post['vincod_' . $value . '_settings'])) {
 			
@@ -301,6 +301,8 @@ function wp_vincod_create_page() {
  */
 function wp_vincod_reset_app() {
 	
+	$style_settings = array('has_menu', 'has_search', 'has_content', 'has_links');
+	$templates_names = array('owner', 'collection', 'brand', 'range', 'product');
 	
 	// Delete sessions of log system
 	wp_vincod_clear_log();
@@ -324,7 +326,7 @@ function wp_vincod_reset_app() {
 	delete_option('vincod_setting_cache_api');
 	
 	// Delete style options
-	foreach(array('owner', 'collection', 'brand', 'range', 'product') as $value) {
+	foreach($templates_names as $value) {
 		
 		delete_option('vincod_' . $value . '_settings');
 		
@@ -348,9 +350,6 @@ function wp_vincod_reset_app() {
 	wp_vincod_devlog(__("We deleted the API credentials.", 'vincod'));
 	
 	add_option('vincod_setting_cache_api', 1);
-	
-	$style_settings = array('has_menu', 'has_search', 'has_content', 'has_links');
-	$templates_names = array('owner', 'collection', 'brand', 'range', 'product');
 	
 	foreach($templates_names as $template_name) {
 		$template_settings = array();

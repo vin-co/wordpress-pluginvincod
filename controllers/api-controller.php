@@ -31,7 +31,7 @@ class wp_vincod_controller_api {
 	private $_customer_id = '';
 	
 	public function __construct() {
-		
+	
 	}
 	
 	
@@ -75,16 +75,17 @@ class wp_vincod_controller_api {
 			$additional_params = (isset($params['params'])) ? $params['params'] . '&' : '';
 			
 			// Create url to request
-			$url = 'http://api.vincod.com/2/json/%method/%action/%lang/%id?' . $additional_params . 'apiKey=' . $this->_customer_api;
+			$url = 'http://mboucher.apivincod.vinternet-redmine.reseaux.info/2/json/%method/%action/%lang/%id?' . $additional_params . 'apiKey=' . $this->_customer_api;
+//			$url = 'http://api.vincod.com/2/json/%method/%action/%lang/%id?' . $additional_params . 'apiKey=' . $this->_customer_api;
 			
 			
 			$url = $this->parse_url($url, $params);
 			// Check in the cache
 			$already_cached = $this->already_cached($url);
 
-//			if(WP_DEBUG == true) {
-//				echo($url.'<br/>');
-//			}
+			if(WP_DEBUG == true) {
+				echo($url.'<br/>');
+			}
 			
 			if(!$already_cached) {
 				
@@ -102,6 +103,7 @@ class wp_vincod_controller_api {
 				
 				// Decode datas
 				$datas = json_decode($datas, true);
+				
 				
 			}
 			else {
@@ -274,7 +276,7 @@ class wp_vincod_controller_api {
 		
 		
 		// Check error
-		if(isset($owner['owners']['error'])) {
+		if(isset($owner['owners']['error']) || empty($owner)) {
 			
 			return false;
 			
@@ -300,7 +302,7 @@ class wp_vincod_controller_api {
 		
 		
 		// Check error
-		if(isset($menu['owners']['error'])) {
+		if(isset($menu['owners']['error']) || empty($menu)) {
 			
 			return false;
 			
@@ -323,7 +325,7 @@ class wp_vincod_controller_api {
 		
 		));
 		
-		if(isset($families['families']['error']) || !isset($families['families']['family'])) {
+		if(isset($families['families']['error']) || empty($families) || !isset($families['families']['family'])) {
 			
 			return false;
 			
@@ -346,7 +348,7 @@ class wp_vincod_controller_api {
 		
 		));
 		
-		if(isset($family['families']['error']) || empty($family['families']['family'])) {
+		if(isset($family['families']['error']) || empty($family) || empty($family['families']['family'])) {
 			
 			return false;
 			
@@ -366,7 +368,7 @@ class wp_vincod_controller_api {
 		
 		));
 		
-		if(isset($family['family']['error']) || empty($family['families']['family'])) {
+		if(isset($family['family']['error']) || empty($family) || empty($family['families']['family'])) {
 			
 			return false;
 			
@@ -389,7 +391,7 @@ class wp_vincod_controller_api {
 		
 		));
 		
-		if(isset($wineries['wineries']['error'])) {
+		if(isset($wineries['wineries']['error']) || empty($wineries)) {
 			
 			return false;
 			
@@ -411,7 +413,7 @@ class wp_vincod_controller_api {
 		
 		));
 		
-		if(isset($wineries['wineries']['error'])) {
+		if(isset($wineries['wineries']['error']) || empty($wineries)) {
 			
 			return false;
 			
@@ -434,7 +436,7 @@ class wp_vincod_controller_api {
 		));
 		
 		// Check error
-		if(isset($winery['wineries']['error'])) {
+		if(isset($winery['wineries']['error']) || empty($winery)) {
 			
 			return false;
 			
@@ -454,7 +456,7 @@ class wp_vincod_controller_api {
 		));
 		
 		// Check error
-		if(isset($winery['wineries']['error'])) {
+		if(isset($winery['wineries']['error']) || empty($winery)) {
 			
 			return false;
 			
@@ -476,7 +478,7 @@ class wp_vincod_controller_api {
 		));
 		
 		// Check error
-		if(isset($winery['wineries']['error'])) {
+		if(isset($winery['wineries']['error']) || empty($winery)) {
 			
 			return false;
 			
@@ -500,7 +502,7 @@ class wp_vincod_controller_api {
 		
 		));
 		
-		if(isset($ranges['wineries']['error'])) {
+		if(isset($ranges['wineries']['error']) || empty($ranges)) {
 			
 			return false;
 			
@@ -522,7 +524,12 @@ class wp_vincod_controller_api {
 		
 		));
 		
-		if(isset($ranges['wineries']['error'])) {
+		if(empty($ranges)) {
+			
+			return false;
+			
+		}
+		elseif(isset($ranges['wineries']['error'])) {
 			
 			// String returned, so just only for a single result
 			if(!is_array($ranges['wineries']['error'])) {
@@ -574,7 +581,7 @@ class wp_vincod_controller_api {
 		
 		));
 		
-		if(isset($range['wineries']['error'])) {
+		if(isset($range['wineries']['error']) || empty($range)) {
 			
 			return false;
 			
@@ -594,7 +601,7 @@ class wp_vincod_controller_api {
 		
 		));
 		
-		if(isset($range['wineries']['error'])) {
+		if(isset($range['wineries']['error']) || empty($range)) {
 			
 			return false;
 			
@@ -620,7 +627,7 @@ class wp_vincod_controller_api {
 		
 		));
 		
-		if(isset($wines['wines']['error'])) {
+		if(isset($wines['wines']['error']) || empty($wines)) {
 			
 			return false;
 			
@@ -643,7 +650,7 @@ class wp_vincod_controller_api {
 		
 		));
 		
-		if(isset($wine['wines']['error'])) {
+		if(isset($wine['wines']['error']) || empty($wine)) {
 			
 			return false;
 			
@@ -663,7 +670,7 @@ class wp_vincod_controller_api {
 		
 		));
 		
-		if(isset($vintages['wines']['error'])) {
+		if(isset($vintages['wines']['error']) || empty($vintages)) {
 			
 			return false;
 			
@@ -686,7 +693,7 @@ class wp_vincod_controller_api {
 		));
 		
 		
-		if(isset($wines['wines']['error'])) {
+		if(isset($wines['wines']['error']) || empty($wines)) {
 			
 			return false;
 			
@@ -707,7 +714,34 @@ class wp_vincod_controller_api {
 		
 		));
 		
+		if(isset($wines['wines']['error']) || empty($wines)) {
+			
+			return false;
+			
+		}
+		
+		$wines = $this->_prevent_api($wines, 'wines', 'wine');
+		
+		return $wines['wines']['wine'];
+		
+	}
+	
+	public function get_wines_by_search($search) {
+		
+		$wines = $this->request_api(array(
+			
+			'method' => 'wine',
+			'action' => 'GetWinesBySearch',
+			'id' => $search
+		
+		));
+		
 		if(isset($wines['wines']['error'])) {
+			
+			return array('error' => $wines['wines']['error']);
+			
+		}
+		elseif(empty($wines)) {
 			
 			return false;
 			

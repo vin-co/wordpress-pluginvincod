@@ -7637,6 +7637,8 @@
         border: 1px solid #ddd;
         z-index: 10;
         background-color: white; }
+  #plugin-vincod.vincod-search .content-panel .panel-body {
+    background-color: #fafafa; }
   #plugin-vincod .content-links {
     text-align: center; }
     #plugin-vincod .content-links a {

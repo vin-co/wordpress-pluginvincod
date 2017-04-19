@@ -5,7 +5,7 @@
  * The view served by the template when you have got ?range= GET param
  *
  * You can replace this view by your, just create in your current theme folder
- * the file vincod/views/template/range.php ; If you make this you can use
+ * the file vincod/range.php ; If you make this you can use
  * all functions and all constants of the plugin.
  *
  * @author      Vinternet

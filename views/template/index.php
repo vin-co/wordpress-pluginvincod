@@ -5,7 +5,7 @@
  * The view served by the template when you haven't got params
  *
  * You can replace this view by your, just create in your current theme folder
- * the file vincod/views/template/index.php ; If you make this you can use
+ * the file vincod/index.php ; If you make this you can use
  * all functions and all constants of the plugin.
  *
  * @author      Vinternet
@@ -127,13 +127,13 @@
 								<?php elseif(wp_vincod_get_logo_url($collection, '640')): ?>
 									
 									<div class="well collection-link" style="background-image: url('<?= wp_vincod_get_logo_url($collection, '640') ?>')">
-										
+									
 								<?php else: ?>
-										
+									
 									<div class="well collection-link">
-											
+									
 								<?php endif; ?>
-											
+									
 									<div class="block">
 										
 										<div class="centered-item">
@@ -155,7 +155,7 @@
 						<?php foreach($brands as $brand): ?>
 							
 							<a href="<?= wp_vincod_link('brand', $brand['vincod'], $brand['name']) ?>" title="<?= $brand['name'] ?>">
-								
+							
 							<?php if(wp_vincod_get_picture_url($brand, 'retina')): ?>
 							
 								<div class="well brand-link" style="background-image: url('<?= wp_vincod_get_picture_url($brand, 'retina') ?>')">
@@ -163,11 +163,11 @@
 							<?php elseif(wp_vincod_get_logo_url($brand, 'retina')): ?>
 								
 								<div class="well brand-link" style="background-image: url('<?= wp_vincod_get_logo_url($brand, 'retina') ?>')">
-									
+								
 							<?php else: ?>
 								
 								<div class="well brand-link">
-									
+								
 							<?php endif; ?>
 									
 									<div class="block">

@@ -150,7 +150,7 @@
 		<?php
 		
 		$style_settings = array('has_menu', 'has_breadcrumb', 'has_search', 'has_content', 'has_links');
-		$templates_names = array('owner', 'collection', 'brand', 'range', 'product');
+		$templates_names = array('owner', 'collection', 'brand', 'range', 'product', 'search');
 		$saved_settings = array();
 		
 		foreach($templates_names as $value) {
@@ -214,13 +214,25 @@
 				</tr>
 				<tr>
 					<td><?php _e('Product', 'vincod'); ?></td>
-					<?php foreach($style_settings as $setting) : if($setting != 'has_links'): ?>
+					<?php foreach($style_settings as $setting) : ?>
 						<td>
-							<input type="hidden" name="vincod_product_settings[<?= $setting ?>]" value="0"/>
-							<input type="checkbox" name="vincod_product_settings[<?= $setting ?>]" value="1"<?= (isset($saved_settings['product'][$setting]) && $saved_settings['product'][$setting]) ? ' checked' : '' ?>/>
+							<?php if($setting != 'has_links'): ?>
+								<input type="hidden" name="vincod_product_settings[<?= $setting ?>]" value="0"/>
+								<input type="checkbox" name="vincod_product_settings[<?= $setting ?>]" value="1"<?= (isset($saved_settings['product'][$setting]) && $saved_settings['product'][$setting]) ? ' checked' : '' ?>/>
+							<?php endif; ?>
 						</td>
-					<?php endif; endforeach; ?>
-					<td></td>
+					<?php endforeach; ?>
+				</tr>
+				<tr>
+					<td><?php _e('Search', 'vincod'); ?></td>
+					<?php foreach($style_settings as $setting) : ?>
+						<td>
+							<?php if($setting == 'has_menu' || $setting == 'has_search'): ?>
+								<input type="hidden" name="vincod_search_settings[<?= $setting ?>]" value="0"/>
+								<input type="checkbox" name="vincod_search_settings[<?= $setting ?>]" value="1"<?= (isset($saved_settings['search'][$setting]) && $saved_settings['search'][$setting]) ? ' checked' : '' ?>/>
+							<?php endif; ?>
+						</td>
+					<?php endforeach; ?>
 				</tr>
 				</tbody>
 			</table>

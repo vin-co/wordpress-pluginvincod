@@ -36,7 +36,6 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		));
 		
 		// Get the right permalink
-		global $wp_rewrite;
 		$this->permalink = get_permalink();
 	}
 	
@@ -51,26 +50,34 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 	 */
 	public function run() {
 		
-		global $wp_query;
-		global $wp_rewrite;
+		global $wp_query, $wp_rewrite;
 		
-		$permalinks_used = $wp_rewrite->using_permalinks();
-		
-		if($permalinks_used === true) {
+		if(wp_vincod_is_not_empty($_POST)) {
 			
-			$request_wines = $wp_query->query_vars['vincod_request'];
-			$params = $this->understand_request($request_wines);
-			
-			// If no params, check with GET
-			if(empty($params)) {
-				$params = $_GET;
-			}
+			$params = $_POST;
 			
 		}
+		
 		else {
 			
-			$params = $_GET;
+			$permalinks_used = $wp_rewrite->using_permalinks();
 			
+			if($permalinks_used === true) {
+				
+				$request_wines = $wp_query->query_vars['vincod_request'];
+				$params = $this->understand_request($request_wines);
+				
+				// If no params, check with GET
+				if(empty($params)) {
+					$params = $_GET;
+				}
+				
+			}
+			else {
+				
+				$params = $_GET;
+				
+			}
 		}
 		
 		$this->router($params);
@@ -150,8 +157,6 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 	public function router($params) {
 		
 		// The base link
-		global $wp_rewrite;
-		$link_page = get_permalink();
 		
 		// Simple routing system
 		if($this->route('collection', $params) || $this->route('family', $params)) {
@@ -188,9 +193,15 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 			$this->_exec_product($params);
 			
 		}
+		elseif($this->route('search_wine', $params)) {
+			
+			$this->_exec_search($params);
+			
+		}
 		else {
 			
 			$this->_exec_index();
+			
 		}
 		
 	}
@@ -315,8 +326,6 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		$collection = $this->get_family_by_id($params['collection']);
 		$brands = $this->get_wineries_by_family_id($params['collection']);
 		
-		$back_link = get_permalink(get_option('vincod_id_page_nos_vins'));
-		
 		$menu = ($collection) ? wp_vincod_get_menu($collection['vincod']) : '';
 		
 		$breadcrumb = ($collection) ? wp_vincod_get_breadcrumb($collection['vincod']) : '';
@@ -327,13 +336,12 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		
 		$view_datas = array(
 			
-			'collection' => $collection,
-			'brands'     => $brands,
-			'back_link'  => $back_link,
-			'link'       => $this->permalink,
-			'settings'   => get_option('vincod_collection_settings'),
-			'menu'       => $menu,
-			'breadcrumb' => $breadcrumb,
+			'collection'  => $collection,
+			'brands'      => $brands,
+			'link'        => $this->permalink,
+			'settings'    => get_option('vincod_collection_settings'),
+			'menu'        => $menu,
+			'breadcrumb'  => $breadcrumb,
 			'search_form' => wp_vincod_get_search_form()
 		
 		);
@@ -356,9 +364,6 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		$brand = $this->get_winery_by_id($params['brand']);
 		$ranges = $this->get_ranges_by_winery_id($params['brand']);
 		$products = $this->get_wines_by_winery_id($params['brand']);
-		$collection = $this->get_family_by_winery_id($params['brand']);
-		
-		$back_link = ($collection) ? wp_vincod_link('collection', $collection['vincod'], $collection['name']) : get_permalink(get_option('vincod_id_page_nos_vins'));
 		
 		// Group products
 		$products = ($products) ? wp_vincod_group_products($products) : $products;
@@ -375,14 +380,13 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		
 		$view_datas = array(
 			
-			'brand'      => $brand,
-			'ranges'     => $ranges,
-			'products'   => $products,
-			'back_link'  => $back_link,
-			'link'       => $this->permalink,
-			'settings'   => get_option('vincod_brand_settings'),
-			'menu'       => $menu,
-			'breadcrumb' => $breadcrumb,
+			'brand'       => $brand,
+			'ranges'      => $ranges,
+			'products'    => $products,
+			'link'        => $this->permalink,
+			'settings'    => get_option('vincod_brand_settings'),
+			'menu'        => $menu,
+			'breadcrumb'  => $breadcrumb,
 			'search_form' => wp_vincod_get_search_form()
 		
 		);
@@ -402,12 +406,8 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 	 * @return void
 	 */
 	private function _exec_range($params) {
-		
 		$range = $this->get_range_by_id($params['range']);
 		$products = $this->get_wines_by_range_id($params['range']);
-		$winery = $this->get_winery_by_range_id($params['range']);
-		
-		$back_link = wp_vincod_link('winery', $winery['id'], $winery['name']);
 		
 		// Group products
 		$products = ($products) ? wp_vincod_group_products($products) : $products;
@@ -422,13 +422,12 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		
 		$view_datas = array(
 			
-			'range'      => $range,
-			'products'   => $products,
-			'back_link'  => $back_link,
-			'link'       => $this->permalink,
-			'settings'   => get_option('vincod_range_settings'),
-			'menu'       => $menu,
-			'breadcrumb' => $breadcrumb,
+			'range'       => $range,
+			'products'    => $products,
+			'link'        => $this->permalink,
+			'settings'    => get_option('vincod_range_settings'),
+			'menu'        => $menu,
+			'breadcrumb'  => $breadcrumb,
 			'search_form' => wp_vincod_get_search_form()
 		
 		);
@@ -449,36 +448,12 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 	 * @return void
 	 */
 	private function _exec_product($params) {
-		
 		$product = $this->get_wine_by_vincod($params['product']);
 		$vintages = $this->get_other_vintages_by_vincod($params['product']);
-		$range = $this->get_range_by_vincod($params['product']);
-		$brand = $this->get_winery_by_vincod($params['product']);
 		
-		if($range) {
-			
-			$back_link = wp_vincod_link('range', $range['id'], $range['name']);
-			$parent = $range;
-			
-		}
-		elseif($brand) {
-			
-			$back_link = wp_vincod_link('brand', $brand['id'], $brand['name']);
-			$parent = $brand;
-			
-		}
-		else {
-			
-			$back_link = get_permalink(get_option('vincod_id_page_nos_vins'));
-			$customer_id = get_option('vincod_setting_customer_id');
-			$customer_winery_id = get_option('vincod_setting_customer_winery_id');
-			$parent = ($customer_winery_id) ? $customer_winery_id : $customer_id;
-			
-		}
+		$menu = ($product) ? wp_vincod_get_menu($product['parentid']) : '';
 		
-		$menu = ($parent) ? wp_vincod_get_menu($parent['vincod']) : '';
-		
-		$breadcrumb = ($parent) ? wp_vincod_get_breadcrumb($parent['vincod']) : '';
+		$breadcrumb = ($product) ? wp_vincod_get_breadcrumb($product['parentid']) : '';
 		
 		if(!empty($product['fields']['presentation'])) {
 			$product['presentation'] = (!wp_vincod_is_multi($product['fields']['presentation'])) ? array($product['fields']['presentation']) : $product['fields']['presentation'];
@@ -518,13 +493,12 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		
 		$view_datas = array(
 			
-			'product'    => $product,
-			'vintages'   => $vintages,
-			'back_link'  => $back_link,
-			'link'       => $this->permalink,
-			'settings'   => get_option('vincod_product_settings'),
-			'menu'       => $menu,
-			'breadcrumb' => $breadcrumb,
+			'product'     => $product,
+			'vintages'    => $vintages,
+			'link'        => $this->permalink,
+			'settings'    => get_option('vincod_product_settings'),
+			'menu'        => $menu,
+			'breadcrumb'  => $breadcrumb,
 			'search_form' => wp_vincod_get_search_form()
 		
 		);
@@ -533,5 +507,64 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		$this->_view_loaded = $this->load_view('product', $view_datas, true);
 		
 	}
+	
+	/**
+	 * Exec Search
+	 *
+	 * Render the view for Search
+	 *
+	 * @param $params
+	 *
+	 * @return void
+	 */
+	private function _exec_search($params) {
+		
+		if(!isset($params['wp_vincod_search_nonce']) && !wp_verify_nonce($params['wp_vincod_search_nonce'], 'wp_vincod_search_form')) {
+			
+			$this->_exec_index();
+			
+			return;
+			
+		}
+		
+		$search = $params['search_wine'];
+		
+		$search = wp_vincod_xss_clean($search);
+		$search = strip_tags($search);
+		$search = sanitize_text_field($search);
+		
+		$search_encoded = sanitize_user($search, true);
+		$search_encoded = filter_var($search_encoded, FILTER_SANITIZE_ENCODED);
+		
+		$error = false;
+		$products = $this->get_wines_by_search($search_encoded);
+		
+		if(isset($products['error'])) {
+			$error = $products['error'];
+			$products = false;
+		}
+		
+		// Group products
+		$products = ($products) ? wp_vincod_group_products($products) : $products;
+		
+		$menu = wp_vincod_get_menu();
+		
+		$view_datas = array(
+			
+			'error'       => $error,
+			'search'      => $search,
+			'products'    => $products,
+			'link'        => $this->permalink,
+			'settings'    => get_option('vincod_range_settings'),
+			'menu'        => $menu,
+			'search_form' => wp_vincod_get_search_form()
+		
+		);
+		
+		// Loader
+		$this->_view_loaded = $this->load_view('search', $view_datas, true);
+		
+	}
+	
 	
 }

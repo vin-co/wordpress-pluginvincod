@@ -5,7 +5,7 @@
  * The view served by the template when you have got ?product= GET param
  *
  * You can replace this view by your, just create in your current theme folder
- * the file vincod/views/template/product.php ; If you make this you can use
+ * the file vincod/product.php ; If you make this you can use
  * all functions and all constants of the plugin.
  *
  * @author      Vinternet
@@ -82,7 +82,7 @@
 				
 				<div class="row product-image">
 					
-					<img class="lazy img-responsive" src="<?= wp_vincod_get_bottle_url($product, '1024') ?>" alt="<?= $product['name']; ?>"/>
+					<img class="img-responsive" src="<?= wp_vincod_get_bottle_url($product, '1024') ?>" alt="<?= $product['name']; ?>"/>
 				
 				</div>
 				

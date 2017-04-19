@@ -190,7 +190,7 @@ if(!class_exists('wp_vincod_plugin')) {
 			add_option('vincod_setting_cache_api', 1);
 			
 			$style_settings = array('has_menu', 'has_search', 'has_content', 'has_links');
-			$templates_names = array('owner', 'collection', 'brand', 'range', 'product');
+			$templates_names = array('owner', 'collection', 'brand', 'range', 'product', 'search');
 			
 			foreach($templates_names as $template_name) {
 				$template_settings = array();
@@ -237,8 +237,10 @@ if(!class_exists('wp_vincod_plugin')) {
 			// Delete cache API
 			delete_option('vincod_setting_cache_api');
 			
+			$templates_names = array('owner', 'collection', 'brand', 'range', 'product', 'search');
+			
 			// Delete style options
-			foreach(array('owner', 'family', 'winery', 'range', 'wine') as $value) {
+			foreach($templates_names as $value) {
 				
 				delete_option('vincod_' . $value . '_settings');
 				

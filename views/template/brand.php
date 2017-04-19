@@ -5,7 +5,7 @@
  * The view served by the template when you have got ?brand= GET param
  *
  * You can replace this view by your, just create in your current theme folder
- * the file vincod/views/template/brand.php ; If you make this you can use
+ * the file vincod/brand.php ; If you make this you can use
  * all functions and all constants of the plugin.
  *
  * @author      Vinternet
@@ -119,19 +119,19 @@
 						<?php foreach($ranges as $range): ?>
 							
 							<a href="<?= wp_vincod_link('range', $range['vincod'], $range['name']) ?>" title="<?= $range['name'] ?>">
-								
+							
 							<?php if(wp_vincod_get_picture_url($range, 'retina')): ?>
 								
 								<div class="well range-link" style="background-image: url('<?= wp_vincod_get_picture_url($range, 'retina') ?>')">
-									
+								
 							<?php elseif(wp_vincod_get_logo_url($range, 'retina')): ?>
-									
+								
 								<div class="well range-link" style="background-image: url('<?= wp_vincod_get_logo_url($range, 'retina') ?>')">
-										
+								
 							<?php else: ?>
-										
+								
 								<div class="well range-link">
-									
+								
 							<?php endif; ?>
 									
 									<div class="block">

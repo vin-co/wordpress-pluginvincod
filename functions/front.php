@@ -294,6 +294,8 @@ function wp_vincod_get_search_form() {
 	
 	<form method="POST" action="<?= wp_vincod_get_permalink(get_option('vincod_id_page_nos_vins')); ?>" id="vincod-search-form" class="vincod-search-form">
 		
+		<?php wp_nonce_field('wp_vincod_search_form', 'wp_vincod_search_nonce'); ?>
+		
 		<div class="input-group">
 			<input type="text" class="form-control" name="search_wine" placeholder="<?php _e('Search', 'vincod'); ?>">
 			<span class="input-group-btn">

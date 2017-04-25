@@ -75,16 +75,15 @@ class wp_vincod_controller_api {
 			$additional_params = (isset($params['params'])) ? $params['params'] . '&' : '';
 			
 			// Create url to request
-			$url = 'http://mboucher.apivincod.vinternet-redmine.reseaux.info/2/json/%method/%action/%lang/%id?' . $additional_params . 'apiKey=' . $this->_customer_api;
-//			$url = 'http://api.vincod.com/2/json/%method/%action/%lang/%id?' . $additional_params . 'apiKey=' . $this->_customer_api;
+			$url = 'http://api.vincod.com/2/json/%method/%action/%lang/%id?' . $additional_params . 'apiKey=' . $this->_customer_api;
 			
 			
 			$url = $this->parse_url($url, $params);
 			// Check in the cache
 			$already_cached = $this->already_cached($url);
-
+			
 			if(WP_DEBUG == true) {
-				echo($url.'<br/>');
+				echo($url . '<br/>');
 			}
 			
 			if(!$already_cached) {
@@ -290,13 +289,16 @@ class wp_vincod_controller_api {
 		$params = array(
 			
 			'method' => 'owner',
-			'action' => 'GetCatalogueByVincod'
+			'action' => 'GetCatalogueByVincod',
+			'params' => ($brand = get_option('vincod_setting_customer_winery_id')) ? 'limit=' . $brand : 'limit=' . $this->_customer_id
 		
 		);
 		
+		
 		if($vincod !== null) {
-			$params['params'] = 'vincod=' . $vincod;
+			$params['params'] .= '&vincod=' . $vincod;
 		}
+		
 		
 		$menu = $this->request_api($params);
 		
@@ -344,7 +346,7 @@ class wp_vincod_controller_api {
 			
 			'method' => 'family',
 			'action' => 'GetFamilyById',
-			'id' => $id
+			'id'     => $id
 		
 		));
 		
@@ -364,7 +366,7 @@ class wp_vincod_controller_api {
 			
 			'method' => 'family',
 			'action' => 'GetFamilyByWineryId',
-			'id' => $id
+			'id'     => $id
 		
 		));
 		
@@ -409,7 +411,7 @@ class wp_vincod_controller_api {
 			
 			'method' => 'winery',
 			'action' => 'GetWineriesByFamilyId',
-			'id' => $id
+			'id'     => $id
 		
 		));
 		
@@ -431,7 +433,7 @@ class wp_vincod_controller_api {
 			
 			'method' => 'winery',
 			'action' => 'GetWineryById',
-			'id' => $id
+			'id'     => $id
 		
 		));
 		
@@ -451,7 +453,7 @@ class wp_vincod_controller_api {
 			
 			'method' => 'winery',
 			'action' => 'GetWineryByVincod',
-			'id' => $id
+			'id'     => $id
 		
 		));
 		
@@ -473,7 +475,7 @@ class wp_vincod_controller_api {
 			
 			'method' => 'winery',
 			'action' => 'GetWineryByRangeId',
-			'id' => $id
+			'id'     => $id
 		
 		));
 		
@@ -520,7 +522,7 @@ class wp_vincod_controller_api {
 			
 			'method' => 'range',
 			'action' => 'GetRangesByWineryId',
-			'id' => $id
+			'id'     => $id
 		
 		));
 		
@@ -577,7 +579,7 @@ class wp_vincod_controller_api {
 			
 			'method' => 'range',
 			'action' => 'GetRangeById',
-			'id' => $id
+			'id'     => $id
 		
 		));
 		
@@ -597,7 +599,7 @@ class wp_vincod_controller_api {
 			
 			'method' => 'range',
 			'action' => 'GetRangeByVincod',
-			'id' => $id
+			'id'     => $id
 		
 		));
 		
@@ -623,7 +625,7 @@ class wp_vincod_controller_api {
 			
 			'method' => 'wine',
 			'action' => 'GetWinesByRangeId',
-			'id' => $id
+			'id'     => $id
 		
 		));
 		
@@ -646,7 +648,7 @@ class wp_vincod_controller_api {
 			
 			'method' => 'wine',
 			'action' => 'GetWineByVincod',
-			'id' => $id,
+			'id'     => $id,
 		
 		));
 		
@@ -666,7 +668,7 @@ class wp_vincod_controller_api {
 			
 			'method' => 'wine',
 			'action' => 'GetOtherVintagesByVincod',
-			'id' => $id
+			'id'     => $id
 		
 		));
 		
@@ -688,7 +690,7 @@ class wp_vincod_controller_api {
 			
 			'method' => 'wine',
 			'action' => 'GetWinesByWineryId',
-			'id' => $id
+			'id'     => $id
 		
 		));
 		
@@ -728,13 +730,23 @@ class wp_vincod_controller_api {
 	
 	public function get_wines_by_search($search) {
 		
-		$wines = $this->request_api(array(
+		$params = array(
 			
 			'method' => 'wine',
 			'action' => 'GetWinesBySearch',
-			'id' => $search
+			'id'     => $search,
+			'params' => 'owner=' . $this->_customer_id
 		
-		));
+		);
+		
+		if($brand = get_option('vincod_setting_customer_winery_id')) {
+			
+			$params['params'] .= '&winery=' . $brand;
+			
+		}
+		
+		$wines = $this->request_api($params);
+		
 		
 		if(isset($wines['wines']['error'])) {
 			

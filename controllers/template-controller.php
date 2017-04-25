@@ -529,9 +529,11 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		
 		$search = $params['search_wine'];
 		
+		$search = wp_unslash($search);
 		$search = wp_vincod_xss_clean($search);
 		$search = strip_tags($search);
 		$search = sanitize_text_field($search);
+		$search = esc_html($search);
 		
 		$search_encoded = sanitize_user($search, true);
 		$search_encoded = filter_var($search_encoded, FILTER_SANITIZE_ENCODED);

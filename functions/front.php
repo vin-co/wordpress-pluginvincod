@@ -356,9 +356,11 @@ function wp_vincod_get_menu($vincod = null) {
  */
 function wp_vincod_render_menu($menu_array) {
 	
+	$menu = '';
+	
 	if(isset($menu_array['menu']) && isset($menu_array['menu'][0])) {
 		
-		$menu = '<ul class="vincod-menu">';
+		$menu .= '<ul class="vincod-menu">';
 		
 		foreach($menu_array['menu'] as $sub_menu) {
 			$menu .= wp_vincod_render_menu_links($sub_menu);
@@ -368,7 +370,7 @@ function wp_vincod_render_menu($menu_array) {
 	}
 	elseif(isset($menu_array['menu'])) {
 		
-		$menu = '<ul class="vincod-menu">';
+		$menu .= '<ul class="vincod-menu">';
 		
 		$menu .= wp_vincod_render_menu_links($menu_array['menu']);
 		

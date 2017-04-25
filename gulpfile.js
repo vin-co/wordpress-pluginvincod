@@ -108,7 +108,7 @@ gulp.task('fonts', function() {
 
 // ----- Browser-Sync watch files and inject changes -----
 
-gulp.task('browsersync', ['build'], function() {
+gulp.task('browsersync', ['dist'], function() {
 	// Watch files
 	var files = [
 		paths.jsFiles,
@@ -123,7 +123,7 @@ gulp.task('browsersync', ['build'], function() {
 	});
 
 	// Watch .scss files
-	gulp.watch(paths.sassFiles, ['styles']);
+	gulp.watch(paths.sassFiles, ['styles-min']);
 });
 
 
@@ -131,7 +131,7 @@ gulp.task('browsersync', ['build'], function() {
 
 gulp.task('watch', function() {
 	// Watch .scss files
-	gulp.watch(paths.sassFiles, ['styles']);
+	gulp.watch(paths.sassFiles, ['styles-min']);
 
 });
 

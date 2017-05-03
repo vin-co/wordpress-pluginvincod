@@ -557,7 +557,7 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 			'search'      => $search,
 			'products'    => $products,
 			'link'        => $this->permalink,
-			'settings'    => get_option('vincod_range_settings'),
+			'settings'    => get_option('vincod_search_settings'),
 			'menu'        => $menu,
 			'search_form' => wp_vincod_get_search_form()
 		

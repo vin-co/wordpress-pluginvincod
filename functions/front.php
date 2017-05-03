@@ -394,7 +394,7 @@ function wp_vincod_render_menu_links($sub_menu) {
 	$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $sub_menu['@attributes']['vincod'], $sub_menu['title']);
 	
 	$is_active = (isset($sub_menu['actif']) && $sub_menu['actif'] == 1) ? ' active' : '';
-	$is_parent = (isset($sub_menu['parent']) && $sub_menu['parent'] == 1) ? ' parent' : '';
+	$is_parent = (isset($sub_menu['@attributes']['fil_ariane']) && $sub_menu['@attributes']['fil_ariane'] == 1) ? ' parent' : '';
 	
 	$menu .= '<li class="vincod-menu-item ' . $permalink_type . $is_parent . $is_active . '">';
 	$menu .= '<a href="' . $menu_link . '" title="' . $sub_menu['title'] . '">' . $sub_menu['title'] . '</a>';
@@ -463,7 +463,7 @@ function wp_vincod_render_breadcrumb_links($sub_menu) {
 	$menu = '';
 	
 	$is_active = (isset($sub_menu['actif']) && $sub_menu['actif'] == 1);
-	$is_parent = (isset($sub_menu['parent']) && $sub_menu['parent'] == 1);
+	$is_parent = (isset($sub_menu['@attributes']['fil_ariane']) && $sub_menu['@attributes']['fil_ariane'] == 1);
 	
 	if($is_active || $is_parent) {
 		

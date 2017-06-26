@@ -71,7 +71,7 @@
 				
 				<div class="panel-body">
 					
-					<h1><?php _e('Search results for :') ?></h1>
+					<h1><?php _e('Search results for :', 'vincod'); ?></h1>
 					
 					<h2 class="content-presentation">
 						<?= $search; ?>

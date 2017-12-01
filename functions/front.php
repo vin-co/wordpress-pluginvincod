@@ -339,7 +339,7 @@ function wp_vincod_menu_permalink_type($type) {
  */
 function wp_vincod_get_menu($vincod = null) {
 	
-	$api = new wp_vincod_controller_template();
+	$api = new WP_Vincod_API();
 	
 	$menu = $api->get_catalogue_by_vincod($vincod);
 	
@@ -416,7 +416,7 @@ function wp_vincod_render_menu_links($sub_menu) {
  */
 function wp_vincod_get_breadcrumb($vincod = null) {
 	
-	$api = new wp_vincod_controller_template();
+	$api = new WP_Vincod_API();
 	
 	$menu = $api->get_catalogue_by_vincod($vincod);
 	

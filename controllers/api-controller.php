@@ -14,7 +14,7 @@
  * @copyright    2016 VINTERNET
  *
  */
-class wp_vincod_controller_api {
+class WP_Vincod_API {
 	
 	/**
 	 * The key customer API
@@ -31,7 +31,15 @@ class wp_vincod_controller_api {
 	private $_customer_id = '';
 	
 	public function __construct() {
-	
+		
+		$this->config(array(
+			
+			'_customer_api'       => get_option('vincod_setting_customer_api'),
+			'_customer_id'        => get_option('vincod_setting_customer_id'),
+			'_customer_winery_id' => get_option('vincod_setting_customer_winery_id')
+		
+		));
+		
 	}
 	
 	

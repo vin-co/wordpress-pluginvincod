@@ -11,7 +11,7 @@
  * @copyright    2016 VINTERNET
  *
  */
-class wp_vincod_controller_template extends wp_vincod_controller_api {
+class WP_Vincod_Template_Controller extends WP_Vincod_API {
 	
 	/**
 	 * The content of view loaded
@@ -26,17 +26,9 @@ class wp_vincod_controller_template extends wp_vincod_controller_api {
 		
 		parent::__construct();
 		
-		
-		$this->config(array(
-			
-			'_customer_api'       => get_option('vincod_setting_customer_api'),
-			'_customer_id'        => get_option('vincod_setting_customer_id'),
-			'_customer_winery_id' => get_option('vincod_setting_customer_winery_id')
-		
-		));
-		
 		// Get the right permalink
 		$this->permalink = get_permalink();
+		
 	}
 	
 	

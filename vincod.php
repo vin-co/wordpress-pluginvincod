@@ -4,7 +4,7 @@
 Plugin Name: Vincod
 Plugin URI: http://dev.vincod.com/
 Description: The « Vincod for WordPress » plugin allows you to instantly create a « Our Wines » section in your WordPress website.
-Version: 2.5.0
+Version: 2.5.1
 Author: Vinternet
 Author URI: http://www.vinternet.net/
 */
@@ -312,7 +312,7 @@ if(!class_exists('wp_vincod_plugin')) {
 				add_filter('body_class', 'wp_vincod_body_classes');
 				
 				// Init template controller
-				$template_controller = new wp_vincod_controller_template();
+				$template_controller = new WP_Vincod_Template_Controller();
 				
 				// Run controller
 				$template_controller->run();

@@ -452,8 +452,8 @@ function wp_vincod_clear_log() {
 /**
  * Check if you can deal with the API
  *
- * @param  int  The customer id API
- * @param  string The customer key API
+ * @param int  The customer id API
+ * @param string The customer key API
  *
  * @return bool
  */

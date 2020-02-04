@@ -2,42 +2,247 @@
 //	!---------- GLOBAL MIXINS ----------
 //=========================================
 
-@mixin btn-inverse($btn-color: $brand-primary, $bg-color: white) {
-	&:hover,
-	&:active,
-	&.active {
-		border-color: $btn-color;
-		background-color: $btn-color;
-		color: $body-bg;
-		outline: none;
-	}
+// Sizing shortcuts
 
-	&:focus, .open > &.dropdown-toggle:focus {
-		outline: none !important;
-	}
+@function screen($name, $breakpoints: $grid-breakpoints) {
+	@return map-get($breakpoints, $name);
+}
 
-	&:active:hover, &:active:focus {
-		color: $btn-color !important;
-		background-color: $bg-color !important;
-		outline: none !important;
+@function rem-calc($size) {
+	$remSize: $size / 16;
+	@return #{$remSize}rem;
+}
+
+@mixin size($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin position-horizontal($left: 0, $right: $left) {
+	left: $left;
+	right: $right;
+}
+
+@mixin position-vertical($top: 0, $bottom: $top) {
+	top: $top;
+	bottom: $bottom;
+}
+
+@mixin position($top: 0, $right: 0, $bottom: $top, $left: $right) {
+	@include position-vertical($top, $bottom);
+	@include position-horizontal($left, $right);
+}
+
+@mixin margin-horizontal($left: 0, $right: $left) {
+	margin-left: $left;
+	margin-right: $right;
+}
+
+@mixin margin-vertical($top: 0, $bottom: $top) {
+	margin-top: $top;
+	margin-bottom: $bottom;
+}
+
+@mixin padding-horizontal($left: 0, $right: $left) {
+	padding-left: $left;
+	padding-right: $right;
+}
+
+@mixin padding-vertical($top: 0, $bottom: $top) {
+	padding-top: $top;
+	padding-bottom: $bottom;
+}
+
+@mixin before($content: '') {
+
+	&:before {
+		content: $content;
+		@content;
+	}
+}
+
+@mixin after($content: '') {
+
+	&:after {
+		content: $content;
+		@content;
+	}
+}
+
+@mixin before-after($content: '') {
+
+	&:before, &:after {
+		content: $content;
+		@content;
 	}
 }
 
 @mixin aspect-ratio($width, $height) {
 	position: relative;
 
-	&:before {
+	@include before() {
 		display: block;
-		content: "";
 		width: 100%;
 		padding-top: ($height / $width) * 100%;
 	}
 
 	> * {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
+		@include position-fit();
+	}
+}
+
+@mixin translate($x, $y) {
+	transform: translate3d($x, $y, 0);
+	backface-visibility: hidden;
+}
+
+@mixin background-image($size: cover, $position: center) {
+	background-position: $position;
+	background-repeat: no-repeat;
+	background-size: $size;
+}
+
+@mixin exclude-browser($exclude-browser: '.desktop:not(.internet-explorer)') {
+
+	html#{$exclude-browser} & {
+		@content;
+	}
+}
+
+@mixin text-inherit() {
+	font-family: inherit;
+	font-size: inherit;
+	font-style: inherit;
+	font-weight: inherit;
+	letter-spacing: inherit;
+	text-decoration: inherit;
+	text-overflow: inherit;
+	text-transform: inherit;
+	text-align: inherit;
+	white-space: inherit;
+	color: inherit;
+}
+
+@mixin headings-style() {
+
+	h1, h2, h3, h4, h5, h6 {
+		@content;
+	}
+}
+
+//==========================================
+//	!---------- CONTENT MIXINS ----------
+//==========================================
+
+@mixin col-flex {
+	flex-basis: 0;
+	flex-grow: 1;
+	max-width: 100%;
+}
+
+@mixin col-auto {
+	flex: 0 0 auto;
+	width: auto;
+	max-width: none;
+}
+
+@mixin column($breakpoint: all, $size: flex, $gutter: $grid-gutter-width / 2) {
+	position: relative;
+	width: 100%;
+
+	@include screen-min($breakpoint) {
+		@include padding-horizontal($gutter);
+	}
+
+	@if $breakpoint == all {
+		@if $size == flex {
+			@include col-flex;
+		} @else if $size == auto {
+			@include col-auto;
+		} @else {
+			@include make-col($size);
+		}
+	} @else {
+		@include screen-min($breakpoint) {
+			@if $size == flex {
+				@include col-flex;
+			} @else if $size == auto {
+				@include col-auto;
+			} @else {
+				@include make-col($size);
+			}
+		}
+	}
+}
+
+@mixin button($color: $primary, $outline: false, $size: false) {
+	display: inline-block;
+	font-family: $btn-font-family;
+	font-weight: $btn-font-weight;
+	color: $body-color;
+	text-align: center;
+	white-space: $btn-white-space;
+	vertical-align: middle;
+	cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
+	user-select: none;
+	background-color: transparent;
+	border: $btn-border-width solid transparent;
+	@include transition($btn-transition);
+
+	@if $size == lg {
+		@include button-size($btn-padding-y-lg, $btn-padding-x-lg, $font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+	} @else if $size == sm {
+		@include button-size($btn-padding-y-sm, $btn-padding-x-sm, $font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+	} @else {
+		@include button-size($btn-padding-y, $btn-padding-x, $font-size-base, $btn-line-height, $btn-border-radius);
+	}
+
+	@include hover() {
+		color: $body-color;
+		text-decoration: none;
+	}
+
+	&:focus,
+	&.focus {
+		outline: 0;
+		box-shadow: $btn-focus-box-shadow;
+	}
+
+	&.disabled,
+	&:disabled {
+		opacity: $btn-disabled-opacity;
+		@include box-shadow(none);
+	}
+
+	&:not(:disabled):not(.disabled):active,
+	&:not(:disabled):not(.disabled).active {
+		@include box-shadow($btn-active-box-shadow);
+
+		&:focus {
+			@include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+		}
+	}
+
+	@if $outline {
+		@include button-outline-variant($color);
+	} @else {
+		@include button-variant($color, $color);
+	}
+}
+
+@mixin ionicon($content) {
+
+	@include before($content) {
+		display: inline-block;
+		font-family: "Ionicons";
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		text-rendering: auto;
+		line-height: 1;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 }

@@ -19,6 +19,3 @@ require_once('functions/global.php');
 require_once('functions/helpers.php');
 require_once('functions/admin.php');
 require_once('functions/front.php');
-
-
-?>

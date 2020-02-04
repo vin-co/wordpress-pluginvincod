@@ -197,7 +197,7 @@ class WP_Vincod_API {
 	 *
 	 * @access    private
 	 *
-	 * @param    string  Url request to check
+	 * @param string  Url request to check
 	 *
 	 * @return    mixed (json / false)
 	 *
@@ -251,8 +251,8 @@ class WP_Vincod_API {
 	 *
 	 * @access    private
 	 *
-	 * @param    string    Url to cache
-	 * @param    json    Json to stock
+	 * @param string    Url to cache
+	 * @param json    Json to stock
 	 *
 	 * @return    string
 	 *

@@ -31,6 +31,7 @@ function wp_vincod_die($title, $message) {
  * Xss clean any string
  *
  * @param string $str
+ *
  * @return bool
  */
 function wp_vincod_xss_clean($str) {
@@ -79,6 +80,7 @@ function wp_vincod_xss_clean($str) {
  * Load a view, the cool way
  *
  * @param string $view the view name (e.g. 'admin/dashboard')
+ *
  * @return string
  */
 function wp_vincod_load_view($view, $datas = array(), $return = false, $start_path) {
@@ -117,11 +119,11 @@ function wp_vincod_load_view($view, $datas = array(), $return = false, $start_pa
 }
 
 
-
 /**
  * Launch our views with their respective headers
  *
  * @param string $view the view that will be launched (e.g. 'admin/dashboard')
+ *
  * @return void
  */
 function wp_vincod_launch($view) {
@@ -136,7 +138,7 @@ function wp_vincod_launch($view) {
 	 * The _repeat/header is in the /views/
 	 *
 	 */
-	wp_vincod_load_view('admin/header', $wp_vincod_views_datas, false, WP_VINCOD_PLUGIN_PATH.'views');
+	wp_vincod_load_view('admin/header', $wp_vincod_views_datas, false, WP_VINCOD_PLUGIN_PATH . 'views');
 	
 	
 	/*
@@ -145,14 +147,14 @@ function wp_vincod_launch($view) {
 	 *
 	 *
 	 */
-	wp_vincod_load_view($view, $wp_vincod_views_datas, false, WP_VINCOD_PLUGIN_PATH.'views');
+	wp_vincod_load_view($view, $wp_vincod_views_datas, false, WP_VINCOD_PLUGIN_PATH . 'views');
 	
 	/*
 	 *
 	 * FOOTER
 	 *
 	 */
-	wp_vincod_load_view('admin/footer', $wp_vincod_views_datas, false, WP_VINCOD_PLUGIN_PATH.'views');
+	wp_vincod_load_view('admin/footer', $wp_vincod_views_datas, false, WP_VINCOD_PLUGIN_PATH . 'views');
 	
 	
 }

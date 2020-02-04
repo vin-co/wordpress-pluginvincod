@@ -29,7 +29,7 @@ jQuery(document).ready(function($) {
 			var customer_api = $('input[name=vincod_setting_customer_api]').val();
 
 			// Little check
-			if(customer_id != '' && customer_api != '') {
+			if(customer_id !== '' && customer_api !== '') {
 
 				// Url test api
 				var api = window.vincod_plugin_app.api + '?api=' + customer_api + '&id=' + customer_id;
@@ -44,20 +44,20 @@ jQuery(document).ready(function($) {
 						// Check if error
 						if("error" in output.owners) {
 
-							api_connection_check.set_console('<i class="ion-alert-circled"></i> ' + window.vincod_plugin_app.api_connexion_error);
+							api_connection_check.set_console(window.vincod_plugin_app.api_connexion_error);
 
 						}
 						else {
 
-							if(output.owners.checkApi.code == 1) {
+							if(output.owners.checkApi.code === 1) {
 
-								api_connection_check.set_console('<i class="ion-checkmark-circled"></i> ' + window.vincod_plugin_app.api_connexion_success);
-								api_connection_check.set_console('<i class="ion-information-circled"></i> ' + window.vincod_plugin_app.api_connexion_save);
+								api_connection_check.set_console(window.vincod_plugin_app.api_connexion_success);
+								api_connection_check.set_console(window.vincod_plugin_app.api_connexion_save);
 
 							}
 							else {
 
-								api_connection_check.set_console('<i class="ion-alert-circled"></i> ' + window.vincod_plugin_app.api_connexion_error);
+								api_connection_check.set_console(window.vincod_plugin_app.api_connexion_error);
 
 							}
 
@@ -76,7 +76,7 @@ jQuery(document).ready(function($) {
 			}
 			else {
 
-				api_connection_check.set_console('<i class="ion-alert-circled"></i> ' + window.vincod_plugin_app.api_connexion_missing);
+				api_connection_check.set_console(window.vincod_plugin_app.api_connexion_missing);
 
 				// Activate disabled button
 				$("#api_connection_check").removeAttr('disabled');

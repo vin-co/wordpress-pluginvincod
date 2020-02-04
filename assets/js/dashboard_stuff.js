@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
 
 		var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
 
-		if(keycode == 13) { // Key ENTER
+		if(keycode === 13) { // Key ENTER
 
 			document.getElementById('validate_settings').click();
 

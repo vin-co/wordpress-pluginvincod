@@ -112,7 +112,7 @@ function wp_vincod_exists_page($name) {
 	$exists = get_posts(array(
 		
 		'post_type' => 'page',
-		'name' => $name
+		'name'      => $name
 	
 	));
 	
@@ -133,8 +133,8 @@ function wp_vincod_exists_page($name) {
 /**
  * Switch status of page
  *
- * @param  int    The id of page to switch
- * @param  type New type for this page
+ * @param int    The id of page to switch
+ * @param type New type for this page
  *
  * @return bool
  */
@@ -143,7 +143,7 @@ function wp_vincod_switch_page($id, $type) {
 	// Update the post
 	$updated = wp_update_post(array(
 		
-		'ID' => $id,
+		'ID'          => $id,
 		'post_status' => $type
 	
 	));
@@ -164,7 +164,7 @@ function wp_vincod_switch_page($id, $type) {
 /**
  * Delete specific page by id
  *
- * @param  int    The page id to delete
+ * @param int    The page id to delete
  *
  * @return bool
  */
@@ -189,7 +189,7 @@ function wp_vincod_delete_page($id) {
 /**
  * Get the slug of page by ID
  *
- * @param  int  The page ID
+ * @param int  The page ID
  *
  * @return string|bool
  */
@@ -218,7 +218,7 @@ function wp_vincod_get_page_slug($id) {
 /**
  * Get the permalink of page by ID
  *
- * @param  int  The page ID
+ * @param int  The page ID
  *
  * @return string|bool
  */

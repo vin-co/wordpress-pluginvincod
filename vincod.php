@@ -7,6 +7,8 @@ Description: The « Vincod for WordPress » plugin allows you to instantly creat
 Version: 2.5.1
 Author: Vinternet
 Author URI: http://www.vinternet.net/
+Text Domain: vincod
+Domain Path: /languages/
 */
 
 /*
@@ -94,6 +96,8 @@ if(!class_exists('wp_vincod_plugin')) {
 				
 			}
 			
+			add_action('plugins_loaded', array(__CLASS__, 'load_textdomain'));
+			
 			// Triggers
 			register_activation_hook(__FILE__, array(&$this, 'install'));
 			register_deactivation_hook(__FILE__, array(&$this, 'uninstall'));
@@ -104,14 +108,13 @@ if(!class_exists('wp_vincod_plugin')) {
 			// Redirect the user after plugin install
 			add_action('admin_init', 'wp_vincod_redirect_after_install');
 			
-			add_action('init', array(__CLASS__, 'load_textdomain'));
+			add_action('init', array(&$this, 'rewrite'));
 			
-			add_action('init', array(&$this, 'run'));
+			add_action('wp', array(&$this, 'run'));
 			
 			add_action('wp_enqueue_scripts', array(__CLASS__, 'load_jquery'));
 			
 		}
-		
 		
 		/**
 		 * Loads the plugin textdomain
@@ -121,7 +124,6 @@ if(!class_exists('wp_vincod_plugin')) {
 			load_plugin_textdomain('vincod', false, dirname(plugin_basename(__FILE__)) . '/languages');
 			
 		}
-		
 		
 		/**
 		 * Load jQuery
@@ -138,7 +140,6 @@ if(!class_exists('wp_vincod_plugin')) {
 				
 			}
 		}
-		
 		
 		/**
 		 * Install
@@ -253,8 +254,7 @@ if(!class_exists('wp_vincod_plugin')) {
 			
 		}
 		
-		
-		public function run() {
+		public function rewrite() {
 			
 			global $wp_rewrite;
 			
@@ -291,12 +291,9 @@ if(!class_exists('wp_vincod_plugin')) {
 			// Save new rules
 			$wp_rewrite->flush_rules();
 			
-			add_filter('the_content', array(&$this, 'template'));
-			
 		}
 		
-		
-		public function template($content) {
+		public function run() {
 			
 			$id = get_option('vincod_id_page_nos_vins');
 			
@@ -308,19 +305,24 @@ if(!class_exists('wp_vincod_plugin')) {
 			// Page "Nos Vins" ?
 			if(is_page($id)) {
 				
-				// Apply filter
+				// Apply filters
 				add_filter('body_class', 'wp_vincod_body_classes');
-				
-				// Init template controller
-				$template_controller = new WP_Vincod_Template_Controller();
-				
-				// Run controller
-				$template_controller->run();
-				
-				// Get the final result
-				$content = $template_controller->render();
+				add_filter('the_content', array(&$this, 'template'));
 				
 			}
+			
+		}
+		
+		public function template($content) {
+			
+			// Init template controller
+			$template_controller = new WP_Vincod_Template_Controller();
+			
+			// Run controller
+			$template_controller->run();
+			
+			// Get the final result
+			$content = $template_controller->render();
 			
 			return $content;
 			
@@ -365,7 +367,6 @@ if(!class_exists('wp_vincod_plugin')) {
 			wp_vincod_launch('admin/dashboard');
 			
 		}
-		
 		
 	}
 	

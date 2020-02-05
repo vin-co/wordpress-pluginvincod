@@ -111,7 +111,7 @@ function wp_vincod_picture_format($url, $type = false) {
 	if($type == false)
 		$type = 640;
 	
-	$allowed_type_vincod = array(70, 80, 320, 640, 1024, 2048);
+	$allowed_type_vincod = array(80, 320, 640, 1024, 2048);
 	$allowed_type_wml = array('mini', 320, 640, 1024, 'retina');
 	
 	if(!in_array($type, $allowed_type_vincod) && !in_array($type, $allowed_type_wml))
@@ -123,18 +123,39 @@ function wp_vincod_picture_format($url, $type = false) {
 	if(strpos($url, '/_clients_folder/')) {
 		
 		if(strpos($url, '/_clients_folder/vincod/')) {
-			$url = str_replace('marque/', 'marque/' . $type . '/', $url);
 			
+			if($type == 'retina') {
+				$type = 2048;
+			}
+			elseif($type == 'mini') {
+				$type = 80;
+			}
+			
+			$url = str_replace('marque/640/', 'marque/' . $type . '/', $url);
 		}
 		else {
 			
+			if($type == 2048) {
+				$type = 'retina';
+			}
+			elseif($type == 80) {
+				$type = 'mini';
+			}
+			
 			$infos = pathinfo($url);
-			$pattern = '.' . $infos['extension']; // Ex. > .jpg
+			$pattern = '_640.' . $infos['extension']; // Ex. > .jpg
 			$replace_pattern = '_' . $type . '.' . $infos['extension']; // Ex > _640.jpg
 			$url = str_replace($pattern, $replace_pattern, $url);
 		}
 	}
 	else {
+		
+		if($type == 'retina') {
+			$type = 2048;
+		}
+		elseif($type == 'mini') {
+			$type = 80;
+		}
 		
 		$url = str_replace('640/', $type . '/', $url); // parceque l'API remonte par défaut l'image en 640
 		
@@ -391,12 +412,12 @@ function wp_vincod_render_menu_links($sub_menu) {
 	
 	$menu = '';
 	
-	$permalink_type = wp_vincod_menu_permalink_type($sub_menu['@attributes']['type']);
+	$permalink_type = wp_vincod_menu_permalink_type($sub_menu['@type']);
 	
-	$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $sub_menu['@attributes']['vincod'], $sub_menu['title']);
+	$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $sub_menu['@vincod'], $sub_menu['title']);
 	
 	$is_active = (isset($sub_menu['actif']) && $sub_menu['actif'] == 1) ? ' active' : '';
-	$is_parent = (isset($sub_menu['@attributes']['fil_ariane']) && $sub_menu['@attributes']['fil_ariane'] == 1) ? ' parent' : '';
+	$is_parent = (isset($sub_menu['@fil_ariane']) && $sub_menu['@fil_ariane'] == 1) ? ' parent' : '';
 	
 	$menu .= '<li class="vincod-menu-item ' . $permalink_type . $is_parent . $is_active . '">';
 	$menu .= '<a href="' . $menu_link . '" title="' . $sub_menu['title'] . '">' . $sub_menu['title'] . '</a>';
@@ -465,15 +486,15 @@ function wp_vincod_render_breadcrumb_links($sub_menu) {
 	$menu = '';
 	
 	$is_active = (isset($sub_menu['actif']) && $sub_menu['actif'] == 1);
-	$is_parent = (isset($sub_menu['@attributes']['fil_ariane']) && $sub_menu['@attributes']['fil_ariane'] == 1);
+	$is_parent = (isset($sub_menu['@fil_ariane']) && $sub_menu['@fil_ariane'] == 1);
 	
 	if($is_active || $is_parent) {
 		
-		$permalink_type = wp_vincod_menu_permalink_type($sub_menu['@attributes']['type']);
+		$permalink_type = wp_vincod_menu_permalink_type($sub_menu['@type']);
 		
 		$menu = '<li class="breadcrumb-item vincod-breadcrumb ' . $permalink_type . ($is_active ? ' active' : '') . '">';
 		
-		$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $sub_menu['@attributes']['vincod'], $sub_menu['title']);
+		$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $sub_menu['@vincod'], $sub_menu['title']);
 		
 		$menu .= '<a href="' . $menu_link . '" title="' . $sub_menu['title'] . '">' . $sub_menu['title'] . '</a>';
 		

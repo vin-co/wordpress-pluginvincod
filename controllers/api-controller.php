@@ -83,7 +83,7 @@ class WP_Vincod_API {
 			$additional_params = (isset($params['params'])) ? $params['params'] . '&' : '';
 			
 			// Create url to request
-			$url = 'http://api.vincod.com/2/json/%method/%action/%lang/%id?' . $additional_params . 'apiKey=' . $this->_customer_api;
+			$url = 'http://api.vincod.com/3/json/%method/%action/%lang/%id?' . $additional_params . 'apiKey=' . $this->_customer_api;
 			
 			
 			$url = $this->parse_url($url, $params);
@@ -264,7 +264,6 @@ class WP_Vincod_API {
 		file_put_contents(WP_VINCOD_PLUGIN_PATH . 'cache/api/' . $file . '.json', $datas);
 		
 		return true;
-		
 	}
 	
 	
@@ -344,11 +343,9 @@ class WP_Vincod_API {
 		$families = $this->_prevent_api($families, 'families', 'family');
 		
 		return $families['families']['family'];
-		
 	}
 	
 	public function get_family_by_id($id) {
-		
 		
 		$family = $this->request_api(array(
 			
@@ -364,11 +361,12 @@ class WP_Vincod_API {
 			
 		}
 		
-		return $family['families']['family'];
+		$family = $this->_prevent_api($family, 'families', 'family');
+		
+		return $family['families']['family'][0];
 	}
 	
 	public function get_family_by_winery_id($id) {
-		
 		
 		$family = $this->request_api(array(
 			
@@ -384,7 +382,9 @@ class WP_Vincod_API {
 			
 		}
 		
-		return $family['families']['family'];
+		$family = $this->_prevent_api($family, 'families', 'family');
+		
+		return $family['families']['family'][0];
 	}
 	
 	
@@ -410,7 +410,6 @@ class WP_Vincod_API {
 		$wineries = $this->_prevent_api($wineries, 'wineries', 'winery');
 		
 		return $wineries['wineries']['winery'];
-		
 	}
 	
 	public function get_wineries_by_family_id($id) {
@@ -432,7 +431,6 @@ class WP_Vincod_API {
 		$wineries = $this->_prevent_api($wineries, 'wineries', 'winery');
 		
 		return $wineries['wineries']['winery'];
-		
 	}
 	
 	public function get_winery_by_id($id) {
@@ -452,7 +450,9 @@ class WP_Vincod_API {
 			
 		}
 		
-		return $winery['wineries']['winery'];
+		$winery = $this->_prevent_api($winery, 'wineries', 'winery');
+		
+		return $winery['wineries']['winery'][0];
 	}
 	
 	public function get_winery_by_vincod($id) {
@@ -472,9 +472,9 @@ class WP_Vincod_API {
 			
 		}
 		
-		return $winery['wineries']['winery'];
+		$winery = $this->_prevent_api($winery, 'wineries', 'winery');
 		
-		
+		return $winery['wineries']['winery'][0];
 	}
 	
 	public function get_winery_by_range_id($id) {
@@ -494,8 +494,9 @@ class WP_Vincod_API {
 			
 		}
 		
-		return $winery['wineries']['winery'];
+		$winery = $this->_prevent_api($winery, 'wineries', 'winery');
 		
+		return $winery['wineries']['winery'][0];
 	}
 	
 	
@@ -524,7 +525,6 @@ class WP_Vincod_API {
 	}
 	
 	public function get_ranges_by_winery_id($id) {
-		
 		
 		$ranges = $this->request_api(array(
 			
@@ -577,11 +577,9 @@ class WP_Vincod_API {
 		$ranges = $this->_prevent_api($ranges, 'wineries', 'winery');
 		
 		return $ranges['wineries']['winery'];
-		
 	}
 	
 	public function get_range_by_id($id) {
-		
 		
 		$range = $this->request_api(array(
 			
@@ -597,9 +595,10 @@ class WP_Vincod_API {
 			
 		}
 		
-		return $range['wineries']['winery'];
+		$range = $this->_prevent_api($range, 'wineries', 'winery');
+		
+		return $range['wineries']['winery'][0];
 	}
-	
 	
 	public function get_range_by_vincod($id) {
 		
@@ -617,8 +616,9 @@ class WP_Vincod_API {
 			
 		}
 		
-		return $range['wineries']['winery'];
+		$range = $this->_prevent_api($range, 'wineries', 'winery');
 		
+		return $range['wineries']['winery'][0];
 	}
 	
 	
@@ -627,7 +627,6 @@ class WP_Vincod_API {
 	/* ---------------------------------------------------------------- */
 	
 	public function get_wines_by_range_id($id) {
-		
 		
 		$wines = $this->request_api(array(
 			
@@ -646,8 +645,6 @@ class WP_Vincod_API {
 		$wines = $this->_prevent_api($wines, 'wines', 'wine');
 		
 		return $wines['wines']['wine'];
-		
-		
 	}
 	
 	public function get_wine_by_vincod($id) {
@@ -666,8 +663,9 @@ class WP_Vincod_API {
 			
 		}
 		
-		return $wine['wines']['wine'];
+		$wine = $this->_prevent_api($wine, 'wines', 'wine');
 		
+		return $wine['wines']['wine'][0];
 	}
 	
 	public function get_other_vintages_by_vincod($id) {
@@ -689,7 +687,6 @@ class WP_Vincod_API {
 		$vintages = $this->_prevent_api($vintages, 'wines', 'wine');
 		
 		return $vintages['wines']['wine'];
-		
 	}
 	
 	public function get_wines_by_winery_id($id) {
@@ -714,7 +711,6 @@ class WP_Vincod_API {
 		return $wines['wines']['wine'];
 	}
 	
-	
 	public function get_wines_by_owner_id() {
 		
 		$wines = $this->request_api(array(
@@ -733,7 +729,6 @@ class WP_Vincod_API {
 		$wines = $this->_prevent_api($wines, 'wines', 'wine');
 		
 		return $wines['wines']['wine'];
-		
 	}
 	
 	public function get_wines_by_search($search) {
@@ -770,7 +765,6 @@ class WP_Vincod_API {
 		$wines = $this->_prevent_api($wines, 'wines', 'wine');
 		
 		return $wines['wines']['wine'];
-		
 	}
 	
 	private function _prevent_api($datas, $key, $second_key) {
@@ -790,8 +784,6 @@ class WP_Vincod_API {
 		}
 		
 		return $datas;
-		
-		
 	}
 	
 }

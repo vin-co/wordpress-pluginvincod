@@ -15,16 +15,16 @@
 ?>
 
 <!-- Default plugin css -->
-<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL ?>assets/css/front.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/front.css"/>
 <!-- Default plugin js -->
 <script type="text/javascript">
 	// <![CDATA[
 	(function($) {
 		$(document).ready(function() {
-			if(typeof($.fn.popover) === 'undefined') {
+			if(typeof ($.fn.popover) === 'undefined') {
 				var s = document.createElement("script");
 				s.type = "text/javascript";
-				s.src = "<?= WP_VINCOD_PLUGIN_URL ?>assets/js/vendor.js";
+				s.src = "<?= WP_VINCOD_PLUGIN_URL; ?>assets/js/vendor.js";
 				document.body.appendChild(s);
 			}
 		});
@@ -32,25 +32,27 @@
 	// ]]>
 </script>
 
-<section id="plugin-vincod" class="vincod-range">
+<section id="plugin-vincod" class="vincod-range" itemscope itemtype="http://schema.org/Brand">
 	
-	<div class="container-fluid vincod-container">
+	<div class="vincod-container">
 		
 		<?php if($settings['has_menu'] || $settings['has_search']): ?>
 			
-			<div class="menu-container col-xs-12 col-md-3">
+			<div class="menu-container">
 				
 				<?php if($settings['has_menu']): ?>
 					
-					<a class="btn btn-link hidden-lg hidden-md" role="button" data-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
-						<i class="ion-navicon"></i>
+					<a class="btn btn-link" role="button" data-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
+						<?= wp_vincod_get_icon('menu'); ?>
 						<span>Menu</span>
 					</a>
 					
 					<div class="menu-collapse collapse" id="menu-collapse">
-						<div class="well menu-well no-padding">
+						
+						<div class="menu-card">
 							<?= $menu; ?>
 						</div>
+					
 					</div>
 				
 				<?php endif; ?>
@@ -65,7 +67,7 @@
 		
 		<?php endif; ?>
 		
-		<div class="content-container <?= ($settings['has_menu'] || $settings['has_search']) ? 'col-xs-12 col-md-9' : 'clearfix' ?>">
+		<div class="content-container">
 			
 			<?php if($settings['has_breadcrumb']): ?>
 				
@@ -79,11 +81,11 @@
 				
 				<?php if($range): ?>
 					
-					<div class="panel panel-default content-panel">
+					<div class="content-panel">
 						
 						<div class="panel-heading">
 							
-							<div class="content-cover"<?= ($background = wp_vincod_get_picture_url($range, 'retina')) ? ' style="background-image: url(' . $background . ')"' : '' ?>></div>
+							<div class="content-cover"<?= ($background = wp_vincod_get_picture_url($range, 'retina')) ? ' style="background-image: url(' . $background . ')"' : ''; ?>></div>
 						
 						</div>
 						
@@ -91,15 +93,21 @@
 							
 							<?php if($background = wp_vincod_get_logo_url($range, '640')): ?>
 								
-								<div class="content-logo" style="background-image: url('<?= $background ?>')"></div>
+								<div class="content-logo">
+									<span style="background-image: url('<?= $background; ?>')"></span>
+								</div>
 							
 							<?php endif; ?>
 							
-							<h1><?= $range['name'] ?></h1>
+							<h1 itemprop="name"><?= $range['name']; ?></h1>
 							
-							<div class="content-presentation">
-								<?= !empty($range['presentation']) ? nl2br($range['presentation']) : '' ?>
-							</div>
+							<?php if(!empty($range['presentation'])): ?>
+								
+								<div class="content-presentation" itemprop="description">
+									<?= nl2br($range['presentation']); ?>
+								</div>
+							
+							<?php endif; ?>
 						
 						</div>
 					
@@ -109,23 +117,19 @@
 			
 			<?php endif; ?>
 			
-			<!-- Links -->
 			<?php if($settings['has_links']): ?>
 				
-				<div class="content-links clearfix">
+				<!-- Links -->
+				<div class="content-links">
 					
 					<?php if($products): ?>
 						
 						<?php foreach($products as $product): ?>
 							
-							<a href="<?= wp_vincod_link('product', $product['vincod'], $product['name']) ?>" title="<?= $product['name'] ?>">
+							<a href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>" class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
 								
-								<div class="col-xs-12 col-sm-6 col-md-4 col-centered product-link">
-									
-									<img class="img-responsive" src="<?= wp_vincod_get_bottle_url($product, '640') ?>" alt="<?= $product['name']; ?>"/>
-									<h2><?= $product['name'] ?></h2>
-								
-								</div>
+								<img src="<?= wp_vincod_get_bottle_url($product, '640') ?>" alt="<?= $product['name']; ?>"/>
+								<h2 itemprop="name"><?= $product['name']; ?></h2>
 							
 							</a>
 						
@@ -133,9 +137,9 @@
 					
 					<?php else: ?>
 						
-						<?php _e("Nothing to Show.", 'vincod') ?>
+						<?php _e("Nothing to Show.", 'vincod'); ?>
 						<br/>
-						<?php _e("Please check your Vincod Account id or enter a Brand Vincod id if you want to show only one brand.", 'vincod') ?>
+						<?php _e("Please check your Vincod Account id or enter a Brand Vincod id if you want to show only one brand.", 'vincod'); ?>
 					
 					<?php endif; ?>
 				

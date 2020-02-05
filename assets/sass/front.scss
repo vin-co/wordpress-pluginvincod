@@ -1,117 +1,124 @@
-// Icons
-// -----------------------------------------------------
-@import "ionicons/scss/ionicons";
-
 //=================================
 //	!---------- FRONT ----------
 //=================================
+
+html {
+	font-size: 10px;
+}
 
 #plugin-vincod {
 
 	// Overrides
 	// -----------------------------------------------------
-	$gray-light: #ddd;
-	$link-color: inherit !global;
-	$link-hover-color: inherit !global;
-	$link-hover-decoration: none !global;
-	$font-family-sans-serif: inherit !global;
-	$font-family-serif: inherit !global;
-	$font-size-base: 16px !global;
+
+	$gray-100: #fafafa;
+	$gray-200: #e7e7e7;
+	$gray-300: #ddd;
+	$gray-400: #6f6f6f;
+	$gray-500: #555;
+	$gray-600: #333;
+	$gray-700: #222;
+
+	$primary: $gray-300;
+	$secondary: $gray-400;
+
+	$font-family-sans-serif: inherit;
+	$font-size-base: 1.6rem;
+
+	$component-active-bg: $gray-200;
+	$border-radius: 0;
+	$border-radius-lg: 0;
+	$border-radius-sm: 0;
+
+	$link-color: inherit;
+	$link-hover-color: inherit;
+	$link-hover-decoration: none;
+
+	$input-border-color: $gray-300;
+	$input-placeholder-color: $gray-400;
+
+	$breadcrumb-font-size: 1.2rem;
+	$breadcrumb-bg: $gray-100;
+	$breadcrumb-divider-color: $gray-400;
+	$breadcrumb-active-color: $gray-400;
 
 	// Imports
 	// -----------------------------------------------------
-	@import "bootswatch/yeti/variables";
 	@import "imports";
-	@import "bootswatch/yeti/bootswatch";
 
 	// ---------- Global styles ----------
 
-	a, button {
-		transition: all .5s ease;
-		box-shadow: none;
-	}
-	
-	%cover-bg {
-		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
-	}
-
-	%contain-bg {
-		background-position: center;
-		background-size: contain;
-		background-repeat: no-repeat;
-	}
-
 	.vincod-container {
-		max-width: 1600px;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		max-width: 768px;
 		margin: auto;
-		padding: #{$grid-gutter-width / 2} 0;
-	}
+		padding: $grid-gutter-width/2 0;
 
-	ul, ol, li {
-		margin: 0;
+		@include media-breakpoint-up(lg) {
+			max-width: 1600px;
+		}
 	}
 
 	// ---------- Menu styles ----------
 
 	.menu-container {
-		padding: 0;
-
-		@media #{$md-min} {
-			padding: 0 0 20px;
-		}
+		@include column(0, 12, 0);
+		@include column(lg, 3, 0);
+		margin-bottom: $grid-gutter-width/2;
 
 		> .btn {
-			padding: 0 10px;
+			display: flex;
+			align-items: center;
+			padding: 0;
 			font-weight: 700;
 			text-transform: uppercase;
 			text-align: left;
 			line-height: 1;
 
-			i {
-				font-size: 40px;
-				vertical-align: middle;
-				margin-right: 10px;
+			@include media-breakpoint-up(lg) {
+				display: none;
 			}
 
-			span {
-				vertical-align: middle;
+			svg {
+				@include size(43px);
 			}
 		}
 
 		.menu-collapse {
 
-			@media #{$md-min} {
+			@include media-breakpoint-up(lg) {
 				display: block !important;
 				height: auto !important;
 				margin: 0;
 			}
 		}
 
-		.vincod-menu {
-			list-style: none;
-			padding: 0;
-			margin: 0;
+		.menu-card {
+			border: 1px solid $gray-300;
+			background-color: $gray-100;
 
-			li.active > a, a:hover {
-				background-color: $gray;
-				color: white;
-			}
-		}
-
-		a {
-			display: block;
-			padding: 8px 15px;
-			text-transform: capitalize;
-		}
-
-		.menu-well {
-			margin: 0;
-			border-color: $gray-light;
-
-			@media #{$md-max} {
+			@include media-breakpoint-down(md) {
 				margin-top: 20px;
+			}
+
+			.vincod-menu {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+
+				li.active > a, a:hover {
+					background-color: $secondary;
+					color: $white;
+				}
+
+				a {
+					display: block;
+					padding: 8px 15px;
+					text-transform: capitalize;
+				}
 			}
 
 			> .vincod-menu > li {
@@ -132,7 +139,7 @@
 						> li {
 
 							> a {
-								padding-left: 40px;
+								padding-left: 35px;
 							}
 
 							> ul {
@@ -145,12 +152,47 @@
 								> li {
 
 									> a {
-										padding-left: 55px;
+										padding-left: 45px;
 									}
 								}
 							}
 						}
 					}
+				}
+			}
+
+			.vincod-menu {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+
+				li.active > a, a:hover {
+					background-color: $secondary;
+					color: $white;
+				}
+
+				a {
+					display: block;
+					padding: 8px 15px;
+					text-transform: capitalize;
+				}
+			}
+		}
+
+		.vincod-search-form {
+
+			.form-control, .btn {
+				display: flex;
+				align-items: center;
+				height: auto;
+				padding: 1rem 1.6rem;
+			}
+
+			.btn {
+				color: $gray-400;
+
+				svg {
+					@include size(20px);
 				}
 			}
 		}
@@ -159,126 +201,136 @@
 	// ---------- Content styles ----------
 
 	.content-container {
-		max-width: $screen-lg;
-		margin: #{$grid-gutter-width / 2} auto;
-		padding: 0;
+		@include column(0, 12, 0);
+		@include column(lg);
 
-		@media #{$md-min} {
-			padding: 0 0 0 #{$grid-gutter-width / 2};
-			margin: auto;
+		@include media-breakpoint-up(lg) {
+			padding-right: 0;
 		}
 
 		.breadcrumb {
-			margin-bottom: #{$grid-gutter-width / 2};
-			background-color: $well-bg;
-			border-radius: 0;
-			font-size: $font-size-small;
-
-			li.active a {
-				color: $gray;
-			}
+			margin-bottom: $grid-gutter-width/2;
+			border: 1px solid $gray-300;
 		}
 	}
 
 	.content-panel {
-		margin-bottom: #{$grid-gutter-width / 2};
+		margin-bottom: $grid-gutter-width/4;
+		border: 1px solid $gray-300;
 
 		.panel-heading {
 			height: 300px;
 			padding: 0;
-			background-color: $well-bg;
+			background-color: $gray-100;
+			border-bottom: 1px solid $gray-300;
 
 			.content-cover {
-				height: 100%;
-				@extend %cover-bg;
+				@include size(100%);
+				@include background-image(cover);
 			}
 		}
 
 		.panel-body {
-			background-color: white;
+			padding: $grid-gutter-width;
+			background-color: $white;
 			text-align: center;
-			padding-bottom: 30px;
 
 			.content-logo {
+				@include margin-vertical(-200px, $grid-gutter-width/2);
+				@include size(200px);
 				display: inline-block;
-				width: 200px;
-				height: 200px;
-				margin-top: -200px;
-				border: 1px solid $gray-light;
+				padding: $grid-gutter-width/2;
+				border: 1px solid $gray-300;
+				background-color: $white;
 				z-index: 10;
-				background-color: white;
-				@extend %contain-bg;
+
+				span {
+					@include size(100%);
+					@include background-image(contain);
+					display: block;
+				}
 			}
 		}
 	}
 
 	&.vincod-search .content-panel .panel-body {
-		background-color: $well-bg;
+		background-color: $gray-100;
 	}
 
 	// ---------- Links styles ----------
 
 	.content-links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
 		text-align: center;
-
-		a {
-			box-shadow: none !important;
-		}
 	}
 
 	.collection-link, .brand-link, .range-link {
+		@include column(0, 12);
+		@include background-image(cover);
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		height: 50vh;
-		margin: #{$grid-gutter-width / 2} auto;
-		padding: 0;
-		text-align: center;
-		@extend %cover-bg;
+		margin: $grid-gutter-width/4 auto;
+		padding: $grid-gutter-width;
 
-		.block {
-			background-color: fade_out($gray-base, .6);
+		@include before() {
+			@include position();
+			position: absolute;
+			background-color: rgba($black, .4);
 		}
 
 		h2 {
+			position: relative;
 			display: inline-block;
-			margin: 5px #{$grid-gutter-width / 2};
+			margin: 0;
 			padding: 30px;
-			border: 1px solid $gray-lighter;
-			background-color: fade_out($gray-lighter, .1);
-			color: $gray-dark;
+			border: 1px solid $gray-300;
+			background-color: rgba($gray-300, .9);
+			color: $gray-700;
 			font-size: $font-size-base;
+			font-weight: $font-weight-base;
 			text-transform: uppercase;
-			transition: all .5s ease;
+			transition: $transition-base;
 
 			&:hover {
 				background-color: transparent;
-				color: $gray-lighter;
+				color: $gray-300;
 			}
 		}
 	}
 
 	.product-link {
-		margin-top: 30px;
-		margin-bottom: 30px;
-		vertical-align: top;
+		@include margin-vertical($grid-gutter-width);
+		@include column(0, 12);
+		@include column(sm, 6);
+		@include column(xl, 4);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		text-align: center;
 
 		img {
 			max-height: 400px;
-			margin: auto;
+			margin: 0 auto $grid-gutter-width;
 		}
 
 		h2 {
 			display: inline-block;
 			padding: 30px;
-			border: 1px solid $gray-light;
-			background-color: $well-bg;
+			border: 1px solid $gray-300;
+			background-color: $gray-100;
 			color: inherit;
 			font-size: $font-size-base;
-			text-align: center;
+			font-weight: $font-weight-base;
 			text-transform: uppercase;
-			transition: all .5s ease;
+			transition: $transition-base;
 
 			&:hover {
-				background-color: $gray;
+				background-color: $gray-500;
 				color: white;
 			}
 		}
@@ -286,187 +338,182 @@
 
 	// ---------- Single Product styles ----------
 
-	.product-image {
-		margin-bottom: 30px;
-
-		img {
-			margin: auto;
-			max-height: 600px;
-
-			@media #{$sm-max} {
-				max-height: 300px;
-			}
-		}
+	.product-wrapper {
+		display: flex;
+		flex-wrap: wrap;
 	}
 
-	.product-medias {
+	.product-media {
+		@include column(0, 12);
+		@include column(lg, 5);
 		text-align: center;
-		margin-bottom: 30px;
 
-		h2 {
-			margin: 0;
-			font-size: $font-size-base;
-			font-weight: bold;
-			line-height: $line-height-base;
-			text-transform: uppercase;
-		}
-	}
+		.product-image {
+			margin-bottom: $grid-gutter-width;
 
-	.product-name {
-		margin-bottom: 30px;
+			img {
+				margin: auto;
+				max-height: 600px;
 
-		@media #{$md-max} {
-			text-align: center;
-			width: 100%;
-		}
-
-		.vintage-btn-group {
-			display: block;
-
-			.btn {
-				display: block;
-				width: 100%;
-				height: auto;
-				padding: 0;
-				white-space: normal;
-				background-color: $well-bg;
-				border-color: $gray-light;
-
-				&.no-vintage {
-					cursor: default;
-				}
-
-				&:after {
-					display: none;
-				}
-			}
-
-			h1 {
-				font-size: $font-size-base;
-				margin: 0;
-				text-transform: uppercase;
-			}
-
-			.vintage-name {
-				@extend .col-centered;
-				width: calc(100% - 100px);
-				padding: 30px;
-				text-align: left;
-				border-right: 1px solid $gray-light;
-
-				&.full-width {
-					width: 100%;
-					border-right: none;
-					margin: 0;
-
-					@media #{$sm-max} {
-						border-bottom: none;
-					}
-				}
-
-				@media #{$sm-max} {
-					display: block;
-					width: 100%;
-					border-right: none;
-					border-bottom: 1px solid $gray-light;
-					text-align: center;
-				}
-			}
-
-			.vintage-year {
-				@extend .col-centered;
-				width: 100px;
-				padding: 20px 30px 0;
-
-				i {
-					display: block;
-					font-size: 25px;
-					line-height: 1;
-				}
-			}
-
-			.dropdown-menu {
-				left: auto;
-				right: 0;
-				margin: -1px 0 0;
-				min-width: 100px;
-				border-color: $gray-light;
-				background-color: $well-bg;
-
-				@media #{$sm-max} {
-					width: 100%;
-				}
-
-				> li {
-
-					a, strong {
-						display: block;
-						padding: 10px 20px;
-						clear: both;
-						font-size: 15px;
-						line-height: $line-height-computed;
-						white-space: normal;
-						text-align: center;
-					}
-				}
-			}
-		}
-	}
-
-	.product-abstract {
-		margin-bottom: 40px;
-	}
-
-	.nav-pills, .nav-tabs {
-		margin-bottom: 30px;
-
-		@media #{$sm-max} {
-			border-color: transparent;
-
-			> li {
-				float: none;
-				margin: 0;
-
-				a {
-					border-color: transparent;
-				}
-
-				&.active a {
-					border-color: $gray-light;
+				@include media-breakpoint-down(sm) {
+					max-height: 480px;
 				}
 			}
 		}
 
-		a {
-			padding: 15px;
-			text-transform: uppercase;
-			box-shadow: none !important;
-
-			@media #{$sm-max} {
-				border-color: $gray-light !important;
-			}
+		.product-medias {
+			margin-bottom: $grid-gutter-width;
 
 			h2 {
 				margin: 0;
-				font-size: $font-size-small;
-				color: $gray-dark;
-
-				@media #{$sm-max} {
-					font-size: $font-size-base;
-				}
+				font-size: $font-size-base;
+				font-weight: $font-weight-bold;
+				line-height: $line-height-base;
+				text-transform: uppercase;
 			}
 		}
 	}
 
-	.product-review {
-		margin-bottom: 30px;
+	.product-content {
+		@include column(0, 12);
+		@include column(lg, 7, 0);
 
-		img {
-			margin-top: 5px;
-			margin-right: 10px;
+		.product-name {
+			margin-bottom: $grid-gutter-width;
 
-			& + span {
-				margin-top: 15px;
+			@include media-breakpoint-down(xl) {
+				text-align: center;
+				width: 100%;
+			}
+
+			.dropdown {
+
+				.btn {
+					display: block;
+					width: 100%;
+					padding: 0;
+					border: none;
+
+					&:after {
+						display: none;
+					}
+				}
+
+				h1 {
+					display: flex;
+					margin: 0;
+					background-color: $gray-100;
+					border: 1px solid $gray-300;
+					font-size: $font-size-base;
+					font-weight: $font-weight-base;
+					text-transform: uppercase;
+					white-space: normal;
+
+					@include media-breakpoint-down(xs) {
+						flex-direction: column;
+					}
+				}
+
+				.vintage-name {
+					display: block;
+					padding: $grid-gutter-width;
+					text-align: left;
+					flex-grow: 1;
+
+					@include media-breakpoint-down(xs) {
+						width: 100%;
+						text-align: center;
+					}
+				}
+
+				.vintage-year {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					width: 100px;
+					padding: 20px $grid-gutter-width 10px;
+					border-left: 1px solid $gray-300;
+
+					svg {
+						@include size(20px);
+					}
+
+					@include media-breakpoint-down(xs) {
+						width: 100%;
+						border-left: none;
+						border-top: 1px solid $gray-300;
+					}
+				}
+
+				.dropdown-menu {
+					width: 101px;
+					margin-top: -1px;
+					border-color: $gray-300;
+					background-color: $gray-100;
+					text-align: center;
+
+					@include media-breakpoint-down(xs) {
+						width: 100%;
+					}
+
+					.dropdown-item {
+						@include padding-vertical(.5rem);
+
+						&.current {
+							pointer-events: none;
+							font-weight: $font-weight-bold;
+						}
+
+						&:hover {
+							background-color: $gray-200;
+						}
+					}
+				}
+			}
+		}
+
+		.product-abstract {
+			margin-bottom: $grid-gutter-width;
+		}
+
+		.nav-pills, .nav-tabs {
+			margin-bottom: $grid-gutter-width;
+
+			a {
+				padding: $grid-gutter-width/2 $grid-gutter-width/3;
+				text-transform: uppercase;
+
+				@include media-breakpoint-down(xs) {
+					width: 100%;
+				}
+
+				h2 {
+					margin: 0;
+					font-size: 1.2rem;
+					font-weight: $font-weight-base;
+					color: $gray-700;
+				}
+			}
+		}
+
+		.product-review {
+			margin-bottom: $grid-gutter-width/2;
+			display: flex;
+			align-items: center;
+
+			img {
+				max-width: $grid-gutter-width*2.5;
+				margin-right: $grid-gutter-width/2;
+			}
+		}
+
+		.shop-link {
+			display: inline-flex;
+			align-items: center;
+
+			svg {
+				@include size(20px);
 			}
 		}
 	}

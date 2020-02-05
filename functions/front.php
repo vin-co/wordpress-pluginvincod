@@ -298,8 +298,8 @@ function wp_vincod_get_search_form() {
 		
 		<div class="input-group">
 			<input type="text" class="form-control" name="search_wine" placeholder="<?php _e('Search', 'vincod'); ?>">
-			<span class="input-group-btn">
-				<button class="btn btn-default" type="submit">
+			<span class="input-group-append">
+				<button class="btn btn-outline-primary" type="submit">
 					<?= wp_vincod_get_icon('search'); ?>
 				</button>
 			</span>
@@ -471,7 +471,7 @@ function wp_vincod_render_breadcrumb_links($sub_menu) {
 		
 		$permalink_type = wp_vincod_menu_permalink_type($sub_menu['@attributes']['type']);
 		
-		$menu = '<li class="vincod-breadcrumb ' . $permalink_type . ($is_active ? ' active' : '') . '">';
+		$menu = '<li class="breadcrumb-item vincod-breadcrumb ' . $permalink_type . ($is_active ? ' active' : '') . '">';
 		
 		$menu_link = ($permalink_type == 'owner') ? get_permalink() : wp_vincod_link($permalink_type, $sub_menu['@attributes']['vincod'], $sub_menu['title']);
 		

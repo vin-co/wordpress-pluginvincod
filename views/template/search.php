@@ -21,7 +21,7 @@
 	// <![CDATA[
 	(function($) {
 		$(document).ready(function() {
-			if(typeof($.fn.popover) === 'undefined') {
+			if(typeof ($.fn.popover) === 'undefined') {
 				var s = document.createElement("script");
 				s.type = "text/javascript";
 				s.src = "<?= WP_VINCOD_PLUGIN_URL ?>assets/js/vendor.js";
@@ -34,23 +34,25 @@
 
 <section id="plugin-vincod" class="vincod-search">
 	
-	<div class="container-fluid vincod-container">
+	<div class="vincod-container">
 		
 		<?php if($settings['has_menu'] || $settings['has_search']): ?>
 			
-			<div class="menu-container col-xs-12 col-md-3">
+			<div class="menu-container">
 				
 				<?php if($settings['has_menu']): ?>
 					
-					<a class="btn btn-link hidden-lg hidden-md" role="button" data-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
-						<i class="ion-navicon"></i>
+					<a class="btn btn-link" role="button" data-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
+						<?= wp_vincod_get_icon('menu'); ?>
 						<span>Menu</span>
 					</a>
 					
 					<div class="menu-collapse collapse" id="menu-collapse">
-						<div class="well menu-well no-padding">
+						
+						<div class="menu-card">
 							<?= $menu; ?>
 						</div>
+					
 					</div>
 				
 				<?php endif; ?>
@@ -65,9 +67,9 @@
 		
 		<?php endif; ?>
 		
-		<div class="content-container <?= ($settings['has_menu'] || $settings['has_search']) ? 'col-xs-12 col-md-9' : 'clearfix' ?>">
+		<div class="content-container">
 			
-			<div class="panel panel-default content-panel">
+			<div class="content-panel">
 				
 				<div class="panel-body">
 					
@@ -81,23 +83,17 @@
 			
 			</div>
 			
-			
 			<!-- Links -->
-			
-			<div class="content-links clearfix">
+			<div class="content-links">
 				
 				<?php if($products): ?>
 					
 					<?php foreach($products as $product): ?>
 						
-						<a href="<?= wp_vincod_link('product', $product['vincod'], $product['name']) ?>" title="<?= $product['name'] ?>">
+						<a href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>" class="product-link">
 							
-							<div class="col-xs-12 col-sm-6 col-md-4 col-centered product-link">
-								
-								<img class="img-responsive" src="<?= wp_vincod_get_bottle_url($product, '640') ?>" alt="<?= $product['name']; ?>"/>
-								<h2><?= $product['name'] ?></h2>
-							
-							</div>
+							<img src="<?= wp_vincod_get_bottle_url($product, '640') ?>" alt="<?= $product['name']; ?>"/>
+							<h2><?= $product['name']; ?></h2>
 						
 						</a>
 					
@@ -109,7 +105,7 @@
 				
 				<?php else: ?>
 					
-					<h3><?php _e("No product found.", 'vincod') ?></h3>
+					<h3><?php _e("No product found.", 'vincod'); ?></h3>
 				
 				<?php endif; ?>
 			

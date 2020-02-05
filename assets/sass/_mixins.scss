@@ -13,7 +13,7 @@
 	@return #{$remSize}rem;
 }
 
-@mixin size($width, $height: $width) {
+@mixin size($width: 100%, $height: $width) {
 	width: $width;
 	height: $height;
 }
@@ -150,7 +150,7 @@
 	position: relative;
 	width: 100%;
 
-	@include screen-min($breakpoint) {
+	@include media-breakpoint-up($breakpoint) {
 		@include padding-horizontal($gutter);
 	}
 
@@ -163,7 +163,7 @@
 			@include make-col($size);
 		}
 	} @else {
-		@include screen-min($breakpoint) {
+		@include media-breakpoint-up($breakpoint) {
 			@if $size == flex {
 				@include col-flex;
 			} @else if $size == auto {

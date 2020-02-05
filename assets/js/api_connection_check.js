@@ -33,7 +33,6 @@ jQuery(document).ready(function($) {
 
 				// Url test api
 				var api = window.vincod_plugin_app.api + '?api=' + customer_api + '&id=' + customer_id;
-				;
 
 				$.ajax({
 					url:      api,
@@ -49,7 +48,7 @@ jQuery(document).ready(function($) {
 						}
 						else {
 
-							if(output.owners.checkApi.code === 1) {
+							if(output.owners.checkApi.code === '1') {
 
 								api_connection_check.set_console(window.vincod_plugin_app.api_connexion_success);
 								api_connection_check.set_console(window.vincod_plugin_app.api_connexion_save);

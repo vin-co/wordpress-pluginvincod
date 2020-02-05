@@ -21,7 +21,7 @@
 	// <![CDATA[
 	(function($) {
 		$(document).ready(function() {
-			if(typeof($.fn.popover) === 'undefined') {
+			if(typeof ($.fn.popover) === 'undefined') {
 				var s = document.createElement("script");
 				s.type = "text/javascript";
 				s.src = "<?= WP_VINCOD_PLUGIN_URL ?>assets/js/vendor.js";
@@ -32,25 +32,27 @@
 	// ]]>
 </script>
 
-<section id="plugin-vincod" class="vincod-product">
+<section id="plugin-vincod" class="vincod-product" itemscope itemtype="http://schema.org/Product">
 	
-	<div class="container-fluid vincod-container">
+	<div class="vincod-container">
 		
 		<?php if($settings['has_menu'] || $settings['has_search']): ?>
 			
-			<div class="menu-container col-xs-12 col-md-3">
+			<div class="menu-container">
 				
 				<?php if($settings['has_menu']): ?>
 					
-					<a class="btn btn-link hidden-lg hidden-md" role="button" data-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
-						<i class="ion-navicon"></i>
+					<a class="btn btn-link" role="button" data-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
+						<?= wp_vincod_get_icon('menu'); ?>
 						<span>Menu</span>
 					</a>
 					
 					<div class="menu-collapse collapse" id="menu-collapse">
-						<div class="well menu-well no-padding">
+						
+						<div class="menu-card">
 							<?= $menu; ?>
 						</div>
+					
 					</div>
 				
 				<?php endif; ?>
@@ -62,248 +64,192 @@
 				<?php endif; ?>
 			
 			</div>
-			
+		
 		<?php endif; ?>
 		
-		<div class="content-container <?= ($settings['has_menu'] || $settings['has_search']) ? 'col-xs-12 col-md-9' : 'clearfix' ?>">
+		<div class="content-container">
 			
 			<?php if($settings['has_breadcrumb']): ?>
 				
-				<div class="col-xs-12 no-padding">
-					<ol class="breadcrumb">
-						<?= $breadcrumb; ?>
-					</ol>
-				</div>
+				<ol class="breadcrumb">
+					<?= $breadcrumb; ?>
+				</ol>
 			
 			<?php endif; ?>
 			
-			<!-- The product : Picture -->
-			<div class="col-xs-12 col-md-5">
+			<div class="product-wrapper">
 				
-				<div class="row product-image">
+				<!-- The Product : Picture -->
+				<div class="product-media">
 					
-					<img class="img-responsive" src="<?= wp_vincod_get_bottle_url($product, '1024') ?>" alt="<?= $product['name']; ?>"/>
+					<?php if($bottle = wp_vincod_get_bottle_url($product, '1024')): ?>
+						
+						<div class="product-image">
+							<img class="img-responsive" src="<?= $bottle; ?>" alt="<?= $product['name']; ?>"/>
+						</div>
+					
+					<?php endif; ?>
+					
+					<div class="product-medias">
+						
+						<h2><?php _e('Downloads', 'vincod'); ?></h2>
+						
+						<ul class="list-unstyled">
+							
+							<?php if(!empty($product['medias'])): ?>
+								
+								<!-- Pictures -->
+								<?php foreach($product['medias'] as $media): ?>
+									
+									<?php if(!empty($media['url'])): ?>
+										<li>
+											<a target="_blank" href="<?= $media['url']; ?>"><?= $media['name']; ?></a>
+										</li>
+									<?php endif; ?>
+								
+								<?php endforeach; ?>
+							
+							<?php endif; ?>
+							
+							<li>
+								<a href="http://vincod.com/<?= $product['vincod']; ?>/get/print" target="_blank" title="<?php _e('Product datasheet', 'vincod'); ?> (.pdf)"><?php _e('Product datasheet', 'vincod'); ?></a>
+							</li>
+							
+							<li>
+								<a href="http://vincod.com/<?= $product['vincod']; ?>/get/tablecard" target="_blank" title="<?php _e('Table stand', 'vincod'); ?> (PLV)"><?php _e('Table stand', 'vincod'); ?></a>
+							</li>
+						
+						</ul>
+					
+					</div>
 				
 				</div>
 				
-				<div class="product-medias">
+				<div class="product-content">
 					
-					<h2><?php _e('Downloads', 'vincod') ?></h2>
-					
-					<ul class="list-unstyled">
+					<!-- The Product : Name and Vintages -->
+					<div class="product-name">
 						
-						<?php if(!empty($product['medias'])): ?>
+						<div class="dropdown">
 							
-							<!-- Pictures -->
-							<?php foreach($product['medias'] as $media): ?>
+							<?php if($vintages && count($vintages) > 1): ?>
 								
-								<?php if(!empty($media['url'])): ?>
-									<li>
-										<a target="_blank" href="<?= $media['url'] ?>"><?= $media['name'] ?></a>
-									</li>
-								<?php endif; ?>
-							
-							<?php endforeach ?>
-						
-						<?php endif; ?>
-						
-						<li>
-							<a href="http://vincod.com/<?= $product['vincod'] ?>/get/print" target="_blank" title="<?php _e('Product datasheet', 'vincod') ?> (.pdf)"><?php _e('Product datasheet', 'vincod') ?></a>
-						</li>
-						
-						<li>
-							<a href="http://vincod.com/<?= $product['vincod'] ?>/get/tablecard" target="_blank" title="<?php _e('Table stand', 'vincod') ?> (PLV)"><?php _e('Table stand', 'vincod') ?></a>
-						</li>
-					
-					</ul>
-				
-				</div>
-			
-			</div>
-			
-			<div class="col-xs-12 col-md-7 no-padding">
-				
-				<!-- The Product : Name and Vintages -->
-				<div class="product-name">
-					
-					<div class="btn-group vintage-btn-group clearfix">
-						
-						<?php if($vintages && count($vintages) > 1): ?>
-							
-							<a href="#" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="<?php _e('See all vintages', 'vincod') ?>">
+								<button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="<?php _e('See all vintages', 'vincod'); ?>">
+									
+									<h1 itemprop="name">
+										<span class="vintage-name"><?= $product['name']; ?></span>
+										<span class="vintage-year">
+											<span><?= $product['vintageyear']; ?></span>
+											<?= wp_vincod_get_icon('dropdown'); ?>
+										</span>
+									</h1>
 								
-								<h1>
-									<span class="vintage-name"><?= $product['name'] ?></span>
-									<span class="vintage-year">
-										<?= $product['vintageyear'] ?>
-										<i class="ion-android-arrow-dropdown"></i>
-									</span>
+								</button>
+								
+								<div class="dropdown-menu dropdown-menu-right">
+									
+									<?php foreach($vintages as $vintage): ?>
+										
+										<a href="<?= wp_vincod_link('product', $vintage['vincod'], $vintage['name']); ?>" title="<?= $product['name'] . ' - ' . $vintage['vintageyear']; ?>" class="dropdown-item<?= ($vintage['vintageyear'] == $product['vintageyear']) ? ' current' : ''; ?>">
+											<?= $vintage['vintageyear']; ?>
+										</a>
+									
+									<?php endforeach; ?>
+								
+								</div>
+							
+							<?php else: ?>
+								
+								<h1 itemprop="name">
+									<span class="vintage-name"><?= $product['name']; ?></span>
 								</h1>
 							
-							</a>
-							
-							<ul class="dropdown-menu">
-								
-								<?php foreach($vintages as $vintage): ?>
-									
-									<?php if($vintage['vintageyear'] == $product['vintageyear']): ?>
-										
-										<li>
-											<strong><?= $vintage['vintageyear'] ?></strong>
-										</li>
-									
-									<?php else: ?>
-										
-										<li>
-											<a href="<?= wp_vincod_link('product', $vintage['vincod'], $vintage['name']) ?>" title="<?= $product['name'] . ' - ' . $vintage['vintageyear'] ?>"><?= $vintage['vintageyear'] ?></a>
-										</li>
-									
-									<?php endif; ?>
-								
-								<?php endforeach; ?>
-							
-							</ul>
+							<?php endif; ?>
 						
-						<?php else: ?>
-							
-							<div class="btn btn-link no-vintage">
-								<span class="vintage-name full-width"><?= $product['name'] ?></span>
-							</div>
-						
-						<?php endif; ?>
+						</div>
 					
 					</div>
-				
-				</div>
-				
-				
-				<!-- The Product : Abstract -->
-				
-				<?php if(!empty($product['abstract'])): ?>
 					
-					<div class="product-abstract">
-						<?= $product['abstract'] ?>
-					</div>
-				
-				<?php endif; ?>
-				
-				
-				<div class="product-fields">
+					<?php if(!empty($product['abstract'])): ?>
+						
+						<!-- The Product : Abstract -->
+						<div class="product-abstract" itemprop="description">
+							<?= $product['abstract']; ?>
+						</div>
 					
-					<!-- Nav tabs -->
-					<ul class="nav nav-tabs" role="tablist">
-						
-						<?php if(!empty($product['presentation'])) : ?>
-							
-							<li role="presentation" class="active">
-								<a href="#product-presentation" aria-controls="presentation" role="tab" data-toggle="tab">
-									<h2><?php _e("Presentation", 'vincod') ?></h2>
-								</a>
-							</li>
-						
-						<?php endif; ?>
-						
-						<?php if(!empty($product['advice']) || !empty($product['recipes'])): ?>
-							
-							<li role="presentation">
-								<a href="#product-advice" aria-controls="advice" role="tab" data-toggle="tab">
-									<h2><?php _e("Tasting tips", 'vincod') ?></h2>
-								</a>
-							</li>
-						
-						<?php endif; ?>
-						
-						<?php if(!empty($product['specifications']) || !empty($product['grapesvarieties'])): ?>
-							
-							<li role="presentation">
-								<a href="#product-specifications" aria-controls="specifications" role="tab" data-toggle="tab">
-									<h2><?php _e("Specifications", 'vincod') ?></h2>
-								</a>
-							</li>
-						
-						<?php endif; ?>
-						
-						<?php if(!empty($product['reviews'])): ?>
-							
-							<li role="presentation">
-								<a href="#product-reviews" aria-controls="reviews" role="tab" data-toggle="tab">
-									<h2><?php _e("Reviews & awards", 'vincod') ?></h2>
-								</a>
-							</li>
-						
-						<?php endif; ?>
-						
-						<?php if(!empty($product['shops']) || !empty($product['products'])): ?>
-							
-							<li role="presentation">
-								<a href="#product-shops" aria-controls="shops" role="tab" data-toggle="tab">
-									<h2><?php _e("Where to buy", 'vincod') ?></h2>
-								</a>
-							</li>
-						
-						<?php endif; ?>
+					<?php endif; ?>
 					
-					</ul>
-					
-					
-					<!-- Tab panes -->
-					<div class="tab-content">
+					<div class="product-fields">
 						
-						<!-- Infos about product -->
-						<?php if(!empty($product['presentation'])) : ?>
+						<!-- Nav tabs -->
+						<div class="nav nav-pills nav-fill" role="tablist">
 							
-							<div role="tabpanel" class="tab-pane fade in active" id="product-presentation">
+							<?php if(!empty($product['presentation'])) : ?>
 								
-								<!-- Presentation fields -->
-								
-								<?php foreach($product['presentation'] as $presentation): ?>
-									
-									<?php if(!empty($presentation['value'])): ?>
-										
-										<?php if(strtolower($presentation['label']) == 'vidéo' || strtolower($presentation['label']) == 'video'): ?>
-											
-											<!-- Video -->
-											<strong class="text-uppercase"><?= $presentation['label'] ?></strong>
-											<br>
-											<?= wp_vincod_include_video($presentation['value'], '<br>') ?>
-										
-										<?php else: ?>
-											
-											<strong class="text-uppercase"><?= $presentation['label'] ?></strong>
-											<p><?= $presentation['value'] ?></p>
-										
-										<?php endif; ?>
-									
-									<?php endif; ?>
-								
-								<?php endforeach; ?>
+								<a href="#product-presentation" class="nav-item nav-link active" aria-controls="presentation" role="tab" data-toggle="tab">
+									<h2><?php _e("Presentation", 'vincod'); ?></h2>
+								</a>
 							
-							</div>
-						
-						<?php endif; ?>
-						
-						
-						<!-- Advices about product -->
-						<?php if(!empty($product['advice']) || !empty($product['recipes'])): ?>
+							<?php endif; ?>
 							
-							<div role="tabpanel" class="tab-pane fade" id="product-advice">
-								<?php if(!empty($product['advice'])): ?>
+							<?php if(!empty($product['advice']) || !empty($product['recipes'])): ?>
+								
+								<a href="#product-advice" class="nav-item nav-link" aria-controls="advice" role="tab" data-toggle="tab">
+									<h2><?php _e("Tasting tips", 'vincod'); ?></h2>
+								</a>
+							
+							<?php endif; ?>
+							
+							<?php if(!empty($product['specifications']) || !empty($product['grapesvarieties'])): ?>
+								
+								<a href="#product-specifications" class="nav-item nav-link" aria-controls="specifications" role="tab" data-toggle="tab">
+									<h2><?php _e("Specifications", 'vincod'); ?></h2>
+								</a>
+							
+							<?php endif; ?>
+							
+							<?php if(!empty($product['reviews'])): ?>
+								
+								<a href="#product-reviews" class="nav-item nav-link" aria-controls="reviews" role="tab" data-toggle="tab">
+									<h2><?php _e("Reviews & awards", 'vincod'); ?></h2>
+								</a>
+							
+							<?php endif; ?>
+							
+							<?php if(!empty($product['shops']) || !empty($product['products'])): ?>
+								
+								<a href="#product-shops" class="nav-item nav-link" aria-controls="shops" role="tab" data-toggle="tab">
+									<h2><?php _e("Where to buy", 'vincod'); ?></h2>
+								</a>
+							
+							<?php endif; ?>
+						
+						</div>
+						
+						<!-- Tab panes -->
+						<div class="tab-content">
+							
+							<?php if(!empty($product['presentation'])) : ?>
+								
+								<!-- Infos about product -->
+								<div role="tabpanel" class="tab-pane fade show active" id="product-presentation">
 									
-									<?php foreach($product['advice'] as $advice): ?>
+									<!-- Presentation fields -->
+									<?php foreach($product['presentation'] as $presentation): ?>
 										
-										<?php if(!empty($advice['value'])): ?>
+										<?php if(!empty($presentation['value'])): ?>
 											
-											<?php if(strtolower($advice['label']) == 'vidéo' || strtolower($advice['label']) == 'video'): ?>
+											<?php if(strtolower($presentation['label']) == 'vidéo' || strtolower($presentation['label']) == 'video'): ?>
 												
 												<!-- Video -->
-												<strong class="text-uppercase"><?= $advice['label'] ?></strong>
+												<strong class="text-uppercase"><?= $presentation['label']; ?></strong>
 												<br>
-												<?= wp_vincod_include_video($advice['value'], '<br>') ?>
+												<?= wp_vincod_include_video($presentation['value'], '<br>'); ?>
 											
 											<?php else: ?>
 												
-												<strong class="text-uppercase"><?= $advice['label'] ?></strong>
-												<p><?= $advice['value'] ?></p>
+												<strong class="text-uppercase"><?= $presentation['label']; ?></strong>
+												<p><?= $presentation['value']; ?></p>
 											
 											<?php endif; ?>
 										
@@ -311,169 +257,204 @@
 									
 									<?php endforeach; ?>
 								
-								<?php endif; ?>
-								
-								<?php if(!empty($product['recipes'])): ?>
-									
-									<strong class="text-uppercase"><?php _e("Recipes", 'vincod') ?></strong>
-									<p>
-										<?php foreach($product['recipes'] as $recipe): ?>
-											
-											<a href="<?= $recipe['url'] ?>" target="_blank">
-												<?= $recipe['name'] ?>
-											</a>
-											<br>
-										
-										<?php endforeach; ?>
-									</p>
-								
-								<?php endif; ?>
+								</div>
 							
-							</div>
-						
-						<?php endif; ?>
-						
-						
-						<!-- Infos about product -->
-						<?php if(!empty($product['specifications']) || !empty($product['grapesvarieties'])) : ?>
+							<?php endif; ?>
 							
-							<div role="tabpanel" class="tab-pane fade" id="product-specifications">
+							<?php if(!empty($product['advice']) || !empty($product['recipes'])): ?>
 								
-								<!-- Specifications Fields -->
-								<?php if(!empty($product['specifications'])): ?>
+								<!-- Advices about product -->
+								<div role="tabpanel" class="tab-pane fade" id="product-advice">
 									
-									<?php foreach($product['specifications'] as $specification): ?>
+									<?php if(!empty($product['advice'])): ?>
 										
-										<?php if(!empty($specification['value'])): ?>
+										<?php foreach($product['advice'] as $advice): ?>
 											
-											<strong class="text-uppercase"><?= $specification['label'] ?></strong>
-											<p><?= $specification['value'] ?></p>
-										
-										<?php endif; ?>
-									
-									<?php endforeach; ?>
-								
-								<?php endif; ?>
-								
-								<!-- Varieties -->
-								<?php if(!empty($product['grapesvarieties'])): ?>
-									
-									<strong class="text-uppercase"><?php _e('Grapes', 'vincod') ?></strong>
-									
-									<?php $varieties = wp_vincod_varieties_desc($product['grapesvarieties']); ?>
-									
-									<p>
-										<?php foreach($varieties as $variety): ?>
-											
-											<?= $variety['name'] ?>
-											
-											<?php if(!empty($variety['amount'])): ?>
+											<?php if(!empty($advice['value'])): ?>
 												
-												: <?= $variety['amount'] ?> %
+												<?php if(strtolower($advice['label']) == 'vidéo' || strtolower($advice['label']) == 'video'): ?>
+													
+													<!-- Video -->
+													<strong class="text-uppercase"><?= $advice['label']; ?></strong>
+													<br>
+													<?= wp_vincod_include_video($advice['value'], '<br>'); ?>
+												
+												<?php else: ?>
+													
+													<strong class="text-uppercase"><?= $advice['label']; ?></strong>
+													<p><?= $advice['value']; ?></p>
+												
+												<?php endif; ?>
 											
 											<?php endif; ?>
-											<br>
 										
 										<?php endforeach; ?>
-									</p>
+									
+									<?php endif; ?>
+									
+									<?php if(!empty($product['recipes'])): ?>
+										
+										<strong class="text-uppercase"><?php _e("Recipes", 'vincod'); ?></strong>
+										<p>
+											<?php foreach($product['recipes'] as $recipe): ?>
+												
+												<a href="<?= $recipe['url']; ?>" target="_blank">
+													<?= $recipe['name']; ?>
+												</a>
+												<br>
+											
+											<?php endforeach; ?>
+										</p>
+									
+									<?php endif; ?>
 								
-								<?php endif; ?>
+								</div>
 							
-							</div>
-						
-						<?php endif; ?>
-						
-						
-						<!-- Reviews -->
-						<?php if(!empty($product['reviews'])): ?>
+							<?php endif; ?>
 							
-							<div role="tabpanel" class="tab-pane fade" id="product-reviews">
+							<?php if(!empty($product['specifications']) || !empty($product['grapesvarieties'])) : ?>
+								
+								<!-- Infos about product -->
+								<div role="tabpanel" class="tab-pane fade" id="product-specifications">
+									
+									<!-- Specifications Fields -->
+									<?php if(!empty($product['specifications'])): ?>
+										
+										<?php foreach($product['specifications'] as $specification): ?>
+											
+											<?php if(!empty($specification['value'])): ?>
+												
+												<strong class="text-uppercase"><?= $specification['label']; ?></strong>
+												<p><?= $specification['value']; ?></p>
+											
+											<?php endif; ?>
+										
+										<?php endforeach; ?>
+									
+									<?php endif; ?>
+									
+									<!-- Varieties -->
+									<?php if(!empty($product['grapesvarieties'])): ?>
+										
+										<strong class="text-uppercase"><?php _e('Grapes', 'vincod'); ?></strong>
+										
+										<?php $varieties = wp_vincod_varieties_desc($product['grapesvarieties']); ?>
+										
+										<p>
+											<?php foreach($varieties as $variety): ?>
+												
+												<?= $variety['name']; ?>
+												
+												<?php if(!empty($variety['amount'])): ?>
+													
+													: <?= $variety['amount']; ?> %
+												
+												<?php endif; ?>
+												<br>
+											
+											<?php endforeach; ?>
+										</p>
+									
+									<?php endif; ?>
+								
+								</div>
+							
+							<?php endif; ?>
+							
+							<?php if(!empty($product['reviews'])): ?>
 								
 								<!-- Reviews -->
-								<?php foreach($product['reviews'] as $review): ?>
+								<div role="tabpanel" class="tab-pane fade" id="product-reviews">
 									
-									<div class="product-review">
+									<!-- Reviews -->
+									<?php foreach($product['reviews'] as $review): ?>
 										
-										<p class="no-margin">
-											<?php if(!empty($review['url']) && $review['url'] != 'http://'): ?>
-												<a href="<?= $review['url'] ?>"><?= $review['content'] ?></a>
-											<?php else: ?>
-												<?= $review['content'] ?>
-											<?php endif; ?>
-										</p>
-										
-										<p class="clearfix">
+										<div class="product-review">
+											
 											<?php if(!empty($review['logo'])): ?>
-												<img class="pull-left" src="<?= $review['logo'] ?>"/>
+												<img src="<?= $review['logo']; ?>" alt="<?= $review['source']; ?>"/>
 											<?php endif; ?>
 											
-											<span class="pull-left">
-												<?php if(!empty($review['author'])): ?>
-													<strong><?= $review['author'] ?></strong>
+											<p>
+												<?php if(!empty($review['content'])): ?>
+													
+													<?php if(!empty($review['url']) && $review['url'] != 'http://'): ?>
+														<a href="<?= $review['url']; ?>"><?= $review['content']; ?></a>
+													<?php else: ?>
+														<?= $review['content']; ?>
+													<?php endif; ?>
 													<br>
+												
 												<?php endif; ?>
 												
-												<em>
-													<?= $review['source'] ?>
-													
-													<?php if(!empty($review['mark'])): ?>
-														, <?= $review['mark'] ?>
+												<span>
+													<?php if(!empty($review['author'])): ?>
+														<strong><?= $review['author']; ?></strong>
+														<br>
 													<?php endif; ?>
 													
-													<?php if($review['date'] != '0000-00-00'): ?>
-														, <?= $review['date'] ?>
-													<?php endif; ?>
-												</em>
+													<em>
+														<?= $review['source']; ?>
+														
+														<?php if(!empty($review['mark'])): ?>
+															, <?= $review['mark']; ?>
+														<?php endif; ?>
+														
+														<?php if($review['date'] != '0000-00-00'): ?>
+															, <?= $review['date']; ?>
+														<?php endif; ?>
+													</em>
+												
+												</span>
 											
-											</span>
+											</p>
 										
-										</p>
-									
-									</div>
-								
-								<?php endforeach; ?>
-							
-							</div>
-						
-						<?php endif; ?>
-						
-						
-						<!-- Shop about product -->
-						<?php if(!empty($product['shops']) || !empty($product['products'])): ?>
-							
-							<div role="tabpanel" class="tab-pane fade" id="product-shops">
-								
-								<?php if(!empty($product['shops'])): ?>
-									
-									<?php foreach($product['shops'] as $shop): ?>
-										
-										<p>
-											<a target="_blank" href="<?= $shop['url'] ?>" title="<?= (!empty($shop['description'])) ? $shop['description'] : __('Where to buy', 'vincod') ?>">
-												<i class="ion-ios-cart"></i> ›&nbsp;<?= (!empty($shop['description'])) ? $shop['description'] : __('Where to buy', 'vincod') ?>
-											</a>
-										</p>
+										</div>
 									
 									<?php endforeach; ?>
 								
-								<?php endif; ?>
-								
-								<?php if(!empty($product['products'])): ?>
-									
-									<?php foreach($product['products'] as $shop): ?>
-										
-										<p>
-											<a target="_blank" href="<?= $shop['url'] ?>" title="<?= (!empty($shop['url_title'])) ? $shop['url_title'] : __('Order now', 'vincod') ?>">
-												<i class="ion-ios-cart"></i> ›&nbsp;<?= (!empty($shop['url_title'])) ? $shop['url_title'] : __('Order now', 'vincod') ?>
-											</a>
-										</p>
-									
-									<?php endforeach; ?>
-								
-								<?php endif; ?>
+								</div>
 							
-							</div>
+							<?php endif; ?>
+							
+							<?php if(!empty($product['shops']) || !empty($product['products'])): ?>
+								
+								<!-- Shop about product -->
+								<div role="tabpanel" class="tab-pane fade" id="product-shops">
+									
+									<?php if(!empty($product['shops'])): ?>
+										
+										<?php foreach($product['shops'] as $shop): ?>
+											
+											<p>
+												<a target="_blank" href="<?= $shop['url'] ?>" title="<?= (!empty($shop['description'])) ? $shop['description'] : __('Where to buy', 'vincod'); ?>" class="shop-link">
+													<?= wp_vincod_get_icon('cart'); ?>&nbsp;›&nbsp;<?= (!empty($shop['description'])) ? $shop['description'] : __('Where to buy', 'vincod'); ?>
+												</a>
+											</p>
+										
+										<?php endforeach; ?>
+									
+									<?php endif; ?>
+									
+									<?php if(!empty($product['products'])): ?>
+										
+										<?php foreach($product['products'] as $shop): ?>
+											
+											<p>
+												<a target="_blank" href="<?= $shop['url'] ?>" title="<?= (!empty($shop['url_title'])) ? $shop['url_title'] : __('Order now', 'vincod'); ?>" class="shop-link">
+													<?= wp_vincod_get_icon('cart'); ?>&nbsp;›&nbsp;<?= (!empty($shop['url_title'])) ? $shop['url_title'] : __('Order now', 'vincod'); ?>
+												</a>
+											</p>
+										
+										<?php endforeach; ?>
+									
+									<?php endif; ?>
+								
+								</div>
+							
+							<?php endif; ?>
 						
-						<?php endif; ?>
+						</div>
 					
 					</div>
 				

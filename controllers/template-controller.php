@@ -234,7 +234,9 @@ class WP_Vincod_Template_Controller extends WP_Vincod_API {
 		}
 		else {
 			
-			$view = wp_vincod_load_view($file, $view_datas, $return, WP_VINCOD_PLUGIN_PATH . 'views/template/');
+			$theme = get_option('vincod_setting_theme', 'default');
+			
+			$view = wp_vincod_load_view($file, $view_datas, $return, WP_VINCOD_PLUGIN_PATH . 'views/themes/' . $theme . '/');
 			
 		}
 		

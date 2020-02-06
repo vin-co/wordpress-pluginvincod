@@ -25,7 +25,7 @@ html {
 	$font-family-sans-serif: inherit;
 	$font-size-base: 1.6rem;
 
-	$component-active-bg: $gray-200;
+	$component-active-bg: $secondary;
 	$border-radius: 0;
 	$border-radius-lg: 0;
 	$border-radius-sm: 0;
@@ -44,7 +44,7 @@ html {
 
 	// Imports
 	// -----------------------------------------------------
-	@import "imports";
+	@import "../imports";
 
 	// ---------- Global styles ----------
 
@@ -492,7 +492,6 @@ html {
 					margin: 0;
 					font-size: 1.2rem;
 					font-weight: $font-weight-base;
-					color: $gray-700;
 				}
 			}
 		}

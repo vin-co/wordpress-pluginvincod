@@ -15,22 +15,21 @@ var gulp = require('gulp'),
 
 // ----- Variables -----
 
-var projectDir = path.resolve(__dirname);
-var assetsDir = projectDir + '/assets';
+var assetsDir = 'assets';
 
 var paths = {
 	sassFiles: assetsDir + '/sass/**/*.scss',
 	cssDir: assetsDir + '/css/',
 	jsFiles: assetsDir + '/js/**/*.js',
 	jsDir: assetsDir + '/js/',
-	projectFiles: projectDir + '/**/*.{php,mo,po}',
+	projectFiles: '**/*.{php,mo,po}',
 	imagesFiles: assetsDir + '/img/**/*'
 };
 
 var sassConfig = {
 	outputStyle: 'nested',
 	includePaths: [
-		projectDir + '/bower_components/'
+		'bower_components/'
 	],
 	precision: 10
 };

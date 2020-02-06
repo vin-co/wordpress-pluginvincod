@@ -98,6 +98,10 @@
 
 	// ---------- Forms ----------
 
+	select {
+		max-width: none;
+	}
+
 	.input-group {
 		margin-bottom: 1rem;
 	}

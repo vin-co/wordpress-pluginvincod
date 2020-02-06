@@ -135,6 +135,14 @@ function wp_wincod_post_updates(array $post) {
 	
 	
 	// Styles
+	if(isset($cleaned_post['vincod_setting_theme'])) {
+		
+		update_option('vincod_setting_theme', $cleaned_post['vincod_setting_theme']);
+		
+		wp_vincod_devlog(__("Theme was updated :", 'vincod'), $cleaned_post['vincod_setting_theme']);
+		
+	}
+	
 	foreach(array('owner', 'collection', 'brand', 'range', 'product', 'search') as $value) {
 		
 		if(isset($cleaned_post['vincod_' . $value . '_settings'])) {
@@ -326,6 +334,8 @@ function wp_vincod_reset_app() {
 	delete_option('vincod_setting_cache_api');
 	
 	// Delete style options
+	delete_option('vincod_setting_theme');
+	
 	foreach($templates_names as $value) {
 		
 		delete_option('vincod_' . $value . '_settings');

@@ -1,0 +1,519 @@
+//=================================
+//	!---------- FRONT ----------
+//=================================
+
+html {
+	font-size: 10px;
+}
+
+#plugin-vincod {
+
+	// Overrides
+	// -----------------------------------------------------
+
+	$gray-100: #fafafa;
+	$gray-200: #e7e7e7;
+	$gray-300: #ddd;
+	$gray-400: #6f6f6f;
+	$gray-500: #555;
+	$gray-600: #333;
+	$gray-700: #222;
+
+	$primary: $gray-300;
+	$secondary: $gray-400;
+
+	$font-family-sans-serif: inherit;
+	$font-size-base: 1.6rem;
+
+	$component-active-bg: $secondary;
+	$border-radius: 0;
+	$border-radius-lg: 0;
+	$border-radius-sm: 0;
+
+	$link-color: inherit;
+	$link-hover-color: inherit;
+	$link-hover-decoration: none;
+
+	$input-border-color: $gray-300;
+	$input-placeholder-color: $gray-400;
+
+	$breadcrumb-font-size: 1.2rem;
+	$breadcrumb-bg: $gray-100;
+	$breadcrumb-divider-color: $gray-400;
+	$breadcrumb-active-color: $gray-400;
+
+	// Imports
+	// -----------------------------------------------------
+	@import "../imports";
+
+	// ---------- Global styles ----------
+
+	.vincod-container {
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		max-width: 768px;
+		margin: auto;
+		padding: $grid-gutter-width/2 0;
+
+		@include media-breakpoint-up(lg) {
+			max-width: 1600px;
+		}
+	}
+
+	// ---------- Menu styles ----------
+
+	.menu-container {
+		@include column(0, 12, 0);
+		@include column(lg, 3, 0);
+		margin-bottom: $grid-gutter-width/2;
+
+		> .btn {
+			display: flex;
+			align-items: center;
+			padding: 0;
+			font-weight: 700;
+			text-transform: uppercase;
+			text-align: left;
+			line-height: 1;
+
+			@include media-breakpoint-up(lg) {
+				display: none;
+			}
+
+			svg {
+				@include size(43px);
+			}
+		}
+
+		.menu-collapse {
+
+			@include media-breakpoint-up(lg) {
+				display: block !important;
+				height: auto !important;
+				margin: 0;
+			}
+		}
+
+		.menu-card {
+			border: 1px solid $gray-300;
+			background-color: $gray-100;
+
+			@include media-breakpoint-down(md) {
+				margin-top: 20px;
+			}
+
+			.vincod-menu {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+
+				li.active > a, a:hover {
+					background-color: $secondary;
+					color: $white;
+				}
+
+				a {
+					display: block;
+					padding: 8px 15px;
+					text-transform: capitalize;
+				}
+			}
+
+			> .vincod-menu > li {
+
+				> ul > li {
+
+					> a {
+						padding-left: 25px;
+					}
+
+					> ul {
+						display: none;
+					}
+
+					&.parent > ul, &.active > ul {
+						display: block;
+
+						> li {
+
+							> a {
+								padding-left: 35px;
+							}
+
+							> ul {
+								display: none;
+							}
+
+							&.parent > ul, &.active > ul {
+								display: block;
+
+								> li {
+
+									> a {
+										padding-left: 45px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			.vincod-menu {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+
+				li.active > a, a:hover {
+					background-color: $secondary;
+					color: $white;
+				}
+
+				a {
+					display: block;
+					padding: 8px 15px;
+					text-transform: capitalize;
+				}
+			}
+		}
+
+		.vincod-search-form {
+
+			.form-control, .btn {
+				display: flex;
+				align-items: center;
+				height: auto;
+				padding: 1rem 1.6rem;
+			}
+
+			.btn {
+				color: $gray-400;
+
+				svg {
+					@include size(20px);
+				}
+			}
+		}
+	}
+
+	// ---------- Content styles ----------
+
+	.content-container {
+		@include column(0, 12, 0);
+		@include column(lg);
+
+		@include media-breakpoint-up(lg) {
+			padding-right: 0;
+		}
+
+		.breadcrumb {
+			margin-bottom: $grid-gutter-width/2;
+			border: 1px solid $gray-300;
+		}
+	}
+
+	.content-panel {
+		margin-bottom: $grid-gutter-width/4;
+		border: 1px solid $gray-300;
+
+		.panel-heading {
+			height: 300px;
+			padding: 0;
+			background-color: $gray-100;
+			border-bottom: 1px solid $gray-300;
+
+			.content-cover {
+				@include size(100%);
+				@include background-image(cover);
+			}
+		}
+
+		.panel-body {
+			padding: $grid-gutter-width;
+			background-color: $white;
+			text-align: center;
+
+			.content-logo {
+				@include margin-vertical(-200px, $grid-gutter-width/2);
+				@include size(200px);
+				display: inline-block;
+				padding: $grid-gutter-width/2;
+				border: 1px solid $gray-300;
+				background-color: $white;
+				z-index: 10;
+
+				span {
+					@include size(100%);
+					@include background-image(contain);
+					display: block;
+				}
+			}
+		}
+	}
+
+	&.vincod-search .content-panel .panel-body {
+		background-color: $gray-100;
+	}
+
+	// ---------- Links styles ----------
+
+	.content-links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		text-align: center;
+	}
+
+	.collection-link, .brand-link, .range-link {
+		@include column(0, 12);
+		@include background-image(cover);
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 50vh;
+		margin: $grid-gutter-width/4 auto;
+		padding: $grid-gutter-width;
+
+		@include before() {
+			@include position();
+			position: absolute;
+			background-color: rgba($black, .4);
+		}
+
+		h2 {
+			position: relative;
+			display: inline-block;
+			margin: 0;
+			padding: 30px;
+			border: 1px solid $gray-300;
+			background-color: rgba($gray-300, .9);
+			color: $gray-700;
+			font-size: $font-size-base;
+			font-weight: $font-weight-base;
+			text-transform: uppercase;
+			transition: $transition-base;
+
+			&:hover {
+				background-color: transparent;
+				color: $gray-300;
+			}
+		}
+	}
+
+	.product-link {
+		@include margin-vertical($grid-gutter-width);
+		@include column(0, 12);
+		@include column(sm, 6);
+		@include column(xl, 4);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+
+		img {
+			max-height: 400px;
+			margin: 0 auto $grid-gutter-width;
+		}
+
+		h2 {
+			display: inline-block;
+			padding: 30px;
+			border: 1px solid $gray-300;
+			background-color: $gray-100;
+			color: inherit;
+			font-size: $font-size-base;
+			font-weight: $font-weight-base;
+			text-transform: uppercase;
+			transition: $transition-base;
+
+			&:hover {
+				background-color: $gray-500;
+				color: white;
+			}
+		}
+	}
+
+	// ---------- Single Product styles ----------
+
+	.product-wrapper {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.product-media {
+		@include column(0, 12);
+		@include column(lg, 5);
+		text-align: center;
+
+		.product-image {
+			margin-bottom: $grid-gutter-width;
+
+			img {
+				margin: auto;
+				max-height: 600px;
+
+				@include media-breakpoint-down(sm) {
+					max-height: 480px;
+				}
+			}
+		}
+
+		.product-medias {
+			margin-bottom: $grid-gutter-width;
+
+			h2 {
+				margin: 0;
+				font-size: $font-size-base;
+				font-weight: $font-weight-bold;
+				line-height: $line-height-base;
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	.product-content {
+		@include column(0, 12);
+		@include column(lg, 7, 0);
+
+		.product-name {
+			margin-bottom: $grid-gutter-width;
+
+			@include media-breakpoint-down(xl) {
+				text-align: center;
+				width: 100%;
+			}
+
+			.dropdown {
+
+				.btn {
+					display: block;
+					width: 100%;
+					padding: 0;
+					border: none;
+
+					&:after {
+						display: none;
+					}
+				}
+
+				h1 {
+					display: flex;
+					margin: 0;
+					background-color: $gray-100;
+					border: 1px solid $gray-300;
+					font-size: $font-size-base;
+					font-weight: $font-weight-base;
+					text-transform: uppercase;
+					white-space: normal;
+
+					@include media-breakpoint-down(xs) {
+						flex-direction: column;
+					}
+				}
+
+				.vintage-name {
+					display: block;
+					padding: $grid-gutter-width;
+					text-align: left;
+					flex-grow: 1;
+
+					@include media-breakpoint-down(xs) {
+						width: 100%;
+						text-align: center;
+					}
+				}
+
+				.vintage-year {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					width: 100px;
+					padding: 20px $grid-gutter-width 10px;
+					border-left: 1px solid $gray-300;
+
+					svg {
+						@include size(20px);
+					}
+
+					@include media-breakpoint-down(xs) {
+						width: 100%;
+						border-left: none;
+						border-top: 1px solid $gray-300;
+					}
+				}
+
+				.dropdown-menu {
+					width: 101px;
+					margin-top: -1px;
+					border-color: $gray-300;
+					background-color: $gray-100;
+					text-align: center;
+
+					@include media-breakpoint-down(xs) {
+						width: 100%;
+					}
+
+					.dropdown-item {
+						@include padding-vertical(.5rem);
+
+						&.current {
+							pointer-events: none;
+							font-weight: $font-weight-bold;
+						}
+
+						&:hover {
+							background-color: $gray-200;
+						}
+					}
+				}
+			}
+		}
+
+		.product-abstract {
+			margin-bottom: $grid-gutter-width;
+		}
+
+		.nav-pills, .nav-tabs {
+			margin-bottom: $grid-gutter-width;
+
+			a {
+				padding: $grid-gutter-width/2 $grid-gutter-width/3;
+				text-transform: uppercase;
+
+				@include media-breakpoint-down(xs) {
+					width: 100%;
+				}
+
+				h2 {
+					margin: 0;
+					font-size: 1.2rem;
+					font-weight: $font-weight-base;
+				}
+			}
+		}
+
+		.product-review {
+			margin-bottom: $grid-gutter-width/2;
+			display: flex;
+			align-items: center;
+
+			img {
+				max-width: $grid-gutter-width*2.5;
+				margin-right: $grid-gutter-width/2;
+			}
+		}
+
+		.shop-link {
+			display: inline-flex;
+			align-items: center;
+
+			svg {
+				@include size(20px);
+			}
+		}
+	}
+}

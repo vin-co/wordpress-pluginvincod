@@ -1,11 +1,11 @@
 <?php
 /**
- * Collection.php
+ * Range.php
  *
- * The view served by the template when you have got ?collection= GET param
+ * The view served by the template when you have got ?range= GET param
  *
  * You can replace this view by your, just create in your current theme folder
- * the file vincod/collection.php ; If you make this you can use
+ * the file vincod/range.php ; If you make this you can use
  * all functions and all constants of the plugin.
  *
  * @author      Vinternet
@@ -15,7 +15,7 @@
 ?>
 
 <!-- Default plugin css -->
-<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/front.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/themes/modern.css"/>
 <!-- Default plugin js -->
 <script type="text/javascript">
 	// <![CDATA[
@@ -32,7 +32,7 @@
 	// ]]>
 </script>
 
-<section id="plugin-vincod" class="vincod-collection" itemscope itemtype="http://schema.org/Brand">
+<section id="plugin-vincod" class="vincod-range" itemscope itemtype="http://schema.org/Brand">
 	
 	<div class="vincod-container">
 		
@@ -79,19 +79,19 @@
 			
 			<?php if($settings['has_content']): ?>
 				
-				<?php if($collection): ?>
+				<?php if($range): ?>
 					
 					<div class="content-panel">
 						
 						<div class="panel-heading">
 							
-							<div class="content-cover"<?= ($background = wp_vincod_get_picture_url($collection, 'retina')) ? ' style="background-image: url(' . $background . ')"' : ''; ?>></div>
+							<div class="content-cover"<?= ($background = wp_vincod_get_picture_url($range, 'retina')) ? ' style="background-image: url(' . $background . ')"' : ''; ?>></div>
 						
 						</div>
 						
 						<div class="panel-body">
 							
-							<?php if($background = wp_vincod_get_logo_url($collection, '640')): ?>
+							<?php if($background = wp_vincod_get_logo_url($range, '640')): ?>
 								
 								<div class="content-logo">
 									<span style="background-image: url('<?= $background; ?>')"></span>
@@ -99,12 +99,12 @@
 							
 							<?php endif; ?>
 							
-							<h1 itemprop="name"><?= $collection['name']; ?></h1>
+							<h1 itemprop="name"><?= $range['name']; ?></h1>
 							
-							<?php if(!empty($collection['presentation'])): ?>
+							<?php if(!empty($range['presentation'])): ?>
 								
 								<div class="content-presentation" itemprop="description">
-									<?= nl2br($collection['presentation']); ?>
+									<?= nl2br($range['presentation']); ?>
 								</div>
 							
 							<?php endif; ?>
@@ -122,26 +122,14 @@
 				<!-- Links -->
 				<div class="content-links">
 					
-					<?php if($brands): ?>
+					<?php if($products): ?>
 						
-						<?php foreach($brands as $brand): ?>
+						<?php foreach($products as $product): ?>
 							
-							<?php
-							
-							$brand_image = '';
-							
-							if(wp_vincod_get_picture_url($brand, 'retina')) {
-								$brand_image = ' style="background-image: url(' . wp_vincod_get_picture_url($brand, 'retina') . ')"';
-							}
-							elseif(wp_vincod_get_logo_url($brand, '640')) {
-								$brand_image = ' style="background-image: url(' . wp_vincod_get_logo_url($brand, '640') . ')"';
-							}
-							
-							?>
-							
-							<a href="<?= wp_vincod_link('brand', $brand['vincod'], $brand['name']); ?>" title="<?= $brand['name']; ?>" class="brand-link"<?= $brand_image; ?> itemprop="brand" itemscope itemtype="http://schema.org/Brand">
+							<a href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>" class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
 								
-								<h2 itemprop="name"><?= $brand['name']; ?></h2>
+								<img src="<?= wp_vincod_get_bottle_url($product, '640') ?>" alt="<?= $product['name']; ?>"/>
+								<h2 itemprop="name"><?= $product['name']; ?></h2>
 							
 							</a>
 						

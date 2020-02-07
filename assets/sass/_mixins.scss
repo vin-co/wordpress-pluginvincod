@@ -87,7 +87,9 @@
 	}
 
 	> * {
-		@include position-fit();
+		@include position();
+		@include size(100%);
+		position: absolute;
 	}
 }
 

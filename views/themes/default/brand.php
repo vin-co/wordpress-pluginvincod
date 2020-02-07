@@ -91,10 +91,10 @@
 						
 						<div class="panel-body">
 							
-							<?php if($background = wp_vincod_get_logo_url($brand, '640')): ?>
+							<?php if($logo = wp_vincod_get_logo_url($brand, '640')): ?>
 								
 								<div class="content-logo">
-									<span style="background-image: url('<?= $background; ?>')"></span>
+									<img src="<?= $logo; ?>" alt="<?= $brand['name']; ?>"/>
 								</div>
 							
 							<?php endif; ?>

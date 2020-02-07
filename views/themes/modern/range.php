@@ -83,34 +83,18 @@
 					
 					<div class="content-panel">
 						
-						<div class="panel-heading">
-							
-							<div class="content-cover"<?= ($background = wp_vincod_get_picture_url($range, 'retina')) ? ' style="background-image: url(' . $background . ')"' : ''; ?>></div>
-						
-						</div>
-						
-						<div class="panel-body">
-							
-							<?php if($background = wp_vincod_get_logo_url($range, '640')): ?>
-								
-								<div class="content-logo">
-									<span style="background-image: url('<?= $background; ?>')"></span>
-								</div>
-							
-							<?php endif; ?>
-							
+						<div class="content-logo">
 							<h1 itemprop="name"><?= $range['name']; ?></h1>
-							
-							<?php if(!empty($range['presentation'])): ?>
-								
-								<div class="content-presentation" itemprop="description">
-									<?= nl2br($range['presentation']); ?>
-								</div>
-							
-							<?php endif; ?>
-						
 						</div>
-					
+						
+						<?php if(!empty($range['presentation'])): ?>
+							
+							<div class="content-presentation" itemprop="description">
+								<?= nl2br($range['presentation']); ?>
+							</div>
+						
+						<?php endif; ?>
+						
 					</div>
 				
 				<?php endif; ?>
@@ -126,12 +110,33 @@
 						
 						<?php foreach($products as $product): ?>
 							
-							<a href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>" class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
+							<div class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
 								
-								<img src="<?= wp_vincod_get_bottle_url($product, '640') ?>" alt="<?= $product['name']; ?>"/>
-								<h2 itemprop="name"><?= $product['name']; ?></h2>
+								<?php if($bottle = wp_vincod_get_bottle_url($product, '640')): ?>
+									<div class="bottle">
+										<img src="<?= $bottle; ?>" alt="<?= $product['name']; ?>"/>
+									</div>
+								<?php endif; ?>
+								
+								<div class="description">
+									
+									<div class="description-content">
+										
+										<h2 itemprop="name"><?= $product['name']; ?></h2>
+										
+										<?php if(!empty($product['abstract'])): ?>
+											<div class="presentation" itemprop="description">
+												<?= nl2br($product['abstract']); ?>
+											</div>
+										<?php endif; ?>
+										
+										<a class="btn" href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>"><?php _e("Learn more", 'vincod'); ?></a>
+									
+									</div>
+								
+								</div>
 							
-							</a>
+							</div>
 						
 						<?php endforeach; ?>
 					

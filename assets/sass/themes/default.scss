@@ -53,13 +53,8 @@ html {
 		align-items: flex-start;
 		justify-content: space-between;
 		flex-wrap: wrap;
-		max-width: 768px;
 		margin: auto;
 		padding: $grid-gutter-width/2 0;
-
-		@include media-breakpoint-up(lg) {
-			max-width: 1600px;
-		}
 	}
 
 	// ---------- Menu styles ----------
@@ -68,6 +63,13 @@ html {
 		@include column(0, 12, 0);
 		@include column(lg, 3, 0);
 		margin-bottom: $grid-gutter-width/2;
+
+		@include media-breakpoint-up(lg) {
+
+			& + .content-container {
+				padding-right: 0;
+			}
+		}
 
 		> .btn {
 			display: flex;
@@ -101,7 +103,7 @@ html {
 			background-color: $gray-100;
 
 			@include media-breakpoint-down(md) {
-				margin-top: 20px;
+				margin-top: $grid-gutter-width/2;
 			}
 
 			.vincod-menu {
@@ -116,7 +118,7 @@ html {
 
 				a {
 					display: block;
-					padding: 8px 15px;
+					padding: $grid-gutter-width/4 $grid-gutter-width/2;
 					text-transform: capitalize;
 				}
 			}
@@ -160,23 +162,6 @@ html {
 					}
 				}
 			}
-
-			.vincod-menu {
-				list-style: none;
-				padding: 0;
-				margin: 0;
-
-				li.active > a, a:hover {
-					background-color: $secondary;
-					color: $white;
-				}
-
-				a {
-					display: block;
-					padding: 8px 15px;
-					text-transform: capitalize;
-				}
-			}
 		}
 
 		.vincod-search-form {
@@ -205,7 +190,10 @@ html {
 		@include column(lg);
 
 		@include media-breakpoint-up(lg) {
-			padding-right: 0;
+
+			&:first-child {
+				padding: 0;
+			}
 		}
 
 		.breadcrumb {
@@ -236,18 +224,20 @@ html {
 			text-align: center;
 
 			.content-logo {
-				@include margin-vertical(-200px, $grid-gutter-width/2);
 				@include size(200px);
-				display: inline-block;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: -200px auto $grid-gutter-width/2;
 				padding: $grid-gutter-width/2;
 				border: 1px solid $gray-300;
 				background-color: $white;
 				z-index: 10;
 
-				span {
-					@include size(100%);
-					@include background-image(contain);
-					display: block;
+				img {
+					display: inline-block;
+					max-width: 100%;
+					max-height: 100%;
 				}
 			}
 		}

@@ -85,7 +85,7 @@
 					<?php if($bottle = wp_vincod_get_bottle_url($product, '1024')): ?>
 						
 						<div class="product-image">
-							<img class="img-responsive" src="<?= $bottle; ?>" alt="<?= $product['name']; ?>"/>
+							<img src="<?= $bottle; ?>" alt="<?= $product['name']; ?>"/>
 						</div>
 					
 					<?php endif; ?>
@@ -244,7 +244,8 @@
 												<!-- Video -->
 												<strong class="text-uppercase"><?= $presentation['label']; ?></strong>
 												<br>
-												<?= wp_vincod_include_video($presentation['value'], '<br>'); ?>
+												<?= wp_vincod_include_video($presentation['value']); ?>
+												<br>
 											
 											<?php else: ?>
 												
@@ -277,7 +278,8 @@
 													<!-- Video -->
 													<strong class="text-uppercase"><?= $advice['label']; ?></strong>
 													<br>
-													<?= wp_vincod_include_video($advice['value'], '<br>'); ?>
+													<?= wp_vincod_include_video($advice['value']); ?>
+													<br>
 												
 												<?php else: ?>
 													

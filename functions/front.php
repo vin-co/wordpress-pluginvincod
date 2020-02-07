@@ -280,21 +280,20 @@ function wp_vincod_get_bottle_url($datas, $type = false) {
  *
  * @return bool|string
  */
-function wp_vincod_include_video($value, $extend) {
+function wp_vincod_include_video($value) {
 	
 	// Maybe add this in dashboard to customise width & height ?
 	$width = 400;
 	$height = 250;
 	
-	
 	if(preg_match('/^http(s?):\/\/vimeo.com\/([0-9_-]+)/', $value, $matches)) {
-		return '<iframe src="http://player.vimeo.com/video/' . $matches[2] . '" width="' . $width . '" height="' . $height . '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>' . $extend;
+		return '<iframe src="http://player.vimeo.com/video/' . $matches[2] . '" width="' . $width . '" height="' . $height . '" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
 	}
 	else if(preg_match('/^http(s?):\/\/www.youtube.com\/watch\?v=([a-zA-Z0-9_-]+)&?/', $value, $matches)) {
-		return '<iframe src="http://www.youtube.com/embed/' . $matches[2] . '" width="' . $width . '" height="' . $height . '" frameborder="0" allowFullScreen></iframe>' . $extend;
+		return '<iframe src="http://www.youtube.com/embed/' . $matches[2] . '" width="' . $width . '" height="' . $height . '" frameborder="0" allowFullScreen></iframe>';
 	}
 	else if(preg_match('/^http(s?):\/\/www.dailymotion.com\/video\/([a-zA-Z0-9_-]+)_/', $value, $matches)) {
-		return '<iframe src="http://www.dailymotion.com/embed/video/' . $matches[2] . '" width="' . $width . '" height="' . $height . '" frameborder="0" allowFullScreen></iframe>' . $extend;
+		return '<iframe src="http://www.dailymotion.com/embed/video/' . $matches[2] . '" width="' . $width . '" height="' . $height . '" frameborder="0" allowFullScreen></iframe>';
 	}
 	
 	return false;

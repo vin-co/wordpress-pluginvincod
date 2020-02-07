@@ -292,8 +292,20 @@ class WP_Vincod_Template_Controller extends WP_Vincod_API {
 		$view_datas = array(
 			
 			'owner'       => $owner,
-			'collections' => $collections,
-			'brands'      => $brands,
+			'collections' => ($collections) ? array_map(function($collection) {
+				if(!empty($collection['fields']['presentation'])) {
+					$collection['presentation'] = $collection['fields']['presentation']['value'];
+				}
+				
+				return $collection;
+			}, $collections) : false,
+			'brands'      => ($brands) ? array_map(function($brand) {
+				if(!empty($brand['fields']['presentation'])) {
+					$brand['presentation'] = $brand['fields']['presentation']['value'];
+				}
+				
+				return $brand;
+			}, $brands) : false,
 			'link'        => $this->permalink,
 			'settings'    => get_option('vincod_owner_settings'),
 			'menu'        => $menu,
@@ -331,7 +343,13 @@ class WP_Vincod_Template_Controller extends WP_Vincod_API {
 		$view_datas = array(
 			
 			'collection'  => $collection,
-			'brands'      => $brands,
+			'brands'      => ($brands) ? array_map(function($brand) {
+				if(!empty($brand['presentation'])) {
+					$brand['presentation'] = $brand['presentation']['value'];
+				}
+				
+				return $brand;
+			}, $brands) : false,
 			'link'        => $this->permalink,
 			'settings'    => get_option('vincod_collection_settings'),
 			'menu'        => $menu,
@@ -367,15 +385,19 @@ class WP_Vincod_Template_Controller extends WP_Vincod_API {
 		$breadcrumb = ($brand) ? wp_vincod_get_breadcrumb($brand['vincod']) : '';
 		
 		if(!empty($brand['presentation'])) {
-			
 			$brand['presentation'] = $brand['presentation']['value'];
 		}
-		
 		
 		$view_datas = array(
 			
 			'brand'       => $brand,
-			'ranges'      => $ranges,
+			'ranges'      => ($ranges) ? array_map(function($range) {
+				if(!empty($range['presentation'])) {
+					$range['presentation'] = $range['presentation']['value'];
+				}
+				
+				return $range;
+			}, $ranges) : false,
 			'products'    => $products,
 			'link'        => $this->permalink,
 			'settings'    => get_option('vincod_brand_settings'),

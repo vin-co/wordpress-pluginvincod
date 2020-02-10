@@ -2,153 +2,49 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vincod\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-26 08:17+0000\n"
-"PO-Revision-Date: 2017-06-26 08:17+0000\n"
-"Last-Translator: admin <apps@vinternet.net>\n"
+"POT-Creation-Date: 2020-02-10 09:27+0000\n"
+"PO-Revision-Date: 2020-02-10 09:30+0000\n"
+"Last-Translator: tchercheuse <guillaume@tete-chercheuse.fr>\n"
 "Language-Team: English (United States)\n"
-"Language: en-US\n"
-"Plural-Forms: nplurals=2; plural=n != 1\n"
+"Language: en_US\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Loco - https://localise.biz/"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.1; wp-5.3"
 
-#: views/template/search.php:74
-msgid "Search results for :"
-msgstr "Search results for :"
-
-#: views/template/search.php:112
-msgid "No product found."
-msgstr "No product found."
-
-#: vincod.php:158 functions/admin.php:276
+#: vincod.php:159 functions/admin.php:284
 msgid "Our Wines (powered by Vincod)"
 msgstr "Our Wines (powered by Vincod)"
 
-#: vincod.php:165
+#: vincod.php:166
 msgid "Install : \"Our Wines\" Page created"
 msgstr "Install : \"Our Wines\" Page created"
 
-#: vincod.php:170
+#: vincod.php:171
 msgid "Install : Page ID successfully stored -> "
 msgstr "Install : Page ID successfully stored -> "
 
-#: vincod.php:179 vincod.php:186 vincod.php:387
+#: vincod.php:180 vincod.php:187 vincod.php:388
 msgid "Install Error"
 msgstr "Install Error"
 
-#: vincod.php:179
+#: vincod.php:180
 msgid "Unable to create the \"Our Wines\" Page"
 msgstr "Unable to create the \"Our Wines\" Page"
 
-#: vincod.php:186
+#: vincod.php:187
 msgid "The \"Our Wines\" Page already exists"
 msgstr "The \"Our Wines\" Page already exists"
 
-#: vincod.php:387
+#: vincod.php:388
 msgid ""
 "Unable to install Vincod Plugin, the <em>wp_vincod_plugin</em> Class already "
 "exists"
 msgstr ""
 "Unable to install Vincod Plugin, the <em>wp_vincod_plugin</em> Class already "
 "exists"
-
-#: functions/admin.php:66 functions/admin.php:350
-msgid "We deleted the API credentials."
-msgstr "We deleted the API credentials."
-
-#: functions/admin.php:71
-msgid "The page 'Our Wines' status was changed : Waiting to be published."
-msgstr "The page 'Our Wines' status was changed : Waiting to be published."
-
-#: functions/admin.php:95
-msgid "We updated your API credentials."
-msgstr "We updated your API credentials."
-
-#: functions/admin.php:96
-msgid "The page 'Our Wines' is now published."
-msgstr "The page 'Our Wines' is now published."
-
-#: functions/admin.php:101 functions/admin.php:108
-msgid "Credentials Update"
-msgstr "Credentials Update"
-
-#: functions/admin.php:101 functions/admin.php:169
-msgid "Unable to connect to the API with these credentials"
-msgstr "Unable to connect to the API with these credentials"
-
-#: functions/admin.php:108 functions/admin.php:161
-msgid "You must enter your Vincod credentials"
-msgstr "You must enter your Vincod credentials"
-
-#: functions/admin.php:122
-msgid "Cache was cleared."
-msgstr "Cache was cleared."
-
-#: functions/admin.php:130
-msgid "Cache duration was updated."
-msgstr "Cache duration was updated."
-
-#: functions/admin.php:146
-msgid "Value was updated :"
-msgstr "Value was updated :"
-
-#: functions/admin.php:161 functions/admin.php:169
-msgid "Sitemap Error"
-msgstr "Sitemap Error"
-
-#: functions/admin.php:175
-msgid "Sitemap generation ..."
-msgstr "Sitemap generation ..."
-
-#: functions/admin.php:182 functions/admin.php:321
-msgid "Sitemap was removed."
-msgstr "Sitemap was removed."
-
-#: functions/admin.php:274
-msgid "our-wines"
-msgstr "our-wines"
-
-#: functions/admin.php:278
-msgid "This page is used by the Vincod Plugin. Please don't modify it."
-msgstr "This page is used by the Vincod Plugin. Please don't modify it."
-
-#: functions/admin.php:310
-msgid "We are resetting the plugin ..."
-msgstr "We are resetting the plugin ..."
-
-#: functions/admin.php:318
-msgid "The page 'Our Wines' was removed."
-msgstr "The page 'Our Wines' was removed."
-
-#: functions/admin.php:325
-msgid "Cache setting was removed."
-msgstr "Cache setting was removed."
-
-#: functions/admin.php:334
-msgid "Style options were removed."
-msgstr "Style options were removed."
-
-#: functions/admin.php:339
-msgid "The page 'Our Wines' was created again."
-msgstr "The page 'Our Wines' was created again."
-
-#: functions/admin.php:344
-msgid "We saved the new Page ID of 'Our Wines' : "
-msgstr "We saved the new Page ID of 'Our Wines' : "
-
-#: functions/admin.php:365
-msgid "We reset style settings."
-msgstr "We reset style settings."
-
-#: functions/admin.php:367
-msgid "End of the plugin reset !"
-msgstr "End of the plugin reset !"
-
-#: functions/front.php:300 views/admin/dashboard.php:173
-#: views/admin/dashboard.php:227
-msgid "Search"
-msgstr "Search"
 
 #: functions/global.php:23
 msgid "Back"
@@ -174,23 +70,124 @@ msgstr "range"
 msgid "product"
 msgstr "product"
 
-#: views/admin/dashboard.php:19
+#: functions/admin.php:66 functions/admin.php:360
+msgid "We deleted the API credentials."
+msgstr "We deleted the API credentials."
+
+#: functions/admin.php:71
+msgid "The page 'Our Wines' status was changed : Waiting to be published."
+msgstr "The page 'Our Wines' status was changed : Waiting to be published."
+
+#: functions/admin.php:95
+msgid "We updated your API credentials."
+msgstr "We updated your API credentials."
+
+#: functions/admin.php:96
+msgid "The page 'Our Wines' is now published."
+msgstr "The page 'Our Wines' is now published."
+
+#: functions/admin.php:101 functions/admin.php:108
+msgid "Credentials Update"
+msgstr "Credentials Update"
+
+#: functions/admin.php:101 functions/admin.php:177
+msgid "Unable to connect to the API with these credentials"
+msgstr "Unable to connect to the API with these credentials"
+
+#: functions/admin.php:108 functions/admin.php:169
+msgid "You must enter your Vincod credentials"
+msgstr "You must enter your Vincod credentials"
+
+#: functions/admin.php:122
+msgid "Cache was cleared."
+msgstr "Cache was cleared."
+
+#: functions/admin.php:130
+msgid "Cache duration was updated."
+msgstr "Cache duration was updated."
+
+#: functions/admin.php:142
+msgid "Theme was updated :"
+msgstr "Theme was updated :"
+
+#: functions/admin.php:154
+msgid "Value was updated :"
+msgstr "Value was updated :"
+
+#: functions/admin.php:169 functions/admin.php:177
+msgid "Sitemap Error"
+msgstr "Sitemap Error"
+
+#: functions/admin.php:183
+msgid "Sitemap generation ..."
+msgstr "Sitemap generation ..."
+
+#: functions/admin.php:190 functions/admin.php:329
+msgid "Sitemap was removed."
+msgstr "Sitemap was removed."
+
+#: functions/admin.php:282
+msgid "our-wines"
+msgstr "our-wines"
+
+#: functions/admin.php:286
+msgid "This page is used by the Vincod Plugin. Please don't modify it."
+msgstr "This page is used by the Vincod Plugin. Please don't modify it."
+
+#: functions/admin.php:318
+msgid "We are resetting the plugin ..."
+msgstr "We are resetting the plugin ..."
+
+#: functions/admin.php:326
+msgid "The page 'Our Wines' was removed."
+msgstr "The page 'Our Wines' was removed."
+
+#: functions/admin.php:333
+msgid "Cache setting was removed."
+msgstr "Cache setting was removed."
+
+#: functions/admin.php:344
+msgid "Style options were removed."
+msgstr "Style options were removed."
+
+#: functions/admin.php:349
+msgid "The page 'Our Wines' was created again."
+msgstr "The page 'Our Wines' was created again."
+
+#: functions/admin.php:354
+msgid "We saved the new Page ID of 'Our Wines' : "
+msgstr "We saved the new Page ID of 'Our Wines' : "
+
+#: functions/admin.php:375
+msgid "We reset style settings."
+msgstr "We reset style settings."
+
+#: functions/admin.php:377
+msgid "End of the plugin reset !"
+msgstr "End of the plugin reset !"
+
+#: functions/front.php:320 views/admin/dashboard.php:199
+#: views/admin/dashboard.php:253
+msgid "Search"
+msgstr "Search"
+
+#: views/admin/dashboard.php:18
 msgid "Trying to connect to Vincod API ..."
 msgstr "Trying to connect to Vincod API ..."
 
-#: views/admin/dashboard.php:20
+#: views/admin/dashboard.php:19
 msgid "Unable to connect to Vincod API."
 msgstr "Unable to connect to Vincod API."
 
-#: views/admin/dashboard.php:21
+#: views/admin/dashboard.php:20
 msgid "Vincod API connection success !"
 msgstr "Vincod API connection success !"
 
-#: views/admin/dashboard.php:22
+#: views/admin/dashboard.php:21
 msgid "Don't forget to validate your setting before leaving the page !"
 msgstr "Don't forget to validate your setting before leaving the page !"
 
-#: views/admin/dashboard.php:23
+#: views/admin/dashboard.php:22
 msgid "Missing API key and/or Account id."
 msgstr "Missing API key and/or Account id."
 
@@ -214,11 +211,11 @@ msgstr "You reset your plugin"
 msgid "Your plugin has been reset, please fill your API/account credentials."
 msgstr "Your plugin has been reset, please fill your API/account credentials."
 
-#: views/admin/dashboard.php:55
+#: views/admin/dashboard.php:56
 msgid "First visit"
 msgstr "First visit"
 
-#: views/admin/dashboard.php:57
+#: views/admin/dashboard.php:58
 msgid ""
 "Is it your first visit ? For Vincod plugin to work properly, you first need "
 "to fill in set up informations. You need a valide API Key and an authorized "
@@ -228,27 +225,27 @@ msgstr ""
 "to fill in set up informations. You need a valide API Key and an authorized "
 "account id. If needed email"
 
-#: views/admin/dashboard.php:66
+#: views/admin/dashboard.php:67
 msgid "Settings"
 msgstr "Settings"
 
-#: views/admin/dashboard.php:74
+#: views/admin/dashboard.php:76
 msgid "Your API key"
 msgstr "Your API key"
 
-#: views/admin/dashboard.php:75
+#: views/admin/dashboard.php:78
 msgid "The API key from your Vincod customer account"
 msgstr "The API key from your Vincod customer account"
 
-#: views/admin/dashboard.php:79
+#: views/admin/dashboard.php:83
 msgid "Account id"
 msgstr "Account id"
 
-#: views/admin/dashboard.php:80
+#: views/admin/dashboard.php:85
 msgid "Your Vincod account id"
 msgstr "Your Vincod account id"
 
-#: views/admin/dashboard.php:83
+#: views/admin/dashboard.php:88
 msgid ""
 "If you want only one brand from the account, specify the brand id. If needed "
 "email"
@@ -256,53 +253,53 @@ msgstr ""
 "If you want only one brand from the account, specify the brand id. If needed "
 "email"
 
-#: views/admin/dashboard.php:87
+#: views/admin/dashboard.php:94
 msgid "Brand id"
 msgstr "Brand id"
 
-#: views/admin/dashboard.php:88
+#: views/admin/dashboard.php:96
 msgid "Your brand Vincod id"
 msgstr "Your brand Vincod id"
 
-#: views/admin/dashboard.php:93
+#: views/admin/dashboard.php:101
 msgid "Check API"
 msgstr "Check API"
 
-#: views/admin/dashboard.php:96
+#: views/admin/dashboard.php:104
 msgid "Remove my credentials"
 msgstr "Remove my credentials"
 
-#: views/admin/dashboard.php:99 views/admin/dashboard.php:133
-#: views/admin/dashboard.php:245
+#: views/admin/dashboard.php:107 views/admin/dashboard.php:146
+#: views/admin/dashboard.php:273
 msgid "Validate my settings"
 msgstr "Validate my settings"
 
-#: views/admin/dashboard.php:112
+#: views/admin/dashboard.php:120
 msgid "API Cache"
 msgstr "API Cache"
 
-#: views/admin/dashboard.php:120
+#: views/admin/dashboard.php:129
 msgid "Cache duration"
 msgstr "Cache duration"
 
-#: views/admin/dashboard.php:121
+#: views/admin/dashboard.php:131
 msgid "Example : 1 (0 to do not cache at all)"
 msgstr "Example : 1 (0 to do not cache at all)"
 
-#: views/admin/dashboard.php:122
+#: views/admin/dashboard.php:133
 msgid "day(s)"
 msgstr "day(s)"
 
-#: views/admin/dashboard.php:127 views/admin/dashboard.php:242
-#: views/admin/dashboard.php:348 views/admin/dashboard.php:360
+#: views/admin/dashboard.php:140 views/admin/dashboard.php:270
+#: views/admin/dashboard.php:380 views/admin/dashboard.php:393
 msgid "What is this"
 msgstr "What is this"
 
-#: views/admin/dashboard.php:130
+#: views/admin/dashboard.php:143
 msgid "Clear Cache"
 msgstr "Clear Cache"
 
-#: views/admin/dashboard.php:137
+#: views/admin/dashboard.php:150
 msgid ""
 "The plugin communicate with the vincod API to get different details. It will "
 "cache these datas to improve the global treatment speed. You can setup the "
@@ -312,47 +309,59 @@ msgstr ""
 "cache these datas to improve the global treatment speed. You can setup the "
 "cache duration with the previous form."
 
-#: views/admin/dashboard.php:170
+#: views/admin/dashboard.php:184
+msgid "Theme"
+msgstr "Theme"
+
+#: views/admin/dashboard.php:187
+msgid "Default"
+msgstr "Default"
+
+#: views/admin/dashboard.php:188
+msgid "Modern"
+msgstr "Modern"
+
+#: views/admin/dashboard.php:196
 msgid "Template name"
 msgstr "Template name"
 
-#: views/admin/dashboard.php:171
+#: views/admin/dashboard.php:197
 msgid "Menu"
 msgstr "Menu"
 
-#: views/admin/dashboard.php:172
+#: views/admin/dashboard.php:198
 msgid "Breadcrumb"
 msgstr "Breadcrumb"
 
-#: views/admin/dashboard.php:174
+#: views/admin/dashboard.php:200
 msgid "Content"
 msgstr "Content"
 
-#: views/admin/dashboard.php:175
+#: views/admin/dashboard.php:201
 msgid "Links"
 msgstr "Links"
 
-#: views/admin/dashboard.php:180
+#: views/admin/dashboard.php:206
 msgid "Owner"
 msgstr "Owner"
 
-#: views/admin/dashboard.php:189
+#: views/admin/dashboard.php:215
 msgid "Collection"
 msgstr "Collection"
 
-#: views/admin/dashboard.php:198
+#: views/admin/dashboard.php:224
 msgid "Brand"
 msgstr "Brand"
 
-#: views/admin/dashboard.php:207
+#: views/admin/dashboard.php:233
 msgid "Range"
 msgstr "Range"
 
-#: views/admin/dashboard.php:216
+#: views/admin/dashboard.php:242
 msgid "Product"
 msgstr "Product"
 
-#: views/admin/dashboard.php:249
+#: views/admin/dashboard.php:277
 msgid ""
 "This part allow you to customize your page styles such as the elements "
 "showed in the page layout."
@@ -360,35 +369,35 @@ msgstr ""
 "This part allow you to customize your page styles such as the elements "
 "showed in the page layout."
 
-#: views/admin/dashboard.php:259
+#: views/admin/dashboard.php:287
 msgid "SEO"
 msgstr "SEO"
 
-#: views/admin/dashboard.php:268
+#: views/admin/dashboard.php:296
 msgid "Your SEO is correctly optimized."
 msgstr "Your SEO is correctly optimized."
 
-#: views/admin/dashboard.php:269
+#: views/admin/dashboard.php:297
 msgid "Check your site-map"
 msgstr "Check your site-map"
 
-#: views/admin/dashboard.php:274
+#: views/admin/dashboard.php:302
 msgid "Your SEO isn't optimized (site-map was not found)"
 msgstr "Your SEO isn't optimized (site-map was not found)"
 
-#: views/admin/dashboard.php:282
+#: views/admin/dashboard.php:312
 msgid "Remove your sitemap"
 msgstr "Remove your sitemap"
 
-#: views/admin/dashboard.php:290
+#: views/admin/dashboard.php:319
 msgid "Optimize my SEO"
 msgstr "Optimize my SEO"
 
-#: views/admin/dashboard.php:294
+#: views/admin/dashboard.php:324
 msgid "What will happen"
 msgstr "What will happen"
 
-#: views/admin/dashboard.php:298
+#: views/admin/dashboard.php:328
 msgid ""
 "The plugin will generate a sitemap which will be visited by some search "
 "engine robots ; each wine will be properly indexed."
@@ -396,19 +405,19 @@ msgstr ""
 "The plugin will generate a sitemap which will be visited by some search "
 "engine robots ; each wine will be properly indexed."
 
-#: views/admin/dashboard.php:310
+#: views/admin/dashboard.php:341
 msgid "Analysis & Debug"
 msgstr "Analysis & Debug"
 
-#: views/admin/dashboard.php:329
+#: views/admin/dashboard.php:360
 msgid "No log to show"
 msgstr "No log to show"
 
-#: views/admin/dashboard.php:345
+#: views/admin/dashboard.php:376
 msgid "Remove your devlog"
 msgstr "Remove your devlog"
 
-#: views/admin/dashboard.php:352 views/admin/dashboard.php:364
+#: views/admin/dashboard.php:384 views/admin/dashboard.php:397
 msgid ""
 "The plugin save each process that have been done ; what you can see here is "
 "the plugin latest API call. If there's any bug, it cans be solved by looking "
@@ -418,19 +427,19 @@ msgstr ""
 "the plugin latest API call. If there's any bug, it cans be solved by looking "
 "through this console."
 
-#: views/admin/dashboard.php:374
+#: views/admin/dashboard.php:407
 msgid "Plugin reset"
 msgstr "Plugin reset"
 
-#: views/admin/dashboard.php:384
+#: views/admin/dashboard.php:418
 msgid "Reset my plugin"
 msgstr "Reset my plugin"
 
-#: views/admin/dashboard.php:388
+#: views/admin/dashboard.php:423
 msgid "Is there a problem with your plugin"
 msgstr "Is there a problem with your plugin"
 
-#: views/admin/dashboard.php:392
+#: views/admin/dashboard.php:427
 msgid ""
 "If your plugin got bugs, don't hesitate to reset it ; this will refresh your "
 "datas and make the structure clean."
@@ -442,13 +451,17 @@ msgstr ""
 msgid "All rights reserved"
 msgstr "All rights reserved"
 
-#: views/template/brand.php:172 views/template/collection.php:155
-#: views/template/index.php:191 views/template/range.php:136
+#: views/themes/default/index.php:177 views/themes/default/collection.php:152
+#: views/themes/default/range.php:140 views/themes/default/brand.php:165
+#: views/themes/modern/index.php:161 views/themes/modern/collection.php:136
+#: views/themes/modern/range.php:145 views/themes/modern/brand.php:170
 msgid "Nothing to Show."
 msgstr "Nothing to Show."
 
-#: views/template/brand.php:174 views/template/collection.php:157
-#: views/template/index.php:193 views/template/range.php:138
+#: views/themes/default/index.php:179 views/themes/default/collection.php:154
+#: views/themes/default/range.php:142 views/themes/default/brand.php:167
+#: views/themes/modern/index.php:163 views/themes/modern/collection.php:138
+#: views/themes/modern/range.php:147 views/themes/modern/brand.php:172
 msgid ""
 "Please check your Vincod Account id or enter a Brand Vincod id if you want "
 "to show only one brand."
@@ -456,54 +469,76 @@ msgstr ""
 "Please check your Vincod Account id or enter a Brand Vincod id if you want "
 "to show only one brand."
 
-#: views/template/product.php:91
+#: views/themes/default/product.php:95 views/themes/modern/product.php:373
 msgid "Downloads"
 msgstr "Downloads"
 
-#: views/template/product.php:111 views/template/product.php:111
+#: views/themes/default/product.php:115 views/themes/modern/product.php:393
+#: views/themes/modern/product.php:393
 msgid "Product datasheet"
 msgstr "Product datasheet"
 
-#: views/template/product.php:115 views/template/product.php:115
+#: views/themes/default/product.php:119 views/themes/modern/product.php:397
+#: views/themes/modern/product.php:397
 msgid "Table stand"
 msgstr "Table stand"
 
-#: views/template/product.php:133
+#: views/themes/default/product.php:137 views/themes/modern/product.php:106
 msgid "See all vintages"
 msgstr "See all vintages"
 
-#: views/template/product.php:200
+#: views/themes/default/product.php:190
 msgid "Presentation"
 msgstr "Presentation"
 
-#: views/template/product.php:210
+#: views/themes/default/product.php:198
 msgid "Tasting tips"
 msgstr "Tasting tips"
 
-#: views/template/product.php:220
+#: views/themes/default/product.php:206
 msgid "Specifications"
 msgstr "Specifications"
 
-#: views/template/product.php:230
+#: views/themes/default/product.php:214 views/themes/modern/product.php:318
 msgid "Reviews & awards"
 msgstr "Reviews & awards"
 
-#: views/template/product.php:240 views/template/product.php:451
-#: views/template/product.php:452
+#: views/themes/default/product.php:222 views/themes/default/product.php:432
+#: views/themes/default/product.php:433 views/themes/modern/product.php:150
+#: views/themes/modern/product.php:151
 msgid "Where to buy"
 msgstr "Where to buy"
 
-#: views/template/product.php:318
+#: views/themes/default/product.php:299 views/themes/modern/product.php:250
 msgid "Recipes"
 msgstr "Recipes"
 
-#: views/template/product.php:361
+#: views/themes/default/product.php:341 views/themes/modern/product.php:291
 msgid "Grapes"
 msgstr "Grapes"
 
-#: views/template/product.php:465 views/template/product.php:466
+#: views/themes/default/product.php:446 views/themes/default/product.php:447
+#: views/themes/modern/product.php:140 views/themes/modern/product.php:141
+#: views/themes/modern/product.php:162 views/themes/modern/product.php:163
 msgid "Order now"
 msgstr "Order now"
+
+#: views/themes/default/search.php:76 views/themes/modern/search.php:76
+msgid "Search results for :"
+msgstr "Search results for :"
+
+#: views/themes/default/search.php:108 views/themes/modern/search.php:108
+msgid "No product found."
+msgstr "No product found."
+
+#: views/themes/modern/index.php:128 views/themes/modern/index.php:153
+#: views/themes/modern/collection.php:128 views/themes/modern/brand.php:128
+msgid "Discover"
+msgstr "Discover"
+
+#: views/themes/modern/range.php:133 views/themes/modern/brand.php:158
+msgid "Learn more"
+msgstr "Learn more"
 
 #. Name of the plugin
 msgid "Vincod"

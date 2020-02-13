@@ -34,6 +34,10 @@ html {
 	$link-hover-color: inherit;
 	$link-hover-decoration: none;
 
+	$btn-padding-y-lg: 2rem;
+	$btn-padding-x-lg: 5rem;
+	$btn-font-size-lg: 1.4rem;
+
 	$input-border-color: $primary;
 	$input-placeholder-color: $primary;
 
@@ -120,7 +124,7 @@ html {
 
 				a {
 					display: block;
-					padding: $grid-gutter-width/4 $grid-gutter-width/2;
+					padding: $grid-gutter-width/2;
 					text-transform: capitalize;
 				}
 			}
@@ -265,7 +269,7 @@ html {
 		justify-content: center;
 		flex-direction: column;
 		min-height: 75vh;
-		margin: $grid-gutter-width/4 auto;
+		margin: $grid-gutter-width/2 auto;
 		padding: $grid-gutter-width*2;
 		border: 1px solid $gray-200;
 		text-align: center;
@@ -288,9 +292,8 @@ html {
 		}
 
 		.btn {
-			@include button($gray-600, true);
+			@include button($secondary, true, lg);
 			margin-top: $grid-gutter-width;
-			padding: 2rem 5rem;
 			text-transform: uppercase;
 		}
 
@@ -308,8 +311,7 @@ html {
 			}
 
 			.btn {
-				@include button(rgba($white, .8), true);
-				padding: 2rem 5rem;
+				@include button(rgba($white, .8), true, lg);
 			}
 		}
 	}
@@ -360,8 +362,7 @@ html {
 				}
 
 				.btn {
-					@include button($gray-600, true);
-					padding: 2rem 5rem;
+					@include button($secondary, true, lg);
 					text-transform: uppercase;
 				}
 			}
@@ -416,12 +417,8 @@ html {
 					text-transform: uppercase;
 					font-size: $font-size-base;
 
-					&.btn-lg {
-						padding: 2rem 5rem;
-
-						&:after {
-							display: none;
-						}
+					&.btn-lg:after {
+						display: none;
 					}
 				}
 

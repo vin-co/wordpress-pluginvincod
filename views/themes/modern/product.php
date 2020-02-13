@@ -107,7 +107,7 @@
 										<?= $product['vintageyear']; ?>
 									</button>
 									
-									<div class="dropdown-menu">
+									<div class="dropdown-menu fade">
 										
 										<?php foreach($vintages as $vintage): ?>
 											
@@ -141,7 +141,7 @@
 										<?php _e('Order now', 'vincod'); ?>
 									</button>
 									
-									<div class="dropdown-menu">
+									<div class="dropdown-menu fade">
 										
 										<?php if(!empty($product['shops'])): ?>
 											

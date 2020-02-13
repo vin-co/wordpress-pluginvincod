@@ -6,9 +6,9 @@
 
 **Requires at least:** 4.0
 
-**Tested up to:** 4.7
+**Tested up to:** 5.3
 
-**Stable tag:** 2.5.1
+**Stable tag:** 2.6.0
 
 **License:** GPLv2 or later
 
@@ -26,9 +26,7 @@ Plugin permettant l'intégration de vos fiches vincod directement sur votre site
 4. Configure the Plugin
 
 ## Bibliothèques utilisées
-* Bootstrap 3.3.7
-* Bootswatch 3.3.7 (Theme Lumen pour l'Admin et Yeti pour le Front)
-* Ionicons 2.0.1
+* Bootstrap 4.4.1
 
 ## Comment modifier les fichiers source ?
 

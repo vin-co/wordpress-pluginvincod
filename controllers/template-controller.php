@@ -300,8 +300,8 @@ class WP_Vincod_Template_Controller extends WP_Vincod_API {
 				return $collection;
 			}, $collections) : false,
 			'brands'      => ($brands) ? array_map(function($brand) {
-				if(!empty($brand['fields']['presentation'])) {
-					$brand['presentation'] = $brand['fields']['presentation']['value'];
+				if(!empty($brand['presentation'])) {
+					$brand['presentation'] = $brand['presentation']['value'];
 				}
 				
 				return $brand;
@@ -583,6 +583,5 @@ class WP_Vincod_Template_Controller extends WP_Vincod_API {
 		$this->_view_loaded = $this->load_view('search', $view_datas, true);
 		
 	}
-	
 	
 }

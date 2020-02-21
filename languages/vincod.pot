@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 09:27+0000\n"
+"POT-Creation-Date: 2020-02-21 19:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -165,7 +165,7 @@ msgid "End of the plugin reset !"
 msgstr ""
 
 #: functions/front.php:320 views/admin/dashboard.php:199
-#: views/admin/dashboard.php:253
+#: views/admin/dashboard.php:258
 msgid "Search"
 msgstr ""
 
@@ -261,7 +261,7 @@ msgid "Remove my credentials"
 msgstr ""
 
 #: views/admin/dashboard.php:107 views/admin/dashboard.php:146
-#: views/admin/dashboard.php:273
+#: views/admin/dashboard.php:278
 msgid "Validate my settings"
 msgstr ""
 
@@ -281,8 +281,8 @@ msgstr ""
 msgid "day(s)"
 msgstr ""
 
-#: views/admin/dashboard.php:140 views/admin/dashboard.php:270
-#: views/admin/dashboard.php:380 views/admin/dashboard.php:393
+#: views/admin/dashboard.php:140 views/admin/dashboard.php:275
+#: views/admin/dashboard.php:385 views/admin/dashboard.php:398
 msgid "What is this"
 msgstr ""
 
@@ -329,98 +329,102 @@ msgstr ""
 msgid "Links"
 msgstr ""
 
-#: views/admin/dashboard.php:206
+#: views/admin/dashboard.php:202
+msgid "Sort by Appellation"
+msgstr ""
+
+#: views/admin/dashboard.php:207
 msgid "Owner"
 msgstr ""
 
-#: views/admin/dashboard.php:215
+#: views/admin/dashboard.php:218
 msgid "Collection"
 msgstr ""
 
-#: views/admin/dashboard.php:224
+#: views/admin/dashboard.php:229
 msgid "Brand"
 msgstr ""
 
-#: views/admin/dashboard.php:233
+#: views/admin/dashboard.php:238
 msgid "Range"
 msgstr ""
 
-#: views/admin/dashboard.php:242
+#: views/admin/dashboard.php:247
 msgid "Product"
 msgstr ""
 
-#: views/admin/dashboard.php:277
+#: views/admin/dashboard.php:282
 msgid ""
 "This part allow you to customize your page styles such as the elements "
 "showed in the page layout."
 msgstr ""
 
-#: views/admin/dashboard.php:287
+#: views/admin/dashboard.php:292
 msgid "SEO"
 msgstr ""
 
-#: views/admin/dashboard.php:296
+#: views/admin/dashboard.php:301
 msgid "Your SEO is correctly optimized."
 msgstr ""
 
-#: views/admin/dashboard.php:297
+#: views/admin/dashboard.php:302
 msgid "Check your site-map"
 msgstr ""
 
-#: views/admin/dashboard.php:302
+#: views/admin/dashboard.php:307
 msgid "Your SEO isn't optimized (site-map was not found)"
 msgstr ""
 
-#: views/admin/dashboard.php:312
+#: views/admin/dashboard.php:317
 msgid "Remove your sitemap"
 msgstr ""
 
-#: views/admin/dashboard.php:319
+#: views/admin/dashboard.php:324
 msgid "Optimize my SEO"
 msgstr ""
 
-#: views/admin/dashboard.php:324
+#: views/admin/dashboard.php:329
 msgid "What will happen"
 msgstr ""
 
-#: views/admin/dashboard.php:328
+#: views/admin/dashboard.php:333
 msgid ""
 "The plugin will generate a sitemap which will be visited by some search "
 "engine robots ; each wine will be properly indexed."
 msgstr ""
 
-#: views/admin/dashboard.php:341
+#: views/admin/dashboard.php:346
 msgid "Analysis & Debug"
 msgstr ""
 
-#: views/admin/dashboard.php:360
+#: views/admin/dashboard.php:365
 msgid "No log to show"
 msgstr ""
 
-#: views/admin/dashboard.php:376
+#: views/admin/dashboard.php:381
 msgid "Remove your devlog"
 msgstr ""
 
-#: views/admin/dashboard.php:384 views/admin/dashboard.php:397
+#: views/admin/dashboard.php:389 views/admin/dashboard.php:402
 msgid ""
 "The plugin save each process that have been done ; what you can see here is "
 "the plugin latest API call. If there's any bug, it cans be solved by looking "
 "through this console."
 msgstr ""
 
-#: views/admin/dashboard.php:407
+#: views/admin/dashboard.php:412
 msgid "Plugin reset"
 msgstr ""
 
-#: views/admin/dashboard.php:418
+#: views/admin/dashboard.php:423
 msgid "Reset my plugin"
 msgstr ""
 
-#: views/admin/dashboard.php:423
+#: views/admin/dashboard.php:428
 msgid "Is there a problem with your plugin"
 msgstr ""
 
-#: views/admin/dashboard.php:427
+#: views/admin/dashboard.php:432
 msgid ""
 "If your plugin got bugs, don't hesitate to reset it ; this will refresh your "
 "datas and make the structure clean."
@@ -430,17 +434,17 @@ msgstr ""
 msgid "All rights reserved"
 msgstr ""
 
-#: views/themes/default/index.php:177 views/themes/default/collection.php:152
-#: views/themes/default/range.php:140 views/themes/default/brand.php:165
-#: views/themes/modern/index.php:161 views/themes/modern/collection.php:136
-#: views/themes/modern/range.php:145 views/themes/modern/brand.php:170
+#: views/themes/default/index.php:173 views/themes/default/collection.php:148
+#: views/themes/default/range.php:187 views/themes/default/brand.php:212
+#: views/themes/modern/index.php:157 views/themes/modern/collection.php:132
+#: views/themes/modern/range.php:213 views/themes/modern/brand.php:238
 msgid "Nothing to Show."
 msgstr ""
 
-#: views/themes/default/index.php:179 views/themes/default/collection.php:154
-#: views/themes/default/range.php:142 views/themes/default/brand.php:167
-#: views/themes/modern/index.php:163 views/themes/modern/collection.php:138
-#: views/themes/modern/range.php:147 views/themes/modern/brand.php:172
+#: views/themes/default/index.php:175 views/themes/default/collection.php:150
+#: views/themes/default/range.php:189 views/themes/default/brand.php:214
+#: views/themes/modern/index.php:159 views/themes/modern/collection.php:134
+#: views/themes/modern/range.php:215 views/themes/modern/brand.php:240
 msgid ""
 "Please check your Vincod Account id or enter a Brand Vincod id if you want "
 "to show only one brand."
@@ -508,12 +512,13 @@ msgstr ""
 msgid "No product found."
 msgstr ""
 
-#: views/themes/modern/index.php:128 views/themes/modern/index.php:153
-#: views/themes/modern/collection.php:128 views/themes/modern/brand.php:128
+#: views/themes/modern/index.php:124 views/themes/modern/index.php:149
+#: views/themes/modern/collection.php:124 views/themes/modern/brand.php:124
 msgid "Discover"
 msgstr ""
 
-#: views/themes/modern/range.php:133 views/themes/modern/brand.php:158
+#: views/themes/modern/range.php:155 views/themes/modern/range.php:199
+#: views/themes/modern/brand.php:180 views/themes/modern/brand.php:224
 msgid "Learn more"
 msgstr ""
 

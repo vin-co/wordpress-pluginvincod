@@ -77,27 +77,23 @@
 
 			<?php endif; ?>
 
-			<?php if($settings['has_content']): ?>
+			<?php if($settings['has_content'] && $owner): ?>
 
-				<?php if($owner): ?>
+				<div class="content-panel">
 
-					<div class="content-panel">
-
-						<div class="content-logo">
-							<h1 itemprop="name"><?= $owner['company']; ?></h1>
-						</div>
-
-						<?php if(!empty($owner['presentation'])): ?>
-
-							<div class="content-presentation" itemprop="description">
-								<?= nl2br($owner['presentation']); ?>
-							</div>
-
-						<?php endif; ?>
-
+					<div class="content-logo">
+						<h1 itemprop="name"><?= $owner['company']; ?></h1>
 					</div>
 
-				<?php endif; ?>
+					<?php if(!empty($owner['presentation'])): ?>
+
+						<div class="content-presentation" itemprop="description">
+							<?= nl2br($owner['presentation']); ?>
+						</div>
+
+					<?php endif; ?>
+
+				</div>
 
 			<?php endif; ?>
 

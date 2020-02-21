@@ -77,43 +77,39 @@
 
 			<?php endif; ?>
 
-			<?php if($settings['has_content']): ?>
+			<?php if($settings['has_content'] && $owner): ?>
 
-				<?php if($owner): ?>
+				<div class="content-panel">
 
-					<div class="content-panel">
+					<div class="panel-heading">
 
-						<div class="panel-heading">
-
-							<div class="content-cover"<?= ($background = wp_vincod_get_picture_url($owner, 'retina')) ? ' style="background-image: url(' . $background . ')"' : ''; ?>></div>
-
-						</div>
-
-						<div class="panel-body">
-
-							<?php if($logo = wp_vincod_get_logo_url($owner, '640')): ?>
-
-								<div class="content-logo">
-									<img src="<?= $logo; ?>" alt="<?= $owner['name']; ?>"/>
-								</div>
-
-							<?php endif; ?>
-
-							<h1 itemprop="name"><?= $owner['company']; ?></h1>
-
-							<?php if(!empty($owner['presentation'])): ?>
-
-								<div class="content-presentation" itemprop="description">
-									<?= nl2br($owner['presentation']); ?>
-								</div>
-
-							<?php endif; ?>
-
-						</div>
+						<div class="content-cover"<?= ($background = wp_vincod_get_picture_url($owner, 'retina')) ? ' style="background-image: url(' . $background . ')"' : ''; ?>></div>
 
 					</div>
 
-				<?php endif; ?>
+					<div class="panel-body">
+
+						<?php if($logo = wp_vincod_get_logo_url($owner, '640')): ?>
+
+							<div class="content-logo">
+								<img src="<?= $logo; ?>" alt="<?= $owner['name']; ?>"/>
+							</div>
+
+						<?php endif; ?>
+
+						<h1 itemprop="name"><?= $owner['company']; ?></h1>
+
+						<?php if(!empty($owner['presentation'])): ?>
+
+							<div class="content-presentation" itemprop="description">
+								<?= nl2br($owner['presentation']); ?>
+							</div>
+
+						<?php endif; ?>
+
+					</div>
+
+				</div>
 
 			<?php endif; ?>
 

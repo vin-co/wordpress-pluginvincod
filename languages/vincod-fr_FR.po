@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Vincod\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-10 09:27+0000\n"
-"PO-Revision-Date: 2020-02-10 09:29+0000\n"
+"POT-Creation-Date: 2020-02-21 19:48+0000\n"
+"PO-Revision-Date: 2020-02-21 19:48+0000\n"
 "Last-Translator: tchercheuse <guillaume@tete-chercheuse.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -169,7 +169,7 @@ msgid "End of the plugin reset !"
 msgstr "Fin de la remise à zéro !"
 
 #: functions/front.php:320 views/admin/dashboard.php:199
-#: views/admin/dashboard.php:253
+#: views/admin/dashboard.php:258
 msgid "Search"
 msgstr "Recherche"
 
@@ -275,7 +275,7 @@ msgid "Remove my credentials"
 msgstr "Supprimer mes identifiants"
 
 #: views/admin/dashboard.php:107 views/admin/dashboard.php:146
-#: views/admin/dashboard.php:273
+#: views/admin/dashboard.php:278
 msgid "Validate my settings"
 msgstr "Valider les modifications"
 
@@ -295,8 +295,8 @@ msgstr "Exemple : 1 (mettre 0 pour ne jamais mettre en cache)"
 msgid "day(s)"
 msgstr "jour(s)"
 
-#: views/admin/dashboard.php:140 views/admin/dashboard.php:270
-#: views/admin/dashboard.php:380 views/admin/dashboard.php:393
+#: views/admin/dashboard.php:140 views/admin/dashboard.php:275
+#: views/admin/dashboard.php:385 views/admin/dashboard.php:398
 msgid "What is this"
 msgstr "Qu'est-ce que c'est"
 
@@ -347,27 +347,31 @@ msgstr "Contenu"
 msgid "Links"
 msgstr "Liens"
 
-#: views/admin/dashboard.php:206
+#: views/admin/dashboard.php:202
+msgid "Sort by Appellation"
+msgstr "Trier par Appellation"
+
+#: views/admin/dashboard.php:207
 msgid "Owner"
 msgstr "Propriétaire"
 
-#: views/admin/dashboard.php:215
+#: views/admin/dashboard.php:218
 msgid "Collection"
 msgstr "Collection"
 
-#: views/admin/dashboard.php:224
+#: views/admin/dashboard.php:229
 msgid "Brand"
 msgstr "Marque"
 
-#: views/admin/dashboard.php:233
+#: views/admin/dashboard.php:238
 msgid "Range"
 msgstr "Gamme"
 
-#: views/admin/dashboard.php:242
+#: views/admin/dashboard.php:247
 msgid "Product"
 msgstr "Produit"
 
-#: views/admin/dashboard.php:277
+#: views/admin/dashboard.php:282
 msgid ""
 "This part allow you to customize your page styles such as the elements "
 "showed in the page layout."
@@ -375,35 +379,35 @@ msgstr ""
 "Cette partie vous permet de personnaliser le style des pages générés par le "
 "plugin tels que les éléments affichés sur la page"
 
-#: views/admin/dashboard.php:287
+#: views/admin/dashboard.php:292
 msgid "SEO"
 msgstr "Référencement"
 
-#: views/admin/dashboard.php:296
+#: views/admin/dashboard.php:301
 msgid "Your SEO is correctly optimized."
 msgstr "Votre référencement est correctement optimisé"
 
-#: views/admin/dashboard.php:297
+#: views/admin/dashboard.php:302
 msgid "Check your site-map"
 msgstr "Voir le sitemap"
 
-#: views/admin/dashboard.php:302
+#: views/admin/dashboard.php:307
 msgid "Your SEO isn't optimized (site-map was not found)"
 msgstr "Le référencement n'est pas optimisé (site-map introuvable)"
 
-#: views/admin/dashboard.php:312
+#: views/admin/dashboard.php:317
 msgid "Remove your sitemap"
 msgstr "Supprimer le sitemap"
 
-#: views/admin/dashboard.php:319
+#: views/admin/dashboard.php:324
 msgid "Optimize my SEO"
 msgstr "Optimiser mon référencement"
 
-#: views/admin/dashboard.php:324
+#: views/admin/dashboard.php:329
 msgid "What will happen"
 msgstr "Que va-t-il se passer"
 
-#: views/admin/dashboard.php:328
+#: views/admin/dashboard.php:333
 msgid ""
 "The plugin will generate a sitemap which will be visited by some search "
 "engine robots ; each wine will be properly indexed."
@@ -412,19 +416,19 @@ msgstr ""
 "recherche pourront accéder ; chacun de vos vins sera indexé individuellement "
 "sur les moteurs."
 
-#: views/admin/dashboard.php:341
+#: views/admin/dashboard.php:346
 msgid "Analysis & Debug"
 msgstr "Analyse & Débug"
 
-#: views/admin/dashboard.php:360
+#: views/admin/dashboard.php:365
 msgid "No log to show"
 msgstr "Aucun log disponible pour le moment"
 
-#: views/admin/dashboard.php:376
+#: views/admin/dashboard.php:381
 msgid "Remove your devlog"
 msgstr "Effacer le devlog"
 
-#: views/admin/dashboard.php:384 views/admin/dashboard.php:397
+#: views/admin/dashboard.php:389 views/admin/dashboard.php:402
 msgid ""
 "The plugin save each process that have been done ; what you can see here is "
 "the plugin latest API call. If there's any bug, it cans be solved by looking "
@@ -435,19 +439,19 @@ msgstr ""
 "a pu s'y passer. S'il y a un bug, c'est cette partie qui sera décisive pour "
 "le comprendre."
 
-#: views/admin/dashboard.php:407
+#: views/admin/dashboard.php:412
 msgid "Plugin reset"
 msgstr "Remise à zéro du plugin"
 
-#: views/admin/dashboard.php:418
+#: views/admin/dashboard.php:423
 msgid "Reset my plugin"
 msgstr "Remettre le plugin à son état d'origine"
 
-#: views/admin/dashboard.php:423
+#: views/admin/dashboard.php:428
 msgid "Is there a problem with your plugin"
 msgstr "Votre plugin bug"
 
-#: views/admin/dashboard.php:427
+#: views/admin/dashboard.php:432
 msgid ""
 "If your plugin got bugs, don't hesitate to reset it ; this will refresh your "
 "datas and make the structure clean."
@@ -459,17 +463,17 @@ msgstr ""
 msgid "All rights reserved"
 msgstr "Tous droits réservés"
 
-#: views/themes/default/index.php:177 views/themes/default/collection.php:152
-#: views/themes/default/range.php:140 views/themes/default/brand.php:165
-#: views/themes/modern/index.php:161 views/themes/modern/collection.php:136
-#: views/themes/modern/range.php:145 views/themes/modern/brand.php:170
+#: views/themes/default/index.php:173 views/themes/default/collection.php:148
+#: views/themes/default/range.php:187 views/themes/default/brand.php:212
+#: views/themes/modern/index.php:157 views/themes/modern/collection.php:132
+#: views/themes/modern/range.php:213 views/themes/modern/brand.php:238
 msgid "Nothing to Show."
 msgstr "Aucun produit."
 
-#: views/themes/default/index.php:179 views/themes/default/collection.php:154
-#: views/themes/default/range.php:142 views/themes/default/brand.php:167
-#: views/themes/modern/index.php:163 views/themes/modern/collection.php:138
-#: views/themes/modern/range.php:147 views/themes/modern/brand.php:172
+#: views/themes/default/index.php:175 views/themes/default/collection.php:150
+#: views/themes/default/range.php:189 views/themes/default/brand.php:214
+#: views/themes/modern/index.php:159 views/themes/modern/collection.php:134
+#: views/themes/modern/range.php:215 views/themes/modern/brand.php:240
 msgid ""
 "Please check your Vincod Account id or enter a Brand Vincod id if you want "
 "to show only one brand."
@@ -539,12 +543,13 @@ msgstr "Résultats de la recherche pour :"
 msgid "No product found."
 msgstr "Aucun produit trouvé."
 
-#: views/themes/modern/index.php:128 views/themes/modern/index.php:153
-#: views/themes/modern/collection.php:128 views/themes/modern/brand.php:128
+#: views/themes/modern/index.php:124 views/themes/modern/index.php:149
+#: views/themes/modern/collection.php:124 views/themes/modern/brand.php:124
 msgid "Discover"
 msgstr "Découvrir"
 
-#: views/themes/modern/range.php:133 views/themes/modern/brand.php:158
+#: views/themes/modern/range.php:155 views/themes/modern/range.php:199
+#: views/themes/modern/brand.php:180 views/themes/modern/brand.php:224
 msgid "Learn more"
 msgstr "En savoir plus"
 

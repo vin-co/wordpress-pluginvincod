@@ -400,22 +400,54 @@ class WP_Vincod_Template_Controller extends WP_Vincod_API {
 			$brand['certifications'] = $brand['certifications']['certification'];
 		}
 
+		$settings = get_option('vincod_brand_settings');
+		$appellations = array();
+
+		if($settings['has_appellation'] && !empty($products)) {
+
+			$raw_appellations = $this->get_appellation_by_winery($params['brand']);
+
+			if(!empty($raw_appellations)) {
+
+				foreach($raw_appellations as $appellation) {
+
+					$appellation_products = array();
+
+					foreach($products as $product) {
+
+						if(!empty($product['appellation']) && $product['appellation'] == $appellation['name']) {
+							$appellation_products[] = $product;
+						}
+					}
+
+					if(!empty($appellation_products)) {
+
+						$appellations[] = array(
+							'name'     => $appellation['name'],
+							'products' => $appellation_products,
+						);
+					}
+				}
+			}
+		}
+
 		$view_datas = array(
 
-			'brand'       => $brand,
-			'ranges'      => ($ranges) ? array_map(function($range) {
+			'brand'        => $brand,
+			'ranges'       => ($ranges) ? array_map(function($range) {
 				if(!empty($range['presentation'])) {
 					$range['presentation'] = $range['presentation']['value'];
 				}
 
 				return $range;
 			}, $ranges) : false,
-			'products'    => $products,
-			'link'        => $this->permalink,
-			'settings'    => get_option('vincod_brand_settings'),
-			'menu'        => $menu,
-			'breadcrumb'  => $breadcrumb,
-			'search_form' => wp_vincod_get_search_form()
+			'products'     => $products,
+			'appellations' => $appellations,
+			'link'         => $this->permalink,
+			'settings'     => $settings,
+			'menu'         => $menu,
+			'breadcrumb'   => $breadcrumb,
+			'search_form'  => wp_vincod_get_search_form()
 
 		);
 
@@ -452,15 +484,47 @@ class WP_Vincod_Template_Controller extends WP_Vincod_API {
 			$range['certifications'] = $range['certifications']['certification'];
 		}
 
+		$settings = get_option('vincod_range_settings');
+		$appellations = array();
+
+		if($settings['has_appellation'] && !empty($products)) {
+
+			$raw_appellations = $this->get_appellation_by_range($params['range']);
+
+			if(!empty($raw_appellations)) {
+
+				foreach($raw_appellations as $appellation) {
+
+					$appellation_products = array();
+
+					foreach($products as $product) {
+
+						if(!empty($product['appellation']) && $product['appellation'] == $appellation['name']) {
+							$appellation_products[] = $product;
+						}
+					}
+
+					if(!empty($appellation_products)) {
+
+						$appellations[] = array(
+							'name'     => $appellation['name'],
+							'products' => $appellation_products,
+						);
+					}
+				}
+			}
+		}
+
 		$view_datas = array(
 
-			'range'       => $range,
-			'products'    => $products,
-			'link'        => $this->permalink,
-			'settings'    => get_option('vincod_range_settings'),
-			'menu'        => $menu,
-			'breadcrumb'  => $breadcrumb,
-			'search_form' => wp_vincod_get_search_form()
+			'range'        => $range,
+			'products'     => $products,
+			'appellations' => $appellations,
+			'link'         => $this->permalink,
+			'settings'     => $settings,
+			'menu'         => $menu,
+			'breadcrumb'   => $breadcrumb,
+			'search_form'  => wp_vincod_get_search_form()
 
 		);
 

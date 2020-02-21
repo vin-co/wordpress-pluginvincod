@@ -293,6 +293,39 @@ html {
 		}
 	}
 
+	.appellations-container {
+		@include column(0, 12, 0);
+
+		> .nav {
+			max-width: screen(sm);
+			margin: $grid-gutter-width auto;
+			justify-content: center;
+
+			@include media-breakpoint-up(md) {
+				flex-wrap: nowrap;
+				max-width: screen(xl);
+			}
+
+			a {
+				padding: $grid-gutter-width/2;
+				text-transform: uppercase;
+				line-height: $line-height-sm;
+				font-size: $font-size-sm;
+
+				@include media-breakpoint-down(sm) {
+					width: 100%;
+				}
+			}
+		}
+
+		.products {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			text-align: center;
+		}
+	}
+
 	.product-link {
 		@include margin-vertical($grid-gutter-width);
 		@include column(0, 12);

@@ -22,6 +22,7 @@ html {
 	$primary: $gray-300;
 	$secondary: $gray-400;
 
+	$line-height-sm: 1.2;
 	$font-family-sans-serif: inherit;
 	$font-size-base: 1.6rem;
 
@@ -316,9 +317,42 @@ html {
 		}
 	}
 
+	.appellations-container {
+		@include column(0, 12, 0);
+
+		> .nav {
+			max-width: screen(sm);
+			margin: $grid-gutter-width auto;
+			justify-content: center;
+
+			@include media-breakpoint-up(md) {
+				flex-wrap: nowrap;
+				max-width: screen(xl);
+			}
+
+			a {
+				padding: $grid-gutter-width/2;
+				text-transform: uppercase;
+				line-height: $line-height-sm;
+				font-size: $font-size-sm;
+
+				@include media-breakpoint-down(sm) {
+					width: 100%;
+				}
+			}
+		}
+
+		.products {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			text-align: center;
+		}
+	}
+
 	.product-link {
 		@include margin-vertical($grid-gutter-width);
-		@include column(0, 12);
+		@include column(0, 12, 0);
 		display: flex;
 		align-items: center;
 		justify-content: center;

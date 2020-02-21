@@ -77,43 +77,39 @@
 
 			<?php endif; ?>
 
-			<?php if($settings['has_content']): ?>
+			<?php if($settings['has_content'] && $range): ?>
 
-				<?php if($range): ?>
+				<div class="content-panel">
 
-					<div class="content-panel">
+					<div class="panel-heading">
 
-						<div class="panel-heading">
-
-							<div class="content-cover"<?= ($background = wp_vincod_get_picture_url($range, 'retina')) ? ' style="background-image: url(' . $background . ')"' : ''; ?>></div>
-
-						</div>
-
-						<div class="panel-body">
-
-							<?php if($logo = wp_vincod_get_logo_url($range, '640')): ?>
-
-								<div class="content-logo">
-									<img src="<?= $logo; ?>" alt="<?= $range['name']; ?>"/>
-								</div>
-
-							<?php endif; ?>
-
-							<h1 itemprop="name"><?= $range['name']; ?></h1>
-
-							<?php if(!empty($range['presentation'])): ?>
-
-								<div class="content-presentation" itemprop="description">
-									<?= nl2br($range['presentation']); ?>
-								</div>
-
-							<?php endif; ?>
-
-						</div>
+						<div class="content-cover"<?= ($background = wp_vincod_get_picture_url($range, 'retina')) ? ' style="background-image: url(' . $background . ')"' : ''; ?>></div>
 
 					</div>
 
-				<?php endif; ?>
+					<div class="panel-body">
+
+						<?php if($logo = wp_vincod_get_logo_url($range, '640')): ?>
+
+							<div class="content-logo">
+								<img src="<?= $logo; ?>" alt="<?= $range['name']; ?>"/>
+							</div>
+
+						<?php endif; ?>
+
+						<h1 itemprop="name"><?= $range['name']; ?></h1>
+
+						<?php if(!empty($range['presentation'])): ?>
+
+							<div class="content-presentation" itemprop="description">
+								<?= nl2br($range['presentation']); ?>
+							</div>
+
+						<?php endif; ?>
+
+					</div>
+
+				</div>
 
 			<?php endif; ?>
 
@@ -124,16 +120,67 @@
 
 					<?php if($products): ?>
 
-						<?php foreach($products as $product): ?>
+						<?php if($settings['has_appellation'] && !empty($appellations)): ?>
 
-							<a href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>" class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
+							<div class="appellations-container">
 
-								<img src="<?= wp_vincod_get_bottle_url($product, '640') ?>" alt="<?= $product['name']; ?>"/>
-								<h2 itemprop="name"><?= $product['name']; ?></h2>
+								<!-- Nav tabs -->
+								<div class="nav nav-pills" role="tablist">
 
-							</a>
+									<?php foreach($appellations as $index => $appellation): ?>
 
-						<?php endforeach; ?>
+										<a href="#appellation-<?= $index; ?>" class="nav-item nav-link<?= ($index == 0) ? ' active' : ''; ?>" aria-controls="presentation" role="tab" data-toggle="tab">
+											<?= $appellation['name']; ?>
+										</a>
+
+									<?php endforeach; ?>
+
+								</div>
+
+								<!-- Tab panes -->
+								<div class="tab-content">
+
+									<?php foreach($appellations as $index => $appellation): ?>
+
+										<div role="tabpanel" class="tab-pane fade<?= ($index == 0) ? ' show active' : ''; ?>" id="appellation-<?= $index; ?>">
+
+											<div class="products">
+
+												<?php foreach($appellation['products'] as $product): ?>
+
+													<a href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>" class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
+
+														<img src="<?= wp_vincod_get_bottle_url($product, '640') ?>" alt="<?= $product['name']; ?>"/>
+														<h2 itemprop="name"><?= $product['name']; ?></h2>
+
+													</a>
+
+												<?php endforeach; ?>
+
+											</div>
+
+										</div>
+
+									<?php endforeach; ?>
+
+								</div>
+
+							</div>
+
+						<?php else: ?>
+
+							<?php foreach($products as $product): ?>
+
+								<a href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>" class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
+
+									<img src="<?= wp_vincod_get_bottle_url($product, '640') ?>" alt="<?= $product['name']; ?>"/>
+									<h2 itemprop="name"><?= $product['name']; ?></h2>
+
+								</a>
+
+							<?php endforeach; ?>
+
+						<?php endif; ?>
 
 					<?php else: ?>
 

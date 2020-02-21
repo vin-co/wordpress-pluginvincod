@@ -369,6 +369,22 @@ html {
 		}
 	}
 
+	.labels-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		max-width: screen(md);
+		margin: $grid-gutter-width/2 auto;
+		text-align: center;
+
+		.vincod-label {
+			@include column(0, 12);
+			@include column(md, 3);
+			padding: $grid-gutter-width/2;
+		}
+	}
+
 	// ---------- Single Product styles ----------
 
 	.product-media {

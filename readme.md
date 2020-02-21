@@ -8,7 +8,7 @@
 
 **Tested up to:** 5.3
 
-**Stable tag:** 2.6.1
+**Stable tag:** 2.6.3
 
 **License:** GPLv2 or later
 
@@ -19,7 +19,7 @@ Plugin permettant l'intégration de vos fiches vincod directement sur votre site
 
 ## Installation
 **PHP5 Required.**
- 
+
 1. Download, unzip and upload to your WordPress plugins directory
 2. Activate the plugin within you WordPress Administration Backend
 3. Go to Settings > Vincod

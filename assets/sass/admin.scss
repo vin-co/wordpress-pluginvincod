@@ -16,6 +16,8 @@
 	$yellow: #FAA022;
 	$green: #46b450;
 	$secondary: $cyan;
+	$light: #f3f5f6;
+	$yiq-text-dark: $blue;
 
 	$font-size-base: 0.75rem;
 	$table-bg: #fff;
@@ -143,6 +145,10 @@
 			display: inline-flex;
 			margin-left: .25rem;
 			margin-bottom: 0;
+		}
+
+		&.btn-light {
+			border-color: $blue;
 		}
 	}
 }

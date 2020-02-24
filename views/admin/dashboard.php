@@ -97,7 +97,7 @@
 			</div>
 
 			<div class="buttons-group">
-				<button type="submit" id="api_connection_check" class="btn btn-outline-primary">
+				<button type="submit" id="api_connection_check" class="btn btn-light">
 					<?php _e("Check API", 'vincod'); ?>
 				</button>
 				<button type="submit" id="remove_settings" name="vincod_setting_remove" class="btn btn-danger">
@@ -135,7 +135,7 @@
 			</div>
 
 			<div class="buttons-group">
-				<button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapse-cache" aria-expanded="false" aria-controls="collapse-cache">
+				<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-cache" aria-expanded="false" aria-controls="collapse-cache">
 					<?= wp_vincod_get_icon('info'); ?>
 					<span class="ml-1"><?php _e("What is this", 'vincod'); ?> ?</span>
 				</button>
@@ -270,7 +270,7 @@
 			</div>
 
 			<div class="buttons-group">
-				<button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapse-style" aria-expanded="false" aria-controls="collapse-style">
+				<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-style" aria-expanded="false" aria-controls="collapse-style">
 					<?= wp_vincod_get_icon('info'); ?>
 					<span class="ml-1"><?php _e("What is this", 'vincod'); ?> ?</span>
 				</button>
@@ -324,7 +324,7 @@
 						<?php _e("Optimize my SEO", 'vincod'); ?>
 					</button>
 
-					<button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapse-sitemap" aria-expanded="false" aria-controls="collapse-sitemap">
+					<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-sitemap" aria-expanded="false" aria-controls="collapse-sitemap">
 						<?= wp_vincod_get_icon('info'); ?>
 						<span class="ml-1"><?php _e("What will happen", 'vincod'); ?> ?</span>
 					</button>
@@ -380,7 +380,7 @@
 					<button class="btn btn-danger">
 						<?php _e("Remove your devlog", 'vincod'); ?>
 					</button>
-					<button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapse-devlog" aria-expanded="false" aria-controls="collapse-devlog">
+					<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-devlog" aria-expanded="false" aria-controls="collapse-devlog">
 						<?= wp_vincod_get_icon('info'); ?>
 						<span class="ml-1"><?php _e("What is this", 'vincod'); ?> ?</span>
 					</button>
@@ -393,7 +393,7 @@
 
 			<?php else: ?>
 
-				<button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapse-devlog" aria-expanded="false" aria-controls="collapse-devlog">
+				<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-devlog" aria-expanded="false" aria-controls="collapse-devlog">
 					<?= wp_vincod_get_icon('info'); ?>
 					<span class="ml-1"><?php _e("What is this", 'vincod'); ?> ?</span>
 				</button>
@@ -423,7 +423,7 @@
 					<?php _e("Reset my plugin", 'vincod'); ?>
 				</button>
 
-				<button class="btn btn-outline-primary" type="button" data-toggle="collapse" data-target="#collapse-reset" aria-expanded="false" aria-controls="collapse-reset">
+				<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-reset" aria-expanded="false" aria-controls="collapse-reset">
 					<?= wp_vincod_get_icon('info'); ?>
 					<span class="ml-1"><?php _e("Is there a problem with your plugin", 'vincod'); ?> ?</span>
 				</button>

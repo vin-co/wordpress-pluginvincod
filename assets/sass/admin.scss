@@ -94,6 +94,15 @@
 
 	.table {
 		border: 1px solid $table-border-color;
+		box-shadow: 0 1px 1px rgba($black,.04);
+
+		thead th {
+			border-bottom-width: 1px;
+		}
+
+		td,th {
+			border-top: none;
+		}
 	}
 
 	// ---------- Forms ----------

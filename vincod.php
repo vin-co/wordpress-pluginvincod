@@ -4,7 +4,7 @@
 Plugin Name: Vincod
 Plugin URI: http://dev.vincod.com/
 Description: The « Vincod for WordPress » plugin allows you to instantly create a « Our Wines » section in your WordPress website.
-Version: 2.6.3
+Version: 2.6.4
 Author: Vinternet
 Author URI: http://www.vinternet.net/
 Text Domain: vincod

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Vincod\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-02-21 19:48+0000\n"
-"PO-Revision-Date: 2020-02-21 19:48+0000\n"
+"PO-Revision-Date: 2020-02-24 12:11+0000\n"
 "Last-Translator: tchercheuse <guillaume@tete-chercheuse.fr>\n"
 "Language-Team: Français\n"
 "Language: fr_FR\n"
@@ -349,7 +349,7 @@ msgstr "Liens"
 
 #: views/admin/dashboard.php:202
 msgid "Sort by Appellation"
-msgstr "Trier par Appellation"
+msgstr "Tri par Appellation"
 
 #: views/admin/dashboard.php:207
 msgid "Owner"

@@ -21,12 +21,10 @@
 	// <![CDATA[
 	(function($) {
 		$(document).ready(function() {
-			if(typeof ($.fn.popover) === 'undefined') {
-				var s = document.createElement("script");
-				s.type = "text/javascript";
-				s.src = "<?= WP_VINCOD_PLUGIN_URL; ?>assets/js/vendor.js";
-				document.body.appendChild(s);
-			}
+			var s = document.createElement("script");
+			s.type = "text/javascript";
+			s.src = "<?= WP_VINCOD_PLUGIN_URL; ?>assets/js/vendor.js";
+			document.body.appendChild(s);
 		});
 	})(jQuery);
 	// ]]>
@@ -42,7 +40,7 @@
 
 				<?php if($settings['has_menu']): ?>
 
-					<a class="btn btn-link" role="button" data-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
+					<a class="btn btn-link" role="button" data-bs-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
 						<?= wp_vincod_get_icon('menu'); ?>
 						<span>Menu</span>
 					</a>
@@ -110,7 +108,7 @@
 
 								<?php if($logo = wp_vincod_get_logo_url($brand, '640')): ?>
 									<img src="<?= $logo; ?>" alt="<?= $brand['name']; ?>"/>
-									<h2 itemprop="name" class="sr-only"><?= $brand['name']; ?></h2>
+									<h2 itemprop="name" class="visually-hidden"><?= $brand['name']; ?></h2>
 								<?php else: ?>
 									<h2 itemprop="name"><?= $brand['name']; ?></h2>
 								<?php endif; ?>

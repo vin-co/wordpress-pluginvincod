@@ -1,6 +1,5 @@
 jQuery(document).ready(function($) {
 
-
 	/*
 	 * This is to check the API connection (with keys, id, and check the server itself)
 	 * @author Ges Jeremie
@@ -35,8 +34,8 @@ jQuery(document).ready(function($) {
 				var api = window.vincod_plugin_app.api + '?api=' + customer_api + '&id=' + customer_id;
 
 				$.ajax({
-					url:      api,
-					success:  function(output) {
+					url: api,
+					success: function(output) {
 
 						console.log(output);
 
@@ -68,7 +67,7 @@ jQuery(document).ready(function($) {
 						$("#api_connection_check").removeAttr('disabled');
 
 					},
-					type:     'GET',
+					type: 'GET',
 					dataType: 'json'
 				});
 
@@ -140,6 +139,33 @@ jQuery(document).ready(function($) {
 
 		api_connection_check.run(e);
 
+	});
+
+	/*
+	 * This is to make a favorite button to activate when the user press enter
+	 * @author Schaffner Laurent
+	 */
+	$("#settings input").bind("keydown", function(event) {
+
+		var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
+
+		if(keycode === 13) { // Key ENTER
+
+			document.getElementById('validate_settings').click();
+
+			return false;
+
+		}
+		else {
+
+			return true;
+
+		}
+
+	});
+
+	$('#first-time-visit').on('closed.bs.alert', function() {
+		wpCookies.setHash('wp_vincod_first_visit', 'true');
 	});
 
 });

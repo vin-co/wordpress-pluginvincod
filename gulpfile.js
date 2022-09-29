@@ -1,17 +1,16 @@
 // Grab our gulp packages
 var gulp = require('gulp'),
 	gutil = require('gulp-util'),
-	sass = require('gulp-sass'),
+	sass = require('gulp-sass')(require('node-sass')),
 	cssnano = require('gulp-cssnano'),
 	autoprefixer = require('gulp-autoprefixer'),
 	sourcemaps = require('gulp-sourcemaps'),
 	uglify = require('gulp-uglify'),
-	concat = require('gulp-concat'),
-	rename = require('gulp-rename'),
 	plumber = require('gulp-plumber'),
-	wiredep = require('wiredep'),
-	browserSync = require('browser-sync').create(),
-	path = require('path');
+	browserify = require('browserify'),
+	source = require('vinyl-source-stream'),
+	buffer = require('vinyl-buffer'),
+	browserSync = require('browser-sync').create();
 
 // ----- Variables -----
 
@@ -28,10 +27,8 @@ var paths = {
 
 var sassConfig = {
 	outputStyle: 'nested',
-	includePaths: [
-		'bower_components/'
-	],
-	precision: 10
+	precision: 10,
+	includePaths: ['node_modules/']
 };
 
 // ----- Compile Sass, Autoprefix and minify -----
@@ -46,7 +43,7 @@ function compileSass() {
 		.pipe(sourcemaps.init())
 		.pipe(sass(sassConfig))
 		.pipe(autoprefixer({
-			browsers: ['last 10 versions'],
+			overrideBrowserslist: ['last 10 versions'],
 			cascade: false
 		}))
 		.pipe(gulp.dest(paths.cssDir));
@@ -69,15 +66,11 @@ gulp.task('styles-min', function() {
 // ----- Concatenate and minify Vendor JS -----
 
 function compileVendorJs() {
-	var vendorFiles = wiredep().js;
 
-	return gulp.src(vendorFiles)
-		.pipe(plumber(function(error) {
-			gutil.log(gutil.colors.red(error.message));
-			browserSync.notify(error.message, 10000);
-			this.emit('end');
-		}))
-		.pipe(concat('vendor.js'))
+	return browserify(paths.jsDir + 'imports.js')
+		.bundle()
+		.pipe(source('vendor.js'))
+		.pipe(buffer())
 		.pipe(gulp.dest(paths.jsDir));
 }
 
@@ -91,9 +84,21 @@ gulp.task('scripts-min', function() {
 		.pipe(gulp.dest(paths.jsDir));
 });
 
+// ----- Watch files for changes (without Browser-Sync) -----
+
+gulp.task('watch', function() {
+	// Watch .scss files
+	gulp.watch(paths.sassFiles, gulp.series('styles-min'));
+});
+
+// ----- Build Tasks -----
+
+gulp.task('build', gulp.series('styles', 'scripts'));
+gulp.task('dist', gulp.series('styles-min', 'scripts-min'));
+
 // ----- Browser-Sync watch files and inject changes -----
 
-gulp.task('browsersync', ['dist'], function() {
+gulp.task('browsersync', gulp.series('build', gulp.parallel('watch', function() {
 	// Watch files
 	var files = [
 		paths.jsFiles,
@@ -102,29 +107,11 @@ gulp.task('browsersync', ['dist'], function() {
 	];
 
 	browserSync.init(files, {
-		proxy: 'http://plugin-vincod.test/',
+		proxy: 'https://plugin-vincod.test/',
 		ghostMode: false
 	});
-
-	// Watch .scss files
-	gulp.watch(paths.sassFiles, ['styles-min']);
-});
-
-// ----- Watch files for changes (without Browser-Sync) -----
-
-gulp.task('watch', function() {
-	// Watch .scss files
-	gulp.watch(paths.sassFiles, ['styles-min']);
-
-});
-
-// ----- Build Tasks -----
-
-gulp.task('build', ['styles', 'scripts']);
-gulp.task('dist', ['styles-min', 'scripts-min']);
+})));
 
 // ----- Default Task -----
 
-gulp.task('default', function() {
-	gulp.start('build');
-});
+gulp.task('default', gulp.series('dist'));

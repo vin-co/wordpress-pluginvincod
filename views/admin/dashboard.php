@@ -23,7 +23,6 @@
 	}
 </script>
 
-
 <div class="row no-gutters">
 
 	<div class="col-12 col-xl-11">
@@ -48,12 +47,10 @@
 		<?php if(!isset($_COOKIE['wp_vincod_first_visit'])): ?>
 			<!-- Simple help for the first visit -->
 			<div id="first-time-visit" class="alert alert-primary alert-dismissible">
-				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-					<?= wp_vincod_get_icon('close'); ?>
-				</button>
-				<h4 class="d-flex align-items-center my-2">
+				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+				<h4 class="d-flex align-items-center mt-1 mb-2">
 					<?= wp_vincod_get_icon('info'); ?>
-					<span class="ml-1"><?php _e('First visit', 'vincod'); ?> ?</span>
+					<span class="ms-1"><?php _e('First visit', 'vincod'); ?> ?</span>
 				</h4>
 				<p class="my-2"><?php _e("Is it your first visit ? For Vincod plugin to work properly, you first need to fill in set up informations. You need a valide API Key and an authorized account id. If needed email", 'vincod'); ?>
 					<a href='mailto:support@vincod.com'>support@vincod.com</a>.
@@ -72,16 +69,12 @@
 			<?php wp_nonce_field('wp_vincod_admin_form', 'wp_vincod_admin_nonce'); ?>
 
 			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text"><?php _e("Your API key", 'vincod'); ?></span>
-				</div>
+				<span class="input-group-text"><?php _e("Your API key", 'vincod'); ?></span>
 				<input type="text" class="form-control" name="vincod_setting_customer_api" value="<?= get_option('vincod_setting_customer_api'); ?>" placeholder="<?php _e("The API key from your Vincod customer account", 'vincod'); ?>">
 			</div>
 
 			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text"><?php _e("Account id", 'vincod'); ?></span>
-				</div>
+				<span class="input-group-text"><?php _e("Account id", 'vincod'); ?></span>
 				<input type="text" class="form-control" name="vincod_setting_customer_id" value="<?= get_option('vincod_setting_customer_id'); ?>" placeholder="<?php _e("Your Vincod account id", 'vincod'); ?>">
 			</div>
 
@@ -90,9 +83,7 @@
 			</p>
 
 			<div class="input-group">
-				<div class="input-group-prepend">
-					<span class="input-group-text"><?php _e("Brand id", 'vincod'); ?></span>
-				</div>
+				<span class="input-group-text"><?php _e("Brand id", 'vincod'); ?></span>
 				<input type="text" class="form-control" name="vincod_setting_customer_winery_id" value="<?= get_option('vincod_setting_customer_winery_id'); ?>" placeholder="<?php _e("Your brand Vincod id", 'vincod'); ?>">
 			</div>
 
@@ -125,19 +116,15 @@
 			<?php wp_nonce_field('wp_vincod_admin_form', 'wp_vincod_admin_nonce'); ?>
 
 			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<span class="input-group-text"><?php _e("Cache duration", 'vincod'); ?></span>
-				</div>
+				<span class="input-group-text"><?php _e("Cache duration", 'vincod'); ?></span>
 				<input type="number" min="0" class="form-control" name="vincod_setting_cache_api" value="<?= get_option('vincod_setting_cache_api'); ?>" placeholder="<?php _e("Example : 1 (0 to do not cache at all)", 'vincod'); ?>">
-				<div class="input-group-append">
-					<span class="input-group-text"><?php _e("day(s)", 'vincod'); ?></span>
-				</div>
+				<span class="input-group-text"><?php _e("day(s)", 'vincod'); ?></span>
 			</div>
 
 			<div class="buttons-group">
-				<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-cache" aria-expanded="false" aria-controls="collapse-cache">
+				<button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-cache" aria-expanded="false" aria-controls="collapse-cache">
 					<?= wp_vincod_get_icon('info'); ?>
-					<span class="ml-1"><?php _e("What is this", 'vincod'); ?> ?</span>
+					<span class="ms-1"><?php _e("What is this", 'vincod'); ?> ?</span>
 				</button>
 				<button type="submit" id="clear_cache" name="vincod_clear_cache" class="btn btn-danger">
 					<?php _e("Clear Cache", 'vincod'); ?>
@@ -180,9 +167,7 @@
 			<?php wp_nonce_field('wp_vincod_admin_form', 'wp_vincod_admin_nonce'); ?>
 
 			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<span class="input-group-text"><?php _e("Theme", 'vincod'); ?></span>
-				</div>
+				<span class="input-group-text"><?php _e("Theme", 'vincod'); ?></span>
 				<select class="form-control" name="vincod_setting_theme" value="<?= $saved_settings['theme']; ?>">
 					<option value="default"<?= ($saved_settings['theme'] == 'default') ? ' selected' : ''; ?>><?php _e("Default", 'vincod'); ?></option>
 					<option value="modern"<?= ($saved_settings['theme'] == 'modern') ? ' selected' : ''; ?>><?php _e("Modern", 'vincod'); ?></option>
@@ -270,9 +255,9 @@
 			</div>
 
 			<div class="buttons-group">
-				<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-style" aria-expanded="false" aria-controls="collapse-style">
+				<button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-style" aria-expanded="false" aria-controls="collapse-style">
 					<?= wp_vincod_get_icon('info'); ?>
-					<span class="ml-1"><?php _e("What is this", 'vincod'); ?> ?</span>
+					<span class="ms-1"><?php _e("What is this", 'vincod'); ?> ?</span>
 				</button>
 				<button type="submit" id="validate_settings" class="btn btn-secondary">
 					<?php _e("Validate my settings", 'vincod'); ?>
@@ -308,25 +293,25 @@
 
 			<?php endif; ?>
 
-			<div class="buttons-group text-sm-left">
+			<div class="buttons-group text-sm-start">
 
 				<?php if($sitemap_exists): ?>
 
 					<input type="hidden" name="vincod_seo_delete" value="">
-					<button type="submit" class="btn btn-danger ml-sm-0">
+					<button type="submit" class="btn btn-danger ms-sm-0">
 						<?php _e("Remove your sitemap", 'vincod'); ?>
 					</button>
 
 				<?php else: ?>
 
 					<input type="hidden" name="vincod_seo_create" value="">
-					<button type="submit" name="" class="btn btn-success ml-sm-0">
+					<button type="submit" name="" class="btn btn-success ms-sm-0">
 						<?php _e("Optimize my SEO", 'vincod'); ?>
 					</button>
 
-					<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-sitemap" aria-expanded="false" aria-controls="collapse-sitemap">
+					<button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-sitemap" aria-expanded="false" aria-controls="collapse-sitemap">
 						<?= wp_vincod_get_icon('info'); ?>
-						<span class="ml-1"><?php _e("What will happen", 'vincod'); ?> ?</span>
+						<span class="ms-1"><?php _e("What will happen", 'vincod'); ?> ?</span>
 					</button>
 					<div class="collapse" id="collapse-sitemap">
 						<div class="card card-body">
@@ -368,7 +353,7 @@
 			</div>
 		</div>
 
-		<div class="buttons-group text-sm-left">
+		<div class="buttons-group text-sm-start">
 			<!-- Clear devlog system -->
 			<?php if(!empty($devlog_content)): ?>
 
@@ -377,12 +362,12 @@
 					<?php wp_nonce_field('wp_vincod_admin_form', 'wp_vincod_admin_nonce'); ?>
 
 					<input type="hidden" name="vincod_clear_log" value="">
-					<button class="btn btn-danger">
+					<button class="btn btn-danger ms-sm-0">
 						<?php _e("Remove your devlog", 'vincod'); ?>
 					</button>
-					<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-devlog" aria-expanded="false" aria-controls="collapse-devlog">
+					<button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-devlog" aria-expanded="false" aria-controls="collapse-devlog">
 						<?= wp_vincod_get_icon('info'); ?>
-						<span class="ml-1"><?php _e("What is this", 'vincod'); ?> ?</span>
+						<span class="ms-1"><?php _e("What is this", 'vincod'); ?> ?</span>
 					</button>
 					<div class="collapse" id="collapse-devlog">
 						<div class="card card-body">
@@ -393,9 +378,9 @@
 
 			<?php else: ?>
 
-				<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-devlog" aria-expanded="false" aria-controls="collapse-devlog">
+				<button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-devlog" aria-expanded="false" aria-controls="collapse-devlog">
 					<?= wp_vincod_get_icon('info'); ?>
-					<span class="ml-1"><?php _e("What is this", 'vincod'); ?> ?</span>
+					<span class="ms-1"><?php _e("What is this", 'vincod'); ?> ?</span>
 				</button>
 				<div class="collapse" id="collapse-devlog">
 					<div class="card card-body">
@@ -416,16 +401,16 @@
 
 			<?php wp_nonce_field('wp_vincod_admin_form', 'wp_vincod_admin_nonce'); ?>
 
-			<div class="buttons-group text-sm-left">
+			<div class="buttons-group text-sm-start">
 
 				<input type="hidden" name="vincod_reset_app" value=""/>
-				<button type="submit" name="" class="btn btn-danger ml-sm-0">
+				<button type="submit" name="" class="btn btn-danger ms-sm-0">
 					<?php _e("Reset my plugin", 'vincod'); ?>
 				</button>
 
-				<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapse-reset" aria-expanded="false" aria-controls="collapse-reset">
+				<button class="btn btn-light" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-reset" aria-expanded="false" aria-controls="collapse-reset">
 					<?= wp_vincod_get_icon('info'); ?>
-					<span class="ml-1"><?php _e("Is there a problem with your plugin", 'vincod'); ?> ?</span>
+					<span class="ms-1"><?php _e("Is there a problem with your plugin", 'vincod'); ?> ?</span>
 				</button>
 				<div class="collapse" id="collapse-reset">
 					<div class="card card-body">

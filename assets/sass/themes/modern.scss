@@ -2,6 +2,8 @@
 //	!---------- FRONT ----------
 //=================================
 
+@import "bootstrap/scss/functions";
+
 html {
 	font-size: 10px;
 }
@@ -22,9 +24,15 @@ html {
 	$primary: $gray-300;
 	$secondary: $gray-400;
 
+	$spacer: .5rem;
+	$grid-gutter-width: $spacer * 6;
+
 	$line-height-sm: 1.2;
 	$font-family-sans-serif: inherit;
 	$font-size-base: 1.6rem;
+
+	$paragraph-margin-bottom: $spacer * 3;
+	$headings-margin-bottom: $paragraph-margin-bottom;
 
 	$component-active-bg: $secondary;
 	$border-radius: 0;
@@ -32,8 +40,8 @@ html {
 	$border-radius-sm: 0;
 
 	$link-color: inherit;
+	$link-decoration: none;
 	$link-hover-color: inherit;
-	$link-hover-decoration: none;
 
 	$btn-padding-y-lg: 2rem;
 	$btn-padding-x-lg: 5rem;
@@ -42,6 +50,8 @@ html {
 	$input-border-color: $primary;
 	$input-placeholder-color: $primary;
 
+	$breadcrumb-padding-y: $spacer * 2;
+	$breadcrumb-padding-x: $spacer * 3;
 	$breadcrumb-font-size: 1.4rem;
 	$breadcrumb-bg: transparent;
 	$breadcrumb-divider-color: $primary;
@@ -59,7 +69,7 @@ html {
 		justify-content: space-between;
 		flex-wrap: wrap;
 		margin: auto;
-		padding: $grid-gutter-width/2 0;
+		padding: sp 0;
 	}
 
 	// ---------- Menu styles ----------
@@ -67,7 +77,7 @@ html {
 	.menu-container {
 		@include column(0, 12, 0);
 		@include column(lg, 3, 0);
-		margin-bottom: $grid-gutter-width/2;
+		margin-bottom: space(3);
 
 		@include media-breakpoint-up(lg) {
 
@@ -94,7 +104,7 @@ html {
 			}
 
 			svg {
-				@include size(43px);
+				@include size(space(8.5));
 			}
 		}
 
@@ -108,10 +118,10 @@ html {
 		}
 
 		.menu-card {
-			margin-bottom: $grid-gutter-width/2;
+			margin-bottom: space(3);
 
 			@include media-breakpoint-down(md) {
-				margin-top: $grid-gutter-width/2;
+				margin-top: space(3);
 			}
 
 			.vincod-menu {
@@ -125,7 +135,7 @@ html {
 
 				a {
 					display: block;
-					padding: $grid-gutter-width/2;
+					padding: space(3);
 					text-transform: capitalize;
 				}
 			}
@@ -135,7 +145,7 @@ html {
 				> ul > li {
 
 					> a {
-						padding-left: 25px;
+						padding-left: space(5);
 					}
 
 					> ul {
@@ -148,7 +158,7 @@ html {
 						> li {
 
 							> a {
-								padding-left: 35px;
+								padding-left: space(7);
 							}
 
 							> ul {
@@ -161,7 +171,7 @@ html {
 								> li {
 
 									> a {
-										padding-left: 45px;
+										padding-left: space(9);
 									}
 								}
 							}
@@ -177,14 +187,14 @@ html {
 				display: flex;
 				align-items: center;
 				height: auto;
-				padding: 1rem 1.6rem;
+				padding: space(2) space(3);
 			}
 
 			.btn {
 				color: $gray-400;
 
 				svg {
-					@include size(20px);
+					@include size(space(4));
 				}
 			}
 		}
@@ -224,7 +234,7 @@ html {
 		}
 
 		.content-logo {
-			margin-bottom: $grid-gutter-width/2;
+			margin-bottom: space(3);
 
 			&:last-child {
 				@include column(md, 12, $grid-gutter-width);
@@ -244,7 +254,7 @@ html {
 		}
 
 		.content-presentation {
-			margin-bottom: $grid-gutter-width/2;
+			margin-bottom: space(3);
 
 			@include media-breakpoint-up(md) {
 				text-align: left;
@@ -270,13 +280,13 @@ html {
 		justify-content: center;
 		flex-direction: column;
 		min-height: 75vh;
-		margin: $grid-gutter-width/2 auto;
-		padding: $grid-gutter-width*2;
+		margin: space(3) auto;
+		padding: space(12);
 		border: 1px solid $gray-200;
 		text-align: center;
 
 		h2 {
-			margin-bottom: $grid-gutter-width/2;
+			margin-bottom: space(3);
 			font-size: 4rem;
 			font-weight: $font-weight-bold;
 		}
@@ -331,7 +341,7 @@ html {
 			}
 
 			a {
-				padding: $grid-gutter-width/2;
+				padding: space(3);
 				text-transform: uppercase;
 				line-height: $line-height-sm;
 				font-size: $font-size-sm;
@@ -409,13 +419,13 @@ html {
 		align-items: center;
 		justify-content: center;
 		max-width: screen(md);
-		margin: $grid-gutter-width/2 auto;
+		margin: space(3) auto;
 		text-align: center;
 
 		.vincod-label {
 			@include column(0, 12);
 			@include column(md, 3);
-			padding: $grid-gutter-width/2;
+			padding: space(3);
 		}
 	}
 
@@ -462,7 +472,7 @@ html {
 				display: inline-block;
 
 				.btn {
-					padding: 1rem 1rem 1rem 1.6rem;
+					padding: space(2) space(2) space(2) space(3);
 					line-height: 1.8;
 					text-transform: uppercase;
 					font-size: $font-size-base;
@@ -478,7 +488,7 @@ html {
 					text-align: center;
 
 					.dropdown-item {
-						@include padding-vertical(.5rem);
+						@include padding-vertical(space());
 
 						&.current {
 							pointer-events: none;
@@ -497,10 +507,10 @@ html {
 	.product-content {
 		max-width: screen(md);
 		margin: auto;
-		padding: 0 $grid-gutter-width/2;
+		padding: 0 space(3);
 
 		h2 {
-			margin-bottom: $grid-gutter-width/2;
+			margin-bottom: space(3);
 		}
 
 		.field {
@@ -508,13 +518,13 @@ html {
 		}
 
 		.product-review {
-			margin-bottom: $grid-gutter-width/2;
+			margin-bottom: space(3);
 			display: flex;
 			align-items: center;
 
 			img {
-				max-width: $grid-gutter-width*2.5;
-				margin-right: $grid-gutter-width/2;
+				max-width: space(15);
+				margin-right: space(3);
 			}
 		}
 	}

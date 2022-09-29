@@ -21,12 +21,10 @@
 	// <![CDATA[
 	(function($) {
 		$(document).ready(function() {
-			if(typeof ($.fn.popover) === 'undefined') {
-				var s = document.createElement("script");
-				s.type = "text/javascript";
-				s.src = "<?= WP_VINCOD_PLUGIN_URL ?>assets/js/vendor.js";
-				document.body.appendChild(s);
-			}
+			var s = document.createElement("script");
+			s.type = "text/javascript";
+			s.src = "<?= WP_VINCOD_PLUGIN_URL; ?>assets/js/vendor.js";
+			document.body.appendChild(s);
 		});
 	})(jQuery);
 	// ]]>
@@ -42,7 +40,7 @@
 
 				<?php if($settings['has_menu']): ?>
 
-					<a class="btn btn-link" role="button" data-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
+					<a class="btn btn-link" role="button" data-bs-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
 						<?= wp_vincod_get_icon('menu'); ?>
 						<span>Menu</span>
 					</a>
@@ -134,7 +132,7 @@
 
 							<?php if($vintages && count($vintages) > 1): ?>
 
-								<button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="<?php _e('See all vintages', 'vincod'); ?>">
+								<button type="button" class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="<?php _e('See all vintages', 'vincod'); ?>">
 
 									<h1 itemprop="name">
 										<span class="vintage-name"><?= $product['name']; ?></span>
@@ -186,7 +184,7 @@
 
 							<?php if(!empty($product['presentation'])) : ?>
 
-								<a href="#product-presentation" class="nav-item nav-link active" aria-controls="presentation" role="tab" data-toggle="tab">
+								<a href="#product-presentation" class="nav-item nav-link active" aria-controls="presentation" role="tab" data-bs-toggle="tab">
 									<h2><?php _e("Presentation", 'vincod'); ?></h2>
 								</a>
 
@@ -194,7 +192,7 @@
 
 							<?php if(!empty($product['advice']) || !empty($product['recipes'])): ?>
 
-								<a href="#product-advice" class="nav-item nav-link" aria-controls="advice" role="tab" data-toggle="tab">
+								<a href="#product-advice" class="nav-item nav-link" aria-controls="advice" role="tab" data-bs-toggle="tab">
 									<h2><?php _e("Tasting tips", 'vincod'); ?></h2>
 								</a>
 
@@ -202,7 +200,7 @@
 
 							<?php if(!empty($product['specifications']) || !empty($product['grapesvarieties'])): ?>
 
-								<a href="#product-specifications" class="nav-item nav-link" aria-controls="specifications" role="tab" data-toggle="tab">
+								<a href="#product-specifications" class="nav-item nav-link" aria-controls="specifications" role="tab" data-bs-toggle="tab">
 									<h2><?php _e("Specifications", 'vincod'); ?></h2>
 								</a>
 
@@ -210,7 +208,7 @@
 
 							<?php if(!empty($product['reviews'])): ?>
 
-								<a href="#product-reviews" class="nav-item nav-link" aria-controls="reviews" role="tab" data-toggle="tab">
+								<a href="#product-reviews" class="nav-item nav-link" aria-controls="reviews" role="tab" data-bs-toggle="tab">
 									<h2><?php _e("Reviews & awards", 'vincod'); ?></h2>
 								</a>
 
@@ -218,7 +216,7 @@
 
 							<?php if(!empty($product['shops']) || !empty($product['products'])): ?>
 
-								<a href="#product-shops" class="nav-item nav-link" aria-controls="shops" role="tab" data-toggle="tab">
+								<a href="#product-shops" class="nav-item nav-link" aria-controls="shops" role="tab" data-bs-toggle="tab">
 									<h2><?php _e("Where to buy", 'vincod'); ?></h2>
 								</a>
 

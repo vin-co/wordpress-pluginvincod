@@ -21,12 +21,10 @@
 	// <![CDATA[
 	(function($) {
 		$(document).ready(function() {
-			if(typeof ($.fn.popover) === 'undefined') {
-				var s = document.createElement("script");
-				s.type = "text/javascript";
-				s.src = "<?= WP_VINCOD_PLUGIN_URL; ?>assets/js/vendor.js";
-				document.body.appendChild(s);
-			}
+			var s = document.createElement("script");
+			s.type = "text/javascript";
+			s.src = "<?= WP_VINCOD_PLUGIN_URL; ?>assets/js/vendor.js";
+			document.body.appendChild(s);
 		});
 	})(jQuery);
 	// ]]>
@@ -42,7 +40,7 @@
 
 				<?php if($settings['has_menu']): ?>
 
-					<a class="btn btn-link" role="button" data-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
+					<a class="btn btn-link" role="button" data-bs-toggle="collapse" href="#menu-collapse" aria-expanded="false" aria-controls="menu-collapse">
 						<?= wp_vincod_get_icon('menu'); ?>
 						<span>Menu</span>
 					</a>
@@ -110,7 +108,7 @@
 
 								<?php if($logo = wp_vincod_get_logo_url($range, '640')): ?>
 									<img src="<?= $logo; ?>" alt="<?= $range['name']; ?>"/>
-									<h2 itemprop="name" class="sr-only"><?= $range['name']; ?></h2>
+									<h2 itemprop="name" class="visually-hidden"><?= $range['name']; ?></h2>
 								<?php else: ?>
 									<h2 itemprop="name"><?= $range['name']; ?></h2>
 								<?php endif; ?>
@@ -138,7 +136,7 @@
 
 									<?php foreach($appellations as $index => $appellation): ?>
 
-										<a href="#appellation-<?= $index; ?>" class="nav-item nav-link<?= ($index == 0) ? ' active' : ''; ?>" aria-controls="presentation" role="tab" data-toggle="tab">
+										<a href="#appellation-<?= $index; ?>" class="nav-item nav-link<?= ($index == 0) ? ' active' : ''; ?>" aria-controls="presentation" role="tab" data-bs-toggle="tab">
 											<?= $appellation['name']; ?>
 										</a>
 

@@ -4,11 +4,11 @@
 
 **Tags:** wine, wines, vin, vins, vincod, vinternet, plugin vincod
 
-**Requires at least:** 4.0
+**Requires at least:** 5.0
 
-**Tested up to:** 5.3
+**Tested up to:** 6.0.2
 
-**Stable tag:** 2.6.4
+**Stable tag:** 2.6.5
 
 **License:** GPLv2 or later
 
@@ -18,7 +18,7 @@
 Plugin permettant l'intégration de vos fiches vincod directement sur votre site Wordpress.
 
 ## Installation
-**PHP5 Required.**
+**PHP 7+ Required.**
 
 1. Download, unzip and upload to your WordPress plugins directory
 2. Activate the plugin within you WordPress Administration Backend
@@ -26,24 +26,21 @@ Plugin permettant l'intégration de vos fiches vincod directement sur votre site
 4. Configure the Plugin
 
 ## Bibliothèques utilisées
-* Bootstrap 4.4.1
+* Bootstrap 5.2.1
 
 ## Comment modifier les fichiers source ?
 
 ### Prérequis
-* NodeJS LTS+
-* Bower
-* Gulp-CLI
-* Node SASS
+* NodeJS 12+
 
 ### Commandes utiles
 * Au téléchargement ou `git clone` du projet, lancer la commande `npm run init` qui installera les librairies requises à la modification du projet.
 
-* Les feuilles de style se trouvent dans le dossier `(assets/sass)`. Ne pas modifier directement `(assets/css/admin.css)` et `(assets/css/front.css)` car ils seront écrasés à la prochaine compilation.
+* Les feuilles de style se trouvent dans le dossier `(assets/sass)`. Ne pas modifier directement les fichiers CSS dans `(assets/css)` car ils seront écrasés à la prochaine compilation.
 
-* Pour pouvoir compiler les fichiers SASS en CSS `(assets/css/admin.css)` et `(assets/css/front.css)` et concaténer les librairies JS en un seul fichier `(assets/js/vendor.js)`, lancer la commande `gulp build`.
+* Pour pouvoir compiler les fichiers SASS en CSS et concaténer les librairies JS en un seul fichier, lancer la commande `gulp build`.
 
-* Pour pouvoir compiler les fichiers SASS en CSS minifiés `(assets/css/admin.css)` et `(assets/css/front.css)` et concaténer les librairies JS en un seul fichier minifié `(assets/js/vendor.js)`, lancer la commande `gulp dist`.
+* Pour pouvoir compiler les fichiers SASS en CSS minifiés et concaténer les librairies JS en un seul fichier minifié, lancer la commande `gulp dist`.
 
 * Pour pouvoir modifier les fichiers SASS avec rafraîchissement automatique du navigateur, lancer la commande `gulp browsersync`.
 

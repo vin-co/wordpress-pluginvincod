@@ -2,6 +2,8 @@
 //	!---------- FRONT ----------
 //=================================
 
+@import "bootstrap/scss/functions";
+
 html {
 	font-size: 10px;
 }
@@ -22,8 +24,14 @@ html {
 	$primary: $gray-300;
 	$secondary: $gray-400;
 
+	$spacer: .5rem;
+	$grid-gutter-width: $spacer * 6;
+
 	$font-family-sans-serif: inherit;
 	$font-size-base: 1.6rem;
+
+	$paragraph-margin-bottom: $spacer * 3;
+	$headings-margin-bottom: $paragraph-margin-bottom;
 
 	$component-active-bg: $secondary;
 	$border-radius: 0;
@@ -31,12 +39,14 @@ html {
 	$border-radius-sm: 0;
 
 	$link-color: inherit;
+	$link-decoration: none;
 	$link-hover-color: inherit;
-	$link-hover-decoration: none;
 
 	$input-border-color: $gray-300;
 	$input-placeholder-color: $gray-400;
 
+	$breadcrumb-padding-y: $spacer * 2;
+	$breadcrumb-padding-x: $spacer * 3;
 	$breadcrumb-font-size: 1.2rem;
 	$breadcrumb-bg: $gray-100;
 	$breadcrumb-divider-color: $gray-400;
@@ -54,7 +64,7 @@ html {
 		justify-content: space-between;
 		flex-wrap: wrap;
 		margin: auto;
-		padding: $grid-gutter-width/2 0;
+		padding: space(3) 0;
 	}
 
 	// ---------- Menu styles ----------
@@ -62,7 +72,7 @@ html {
 	.menu-container {
 		@include column(0, 12, 0);
 		@include column(lg, 3, 0);
-		margin-bottom: $grid-gutter-width/2;
+		margin-bottom: space(3);
 
 		@include media-breakpoint-up(lg) {
 
@@ -85,7 +95,7 @@ html {
 			}
 
 			svg {
-				@include size(43px);
+				@include size(space(8.5));
 			}
 		}
 
@@ -103,7 +113,7 @@ html {
 			background-color: $gray-100;
 
 			@include media-breakpoint-down(md) {
-				margin-top: $grid-gutter-width/2;
+				margin-top: space(3);
 			}
 
 			.vincod-menu {
@@ -118,7 +128,7 @@ html {
 
 				a {
 					display: block;
-					padding: $grid-gutter-width/4 $grid-gutter-width/2;
+					padding: space(2) space(3);
 					text-transform: capitalize;
 				}
 			}
@@ -128,7 +138,7 @@ html {
 				> ul > li {
 
 					> a {
-						padding-left: 25px;
+						padding-left: space(5);
 					}
 
 					> ul {
@@ -141,7 +151,7 @@ html {
 						> li {
 
 							> a {
-								padding-left: 35px;
+								padding-left: space(7);
 							}
 
 							> ul {
@@ -154,7 +164,7 @@ html {
 								> li {
 
 									> a {
-										padding-left: 45px;
+										padding-left: space(9);
 									}
 								}
 							}
@@ -170,14 +180,14 @@ html {
 				display: flex;
 				align-items: center;
 				height: auto;
-				padding: 1rem 1.6rem;
+				padding: space(2) space(3);
 			}
 
 			.btn {
 				color: $gray-400;
 
 				svg {
-					@include size(20px);
+					@include size(space(4));
 				}
 			}
 		}
@@ -197,13 +207,13 @@ html {
 		}
 
 		.breadcrumb {
-			margin-bottom: $grid-gutter-width/2;
+			margin-bottom: space(3);
 			border: 1px solid $gray-300;
 		}
 	}
 
 	.content-panel {
-		margin-bottom: $grid-gutter-width/4;
+		margin-bottom: space(1);
 		border: 1px solid $gray-300;
 
 		.panel-heading {
@@ -213,7 +223,7 @@ html {
 			border-bottom: 1px solid $gray-300;
 
 			.content-cover {
-				@include size(100%);
+				@include size();
 				@include background-image(cover);
 			}
 		}
@@ -228,8 +238,8 @@ html {
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				margin: -200px auto $grid-gutter-width/2;
-				padding: $grid-gutter-width/2;
+				margin: -200px auto space(3);
+				padding: space(3);
 				border: 1px solid $gray-300;
 				background-color: $white;
 				z-index: 10;
@@ -264,7 +274,7 @@ html {
 		align-items: center;
 		justify-content: center;
 		height: 50vh;
-		margin: $grid-gutter-width/4 auto;
+		margin: space(1.5) auto;
 		padding: $grid-gutter-width;
 
 		@include before() {
@@ -277,7 +287,7 @@ html {
 			position: relative;
 			display: inline-block;
 			margin: 0;
-			padding: 30px;
+			padding: $grid-gutter-width;
 			border: 1px solid $gray-300;
 			background-color: rgba($gray-300, .9);
 			color: $gray-700;
@@ -307,7 +317,7 @@ html {
 			}
 
 			a {
-				padding: $grid-gutter-width/2;
+				padding: space(3);
 				text-transform: uppercase;
 				line-height: $line-height-sm;
 				font-size: $font-size-sm;
@@ -343,7 +353,7 @@ html {
 
 		h2 {
 			display: inline-block;
-			padding: 30px;
+			padding: $grid-gutter-width;
 			border: 1px solid $gray-300;
 			background-color: $gray-100;
 			color: inherit;
@@ -354,7 +364,7 @@ html {
 
 			&:hover {
 				background-color: $gray-500;
-				color: white;
+				color: $white;
 			}
 		}
 	}
@@ -365,13 +375,13 @@ html {
 		align-items: center;
 		justify-content: center;
 		max-width: screen(md);
-		margin: $grid-gutter-width/2 auto;
+		margin: space(3) auto;
 		text-align: center;
 
 		.vincod-label {
 			@include column(0, 12);
 			@include column(md, 3);
-			padding: $grid-gutter-width/2;
+			padding: space(3);
 		}
 	}
 
@@ -448,7 +458,7 @@ html {
 					text-transform: uppercase;
 					white-space: normal;
 
-					@include media-breakpoint-down(xs) {
+					@include media-breakpoint-down(sm) {
 						flex-direction: column;
 					}
 				}
@@ -459,7 +469,7 @@ html {
 					text-align: left;
 					flex-grow: 1;
 
-					@include media-breakpoint-down(xs) {
+					@include media-breakpoint-down(sm) {
 						width: 100%;
 						text-align: center;
 					}
@@ -471,14 +481,14 @@ html {
 					align-items: center;
 					justify-content: center;
 					width: 100px;
-					padding: 20px $grid-gutter-width 10px;
+					padding: space(4) $grid-gutter-width space(2);
 					border-left: 1px solid $gray-300;
 
 					svg {
-						@include size(20px);
+						@include size(space(4));
 					}
 
-					@include media-breakpoint-down(xs) {
+					@include media-breakpoint-down(sm) {
 						width: 100%;
 						border-left: none;
 						border-top: 1px solid $gray-300;
@@ -492,12 +502,12 @@ html {
 					background-color: $gray-100;
 					text-align: center;
 
-					@include media-breakpoint-down(xs) {
+					@include media-breakpoint-down(sm) {
 						width: 100%;
 					}
 
 					.dropdown-item {
-						@include padding-vertical(.5rem);
+						@include padding-vertical(space());
 
 						&.current {
 							pointer-events: none;
@@ -520,10 +530,10 @@ html {
 			margin-bottom: $grid-gutter-width;
 
 			a {
-				padding: $grid-gutter-width/2 $grid-gutter-width/3;
+				padding: space(3) space(2);
 				text-transform: uppercase;
 
-				@include media-breakpoint-down(xs) {
+				@include media-breakpoint-down(sm) {
 					width: 100%;
 				}
 
@@ -536,13 +546,13 @@ html {
 		}
 
 		.product-review {
-			margin-bottom: $grid-gutter-width/2;
+			margin-bottom: space(3);
 			display: flex;
 			align-items: center;
 
 			img {
-				max-width: $grid-gutter-width*2.5;
-				margin-right: $grid-gutter-width/2;
+				max-width: space(15);
+				margin-right: space(3);
 			}
 		}
 
@@ -551,7 +561,7 @@ html {
 			align-items: center;
 
 			svg {
-				@include size(20px);
+				@include size(space(4));
 			}
 		}
 	}

@@ -2,6 +2,8 @@
 //	!---------- ADMIN ----------
 //=================================
 
+@import "bootstrap/scss/functions";
+
 #plugin-vincod {
 
 	// Overrides
@@ -9,20 +11,31 @@
 
 	$gray-100: #f3f5f6;
 	$gray-200: #F9F9F9;
+	$gray-300: #f1f1f1;
 
 	$blue: #0071a1;
 	$cyan: #007cba;
 	$red: #dc3232;
 	$yellow: #FAA022;
 	$green: #46b450;
+	$primary: $blue;
 	$secondary: $cyan;
 	$light: #f3f5f6;
-	$yiq-text-dark: $blue;
 
+	$min-contrast-ratio: 2;
+	$color-contrast-dark: $blue;
+
+	$font-family-sans-serif: inherit;
 	$font-size-base: 0.75rem;
+
+	$border-radius: 3px;
+	$border-color: #ccd0d4;
+
 	$table-bg: #fff;
 	$table-border-color: #ccd0d4;
-	$table-accent-bg: #f9f9f9;
+	$table-cell-padding-y: .8rem;
+	$table-cell-padding-x: .8rem;
+
 	$input-border-color: #7e8993;
 
 	// Imports
@@ -96,14 +109,14 @@
 
 	.table {
 		border: 1px solid $table-border-color;
-		box-shadow: 0 1px 1px rgba($black,.04);
+		box-shadow: 0 1px 1px rgba($black, .04);
 
 		thead th {
-			border-bottom-width: 1px;
+			border-bottom: 1px solid $table-border-color;
 		}
 
-		td,th {
-			border-top: none;
+		td, th {
+			border-bottom: none;
 		}
 	}
 
@@ -149,6 +162,12 @@
 
 		&.btn-light {
 			border-color: $blue;
+
+			&:hover {
+				background-color: $gray-300;
+				border-color: $blue;
+				color: $blue;
+			}
 		}
 	}
 }

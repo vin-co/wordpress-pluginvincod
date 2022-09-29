@@ -13,9 +13,27 @@
 	@return #{$remSize}rem;
 }
 
+@function vh($size: 100) {
+	@return calc(var(--vh, 100vh) * #{$size / 100});
+}
+
+@function space($size: 1) {
+	@return $spacer * $size;
+}
+
 @mixin size($width: 100%, $height: $width) {
 	width: $width;
 	height: $height;
+}
+
+@mixin max-size($width: 100%, $height: $width) {
+	max-width: $width;
+	max-height: $height;
+}
+
+@mixin min-size($width: 0, $height: $width) {
+	min-width: $width;
+	min-height: $height;
 }
 
 @mixin position-horizontal($left: 0, $right: $left) {
@@ -77,7 +95,7 @@
 	}
 }
 
-@mixin aspect-ratio($width, $height) {
+@mixin aspect-ratio($width: 1, $height: 1) {
 	position: relative;
 
 	@include before() {
@@ -88,20 +106,25 @@
 
 	> * {
 		@include position();
-		@include size(100%);
+		@include size();
 		position: absolute;
 	}
 }
 
-@mixin translate($x, $y) {
+@mixin translate($x: 0, $y: 0) {
 	transform: translate3d($x, $y, 0);
-	backface-visibility: hidden;
 }
 
 @mixin background-image($size: cover, $position: center) {
 	background-position: $position;
 	background-repeat: no-repeat;
 	background-size: $size;
+}
+
+@mixin mask-image($size: cover, $position: center) {
+	mask-position: $position;
+	mask-repeat: no-repeat;
+	mask-size: $size;
 }
 
 @mixin exclude-browser($exclude-browser: '.desktop:not(.internet-explorer)') {
@@ -129,6 +152,25 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		@content;
+	}
+}
+
+@mixin placeholder-style() {
+
+	&::placeholder {
+		opacity: 1;
+		@content;
+	}
+
+	&:-ms-input-placeholder, &::-ms-input-placeholder, &:-moz-placeholder, &::-moz-placeholder, &::-webkit-input-placeholder {
+		@content;
+	}
+}
+
+@mixin placeholder-color($color: $input-placeholder-color) {
+
+	@include placeholder-style {
+		color: $color;
 	}
 }
 
@@ -177,52 +219,167 @@
 	}
 }
 
+@mixin form-default-style() {
+
+	select,
+	textarea,
+	input[type="text"],
+	input[type="password"],
+	input[type="tel"],
+	input[type="email"],
+	input[type="number"],
+	input[type="search"],
+	input[type="time"],
+	input[type="url"],
+	input[type="week"],
+	input[type="month"],
+	input[type="date"],
+	input[type="datetime-local"] {
+		display: block;
+		width: 100%;
+		height: $input-height;
+		padding: $input-padding-y $input-padding-x;
+		font-family: $input-font-family;
+		@include font-size($input-font-size);
+		font-weight: $input-font-weight;
+		line-height: $input-line-height;
+		color: $input-color;
+		background-color: $input-bg;
+		background-clip: padding-box;
+		border: $input-border-width solid $input-border-color;
+
+		@include border-radius($input-border-radius, 0);
+		@include box-shadow($input-box-shadow);
+		@include transition($input-transition);
+
+		&::-ms-expand {
+			background-color: transparent;
+			border: 0;
+		}
+
+		@include form-control-focus(true);
+
+		&::placeholder {
+			color: $input-placeholder-color;
+			opacity: 1;
+		}
+
+		&:disabled,
+		&[readonly] {
+			background-color: $input-disabled-bg;
+			opacity: 1;
+		}
+	}
+
+	select, textarea {
+		height: auto;
+	}
+
+	select {
+		&:focus::-ms-value {
+			color: $input-color;
+			background-color: $input-bg;
+		}
+	}
+
+	input[type="checkbox"]:not(.custom-control-input) {
+		@include custom-checkbox();
+	}
+
+	input[type="radio"]:not(.custom-control-input) {
+		@include custom-radio();
+	}
+
+	.custom-control {
+		line-height: 1;
+
+		.custom-control-label {
+
+			&:before, &:after {
+				top: 50%;
+				margin-top: -($custom-control-indicator-size / 2);
+			}
+		}
+	}
+}
+
 @mixin button($color: $primary, $outline: false, $size: false) {
 	display: inline-block;
-	font-family: $btn-font-family;
-	font-weight: $btn-font-weight;
-	color: $body-color;
+	padding: var(--#{$prefix}btn-padding-y) var(--#{$prefix}btn-padding-x);
+	font-family: var(--#{$prefix}btn-font-family);
+	@include font-size(var(--#{$prefix}btn-font-size));
+	font-weight: var(--#{$prefix}btn-font-weight);
+	line-height: var(--#{$prefix}btn-line-height);
+	color: var(--#{$prefix}btn-color);
 	text-align: center;
+	text-decoration: if($link-decoration == none, null, none);
 	white-space: $btn-white-space;
 	vertical-align: middle;
-	cursor: if($enable-pointer-cursor-for-buttons, pointer, null);
+	cursor: if($enable-button-pointers, pointer, null);
 	user-select: none;
-	background-color: transparent;
-	border: $btn-border-width solid transparent;
+	border: var(--#{$prefix}btn-border-width) solid var(--#{$prefix}btn-border-color);
+	@include border-radius(var(--#{$prefix}btn-border-radius));
+	@include gradient-bg(var(--#{$prefix}btn-bg));
+	@include box-shadow(var(--#{$prefix}btn-box-shadow));
 	@include transition($btn-transition);
 
 	@if $size == lg {
-		@include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+		@include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-border-radius-lg);
 	} @else if $size == sm {
-		@include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+		@include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
 	} @else {
-		@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
+		@include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
 	}
 
-	@include hover() {
-		color: $body-color;
-		text-decoration: none;
+	&:hover,
+	&:first-child:hover {
+		color: var(--#{$prefix}btn-hover-color);
+		text-decoration: if($link-hover-decoration == underline, none, null);
+		background-color: var(--#{$prefix}btn-hover-bg);
+		border-color: var(--#{$prefix}btn-hover-border-color);
 	}
 
-	&:focus,
-	&.focus {
+	&:focus-visible {
+		color: var(--#{$prefix}btn-hover-color);
+		@include gradient-bg(var(--#{$prefix}btn-hover-bg));
+		border-color: var(--#{$prefix}btn-hover-border-color);
 		outline: 0;
-		box-shadow: $btn-focus-box-shadow;
-	}
-
-	&.disabled,
-	&:disabled {
-		opacity: $btn-disabled-opacity;
-		@include box-shadow(none);
-	}
-
-	&:not(:disabled):not(.disabled):active,
-	&:not(:disabled):not(.disabled).active {
-		@include box-shadow($btn-active-box-shadow);
-
-		&:focus {
-			@include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+		@if $enable-shadows {
+			box-shadow: var(--#{$prefix}btn-box-shadow), var(--#{$prefix}btn-focus-box-shadow);
+		} @else {
+			box-shadow: var(--#{$prefix}btn-focus-box-shadow);
 		}
+	}
+
+	&:active,
+	&:first-child:active,
+	&.active,
+	&.show {
+		color: var(--#{$prefix}btn-active-color);
+		background-color: var(--#{$prefix}btn-active-bg);
+		background-image: if($enable-gradients, none, null);
+		border-color: var(--#{$prefix}btn-active-border-color);
+		@include box-shadow(var(--#{$prefix}btn-active-shadow));
+
+		&:focus-visible {
+			@if $enable-shadows {
+				box-shadow: var(--#{$prefix}btn-active-shadow), var(--#{$prefix}btn-focus-box-shadow);
+			} @else {
+				box-shadow: var(--#{$prefix}btn-focus-box-shadow);
+			}
+		}
+	}
+
+	&:disabled,
+	&.disabled,
+	fieldset:disabled & {
+		color: var(--#{$prefix}btn-disabled-color);
+		pointer-events: none;
+		background-color: var(--#{$prefix}btn-disabled-bg);
+		background-image: if($enable-gradients, none, null);
+		border-color: var(--#{$prefix}btn-disabled-border-color);
+		opacity: var(--#{$prefix}btn-disabled-opacity);
+		@include box-shadow(none);
 	}
 
 	@if $outline {
@@ -232,19 +389,52 @@
 	}
 }
 
-@mixin ionicon($content) {
+@mixin custom-control($color: $custom-control-indicator-checked-bg, $size: $custom-control-indicator-size) {
+	@include size($size);
+	position: relative;
+	display: inline-block;
+	padding: 0;
+	border: $custom-control-indicator-border-width solid $custom-control-indicator-border-color;
+	background: transparent;
+	box-shadow: $custom-control-indicator-box-shadow;
+	appearance: none;
+	cursor: pointer;
+	outline: 0;
+	overflow: hidden;
+	transition: $transition-base;
 
-	@include before($content) {
-		display: inline-block;
-		font-family: "Ionicons";
-		speak: none;
-		font-style: normal;
-		font-weight: normal;
-		font-variant: normal;
-		text-transform: none;
-		text-rendering: auto;
-		line-height: 1;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
+	@include after() {
+		@include position(-1px, -1px);
+		position: absolute;
+		display: block;
+		transition: $transition-base;
+		opacity: 0;
+	}
+
+	&:checked {
+		border-color: $color;
+		background: $color;
+
+		&:after {
+			opacity: 1;
+		}
+	}
+}
+
+@mixin custom-checkbox($color: $custom-control-indicator-checked-bg, $size: $custom-control-indicator-size) {
+	@include custom-control($color, $size);
+	border-radius: $custom-checkbox-indicator-border-radius;
+
+	&:after {
+		background: $custom-checkbox-indicator-icon-checked $color no-repeat 50%/#{$custom-control-indicator-bg-size};
+	}
+}
+
+@mixin custom-radio($color: $custom-control-indicator-checked-bg, $size: $custom-control-indicator-size) {
+	@include custom-control($color, $size);
+	border-radius: $custom-radio-indicator-border-radius;
+
+	&:after {
+		background: $custom-radio-indicator-icon-checked $color no-repeat 50%/#{$custom-control-indicator-bg-size};
 	}
 }

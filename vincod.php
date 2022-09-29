@@ -1,10 +1,10 @@
-<?php defined('ABSPATH') OR exit;
+<?php defined('ABSPATH') or exit;
 
 /*
 Plugin Name: Vincod
 Plugin URI: http://dev.vincod.com/
 Description: The « Vincod for WordPress » plugin allows you to instantly create a « Our Wines » section in your WordPress website.
-Version: 2.6.4
+Version: 2.6.5
 Author: Vinternet
 Author URI: http://www.vinternet.net/
 Text Domain: vincod

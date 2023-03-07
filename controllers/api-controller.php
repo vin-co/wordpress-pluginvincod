@@ -5,13 +5,9 @@
  *
  * A simple interface of vincod API Restful
  *
- * Note : I wanted use the API lib created by Thomas, but the lib
- * created many conflict with Wordpress (i searched the problem 2hours, and i didn't find ...)
- * so i crafted this minimalist lib.
- *
  * @author       Vinternet
  * @category     Controller
- * @copyright    2016 VINTERNET
+ * @copyright    2023 VINTERNET
  *
  */
 class WP_Vincod_API {
@@ -34,9 +30,8 @@ class WP_Vincod_API {
 
 		$this->config(array(
 
-			'_customer_api'       => get_option('vincod_setting_customer_api'),
-			'_customer_id'        => get_option('vincod_setting_customer_id'),
-			'_customer_winery_id' => get_option('vincod_setting_customer_winery_id')
+			'_customer_api' => get_option('vincod_setting_customer_api'),
+			'_customer_id'  => get_option('vincod_setting_customer_id'),
 
 		));
 
@@ -73,36 +68,35 @@ class WP_Vincod_API {
 	 * Simple interface for API requests
 	 *
 	 * @access    public
-	 * @return    bool
+	 * @return    mixed
 	 *
 	 */
-	public function request_api(array $params = array()) {
+	public function request_api($params = array()) {
 
-		if(isset($params['method']) && !empty($params['method']) && isset($params['action']) && !empty($params['action'])) {
+		if(!empty($params['method']) && !empty($params['action'])) {
 
-			$additional_params = (isset($params['params'])) ? $params['params'] . '&' : '';
+			$additional_params = (!empty($params['params'])) ? $params['params'] . '&' : '';
 
 			// Create url to request
-			$url = 'http://api.vincod.com/3/json/%method/%action/%lang/%id?' . $additional_params . 'apiKey=' . $this->_customer_api;
-
+			$url = 'https://api.vincod.com/3/json/%method/%action/%lang/%id?' . $additional_params . 'apiKey=' . $this->_customer_api;
 
 			$url = $this->parse_url($url, $params);
 			// Check in the cache
 			$already_cached = $this->already_cached($url);
 
-			if(WP_DEBUG == true) {
-				echo($url . '<br/>');
+			if(WP_DEBUG) {
+				echo('<pre>' . $url . '</pre>');
 			}
 
 			if(!$already_cached) {
 
 				// File get (located in plugin-vincod/functions.php)
-				$datas = wp_vincod_file_get_contents($url, false);
+				$datas = wp_vincod_remote_request($url, false, (!empty($params['data']) ? $params['data'] : null));
 
 				// Create cache if user option different 0 or empty
-				$option = (int)get_option('vincod_setting_cache_api');
+				$option = get_option('vincod_setting_cache_api');
 
-				if($option != 0) {
+				if(!empty($option)) {
 
 					$this->cache($url, $datas);
 
@@ -297,7 +291,7 @@ class WP_Vincod_API {
 
 			'method' => 'owner',
 			'action' => 'GetCatalogueByVincod',
-			'params' => ($brand = get_option('vincod_setting_customer_winery_id')) ? 'limit=' . $brand : 'limit=' . $this->_customer_id
+			'params' => 'limit=' . $this->_customer_id
 
 		);
 
@@ -318,6 +312,54 @@ class WP_Vincod_API {
 		}
 
 		return $menu['owners'];
+
+	}
+
+	public function get_catalogue_by_filter($filter = null) {
+
+		$params = array(
+
+			'method' => 'owner',
+			'action' => 'GetCatalogueByFilter',
+
+		);
+
+		if($filter !== null) {
+
+			$parsed_filters = array();
+
+			if(isset($filter['vintageyear'])) {
+				$parsed_filters['filter_json_vintageyear'] = $filter['vintageyear'];
+			}
+
+			if(!empty($filter['winery'])) {
+				$parsed_filters['filter_json_winery'] = $filter['winery'];
+			}
+
+			if(!empty($filter['appellation'])) {
+				$parsed_filters['filter_json_appellation'] = $filter['appellation'];
+			}
+
+			if(!empty($filter['winetype'])) {
+				$parsed_filters['filter_json_winetype'] = $filter['winetype'];
+			}
+
+			if(!empty($parsed_filters)) {
+				$params['data'] = array('filter_json' => json_encode($parsed_filters));
+			}
+
+		}
+
+		$filters = $this->request_api($params);
+
+		if(isset($filters['owners']['error']) || empty($filters)) {
+
+			return false;
+
+		}
+
+		return $filters['owners']['filter'];
+
 	}
 
 
@@ -674,6 +716,7 @@ class WP_Vincod_API {
 
 			'method' => 'wine',
 			'action' => 'GetWinesByRangeId',
+			'params' => 'CurrentVintageOnly=1&Fields=0&Recipes=0&GrapesVarieties=0&Shops=0&Reviews=0&Products=0&Skus=0&Medias=0',
 			'id'     => $id
 
 		));
@@ -737,6 +780,7 @@ class WP_Vincod_API {
 
 			'method' => 'wine',
 			'action' => 'GetWinesByWineryId',
+			'params' => 'CurrentVintageOnly=1&Fields=0&Recipes=0&GrapesVarieties=0&Shops=0&Reviews=0&Products=0&Skus=0&Medias=0',
 			'id'     => $id
 
 		));
@@ -753,14 +797,43 @@ class WP_Vincod_API {
 		return $wines['wines']['wine'];
 	}
 
-	public function get_wines_by_owner_id() {
+	public function get_wines_by_owner_id($filters = null) {
 
-		$wines = $this->request_api(array(
+		$params = array(
 
 			'method' => 'wine',
-			'action' => 'GetWinesByOwnerId'
+			'action' => 'GetWinesByOwnerId',
+			'params' => 'CurrentVintageOnly=1&Fields=0&Recipes=0&GrapesVarieties=0&Shops=0&Reviews=0&Products=0&Skus=0&Medias=0'
 
-		));
+		);
+
+		if($filters !== null) {
+
+			$parsed_filters = array();
+
+			if(isset($filters['vintageyear'])) {
+				$parsed_filters['filter_json_vintageyear'] = $filters['vintageyear'];
+			}
+
+			if(!empty($filters['winery'])) {
+				$parsed_filters['filter_json_winery'] = $filters['winery'];
+			}
+
+			if(!empty($filters['appellation'])) {
+				$parsed_filters['filter_json_appellation'] = $filters['appellation'];
+			}
+
+			if(!empty($filters['winetype'])) {
+				$parsed_filters['filter_json_winetype'] = $filters['winetype'];
+			}
+
+			if(!empty($parsed_filters)) {
+				$params['data'] = array('filter_json' => json_encode($parsed_filters));
+			}
+
+		}
+
+		$wines = $this->request_api($params);
 
 		if(isset($wines['wines']['error']) || empty($wines)) {
 
@@ -780,15 +853,9 @@ class WP_Vincod_API {
 			'method' => 'wine',
 			'action' => 'GetWinesBySearch',
 			'id'     => $search,
-			'params' => 'owner=' . $this->_customer_id
+			'params' => 'owner=' . $this->_customer_id . '&Fields=0&Recipes=0&GrapesVarieties=0&Shops=0&Reviews=0&Products=0&Skus=0&Medias=0'
 
 		);
-
-		if($brand = get_option('vincod_setting_customer_winery_id')) {
-
-			$params['params'] .= '&winery=' . $brand;
-
-		}
 
 		$wines = $this->request_api($params);
 

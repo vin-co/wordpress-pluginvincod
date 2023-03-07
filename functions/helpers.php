@@ -1,4 +1,4 @@
-<?php defined('ABSPATH') OR exit;
+<?php defined('ABSPATH') or exit;
 /**
  * Plugin Helpers functions
  *
@@ -6,7 +6,7 @@
  *
  * @author      Vinternet
  * @category    Helper
- * @copyright   2016 VINTERNET
+ * @copyright   2023 VINTERNET
  *
  */
 
@@ -18,73 +18,30 @@
  *
  * @return mixed
  */
-function wp_vincod_file_get_contents($url, $json_decode = false) {
-	
-	
-	if(function_exists('curl_exec')) {
-		
-		// Open url with CURL way (it's faster than file_get_contents())
-		$ch = curl_init();
-		
-		curl_setopt($ch, CURLOPT_AUTOREFERER, true);
-		curl_setopt($ch, CURLOPT_HEADER, 0);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_URL, $url);
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-		
-		$datas = curl_exec($ch);
-		curl_close($ch);
-		
+function wp_vincod_remote_request($url, $json_decode = false, $post_data = null) {
+
+	$args = array('method' => 'GET');
+
+	if(!empty($post_data)) {
+
+		$args = array(
+			'method' => 'POST',
+			'body'   => $post_data
+		);
 	}
-	else {
-		
-		// Curl doesn't exists, use the normal way
-		$datas = file_get_contents($url);
-		
-	}
-	
+
+	$request = wp_remote_request($url, $args);
+	$datas = wp_remote_retrieve_body($request);
+
 	// Do you auto-decode json results
-	if($json_decode === true) {
-		
+	if($json_decode) {
+
 		// TRUE -> Return array
 		$datas = json_decode($datas, true);
-		
+
 	}
-	
+
 	return $datas;
-}
-
-
-/**
- * Test if a variable is empty
- *
- * @param $data
- * @param $text
- *
- * @return mixed
- */
-function wp_vincod_empty($data, $text) {
-	
-	if($data === false OR empty($data)) {
-		
-		return $text;
-		
-	}
-	
-	return $data;
-	
-}
-
-
-/**
- * Test if a variable is not empty
- *
- * @param $var
- *
- * @return bool
- */
-function wp_vincod_is_not_empty($var) {
-	return isset($var) && !empty($var);
 }
 
 
@@ -96,37 +53,44 @@ function wp_vincod_is_not_empty($var) {
  * @return bool
  */
 function wp_vincod_is_multi($array) {
-	return !count(array_filter(array_keys($array), 'is_string')) > 0;
+	return (is_array($array)) ? !count(array_filter(array_keys($array), 'is_string')) > 0 : false;
 }
 
 
 /**
- * Test if a page exists
- *
- * @param $name
- *
- * @return bool
+ * @return mixed
  */
-function wp_vincod_exists_page($name) {
-	
-	$exists = get_posts(array(
-		
-		'post_type' => 'page',
-		'name'      => $name
-	
-	));
-	
-	if(!$exists) {
-		
-		return false;
-		
+function wp_vincod_search_in_array($array, $value) {
+
+	if(is_array($array) && !empty($array)) {
+
+		foreach($array as $item) {
+
+			if($item === $value) {
+				return $item;
+			}
+		}
 	}
-	else {
-		
-		return true;
-		
+
+	return null;
+}
+
+/**
+ * @return mixed
+ */
+function wp_vincod_search_in_array_by_key($array, $key, $value) {
+
+	if(is_array($array) && !empty($array)) {
+
+		foreach($array as $item) {
+
+			if($item[$key] === $value) {
+				return $item;
+			}
+		}
 	}
-	
+
+	return null;
 }
 
 
@@ -139,25 +103,17 @@ function wp_vincod_exists_page($name) {
  * @return bool
  */
 function wp_vincod_switch_page($id, $type) {
-	
+
 	// Update the post
 	$updated = wp_update_post(array(
-		
+
 		'ID'          => $id,
 		'post_status' => $type
-	
+
 	));
-	
-	if($updated == (int)$id) {
-		
-		return true;
-		
-	}
-	else {
-		
-		return false;
-	}
-	
+
+	return ($updated == (int)$id);
+
 }
 
 
@@ -169,20 +125,11 @@ function wp_vincod_switch_page($id, $type) {
  * @return bool
  */
 function wp_vincod_delete_page($id) {
-	
+
 	$deleted = wp_delete_post($id);
-	
-	if($deleted === false) {
-		
-		return false;
-		
-	}
-	else {
-		
-		return true;
-		
-	}
-	
+
+	return ($deleted === false);
+
 }
 
 
@@ -194,24 +141,24 @@ function wp_vincod_delete_page($id) {
  * @return string|bool
  */
 function wp_vincod_get_page_slug($id) {
-	
+
 	//If polylang exists, get translated page ID "NOS VINS"
-	
+
 	if(function_exists('pll_current_language')) {
 		$id = pll_get_post($id, pll_current_language());
 	}
-	
+
 	$post = get_post($id);
-	
-	
+
+
 	if(!empty($post)) {
-		
+
 		return $post->post_name;
-		
+
 	}
-	
+
 	return false;
-	
+
 }
 
 
@@ -223,24 +170,24 @@ function wp_vincod_get_page_slug($id) {
  * @return string|bool
  */
 function wp_vincod_get_permalink($id) {
-	
+
 	//If polylang exists, get translated page ID "NOS VINS"
-	
+
 	if(function_exists('pll_current_language')) {
 		$id = pll_get_post($id, pll_current_language());
 	}
-	
+
 	$post = get_post($id);
-	
-	
+
+
 	if(!empty($post)) {
-		
+
 		return get_permalink($post);
-		
+
 	}
-	
+
 	return false;
-	
+
 }
 
 
@@ -248,45 +195,41 @@ function wp_vincod_get_permalink($id) {
  * @return array|bool|string
  */
 function wp_vincod_detect_lang() {
-	
+
 	$lang = get_locale();
 	$lang = explode('_', $lang);
 	$lang = $lang[0];
-	
+
 	return $lang;
-	
+
 }
 
 
 /**
- * Get/Set a view variable
- *
- * @param string $label the name of our variable
- * @param mixed $value the new value if we want to set a view variable
- *
- * @return bool|mixed
+ * @return string
  */
-function wp_vincod_view_var($label, $value = null) {
-	
-	$wp_vincod_views_datas = &$GLOBALS['wp_vincod_views_datas'];
-	
-	if($value === null)
-		return (isset($wp_vincod_views_datas[$label])) ? $wp_vincod_views_datas[$label] : false;
-	else {
-		
-		$wp_vincod_views_datas[$label] = $value;
-		
-		return true;
-		
-	}
-	
+function wp_vincod_sanitize_param($param) {
+
+	$param = wp_unslash($param);
+	$param = wp_vincod_xss_clean($param);
+	$param = strip_tags($param);
+	$param = sanitize_text_field($param);
+	$param = esc_html($param);
+
+	return $param;
+
 }
 
-function wp_vincod_untranslated_strings() {
-	__('owner', 'vincod');
-	__('collection', 'vincod');
-	__('brand', 'vincod');
-	__('range', 'vincod');
-	__('product', 'vincod');
+
+/**
+ * @return string
+ */
+function wp_vincod_url_encode($url) {
+
+	$url = sanitize_user($url, true);
+	$url = filter_var($url, FILTER_SANITIZE_ENCODED);
+
+	return $url;
+
 }
 

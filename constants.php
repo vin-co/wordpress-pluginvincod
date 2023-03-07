@@ -1,4 +1,4 @@
-<?php defined('ABSPATH') OR exit;
+<?php defined('ABSPATH') or exit;
 
 /**
  * Plugin constants
@@ -7,7 +7,7 @@
  *
  * @author      Vinternet
  * @category    constants
- * @copyright   2016 VINTERNET
+ * @copyright   2023 VINTERNET
  *
  */
 
@@ -31,6 +31,3 @@ define('WP_VINCOD_CURRENT_THEME_PATH', get_template_directory() . '/');
 
 // Path current plugin
 define('WP_VINCOD_PLUGIN_PATH', plugin_dir_path(__FILE__));
-
-
-?>

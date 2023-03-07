@@ -1,21 +1,21 @@
 <?php
 /**
- * Index.php
+ * Collection.php
  *
- * The view served by the template when you haven't got params
+ * The view served by the template when you have got ?collection= GET param
  *
  * You can replace this view by your, just create in your current theme folder
- * the file vincod/index.php ; If you make this you can use
+ * the file vincod/collection.php ; If you make this you can use
  * all functions and all constants of the plugin.
  *
  * @author      Vinternet
  * @category    View
- * @copyright   2016 VINTERNET
+ * @copyright   2023 VINTERNET
  */
 ?>
 
 <!-- Default plugin css -->
-<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/themes/default.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/themes/default/default.css"/>
 <!-- Default plugin js -->
 <script type="text/javascript">
 	// <![CDATA[
@@ -30,7 +30,7 @@
 	// ]]>
 </script>
 
-<section id="plugin-vincod" class="vincod-index" itemscope itemtype="http://schema.org/Organization">
+<section id="plugin-vincod" class="vincod-collection" itemscope itemtype="http://schema.org/Brand">
 
 	<div class="vincod-container">
 
@@ -75,32 +75,32 @@
 
 			<?php endif; ?>
 
-			<?php if($settings['has_content'] && $owner): ?>
+			<?php if($settings['has_content'] && $collection): ?>
 
 				<div class="content-panel">
 
 					<div class="panel-heading">
 
-						<div class="content-cover"<?= ($background = wp_vincod_get_picture_url($owner, 'retina')) ? ' style="background-image: url(' . $background . ')"' : ''; ?>></div>
+						<div class="content-cover"<?= ($background = wp_vincod_get_picture_url($collection, 'retina')) ? ' style="background-image: url(' . $background . ')"' : ''; ?>></div>
 
 					</div>
 
 					<div class="panel-body">
 
-						<?php if($logo = wp_vincod_get_logo_url($owner, '640')): ?>
+						<?php if($logo = wp_vincod_get_logo_url($collection, '640')): ?>
 
 							<div class="content-logo">
-								<img src="<?= $logo; ?>" alt="<?= $owner['name']; ?>"/>
+								<img src="<?= $logo; ?>" alt="<?= $collection['name']; ?>"/>
 							</div>
 
 						<?php endif; ?>
 
-						<h1 itemprop="name"><?= $owner['company']; ?></h1>
+						<h1 itemprop="name"><?= $collection['name']; ?></h1>
 
-						<?php if(!empty($owner['presentation'])): ?>
+						<?php if(!empty($collection['presentation'])): ?>
 
 							<div class="content-presentation" itemprop="description">
-								<?= nl2br($owner['presentation']); ?>
+								<?= nl2br($collection['presentation']); ?>
 							</div>
 
 						<?php endif; ?>
@@ -116,32 +116,7 @@
 				<!-- Links -->
 				<div class="content-links">
 
-					<?php if($collections): ?>
-
-						<?php foreach($collections as $collection): ?>
-
-							<?php
-
-							$collection_image = '';
-
-							if(wp_vincod_get_picture_url($collection, 'retina')) {
-								$collection_image = ' style="background-image: url(' . wp_vincod_get_picture_url($collection, 'retina') . ')"';
-							}
-							elseif(wp_vincod_get_logo_url($collection, '640')) {
-								$collection_image = ' style="background-image: url(' . wp_vincod_get_logo_url($collection, '640') . ')"';
-							}
-
-							?>
-
-							<a href="<?= wp_vincod_link('collection', $collection['vincod'], $collection['name']); ?>" title="<?= $collection['name']; ?>" class="collection-link"<?= $collection_image; ?> itemprop="brand" itemscope itemtype="http://schema.org/Brand">
-
-								<h2 itemprop="name"><?= $collection['name']; ?></h2>
-
-							</a>
-
-						<?php endforeach; ?>
-
-					<?php elseif(!$collections && $brands): ?>
+					<?php if($brands): ?>
 
 						<?php foreach($brands as $brand): ?>
 
@@ -178,11 +153,11 @@
 
 			<?php endif; ?>
 
-			<?php if(!empty($owner['certifications'])): ?>
+			<?php if(!empty($collection['certifications'])): ?>
 
 				<div class="labels-container">
 
-					<?php foreach($owner['certifications'] as $certification): ?>
+					<?php foreach($collection['certifications'] as $certification): ?>
 						<div class="vincod-label">
 							<img src="<?= $certification['value']; ?>" alt="<?= $certification['label']; ?>">
 						</div>

@@ -77,17 +77,3 @@
 // -----------------------------------------------------
 
 @import "mixins";
-
-// Common
-// -----------------------------------------------------
-
-.dropdown-menu.fade {
-	display: block;
-	opacity: 0;
-	pointer-events: none;
-}
-
-.show > .dropdown-menu.fade {
-	opacity: 1;
-	pointer-events: auto;
-}

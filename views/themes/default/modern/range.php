@@ -10,12 +10,12 @@
  *
  * @author      Vinternet
  * @category    View
- * @copyright   2016 VINTERNET
+ * @copyright   2023 VINTERNET
  */
 ?>
 
 <!-- Default plugin css -->
-<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/themes/modern.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/themes/default/modern.css"/>
 <!-- Default plugin js -->
 <script type="text/javascript">
 	// <![CDATA[
@@ -132,11 +132,13 @@
 
 													<div class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
 
-														<?php if($bottle = wp_vincod_get_bottle_url($product, '640')): ?>
-															<div class="bottle">
-																<img src="<?= $bottle; ?>" alt="<?= $product['name']; ?>"/>
-															</div>
-														<?php endif; ?>
+														<div class="bottle">
+															<?php if($bottle = wp_vincod_get_bottle_url($product, '640')): ?>
+																<img src="<?= $bottle; ?>" alt="<?= $product['name']; ?>" loading="lazy"/>
+															<?php else: ?>
+																<?= wp_vincod_get_icon('bottle'); ?>
+															<?php endif; ?>
+														</div>
 
 														<div class="description">
 
@@ -176,11 +178,13 @@
 
 								<div class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
 
-									<?php if($bottle = wp_vincod_get_bottle_url($product, '640')): ?>
-										<div class="bottle">
-											<img src="<?= $bottle; ?>" alt="<?= $product['name']; ?>"/>
-										</div>
-									<?php endif; ?>
+									<div class="bottle">
+										<?php if($bottle = wp_vincod_get_bottle_url($product, '640')): ?>
+											<img src="<?= $bottle; ?>" alt="<?= $product['name']; ?>" loading="lazy"/>
+										<?php else: ?>
+											<?= wp_vincod_get_icon('bottle'); ?>
+										<?php endif; ?>
+									</div>
 
 									<div class="description">
 

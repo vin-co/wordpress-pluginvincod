@@ -4,7 +4,7 @@
 Plugin Name: Vincod
 Plugin URI: http://dev.vincod.com/
 Description: The « Vincod for WordPress » plugin allows you to instantly create a « Our Wines » section in your WordPress website.
-Version: 2.6.5
+Version: 3.0.0
 Author: Vinternet
 Author URI: http://www.vinternet.net/
 Text Domain: vincod
@@ -60,7 +60,7 @@ if(!class_exists('wp_vincod_plugin')) {
 	 *
 	 * @author      Vinternet
 	 * @category    Main
-	 * @copyright   2016 VINTERNET
+	 * @copyright   2023 VINTERNET
 	 *
 	 */
 	class wp_vincod_plugin {
@@ -78,8 +78,6 @@ if(!class_exists('wp_vincod_plugin')) {
 		 * @var mixed (false/int)
 		 */
 		private $_customer_api = false;
-
-		private $_customer_winery_id = false;
 
 		/**
 		 * The constructor
@@ -123,6 +121,17 @@ if(!class_exists('wp_vincod_plugin')) {
 
 			load_plugin_textdomain('vincod', false, dirname(plugin_basename(__FILE__)) . '/languages');
 
+			$GLOBALS['WP_VINCOD_ENTITIES'] = array(
+				'owner'       => __('owner', 'vincod'),
+				'collection'  => __('collection', 'vincod'),
+				'brand'       => __('brand', 'vincod'),
+				'range'       => __('range', 'vincod'),
+				'product'     => __('product', 'vincod'),
+				'vintage'     => __('vintage', 'vincod'),
+				'type'        => __('type', 'vincod'),
+				'appellation' => __('appellation', 'vincod'),
+			);
+
 		}
 
 		/**
@@ -156,41 +165,35 @@ if(!class_exists('wp_vincod_plugin')) {
 			wp_vincod_clear_log();
 
 			// Check if page "Nos Vins" already exists
-			if(!wp_vincod_exists_page(__('Our Wines (powered by Vincod)', 'vincod'))) {
+			$id = ($vincod_page = get_option('vincod_id_page_nos_vins')) ? $vincod_page : wp_vincod_create_page();
 
-				$id = wp_vincod_create_page();
+			// Create pending page "Nos Vins"
+			if($id !== false) {
 
-				// Create pending page "Nos Vins"
-				if($id !== false) {
+				wp_vincod_devlog(__('Install : "Our Wines" Page created', 'vincod'));
 
-					wp_vincod_devlog(__('Install : "Our Wines" Page created', 'vincod'));
+				// Stock id
+				update_option('vincod_id_page_nos_vins', $id);
 
-					// Stock id
-					add_option('vincod_id_page_nos_vins', $id);
+				wp_vincod_devlog(__('Install : Page ID successfully stored -> ', 'vincod') . $id);
 
-					wp_vincod_devlog(__('Install : Page ID successfully stored -> ', 'vincod') . $id);
-
-					// All it's ok, redirect the user to settings
-					add_option('wp_vincod_redirect_after_install', true);
-
-
-				}
-				else {
-
-					wp_vincod_die(__('Install Error', 'vincod'), __('Unable to create the "Our Wines" Page', 'vincod'));
-
-				}
+				// All it's ok, redirect the user to settings
+				update_option('wp_vincod_redirect_after_install', true);
 
 			}
 			else {
 
-				wp_vincod_die(__('Install Error', 'vincod'), __('The "Our Wines" Page already exists', 'vincod'));
+				wp_vincod_die(__('Install Error', 'vincod'), __('Unable to create the "Our Wines" Page', 'vincod'));
 
 			}
 
 			add_option('vincod_setting_cache_api', 1);
 
-			$style_settings = array('has_menu', 'has_search', 'has_content', 'has_links');
+			//Add default style settings
+			add_option('vincod_setting_display_mode', 'default');
+			add_option('vincod_setting_theme', 'default');
+
+			$style_settings = array('has_menu', 'has_breadcrumb', 'has_search', 'has_content', 'has_links', 'has_appellation');
 			$templates_names = array('owner', 'collection', 'brand', 'range', 'product', 'search');
 
 			foreach($templates_names as $template_name) {
@@ -203,6 +206,17 @@ if(!class_exists('wp_vincod_plugin')) {
 				add_option('vincod_' . $template_name . '_settings', $template_settings);
 
 			}
+
+			//Add default catalog settings
+			$catalog_settings = array('has_vintages', 'has_properties', 'has_types', 'has_appellations', 'has_search');
+
+			$template_settings = array();
+
+			foreach($catalog_settings as $setting) {
+				$template_settings[$setting] = 1;
+			}
+
+			add_option('vincod_catalog_settings', $template_settings);
 
 		}
 
@@ -230,7 +244,6 @@ if(!class_exists('wp_vincod_plugin')) {
 			// Delete API informations
 			delete_option('vincod_setting_customer_id');
 			delete_option('vincod_setting_customer_api');
-			delete_option('vincod_setting_customer_winery_id');
 
 			// Delete sitemap
 			wp_vincod_delete_sitemap();
@@ -246,6 +259,9 @@ if(!class_exists('wp_vincod_plugin')) {
 				delete_option('vincod_' . $value . '_settings');
 
 			}
+
+			// Delete catalog options
+			delete_option('vincod_catalog_settings');
 
 			// Delete permalinks
 			delete_option('vincod_setting_permalinks');
@@ -355,13 +371,9 @@ if(!class_exists('wp_vincod_plugin')) {
 		public function admin_dashboard() {
 
 			// Form system & validation
-			if(isset($_POST))
+			if(!empty($_POST)) {
 				wp_wincod_post_updates($_POST);
-
-			wp_vincod_check_exists_sitemap();
-
-			// We load our vincod devlog system and put it within our view
-			wp_vincod_devlog_inject_within_view();
+			}
 
 			// We launch our dashboard
 			wp_vincod_launch('admin/dashboard');

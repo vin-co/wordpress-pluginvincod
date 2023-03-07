@@ -1,0 +1,11 @@
+//=========================================
+//	!---------- GLOBAL FUNCTIONS ----------
+//=========================================
+
+@function rem($size) {
+	@return ($size / 16) * 1rem;
+}
+
+@function vh($size: 100) {
+	@return calc(var(--vh, 100vh) * #{$size / 100});
+}

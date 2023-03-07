@@ -10,12 +10,12 @@
  *
  * @author      Vinternet
  * @category    View
- * @copyright   2016 VINTERNET
+ * @copyright   2023 VINTERNET
  */
 ?>
 
 <!-- Default plugin css -->
-<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/themes/default.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/themes/default/default.css"/>
 <!-- Default plugin js -->
 <script type="text/javascript">
 	// <![CDATA[
@@ -148,7 +148,12 @@
 
 													<a href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>" class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
 
-														<img src="<?= wp_vincod_get_bottle_url($product, '640') ?>" alt="<?= $product['name']; ?>"/>
+														<?php if($bottle = wp_vincod_get_bottle_url($product, '640')): ?>
+															<img src="<?= $bottle; ?>" alt="<?= $product['name']; ?>" loading="lazy"/>
+														<?php else: ?>
+															<?= wp_vincod_get_icon('bottle'); ?>
+														<?php endif; ?>
+
 														<h2 itemprop="name"><?= $product['name']; ?></h2>
 
 													</a>

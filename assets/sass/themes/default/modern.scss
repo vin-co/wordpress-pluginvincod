@@ -3,10 +3,7 @@
 //=================================
 
 @import "bootstrap/scss/functions";
-
-html {
-	font-size: 10px;
-}
+@import "../../functions";
 
 #plugin-vincod {
 
@@ -24,12 +21,11 @@ html {
 	$primary: $gray-300;
 	$secondary: $gray-400;
 
-	$spacer: .5rem;
+	$spacer: rem(5);
 	$grid-gutter-width: $spacer * 6;
 
 	$line-height-sm: 1.2;
 	$font-family-sans-serif: inherit;
-	$font-size-base: 1.6rem;
 
 	$paragraph-margin-bottom: $spacer * 3;
 	$headings-margin-bottom: $paragraph-margin-bottom;
@@ -43,23 +39,23 @@ html {
 	$link-decoration: none;
 	$link-hover-color: inherit;
 
-	$btn-padding-y-lg: 2rem;
-	$btn-padding-x-lg: 5rem;
-	$btn-font-size-lg: 1.4rem;
+	$btn-padding-y-lg: rem(20);
+	$btn-padding-x-lg: rem(50);
+	$btn-font-size-lg: rem(14);
 
 	$input-border-color: $primary;
 	$input-placeholder-color: $primary;
 
 	$breadcrumb-padding-y: $spacer * 2;
 	$breadcrumb-padding-x: $spacer * 3;
-	$breadcrumb-font-size: 1.4rem;
+	$breadcrumb-font-size: rem(14);
 	$breadcrumb-bg: transparent;
 	$breadcrumb-divider-color: $primary;
 	$breadcrumb-active-color: $primary;
 
 	// Imports
 	// -----------------------------------------------------
-	@import "../imports";
+	@import "../../imports";
 
 	// ---------- Global styles ----------
 
@@ -69,7 +65,7 @@ html {
 		justify-content: space-between;
 		flex-wrap: wrap;
 		margin: auto;
-		padding: sp 0;
+		padding: space(3) 0;
 	}
 
 	// ---------- Menu styles ----------
@@ -384,7 +380,7 @@ html {
 
 		.bottle {
 
-			img {
+			img, svg {
 				max-height: 480px;
 				margin: 0 auto $grid-gutter-width;
 
@@ -445,7 +441,7 @@ html {
 			margin-bottom: $grid-gutter-width;
 			text-align: center;
 
-			img {
+			img, svg {
 				margin: auto;
 				max-height: 600px;
 
@@ -472,13 +468,17 @@ html {
 				display: inline-block;
 
 				.btn {
+					display: flex;
+					align-items: center;
+					justify-content: center;
 					padding: space(2) space(2) space(2) space(3);
 					line-height: 1.8;
 					text-transform: uppercase;
 					font-size: $font-size-base;
 
-					&.btn-lg:after {
-						display: none;
+					svg {
+						@include size(space(3));
+						margin-left: space();
 					}
 				}
 

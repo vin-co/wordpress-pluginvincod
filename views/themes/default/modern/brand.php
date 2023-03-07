@@ -10,12 +10,12 @@
  *
  * @author      Vinternet
  * @category    View
- * @copyright   2016 VINTERNET
+ * @copyright   2023 VINTERNET
  */
 ?>
 
 <!-- Default plugin css -->
-<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/themes/default.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/themes/default/modern.css"/>
 <!-- Default plugin js -->
 <script type="text/javascript">
 	// <![CDATA[
@@ -79,33 +79,17 @@
 
 				<div class="content-panel">
 
-					<div class="panel-heading">
-
-						<div class="content-cover"<?= ($background = wp_vincod_get_picture_url($brand, 'retina')) ? ' style="background-image: url(' . $background . ')"' : ''; ?>></div>
-
-					</div>
-
-					<div class="panel-body">
-
-						<?php if($logo = wp_vincod_get_logo_url($brand, '640')): ?>
-
-							<div class="content-logo">
-								<img src="<?= $logo; ?>" alt="<?= $brand['name']; ?>"/>
-							</div>
-
-						<?php endif; ?>
-
+					<div class="content-logo">
 						<h1 itemprop="name"><?= $brand['name']; ?></h1>
-
-						<?php if(!empty($brand['presentation'])): ?>
-
-							<div class="content-presentation" itemprop="description">
-								<?= nl2br($brand['presentation']); ?>
-							</div>
-
-						<?php endif; ?>
-
 					</div>
+
+					<?php if(!empty($brand['presentation'])): ?>
+
+						<div class="content-presentation" itemprop="description">
+							<?= nl2br($brand['presentation']); ?>
+						</div>
+
+					<?php endif; ?>
 
 				</div>
 
@@ -120,24 +104,24 @@
 
 						<?php foreach($ranges as $range): ?>
 
-							<?php
+							<div class="range-link<?= ($picture = wp_vincod_get_picture_url($range, 'retina')) ? ' has-image" style="background-image: url(' . $picture . ')' : ''; ?>" itemprop="brand" itemscope itemtype="http://schema.org/Brand">
 
-							$range_image = '';
+								<?php if($logo = wp_vincod_get_logo_url($range, '640')): ?>
+									<img src="<?= $logo; ?>" alt="<?= $range['name']; ?>"/>
+									<h2 itemprop="name" class="visually-hidden"><?= $range['name']; ?></h2>
+								<?php else: ?>
+									<h2 itemprop="name"><?= $range['name']; ?></h2>
+								<?php endif; ?>
 
-							if(wp_vincod_get_picture_url($range, 'retina')) {
-								$range_image = ' style="background-image: url(' . wp_vincod_get_picture_url($range, 'retina') . ')"';
-							}
-							elseif(wp_vincod_get_logo_url($range, '640')) {
-								$range_image = ' style="background-image: url(' . wp_vincod_get_logo_url($range, '640') . ')"';
-							}
+								<?php if(!empty($range['presentation'])): ?>
+									<div class="presentation" itemprop="description">
+										<?= nl2br($range['presentation']); ?>
+									</div>
+								<?php endif; ?>
 
-							?>
+								<a class="btn" href="<?= wp_vincod_link('range', $range['vincod'], $range['name']); ?>" title="<?= $range['name']; ?>"><?php _e("Discover", 'vincod'); ?></a>
 
-							<a href="<?= wp_vincod_link('range', $range['vincod'], $range['name']); ?>" title="<?= $range['name']; ?>" class="range-link"<?= $range_image; ?> itemprop="brand" itemscope itemtype="http://schema.org/Brand">
-
-								<h2 itemprop="name"><?= $range['name']; ?></h2>
-
-							</a>
+							</div>
 
 						<?php endforeach; ?>
 
@@ -171,12 +155,35 @@
 
 												<?php foreach($appellation['products'] as $product): ?>
 
-													<a href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>" class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
+													<div class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
 
-														<img src="<?= wp_vincod_get_bottle_url($product, '640') ?>" alt="<?= $product['name']; ?>"/>
-														<h2 itemprop="name"><?= $product['name']; ?></h2>
+														<div class="bottle">
+															<?php if($bottle = wp_vincod_get_bottle_url($product, '640')): ?>
+																<img src="<?= $bottle; ?>" alt="<?= $product['name']; ?>" loading="lazy"/>
+															<?php else: ?>
+																<?= wp_vincod_get_icon('bottle'); ?>
+															<?php endif; ?>
+														</div>
 
-													</a>
+														<div class="description">
+
+															<div class="description-content">
+
+																<h2 itemprop="name"><?= $product['name']; ?></h2>
+
+																<?php if(!empty($product['abstract'])): ?>
+																	<div class="presentation" itemprop="description">
+																		<?= nl2br($product['abstract']); ?>
+																	</div>
+																<?php endif; ?>
+
+																<a class="btn" href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>"><?php _e("Learn more", 'vincod'); ?></a>
+
+															</div>
+
+														</div>
+
+													</div>
 
 												<?php endforeach; ?>
 
@@ -194,12 +201,35 @@
 
 							<?php foreach($products as $product): ?>
 
-								<a href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>" class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
+								<div class="product-link" itemprop="product" itemscope itemtype="http://schema.org/Product">
 
-									<img src="<?= wp_vincod_get_bottle_url($product, '640') ?>" alt="<?= $product['name']; ?>"/>
-									<h2 itemprop="name"><?= $product['name']; ?></h2>
+									<div class="bottle">
+										<?php if($bottle = wp_vincod_get_bottle_url($product, '640')): ?>
+											<img src="<?= $bottle; ?>" alt="<?= $product['name']; ?>" loading="lazy"/>
+										<?php else: ?>
+											<?= wp_vincod_get_icon('bottle'); ?>
+										<?php endif; ?>
+									</div>
 
-								</a>
+									<div class="description">
+
+										<div class="description-content">
+
+											<h2 itemprop="name"><?= $product['name']; ?></h2>
+
+											<?php if(!empty($product['abstract'])): ?>
+												<div class="presentation" itemprop="description">
+													<?= nl2br($product['abstract']); ?>
+												</div>
+											<?php endif; ?>
+
+											<a class="btn" href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>"><?php _e("Learn more", 'vincod'); ?></a>
+
+										</div>
+
+									</div>
+
+								</div>
 
 							<?php endforeach; ?>
 

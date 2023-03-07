@@ -1,4 +1,4 @@
-<?php defined('ABSPATH') OR exit;
+<?php defined('ABSPATH') or exit;
 /**
  * Plugin Admin functions
  *
@@ -6,7 +6,7 @@
  *
  * @author      Vinternet
  * @category    Helper
- * @copyright   2016 VINTERNET
+ * @copyright   2023 VINTERNET
  *
  */
 
@@ -55,13 +55,11 @@ function wp_wincod_post_updates(array $post) {
 	// We want to change our settings (Numéro client / Clé API)
 	if(isset($cleaned_post['vincod_setting_customer_id']) && (isset($cleaned_post['vincod_setting_customer_api']))) {
 
-
 		if(isset($cleaned_post['vincod_setting_remove'])) {
 
 			// Delete informations about api
 			delete_option('vincod_setting_customer_id');
 			delete_option('vincod_setting_customer_api');
-			delete_option('vincod_setting_customer_winery_id');
 
 			wp_vincod_devlog(__("We deleted the API credentials.", 'vincod'));
 
@@ -77,8 +75,6 @@ function wp_wincod_post_updates(array $post) {
 
 				$customer_id = $cleaned_post['vincod_setting_customer_id'];
 				$customer_api = $cleaned_post['vincod_setting_customer_api'];
-				$customer_winery_id = $cleaned_post['vincod_setting_customer_winery_id'];
-
 
 				$tested = wp_vincod_test_api($customer_id, $customer_api);
 
@@ -87,7 +83,6 @@ function wp_wincod_post_updates(array $post) {
 					// Update options
 					update_option('vincod_setting_customer_id', $customer_id);
 					update_option('vincod_setting_customer_api', $customer_api);
-					update_option('vincod_setting_customer_winery_id', $customer_winery_id);
 
 					// Switch page "Nos vins" (pending -> publish)
 					wp_vincod_switch_page(get_option('vincod_id_page_nos_vins'), 'publish');
@@ -133,23 +128,30 @@ function wp_wincod_post_updates(array $post) {
 
 	}
 
+	// Display Mode
+	if(isset($cleaned_post['vincod_setting_display_mode'])) {
 
-	// Styles
+		update_option('vincod_setting_display_mode', $cleaned_post['vincod_setting_display_mode']);
+
+		wp_vincod_devlog(__("Display Mode was updated :", 'vincod'), ' ' . ucwords($cleaned_post['vincod_setting_display_mode']));
+
+	}
+
+	// Theme
 	if(isset($cleaned_post['vincod_setting_theme'])) {
 
 		update_option('vincod_setting_theme', $cleaned_post['vincod_setting_theme']);
 
-		wp_vincod_devlog(__("Theme was updated :", 'vincod'), $cleaned_post['vincod_setting_theme']);
+		wp_vincod_devlog(__("Theme was updated :", 'vincod'), ' ' . ucwords($cleaned_post['vincod_setting_theme']));
 
 	}
 
+	// Theme Settings
 	foreach(array('owner', 'collection', 'brand', 'range', 'product', 'search') as $value) {
 
 		if(isset($cleaned_post['vincod_' . $value . '_settings'])) {
 
-			$setting = $cleaned_post['vincod_' . $value . '_settings'];
-
-			update_option('vincod_' . $value . '_settings', $setting);
+			update_option('vincod_' . $value . '_settings', $cleaned_post['vincod_' . $value . '_settings']);
 
 			wp_vincod_devlog(__("Value was updated :", 'vincod'), ' ' . ucwords($value) . ' settings');
 
@@ -157,6 +159,14 @@ function wp_wincod_post_updates(array $post) {
 
 	}
 
+	// Catalog Settings
+	if(isset($cleaned_post['vincod_catalog_settings'])) {
+
+		update_option('vincod_catalog_settings', $cleaned_post['vincod_catalog_settings']);
+
+		wp_vincod_devlog(__("Value was updated :", 'vincod'), ' Catalog settings');
+
+	}
 
 	// Seo (create action)
 	if(isset($cleaned_post['vincod_seo_create'])) {
@@ -164,7 +174,7 @@ function wp_wincod_post_updates(array $post) {
 		$id = get_option('vincod_setting_customer_id');
 		$api = get_option('vincod_setting_customer_api');
 
-		if(($id === false && empty($id)) OR ($api === false && empty($api))) {
+		if(($id === false && empty($id)) or ($api === false && empty($api))) {
 
 			wp_vincod_die(__('Sitemap Error', 'vincod'), __("You must enter your Vincod credentials", 'vincod'));
 
@@ -183,6 +193,7 @@ function wp_wincod_post_updates(array $post) {
 		wp_vincod_devlog(__("Sitemap generation ...", 'vincod'));
 
 	}
+
 
 	// Seo (delete action)
 	if(isset($cleaned_post['vincod_seo_delete'])) {
@@ -272,8 +283,7 @@ function wp_vincod_load_scripts() {
  */
 function wp_vincod_create_page() {
 
-	// Create new page with pending statut
-	// Create new page with pending statut
+	// Create new page with pending status
 	$created = wp_insert_post(array(
 
 		'comment_status' => 'closed',
@@ -286,7 +296,7 @@ function wp_vincod_create_page() {
 
 	), true);
 
-	if(isset($created->errors)) {
+	if(!empty($created->errors)) {
 
 		return false;
 
@@ -308,7 +318,7 @@ function wp_vincod_create_page() {
  */
 function wp_vincod_reset_app() {
 
-	$style_settings = array('has_menu', 'has_search', 'has_content', 'has_links');
+	$style_settings = array('has_menu', 'has_breadcrumb', 'has_search', 'has_content', 'has_links', 'has_appellation');
 	$templates_names = array('owner', 'collection', 'brand', 'range', 'product');
 
 	// Delete sessions of log system
@@ -333,6 +343,7 @@ function wp_vincod_reset_app() {
 	delete_option('vincod_setting_cache_api');
 
 	// Delete style options
+	delete_option('vincod_setting_display_mode');
 	delete_option('vincod_setting_theme');
 
 	foreach($templates_names as $value) {
@@ -359,6 +370,10 @@ function wp_vincod_reset_app() {
 	wp_vincod_devlog(__("We deleted the API credentials.", 'vincod'));
 
 	add_option('vincod_setting_cache_api', 1);
+
+	// Reset style options
+	add_option('vincod_setting_display_mode', 'default');
+	add_option('vincod_setting_theme', 'default');
 
 	foreach($templates_names as $template_name) {
 		$template_settings = array();
@@ -410,35 +425,23 @@ function wp_vincod_devlog($new_entry = null, $details = '') {
 
 	if($new_entry === null) {
 
-		return $_SESSION['devlog'];
+		return $_SESSION['vincod_devlog'];
 
 	}
 	else {
 
-		$_SESSION['devlog'][] = array(
+		array_unshift($_SESSION['vincod_devlog'], array(
 
 			'time' => time(),
 			'msg'  => $new_entry,
 			'ip'   => $_SERVER['REMOTE_ADDR'] // We won't use it but still.
 
-		);
+		));
 
 		return true;
 
 	}
 
-}
-
-
-/**
- * DEVLOG VIEW INJECTION
- * We pass through the function to put our devlog session variables within a view variable
- *
- * @return void
- */
-function wp_vincod_devlog_inject_within_view() {
-	if(isset($_SESSION['devlog']))
-		wp_vincod_view_var('devlog_content', $_SESSION['devlog']);
 }
 
 
@@ -449,9 +452,9 @@ function wp_vincod_devlog_inject_within_view() {
  */
 function wp_vincod_clear_log() {
 
-	if(isset($_SESSION['devlog'])) {
+	if(isset($_SESSION['vincod_devlog'])) {
 
-		unset($_SESSION['devlog']);
+		unset($_SESSION['vincod_devlog']);
 
 	}
 
@@ -469,7 +472,7 @@ function wp_vincod_clear_log() {
 function wp_vincod_test_api($id, $api) {
 
 	$url = 'http://api.vincod.com/2/json/owner/checkOwnerApi/' . wp_vincod_detect_lang() . '/' . $id . '?apiKey=' . $api;
-	$output = wp_vincod_file_get_contents($url, true);
+	$output = wp_vincod_remote_request($url, true);
 
 	if($output === null) {
 
@@ -493,25 +496,13 @@ function wp_vincod_test_api($id, $api) {
 /**
  * Check if sitemap exists
  *
- * @return void
+ * @return bool
  */
 function wp_vincod_check_exists_sitemap() {
 
 	$path = WP_VINCOD_PLUGIN_PATH . 'cache/sitemap/plugin-vincod-sitemap.xml';
 
-	if(file_exists($path)) {
-
-		$exists = true;
-
-	}
-	else {
-
-		$exists = false;
-
-	}
-
-	wp_vincod_view_var('sitemap_exists', $exists);
-	wp_vincod_ping_bot();
+	return (file_exists($path));
 }
 
 
@@ -539,8 +530,8 @@ function wp_vincod_create_sitemap($customer_id, $customer_api) {
 	$request_wines = 'http://api.vincod.com/2/json/wine/GetWinesByOwnerId/' . $current_lang . '/' . $customer_id . '?apiKey=' . $customer_api;
 
 	// Datas about requests
-	$datas_wineries = wp_vincod_file_get_contents($request_wineries, true);
-	$datas_wines = wp_vincod_file_get_contents($request_wines, true);
+	$datas_wineries = wp_vincod_remote_request($request_wineries, true);
+	$datas_wines = wp_vincod_remote_request($request_wines, true);
 	// Create base link
 	$link = get_bloginfo('wpurl') . '/?page_id=' . get_option('vincod_id_page_nos_vins');
 
@@ -600,6 +591,8 @@ function wp_vincod_create_sitemap($customer_id, $customer_api) {
 	// Save site map
 	file_put_contents($file_name, $xml, LOCK_EX);
 
+	wp_vincod_ping_bot();
+
 }
 
 
@@ -616,16 +609,7 @@ function wp_vincod_delete_sitemap() {
 
 		$deleted = unlink($path);
 
-		if($deleted) {
-
-			return true;
-
-		}
-		else {
-
-			return false;
-
-		}
+		return ($deleted);
 
 	}
 	else {

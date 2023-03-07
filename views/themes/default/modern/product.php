@@ -10,12 +10,12 @@
  *
  * @author      Vinternet
  * @category    View
- * @copyright   2016 VINTERNET
+ * @copyright   2023 VINTERNET
  */
 ?>
 
 <!-- Default plugin css -->
-<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/themes/modern.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/themes/default/modern.css"/>
 <!-- Default plugin js -->
 <script type="text/javascript">
 	// <![CDATA[
@@ -80,13 +80,13 @@
 				<!-- The Product : Picture -->
 				<div class="product-media">
 
-					<?php if($bottle = wp_vincod_get_bottle_url($product, '1024')): ?>
-
-						<div class="product-image">
-							<img src="<?= $bottle; ?>" alt="<?= $product['name']; ?>"/>
-						</div>
-
-					<?php endif; ?>
+					<div class="product-image">
+						<?php if($bottle = wp_vincod_get_bottle_url($product, '1024')): ?>
+							<img src="<?= $bottle; ?>" alt="<?= $product['name']; ?>" loading="lazy"/>
+						<?php else: ?>
+							<?= wp_vincod_get_icon('bottle'); ?>
+						<?php endif; ?>
+					</div>
 
 					<!-- The Product : Name and Vintages -->
 					<div class="product-description">
@@ -101,15 +101,16 @@
 
 								<div class="dropdown">
 
-									<button type="button" class="btn btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="<?php _e('See all vintages', 'vincod'); ?>">
-										<?= $product['vintageyear']; ?>
+									<button type="button" class="btn btn-outline-secondary" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="<?php _e('See all vintages', 'vincod'); ?>">
+										<span><?= $product['vintageyear']; ?></span>
+										<?= wp_vincod_get_icon('dropdown'); ?>
 									</button>
 
 									<div class="dropdown-menu fade">
 
 										<?php foreach($vintages as $vintage): ?>
 
-											<a href="<?= wp_vincod_link('product', $vintage['vincod'], $vintage['name']); ?>" title="<?= $product['name'] . ' - ' . $vintage['vintageyear']; ?>" class="dropdown-item<?= ($vintage['vintageyear'] == $product['vintageyear']) ? ' current' : ''; ?>">
+											<a href="<?= wp_vincod_link('product', $vintage['vincod'], $vintage['name']); ?>" title="<?= $vintage['name']; ?>" class="dropdown-item<?= ($vintage['vintageyear'] == $product['vintageyear']) ? ' current' : ''; ?>">
 												<?= $vintage['vintageyear']; ?>
 											</a>
 
@@ -271,7 +272,12 @@
 									<div class="field" itemprop="additionalProperty" itemscope itemtype="http://schema.org/PropertyValue">
 
 										<h2 itemprop="propertyID"><?= $specification['label']; ?></h2>
-										<p itemprop="value"><?= $specification['value']; ?></p>
+										<p itemprop="value">
+											<?= $specification['value']; ?>
+											<?php if(!empty($specification['unit'])): ?>
+												<?= $specification['unit']; ?>
+											<?php endif; ?>
+										</p>
 
 									</div>
 
@@ -388,11 +394,11 @@
 								<?php endif; ?>
 
 								<li>
-									<a href="http://vincod.com/<?= $product['vincod']; ?>/get/print" target="_blank" title="<?php _e('Product datasheet', 'vincod'); ?> (.pdf)"><?php _e('Product datasheet', 'vincod'); ?></a>
+									<a href="https://<?= (!empty($product['url_vinco'])) ? $product['url_vinco'] : 'vincod.com'; ?>/<?= $product['vincod']; ?>/get/print" target="_blank" title="<?php _e('Product datasheet', 'vincod'); ?> (.pdf)"><?php _e('Product datasheet', 'vincod'); ?></a>
 								</li>
 
 								<li>
-									<a href="http://vincod.com/<?= $product['vincod']; ?>/get/tablecard" target="_blank" title="<?php _e('Table stand', 'vincod'); ?> (PLV)"><?php _e('Table stand', 'vincod'); ?></a>
+									<a href="https://<?= (!empty($product['url_vinco'])) ? $product['url_vinco'] : 'vincod.com'; ?>/<?= $product['vincod']; ?>/get/tablecard" target="_blank" title="<?php _e('Table stand', 'vincod'); ?> (PLV)"><?php _e('Table stand', 'vincod'); ?></a>
 								</li>
 
 							</ul>

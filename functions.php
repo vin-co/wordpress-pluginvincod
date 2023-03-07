@@ -1,4 +1,4 @@
-<?php defined('ABSPATH') OR exit;
+<?php defined('ABSPATH') or exit;
 /**
  * Plugin functions
  *
@@ -6,12 +6,9 @@
  *
  * @author      Vinternet
  * @category    Helper
- * @copyright   2016 VINTERNET
+ * @copyright   2023 VINTERNET
  * @
  */
-
-
-$wp_vincod_views_datas = array(); // Our views datas
 
 require_once('controllers/api-controller.php');
 require_once('controllers/template-controller.php');

@@ -3,6 +3,7 @@
 //=================================
 
 @import "bootstrap/scss/functions";
+@import "functions";
 
 #plugin-vincod {
 
@@ -46,7 +47,7 @@
 	// Styles
 	// -----------------------------------------------------
 
-	padding: rem-calc(30) rem-calc(20) 0 rem-calc(10);
+	padding: rem(30) rem(20) 0 rem(10);
 	font-size: $font-size-base;
 
 	.vincod-icon {

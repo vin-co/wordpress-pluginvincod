@@ -8,15 +8,6 @@
 	@return map-get($breakpoints, $name);
 }
 
-@function rem-calc($size) {
-	$remSize: $size / 16;
-	@return #{$remSize}rem;
-}
-
-@function vh($size: 100) {
-	@return calc(var(--vh, 100vh) * #{$size / 100});
-}
-
 @function space($size: 1) {
 	@return $spacer * $size;
 }
@@ -127,13 +118,6 @@
 	mask-size: $size;
 }
 
-@mixin exclude-browser($exclude-browser: '.desktop:not(.internet-explorer)') {
-
-	html#{$exclude-browser} & {
-		@content;
-	}
-}
-
 @mixin text-inherit() {
 	font-family: inherit;
 	font-size: inherit;
@@ -192,7 +176,6 @@
 
 @mixin column($breakpoint: all, $size: flex, $gutter: $grid-gutter-width / 2) {
 	position: relative;
-	width: 100%;
 
 	@include media-breakpoint-up($breakpoint) {
 		@include padding-horizontal($gutter);
@@ -214,90 +197,6 @@
 				@include col-auto;
 			} @else {
 				@include make-col($size);
-			}
-		}
-	}
-}
-
-@mixin form-default-style() {
-
-	select,
-	textarea,
-	input[type="text"],
-	input[type="password"],
-	input[type="tel"],
-	input[type="email"],
-	input[type="number"],
-	input[type="search"],
-	input[type="time"],
-	input[type="url"],
-	input[type="week"],
-	input[type="month"],
-	input[type="date"],
-	input[type="datetime-local"] {
-		display: block;
-		width: 100%;
-		height: $input-height;
-		padding: $input-padding-y $input-padding-x;
-		font-family: $input-font-family;
-		@include font-size($input-font-size);
-		font-weight: $input-font-weight;
-		line-height: $input-line-height;
-		color: $input-color;
-		background-color: $input-bg;
-		background-clip: padding-box;
-		border: $input-border-width solid $input-border-color;
-
-		@include border-radius($input-border-radius, 0);
-		@include box-shadow($input-box-shadow);
-		@include transition($input-transition);
-
-		&::-ms-expand {
-			background-color: transparent;
-			border: 0;
-		}
-
-		@include form-control-focus(true);
-
-		&::placeholder {
-			color: $input-placeholder-color;
-			opacity: 1;
-		}
-
-		&:disabled,
-		&[readonly] {
-			background-color: $input-disabled-bg;
-			opacity: 1;
-		}
-	}
-
-	select, textarea {
-		height: auto;
-	}
-
-	select {
-		&:focus::-ms-value {
-			color: $input-color;
-			background-color: $input-bg;
-		}
-	}
-
-	input[type="checkbox"]:not(.custom-control-input) {
-		@include custom-checkbox();
-	}
-
-	input[type="radio"]:not(.custom-control-input) {
-		@include custom-radio();
-	}
-
-	.custom-control {
-		line-height: 1;
-
-		.custom-control-label {
-
-			&:before, &:after {
-				top: 50%;
-				margin-top: -($custom-control-indicator-size / 2);
 			}
 		}
 	}
@@ -386,55 +285,5 @@
 		@include button-outline-variant($color);
 	} @else {
 		@include button-variant($color, $color);
-	}
-}
-
-@mixin custom-control($color: $custom-control-indicator-checked-bg, $size: $custom-control-indicator-size) {
-	@include size($size);
-	position: relative;
-	display: inline-block;
-	padding: 0;
-	border: $custom-control-indicator-border-width solid $custom-control-indicator-border-color;
-	background: transparent;
-	box-shadow: $custom-control-indicator-box-shadow;
-	appearance: none;
-	cursor: pointer;
-	outline: 0;
-	overflow: hidden;
-	transition: $transition-base;
-
-	@include after() {
-		@include position(-1px, -1px);
-		position: absolute;
-		display: block;
-		transition: $transition-base;
-		opacity: 0;
-	}
-
-	&:checked {
-		border-color: $color;
-		background: $color;
-
-		&:after {
-			opacity: 1;
-		}
-	}
-}
-
-@mixin custom-checkbox($color: $custom-control-indicator-checked-bg, $size: $custom-control-indicator-size) {
-	@include custom-control($color, $size);
-	border-radius: $custom-checkbox-indicator-border-radius;
-
-	&:after {
-		background: $custom-checkbox-indicator-icon-checked $color no-repeat 50%/#{$custom-control-indicator-bg-size};
-	}
-}
-
-@mixin custom-radio($color: $custom-control-indicator-checked-bg, $size: $custom-control-indicator-size) {
-	@include custom-control($color, $size);
-	border-radius: $custom-radio-indicator-border-radius;
-
-	&:after {
-		background: $custom-radio-indicator-icon-checked $color no-repeat 50%/#{$custom-control-indicator-bg-size};
 	}
 }

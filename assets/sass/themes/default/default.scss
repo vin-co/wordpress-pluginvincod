@@ -3,10 +3,7 @@
 //=================================
 
 @import "bootstrap/scss/functions";
-
-html {
-	font-size: 10px;
-}
+@import "../../functions";
 
 #plugin-vincod {
 
@@ -24,11 +21,11 @@ html {
 	$primary: $gray-300;
 	$secondary: $gray-400;
 
-	$spacer: .5rem;
+	$spacer: rem(5);
 	$grid-gutter-width: $spacer * 6;
 
+	$line-height-sm: 1.2;
 	$font-family-sans-serif: inherit;
-	$font-size-base: 1.6rem;
 
 	$paragraph-margin-bottom: $spacer * 3;
 	$headings-margin-bottom: $paragraph-margin-bottom;
@@ -47,14 +44,14 @@ html {
 
 	$breadcrumb-padding-y: $spacer * 2;
 	$breadcrumb-padding-x: $spacer * 3;
-	$breadcrumb-font-size: 1.2rem;
+	$breadcrumb-font-size: rem(12);
 	$breadcrumb-bg: $gray-100;
 	$breadcrumb-divider-color: $gray-400;
 	$breadcrumb-active-color: $gray-400;
 
 	// Imports
 	// -----------------------------------------------------
-	@import "../imports";
+	@import "../../imports";
 
 	// ---------- Global styles ----------
 
@@ -346,7 +343,7 @@ html {
 		align-items: center;
 		text-align: center;
 
-		img {
+		img, svg {
 			max-height: 400px;
 			margin: 0 auto $grid-gutter-width;
 		}
@@ -400,7 +397,7 @@ html {
 		.product-image {
 			margin-bottom: $grid-gutter-width;
 
-			img {
+			img, svg {
 				margin: auto;
 				max-height: 600px;
 
@@ -442,10 +439,6 @@ html {
 					width: 100%;
 					padding: 0;
 					border: none;
-
-					&:after {
-						display: none;
-					}
 				}
 
 				h1 {
@@ -497,7 +490,6 @@ html {
 
 				.dropdown-menu {
 					width: 101px;
-					margin-top: -1px;
 					border-color: $gray-300;
 					background-color: $gray-100;
 					text-align: center;
@@ -539,7 +531,7 @@ html {
 
 				h2 {
 					margin: 0;
-					font-size: 1.2rem;
+					font-size: $font-size-sm;
 					font-weight: $font-weight-base;
 				}
 			}

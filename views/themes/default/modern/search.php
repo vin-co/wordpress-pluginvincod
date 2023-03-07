@@ -10,12 +10,12 @@
  *
  * @author      Vinternet
  * @category    View
- * @copyright   2016 VINTERNET
+ * @copyright   2023 VINTERNET
  */
 ?>
 
 <!-- Default plugin css -->
-<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/themes/modern.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?= WP_VINCOD_PLUGIN_URL; ?>assets/css/themes/default/modern.css"/>
 <!-- Default plugin js -->
 <script type="text/javascript">
 	// <![CDATA[
@@ -69,13 +69,10 @@
 
 			<div class="content-panel">
 
-				<div class="panel-body">
+				<div class="panel-body w-100">
 
-					<h1><?php _e('Search results for :', 'vincod'); ?></h1>
-
-					<h2 class="content-presentation">
-						<?= $search; ?>
-					</h2>
+					<h1 class="text-start"><?php _e('Search results for :', 'vincod'); ?></h1>
+					<h2 class="text-start"><?= $search; ?></h2>
 
 				</div>
 
@@ -88,12 +85,35 @@
 
 					<?php foreach($products as $product): ?>
 
-						<a href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>" class="product-link">
+						<div class="product-link">
 
-							<img src="<?= wp_vincod_get_bottle_url($product, '640') ?>" alt="<?= $product['name']; ?>"/>
-							<h2><?= $product['name']; ?></h2>
+							<div class="bottle">
+								<?php if($bottle = wp_vincod_get_bottle_url($product, '640')): ?>
+									<img src="<?= $bottle; ?>" alt="<?= $product['name']; ?>" loading="lazy"/>
+								<?php else: ?>
+									<?= wp_vincod_get_icon('bottle'); ?>
+								<?php endif; ?>
+							</div>
 
-						</a>
+							<div class="description">
+
+								<div class="description-content">
+
+									<h2><?= $product['name']; ?></h2>
+
+									<?php if(!empty($product['abstract'])): ?>
+										<div class="presentation">
+											<?= nl2br($product['abstract']); ?>
+										</div>
+									<?php endif; ?>
+
+									<a class="btn" href="<?= wp_vincod_link('product', $product['vincod'], $product['name']); ?>" title="<?= $product['name']; ?>"><?php _e("Learn more", 'vincod'); ?></a>
+
+								</div>
+
+							</div>
+
+						</div>
 
 					<?php endforeach; ?>
 

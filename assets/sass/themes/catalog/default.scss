@@ -1,0 +1,440 @@
+//=================================
+//	!---------- FRONT ----------
+//=================================
+
+@import "bootstrap/scss/functions";
+@import "../../functions";
+
+#plugin-vincod {
+
+	// Overrides
+	// -----------------------------------------------------
+
+	$gray-100: #fafafa;
+	$gray-200: #e7e7e7;
+	$gray-300: #ccc;
+	$gray-400: #6f6f6f;
+	$gray-500: #555;
+	$gray-600: #333;
+	$gray-700: #222;
+
+	$primary: $gray-300;
+	$secondary: $gray-400;
+
+	$spacer: rem(5);
+	$grid-gutter-width: $spacer * 6;
+
+	$line-height-sm: 1.2;
+	$font-family-sans-serif: inherit;
+
+	$paragraph-margin-bottom: $spacer * 3;
+	$headings-margin-bottom: $paragraph-margin-bottom;
+
+	$component-active-bg: $secondary;
+	$border-radius: 0;
+	$border-radius-lg: 0;
+	$border-radius-sm: 0;
+
+	$link-color: inherit;
+	$link-decoration: none;
+	$link-hover-color: inherit;
+
+	$btn-padding-y-lg: rem(20);
+	$btn-padding-x-lg: rem(50);
+	$btn-font-size-lg: rem(14);
+
+	$input-bg: inherit;
+	$input-border-color: inherit;
+	$input-placeholder-color: inherit;
+
+	$accordion-bg: inherit;
+	$accordion-padding-y: rem(15);
+	$accordion-padding-x: rem(15);
+	$accordion-button-active-bg: inherit;
+	$accordion-button-active-color: inherit;
+
+	// Imports
+	// -----------------------------------------------------
+	@import "../../imports";
+
+	// ---------- Global styles ----------
+
+	.vincod-container {
+		margin: auto;
+		padding: 0;
+	}
+
+	// ---------- Filters styles ----------
+
+	.filters-container {
+
+		.available-filters {
+			border-top: 1px solid $border-color;
+			border-bottom: 1px solid $border-color;
+
+			.filters-buttons {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding: space(2) 0;
+
+				@include media-breakpoint-up(lg) {
+					padding: space(3);
+				}
+
+				.accordion-buttons {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+
+					.accordion-button {
+						width: auto;
+						border: none;
+						box-shadow: none;
+						text-transform: uppercase;
+						white-space: nowrap;
+
+						&:after {
+							margin-left: space(2);
+						}
+
+						&[disabled] {
+							opacity: .5;
+							pointer-events: none;
+
+							&:after {
+								display: none;
+							}
+						}
+
+						@include media-breakpoint-down(lg) {
+							width: 100%;
+
+							&:not(:first-child) {
+								display: none;
+							}
+						}
+
+						&:first-child {
+
+							@include media-breakpoint-up(lg) {
+								pointer-events: none;
+
+								&:after {
+									display: none;
+								}
+							}
+						}
+					}
+				}
+
+				.search-button {
+					display: flex;
+					align-items: center;
+
+					.input-group {
+						flex-wrap: nowrap;
+
+						> * {
+							border: none;
+						}
+					}
+
+					.btn {
+						color: $body-color;
+
+						svg {
+							@include size(space(5));
+						}
+					}
+				}
+			}
+
+			.filters-collapse {
+				border-top: 1px solid $border-color;
+				text-transform: uppercase;
+
+				@include media-breakpoint-up(lg) {
+					display: block;
+					height: auto !important;
+					border: none;
+				}
+
+				.accordion-item {
+
+					@include media-breakpoint-up(lg) {
+						border: none;
+					}
+
+					.accordion-button {
+
+						&[disabled] {
+							opacity: .5;
+							pointer-events: none;
+
+							&:after {
+								display: none;
+							}
+						}
+
+						@include media-breakpoint-up(lg) {
+							display: none;
+						}
+					}
+
+					.accordion-collapse {
+
+						@include media-breakpoint-up(lg) {
+							border-top: 1px solid $border-color;
+						}
+
+						.btn {
+							margin: space() space(.5);
+							padding: space(1.5) space(5);
+							text-align: left;
+						}
+					}
+				}
+			}
+		}
+
+		.active-filters {
+			padding: space(2) 0;
+			border-bottom: 1px solid $border-color;
+
+			@include media-breakpoint-up(lg) {
+				padding: space(3);
+			}
+
+			.btn {
+				display: inline-flex;
+				align-items: center;
+				margin: space() space(.5);
+				padding: space(1.5) space(2) space(1.5) space(5);
+
+				svg {
+					@include size(space(4));
+					margin-left: space(2);
+				}
+			}
+		}
+	}
+
+	// ---------- Links styles ----------
+
+	.content-links {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		text-align: center;
+
+		.not-found {
+			margin-top: 10vh;
+			text-align: center;
+		}
+	}
+
+	.product-link {
+		@include margin-vertical($grid-gutter-width);
+		@include column(xs, 6);
+		@include column(md, 4);
+		@include column(lg, 3);
+		@include column(xxl, 2);
+		text-align: center;
+
+		&.has-separator {
+			border-left: 1px solid currentColor;
+		}
+
+		@include media-breakpoint-up(md) {
+
+			&:nth-child(odd) {
+				flex-direction: row-reverse;
+			}
+		}
+
+		.bottle {
+			margin-bottom: $grid-gutter-width;
+
+			img, svg {
+				height: 300px;
+				object-fit: contain;
+				object-position: center bottom;
+
+				@include media-breakpoint-up(sm) {
+					height: 400px;
+				}
+			}
+		}
+
+		.description-content {
+
+			h2 {
+				@include font-size($h5-font-size);
+			}
+		}
+	}
+
+	// ---------- Single Product styles ----------
+
+	.product-wrapper {
+		position: relative;
+		border-top: 1px solid $border-color;
+
+		.back-link {
+			@include position(space(6), auto, auto, space(6));
+			position: absolute;
+
+			svg {
+				@include size(space(10));
+				transform: rotate(180deg);
+			}
+		}
+
+		h1 {
+			@include font-size($h4-font-size);
+			max-width: screen(md);
+			margin: space(8) auto;
+			padding: 0 space(6);
+			text-align: center;
+			text-transform: uppercase;
+		}
+	}
+
+	.product-image {
+		margin-bottom: space(8);
+		text-align: center;
+
+		img, svg {
+			margin: auto;
+			max-height: 640px;
+
+			@include media-breakpoint-down(sm) {
+				max-height: 480px;
+			}
+		}
+	}
+
+	.product-description {
+		border-top: 1px solid $border-color;
+
+		> svg {
+			@include size(space(10));
+			display: block;
+			transform: rotate(90deg);
+			margin: space(6) auto;
+		}
+
+		.description {
+			max-width: screen(md);
+			margin: auto;
+			text-align: center;
+		}
+
+		.product-abstract, .dropdown {
+			margin-bottom: $grid-gutter-width;
+		}
+
+		.dropdown {
+			display: inline-block;
+
+			.btn {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: space(2) space(2) space(2) space(3);
+				line-height: 1.8;
+				text-transform: uppercase;
+				font-size: $font-size-base;
+
+				svg {
+					@include size(space(3));
+					margin-left: space();
+				}
+			}
+
+			&-menu {
+				min-width: 0;
+				width: 100%;
+				text-align: center;
+
+				.dropdown-item {
+					@include padding-vertical(space());
+
+					&.current {
+						pointer-events: none;
+						font-weight: $font-weight-bold;
+					}
+
+					&:hover {
+						background-color: $gray-200;
+					}
+				}
+			}
+		}
+	}
+
+	.product-content {
+
+		> h2 {
+			@include font-size($h4-font-size);
+			margin-bottom: space(6);
+			padding-bottom: space(3);
+			border-bottom: 1px solid $border-color;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		.product-fields {
+			max-width: screen(lg);
+			margin: 0 auto space(6);
+
+			@include media-breakpoint-up(md) {
+
+				&:not(.list) {
+					column-count: 2;
+					column-gap: $grid-gutter-width;
+				}
+			}
+
+			.field {
+				display: inline-block;
+				width: 100%;
+				margin-bottom: space(3);
+
+				h3 {
+					@include font-size($h5-font-size);
+					text-transform: uppercase;
+				}
+			}
+
+			.product-review {
+				display: inline-flex;
+				width: 100%;
+				align-items: center;
+				margin-bottom: space(3);
+
+				img {
+					max-width: space(15);
+					margin-right: space(3);
+				}
+			}
+		}
+	}
+
+	.labels-container {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		max-width: screen(md);
+		margin: space(3) auto;
+		text-align: center;
+
+		.vincod-label {
+			@include column(0, 12);
+			@include column(md, 3);
+			padding: space(3);
+		}
+	}
+}

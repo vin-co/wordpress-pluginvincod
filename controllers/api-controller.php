@@ -81,11 +81,14 @@ class WP_Vincod_API {
 			$url = 'https://api.vincod.com/3/json/%method/%action/%lang/%id?' . $additional_params . 'apiKey=' . $this->_customer_api;
 
 			$url = $this->parse_url($url, $params);
+
+			$cached_url = (!empty($params['data']['filter_json'])) ? $url . '&filter_json=' . $params['data']['filter_json'] : $url;
+
 			// Check in the cache
-			$already_cached = $this->already_cached($url);
+			$already_cached = $this->already_cached($cached_url);
 
 			if(WP_DEBUG) {
-				echo('<pre>' . $url . '</pre>');
+				echo('<pre>' . $cached_url . '</pre>');
 			}
 
 			if(!$already_cached) {
@@ -98,7 +101,7 @@ class WP_Vincod_API {
 
 				if(!empty($option)) {
 
-					$this->cache($url, $datas);
+					$this->cache($cached_url, $datas);
 
 				}
 

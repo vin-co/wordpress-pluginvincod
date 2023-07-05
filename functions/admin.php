@@ -421,6 +421,12 @@ function wp_vincod_redirect_after_install() {
  */
 function wp_vincod_devlog($new_entry = null, $details = '') {
 
+	if(empty($_SESSION['vincod_devlog'])) {
+
+		$_SESSION['vincod_devlog'] = [];
+
+	}
+
 	$new_entry .= $details;
 
 	if($new_entry === null) {
@@ -452,9 +458,9 @@ function wp_vincod_devlog($new_entry = null, $details = '') {
  */
 function wp_vincod_clear_log() {
 
-	if(isset($_SESSION['vincod_devlog'])) {
+	if(!empty($_SESSION['vincod_devlog'])) {
 
-		unset($_SESSION['vincod_devlog']);
+		$_SESSION['vincod_devlog'] = [];
 
 	}
 
